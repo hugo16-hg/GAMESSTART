@@ -1,0 +1,87 @@
+
+/* Colocando cor de fundo no cabeçalho */
+header {
+    background-color: #ffffff; /* Cor de fundo branca */
+    font-family: Roboto, sans-serif; /* fonte do cabeçalho */
+    color: #717177;
+}
+
+nav a {
+    color: #717177; /* Cor dos links do menuu de navegação */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    margin: 0 15px; /* Espaçamento entre os links */
+    font-size: 1.2rem; /* Tamanho da fonte dos links */  
+}
+
+#idinício {
+    color: #242c99; /* Cor do link "Início" */
+    font-weight: bold; /* Deixa o link "Início" em negrito */
+}
+
+nav {
+    text-align: right; /* Centraliza os links do menu de navegação */
+    padding: 10px; /* Distância da borda do menu de navegação */
+}
+.Logo img {
+    margin: left; /* Centraliza a imagem do logo */
+    height: 90px; /* Ajusta a altura da imagem do logo */
+    width: 90px; /* Mantém a proporção da imagem do logo */
+}
+
+.Logo img {
+    position: relative; /* Permite posicionar a imagem do logo */
+    top: 50px; /* Ajusta a posição vertical da imagem do logo */
+    right: 5px; /* Ajusta a posição horizontal da imagem do logo */ 
+}
+/* cinfigurando a caixa de pesquisa */
+.Caixa-de-pesquisa 
+input{
+    padding: 10px; /* Adiciona espaçamento interno à caixa de pesquisa */
+    border-radius: 45px; /* Adiciona cantos arredondados à caixa de pesquisa */
+    font-family: Roboto, sans-serif; /* Define a fonte da caixa de pesquisa */
+    width: 500px; /* Define a largura da caixa de pesquisa */
+    height: 7px; /* Define a altura da caixa de pesquisa */
+    border: 1px solid #969191; /* Adiciona uma borda cinza clara à caixa de pesquisa */
+    padding-left: 40px; /* Adiciona espaço à esquerda para os ícones de pesquisa */
+}
+.Caixa-de-pesquisa button {
+    padding: 10px 20px; /* Adiciona espaçamento interno ao botão de pesquisa */
+    background-color: #f3f3f500; /* Define a cor de fundo do botão de pesquisa */
+    border: none; /* Remove a borda do botão de pesquisa */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    position: absolute; /* Permite posicionar o botão de pesquisa */
+    right: 10px; /* Ajusta a posição horizontal do botão de pesquisa */
+    top: 5px; /* Ajusta a posição vertical do botão de pesquisa */
+    transform: translateY(-50%); /* Centraliza verticalmente o botão de pesquisa */
+}
+ /* Configurando a divi da pesquisa */
+.Caixa-de-pesquisa {
+display: flex; /* Exibe os elementos da caixa de pesquisa em linha */
+justify-content: center; /* Centraliza os elementos da caixa de pesquisa horizontalmente */
+margin-top: 20px; /* Adiciona uma margem superior à caixa de pesquisa */
+margin-bottom: 20px; /* Adiciona uma margem inferior à caixa de pesquisa */
+position: relative; /* Permite posicionar os ícones de pesquisa dentro da caixa de pesquisa */
+}
+.topo {
+    display: flex; /* Exibe os elementos do cabeçalho em linha */
+    align-items: center; /* Alinha os elementos do cabeçalho verticalmente */
+    justify-content: space-between; /* Distribui os elementos do cabeçalho com espaço entre eles */
+padding: 10px; /* Adiciona espaçamento interno ao cabeçalho */
+}
+
+/*configurando os ícones */
+.Caixa-de-pesquisa img {
+    height: 20px; /* Ajusta a altura dos ícones */
+    width: 20px; /* Ajusta a largura dos ícones */
+    margin-left: 10px; /* Adiciona uma margem à esquerda dos ícones */
+    position: absolute; /* Permite posicionar os ícones de pesquisa */
+left: 10px; /* Ajusta a posição horizontal dos ícones de pesquisa */
+top: 50%; /* Ajusta a posição vertical dos ícones de pesquisa */
+}
+
+/*configurando a div icones */
+.Ícones {
+    display: flex; /* Exibe os ícones do cliente em linha */
+    align-items: center; /* Alinha os ícones do cliente verticalmente */
+    gap: 20px; /* Adiciona um espaço entre os ícones do cliente */
+}
