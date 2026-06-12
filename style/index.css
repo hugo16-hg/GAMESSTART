@@ -1,117 +1,254 @@
-
 /* Colocando cor de fundo no cabeçalho */
 header {
-    background-color: #ffffff; /* Cor de fundo branca */
-    font-family: Roboto, sans-serif; /* fonte do cabeçalho */
+    background-color: #ffffff;
+    /* Cor de fundo branca */
+    font-family: Roboto, sans-serif;
+    /* fonte do cabeçalho */
     color: #64748B;
 }
 
 nav a {
-    color: #64748B; /* Cor dos links do menu de navegação */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    margin: 0 15px; /* Espaçamento entre os links */
-    font-size: 1.2rem; /* Tamanho da fonte dos links */  
-    position: relative; /* Permite posicionar o link "Início" */
-    right: 90px; /* Ajusta a posição horizontal do link "Início" */
-   top: 20px; /* Ajusta a posição vertical do link "Início" */
-    transform: translateY(-50%); /* Centraliza verticalmente o link "Início" */ 
+    color: #64748B;
+    /* Cor dos links do menu de navegação */
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    margin: 0 15px;
+    /* Espaçamento entre os links */
+    font-size: 1.2rem;
+    /* Tamanho da fonte dos links */
+    position: relative;
+    /* Permite posicionar o link "Início" */
+    right: 90px;
+    /* Ajusta a posição horizontal do link "Início" */
+    top: 20px;
+    /* Ajusta a posição vertical do link "Início" */
+    transform: translateY(-50%);
+    /* Centraliza verticalmente o link "Início" */
 }
 
 #idinício {
-    color: #242c99; /* Cor do link "Início" */
-    font-weight: bold; /* Deixa o link "Início" em negrito */
+    color: #242c99;
+    /* Cor do link "Início" */
+    font-weight: bold;
+    /* Deixa o link "Início" em negrito */
 }
 
 nav {
-    text-align: right; /* Centraliza os links do menu de navegação */
-    padding: 10px; /* Distância da borda do menu de navegação */
-    position: relative; /* Permite posicionar os elementos do menu de navegação */
-    right: 200px; /* Ajusta a posição horizontal do menu de navegação */
+    text-align: right;
+    /* Centraliza os links do menu de navegação */
+    padding: 10px;
+    /* Distância da borda do menu de navegação */
+    position: relative;
+    /* Permite posicionar os elementos do menu de navegação */
+    right: 200px;
+    /* Ajusta a posição horizontal do menu de navegação */
 
 }
 
 
 /* cinfigurando a caixa de pesquisa */
-.Caixa-de-pesquisa 
-input{
-    padding: 10px; /* Adiciona espaçamento interno à caixa de pesquisa */
-    border-radius: 45px; /* Adiciona cantos arredondados à caixa de pesquisa */
-    font-family: Roboto, sans-serif; /* Define a fonte da caixa de pesquisa */
-    width: 700px; /* Define a largura da caixa de pesquisa */
-    height: 7px; /* Define a altura da caixa de pesquisa */
-    border: 1px solid #64748B; /* Adiciona uma borda cinza clara à caixa de pesquisa */
-    padding-left: 40px; /* Adiciona espaço à esquerda para os ícones de pesquisa */
-    position: relative; /* Permite posicionar os ícones de pesquisa dentro da caixa de pesquisa */
-    left: 200px; /* Ajusta a posição horizontal da caixa de pesquisa */
+.Caixa-de-pesquisa input {
+    padding: 10px;
+    /* Adiciona espaçamento interno à caixa de pesquisa */
+    border-radius: 45px;
+    /* Adiciona cantos arredondados à caixa de pesquisa */
+    font-family: Roboto, sans-serif;
+    /* Define a fonte da caixa de pesquisa */
+    width: 700px;
+    /* Define a largura da caixa de pesquisa */
+    height: 7px;
+    /* Define a altura da caixa de pesquisa */
+    border: 1px solid #64748B;
+    /* Adiciona uma borda cinza clara à caixa de pesquisa */
+    padding-left: 40px;
+    /* Adiciona espaço à esquerda para os ícones de pesquisa */
+    position: relative;
+    /* Permite posicionar os ícones de pesquisa dentro da caixa de pesquisa */
+    left: 200px;
+    /* Ajusta a posição horizontal da caixa de pesquisa */
 }
+
 .Caixa-de-pesquisa button {
-    padding: 10px 20px; /* Adiciona espaçamento interno ao botão de pesquisa */
-    background-color: #f3f3f500; /* Define a cor de fundo do botão de pesquisa */
-    border: none; /* Remove a borda do botão de pesquisa */
-    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
-    position: absolute; /* Permite posicionar o botão de pesquisa */
-    right: 60px; /* Ajusta a posição horizontal do botão de pesquisa */
-    top: 5px; /* Ajusta a posição vertical do botão de pesquisa */
-    transform: translateY(-50%); /* Centraliza verticalmente o botão de pesquisa */
+    padding: 10px 20px;
+    /* Adiciona espaçamento interno ao botão de pesquisa */
+    background-color: #f3f3f500;
+    /* Define a cor de fundo do botão de pesquisa */
+    border: none;
+    /* Remove a borda do botão de pesquisa */
+    cursor: pointer;
+    /* Altera o cursor para indicar que o botão é clicável */
+    position: absolute;
+    /* Permite posicionar o botão de pesquisa */
+    right: 60px;
+    /* Ajusta a posição horizontal do botão de pesquisa */
+    top: 5px;
+    /* Ajusta a posição vertical do botão de pesquisa */
+    transform: translateY(-50%);
+    /* Centraliza verticalmente o botão de pesquisa */
 }
- /* Configurando a divi da pesquisa */
+
+/* Configurando a divi da pesquisa */
 .Caixa-de-pesquisa {
-display: flex; /* Exibe os elementos da caixa de pesquisa em linha */
-justify-content: center; /* Centraliza os elementos da caixa de pesquisa horizontalmente */
-margin-top: 20px; /* Adiciona uma margem superior à caixa de pesquisa */
-margin-bottom: 20px; /* Adiciona uma margem inferior à caixa de pesquisa */
-position: relative; /* Permite posicionar os ícones de pesquisa dentro da caixa de pesquisa */
+    display: flex;
+    /* Exibe os elementos da caixa de pesquisa em linha */
+    justify-content: center;
+    /* Centraliza os elementos da caixa de pesquisa horizontalmente */
+    margin-top: 20px;
+    /* Adiciona uma margem superior à caixa de pesquisa */
+    margin-bottom: 20px;
+    /* Adiciona uma margem inferior à caixa de pesquisa */
+    position: relative;
+    /* Permite posicionar os ícones de pesquisa dentro da caixa de pesquisa */
 }
+
 .topo {
-     border-color: #969191; /* Cor da borda do menu de navegação */
-    border-width: 1px; /* Largura da borda do menu de navegação */
-    border-style: solid; /* Estilo da borda do menu de navegação */
-    text-align: right; /* Centraliza os links do menu de navegação */
-    display: flex; /* Exibe os elementos do cabeçalho em linha */
-    align-items: center; /* Alinha os elementos do cabeçalho verticalmente */
-    justify-content: space-between; /* Distribui os elementos do cabeçalho com espaço entre eles */
-padding: 10px; /* Adiciona espaçamento interno ao cabeçalho */
+    border-color: #969191;
+    /* Cor da borda do menu de navegação */
+    border-width: 1px;
+    /* Largura da borda do menu de navegação */
+    border-style: solid;
+    /* Estilo da borda do menu de navegação */
+    text-align: right;
+    /* Centraliza os links do menu de navegação */
+    display: flex;
+    /* Exibe os elementos do cabeçalho em linha */
+    align-items: center;
+    /* Alinha os elementos do cabeçalho verticalmente */
+    justify-content: space-between;
+    /* Distribui os elementos do cabeçalho com espaço entre eles */
+    padding: 10px;
+    /* Adiciona espaçamento interno ao cabeçalho */
 }
 
 /*configurando os ícones */
 .Caixa-de-pesquisa img {
-    height: 20px; /* Ajusta a altura dos ícones */
-    width: 20px; /* Ajusta a largura dos ícones */
-    margin-left: 10px; /* Adiciona uma margem à esquerda dos ícones */
-    position: absolute; /* Permite posicionar os ícones de pesquisa */
-left: -500px; /* Ajusta a posição horizontal dos ícones de pesquisa */
-top: 50%; /* Ajusta a posição vertical dos ícones de pesquisa */
+    height: 20px;
+    /* Ajusta a altura dos ícones */
+    width: 20px;
+    /* Ajusta a largura dos ícones */
+    margin-left: 10px;
+    /* Adiciona uma margem à esquerda dos ícones */
+    position: absolute;
+    /* Permite posicionar os ícones de pesquisa */
+    left: -500px;
+    /* Ajusta a posição horizontal dos ícones de pesquisa */
+    top: 50%;
+    /* Ajusta a posição vertical dos ícones de pesquisa */
 }
 
 /*configurando a div icones */
 .Ícones {
-    display: flex; /* Exibe os ícones do cliente em linha */
-    align-items: center; /* Alinha os ícones do cliente verticalmente */
-    gap: 20px; /* Adiciona um espaço entre os ícones do cliente */
-    margin-right: 20px; /* Adiciona uma margem à direita dos ícones do cliente */
-    position: relative; /* Permite posicionar os ícones do cliente dentro do cabeçalho */
-    right: 200px; /* Ajusta a posição horizontal dos ícones do cliente */
+    display: flex;
+    /* Exibe os ícones do cliente em linha */
+    align-items: center;
+    /* Alinha os ícones do cliente verticalmente */
+    gap: 20px;
+    /* Adiciona um espaço entre os ícones do cliente */
+    margin-right: 20px;
+    /* Adiciona uma margem à direita dos ícones do cliente */
+    position: relative;
+    /* Permite posicionar os ícones do cliente dentro do cabeçalho */
+    right: 200px;
+    /* Ajusta a posição horizontal dos ícones do cliente */
 }
+
 nav .logo img {
-    height: 90px; /* Ajusta a altura do logo */
-    width: auto; /* Mantém a proporção do logo */
-    position: absolute; /* Permite posicionar o logo */
-    left: 400px; /* Ajusta a posição horizontal do logo */
-    top: 100%; /* Ajusta a posição vertical do logo */
-    transform: translateY(-50%); /* Centraliza verticalmente o logo */
+    height: 90px;
+    /* Ajusta a altura do logo */
+    width: auto;
+    /* Mantém a proporção do logo */
+    position: absolute;
+    /* Permite posicionar o logo */
+    left: 400px;
+    /* Ajusta a posição horizontal do logo */
+    top: 100%;
+    /* Ajusta a posição vertical do logo */
+    transform: translateY(-50%);
+    /* Centraliza verticalmente o logo */
 }
 
 
- /*Configurando o banner principal */
-    .imagens-banner img{
-      max-width: 100%; /* Garante que a imagem do banner não ultrapasse a largura da tela */
-     
-    }
+/*Configurando o banner principal */
+.banner {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
 
- .banner{
-    display: flex; /* Exibe os elementos do banner em linha */
-    justify-content: space-between; /* Centraliza os elementos do banner horizontalmente */
-    align-items: center; /* Alinha os elementos do banner verticalmente */
-    margin-top: 20px; /* Adiciona uma margem superior ao banner */
-     margin-bottom: 20px; /* Adiciona uma margem inferior ao banner */
-    }
+.imagens-banner {
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+    /* posição relativa para a posicionar os botões do banner */
+}
+
+.imagens-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/*
+.botões-banner {
+    position: absolute; 
+    top: 60%; 
+    left: 15% 
+   
+}
+
+.btn-comprar{
+    background-color: #2563EB;
+    color: #ffffff; 
+    border-radius: 45px; 
+    font-family: Roboto, sans-serif;
+    padding: 5px 20px;
+    border: none;
+}
+
+.btn-comprar:hover{
+   background-color: #7dcaf2;
+    color: #2563EB; 
+    border-color: none;
+}
+
+.btn-anterior, .btn-proximo{
+    background-color: #2563EB;
+    color: #ffffff;
+    border-radius: 45px;
+    font-family: Roboto, sans-serif;
+    border: none;
+    padding: 5px 10px;
+
+}
+
+.btn-anterior:hover, .btn-proximo:hover{
+     background-color: #7dcaf2;
+    color: #2563EB; 
+    border-color: none;
+
+}
+
+*/
+.btn-comprar {
+    position: absolute;
+    top: 70%;
+    left: 20% ;
+    background-color: #2081cb;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 5px 20px ;
+    border: none;
+}
+
+.img-anterior{
+    position:absolute;
+    top: 50%;
+    left: 2%;
+    background-color: #ff0000;
+    color: #cb2020;
+    border-radius: 50%;
+    border: none;
+    padding: 10px;
+}
