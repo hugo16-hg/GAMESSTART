@@ -230,25 +230,105 @@ nav .logo img {
 }
 
 */
-.btn-comprar {
+.btn-comprar{
     position: absolute;
-    top: 70%;
-    left: 20% ;
-    background-color: #2081cb;
-    color: #ffffff;
+    top: 60%;
+    left: 20%;
+    background-color: #2081CB;
+    color: #7dcaf2;
     border-radius: 10px;
+    font-family: poppins, sans-serif;       
     font-size: 18px;
-    padding: 5px 20px ;
+    padding: 5px 20px;
     border: none;
 }
-
-.img-anterior{
+.btn-anterior{
     position:absolute;
-    top: 50%;
+    top: 42%;
     left: 2%;
-    background-color: #ff0000;
-    color: #cb2020;
+    background-color: transparent;
+    color: #2081CB;
     border-radius: 50%;
     border: none;
     padding: 10px;
+}
+.btn-proximo{
+    position:absolute;
+    top: 42%;
+    left: 93%;
+    background-color: transparent;
+    color: #2081CB;
+    border-radius: 50%;
+    border: none;
+    padding: 10px;
+   
+}
+.btn-comprar:hover{
+    background-color: #5b8ff0;
+    color: #7dcaf2;
+}
+.btn-anterior:hover, .btn-proximo:hover{
+    background-color: #2081CB;
+    color: #FFFFFF;
+}
+
+
+
+.destaques{
+    padding: 20px;
+    /* Distancia entre o conteúdo da div
+    de ofertas e as bordas da div*/
+}
+
+/* configurando os textos das ofertas*/
+.titulo-destaque{
+    font-family: Roboto, sans-serif; /* fonte do título das ofertas*/
+    display: grid; /* Exibe os elementos em grade */
+    grid-template-columns: 2 80%;
+    /* Define o tamanho das colunas da grade */
+    grid-template-rows: 2 50% 50%;
+    /* Define o tamanho das linhas da grade */
+}
+
+.destaques h2{
+    color: #000000; /* cor do título das ofertas */
+    font-size: 24px; /* tamanho da fonte do título das ofertas*/
+    grid-column: 1;/* ocupa a primeira coluna da grade para alinhar o título ao lado direito do ícone */
+    grid-row: 1; /* ocupa a primeira linha da grade para alinhar o título verticalmente com o ícone */
+    margin: 0; /* remove a margem padrão do elemento h2 */
+    padding-left: 100px;
+}
+
+.destaques a{
+    text-decoration: none; /* remove o sublinhado dos links*/
+    color: #2081CB; /* cor do link do título das ofertas */
+    font-size: 14px; /* tamanho da fonte do link do título dos destaques*/
+    grid-column: 2; /* ocupa a segunda coluna da grade para alinhar o link ao lado direito do título e subtítulo*/
+    grid-row: 2; /* ocupa  as duas linhas da grade para alinhar o link verticalmente com o título e subtítulo*/
+    align-self: center; /* alinha os links verticalmente no subtítulo */
+    padding-left: 90%;
+}
+
+.lista-produto{
+    display: flex;
+    justify-content: space-between;
+    font-family: Roboto, sans-serif;
+    margin-top: 20px;
+}
+
+.card-produtos{
+    width: 23%; /* largura de cada card de produto*/
+    height: 50%; /* altura de cada card de produto */
+    background-color: #ffffff;/* cord de fundo de cada card de produto*/
+    border: 1px solid #fffdfd;/*borda de cada card de produto*/
+    border-radius: 10px; /* arrendodamento das bordas de cada card de produto */
+    padding: 10px;/* distancia entre o conteúdo do card e as bordas do card */
+    text-align: center; /*alinhamento do texto no centro do card*/
+}
+
+.card-produtos img{
+    width: 100%; /* largura da imagen*/
+    height: auto; /* altura da imagem*/
+    margin-bottom: 10px; /* margem inferior da imagem do produto*/
+    border-radius: 10px; /* aredondamento da imagen*/
 }
