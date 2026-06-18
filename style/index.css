@@ -332,3 +332,59 @@ nav .logo img {
     margin-bottom: 10px; /* margem inferior da imagem do produto*/
     border-radius: 10px; /* aredondamento da imagen*/
 }
+
+footer{
+    background-color: #E5E7EB; /* cor de fundo*/
+    color:#6B7280; /* cor do texto*/
+    font-family: Roboto, sans-serif; /* configuração de fonte/texto */
+    padding: 150px;
+
+}
+.superior{
+    display:flex; /* espaçamento dentro do rodape*/
+    gap: 50px; /*espaçamento entre as divs*/
+    justify-content: space-between;
+    /* define o tamanho igualmente para as divs*/
+    flex-wrap: wrap; /* joga os textos para outra linha caso não possa caber na div*/
+}
+.imferior{
+    display:flex; /* espaçamento dentro do rodape*/
+    gap: 50px; /*espaçamento entre as divs*/
+    justify-content: space-between;
+    /* define o tamanho igualmente para as divs*/
+    flex-wrap: wrap; /* joga os textos para outra linha caso não possa caber na div*/
+}
+
+.coluna1,.coluna2, .coluna4, .coluna4{
+    flex: 1; /* que cada coluna ocupa 1 espaço na página */
+}
+
+.superior h2{
+    font-size: 23px;/* tamanho dos titulos*/
+    font-weight: bold; /* aplica negrito aos titulos*/
+}
+
+.superior p{
+    font-size: 18px; /* tamanho dos paragrafos*/
+}
+
+.superior a{
+    color:#969191; /*cor dos links*/
+    font-size: 18px; /* tamanho dos paragrafos*/
+    text-decoration: none; /* remove o sublinado*/
+
+}
+.superior ul{
+    text-decoration: none; /* retira a decoração do texto*/
+    list-style: none; /* retira a decoração da lista*/
+    padding: 1px; /*retira os espaçamentos*/
+}
+
+.superior img{
+    width: 29px;
+}
+
+.coluna1 a img{
+    padding-right: 15px;
+    /*distancia as imagens dos ícones*/
+}
