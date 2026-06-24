@@ -353,6 +353,8 @@ footer{
     justify-content: space-between;
     /* define o tamanho igualmente para as divs*/
     flex-wrap: wrap; /* joga os textos para outra linha caso não possa caber na div*/
+    align-items: center;
+    border-top: #2c2626 2px;
 }
 
 .coluna1,.coluna2, .coluna4, .coluna4{

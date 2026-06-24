@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+    <!--conexão com o CSS-->
+    <link rel="stylesheet" href="/style/produto.css">
+    <!--logo da empresa para o navegador-->
+    <link rel="icon" type="image/png" href="/assets/logo-navegador.png">
+</head>
+
+<body>
+    <!--CABEÇALHO-->
+     <header>
+        <div class="topo">
+        <!-- Caixa de pesquisa -->
+            <div class="Caixa-de-pesquisa">
+                    <button type="submit">
+                        <img src="/assets/lupa.png" alt="Ícone de pesquisa" />
+                    </button>
+                <input type="text" placeholder="Buscar por jogos..." />
+           </div>
+            <div class= "Ícones">
+                <a href=""><img src="/assets/carrinho.png" alt="Ícone de carrinho" class="carrinho" /></a>
+                <a href=""><img src="/assets/usuario.png" alt="Ícone de usuário" class="usuario" /></a>
+                <a href=""><img src="/assets/ajustes.png" alt="Ícone de ajustes" class="sino" /></a>
+           </div>
+      
+    </div>
+        <nav class="menu">
+
+             <!-- Logo do site -->
+            <div class="logo">
+                <img src="/assets/logo.png" alt="Logo do GAMESSTART" />
+            </div>
+        <a  id="idinício"href="">Início</a> 
+        <a href="">Novidades</a>
+        <a href="">Categorias</a>
+        <a href="">Promoções</a>
+        </nav>
+        
+    </header>
+
+    <!--AREA DOS DADOS DO PRODUTO-->
+    <div class="area-detalhes">
+        <div class="area-imagens">
+            <div class="img-lateral" id="img-lateral">
+                <!--não criamos tag img aqui porque não temos como
+                saber a quantidade de imagens que o lojista vai
+                cadastrar-->
+
+            </div>
+            <div class="img-principal" id="img-principal">
+                <img id="imagem-maior">
+
+            </div>
+        </div>
+        <div class="area-textos">
+            <!--nome do produto-->
+            <h1 id="nome-produto"></h1>
+            <!--área das avaliações do produto-->
+            <div class="avaliacoes-produto">
+                <img id="estrela-avaliacao">
+                <span id="valor-avaliacao"></span>
+            </div>
+            <p id="preco-antigo"></p>
+            <!--area do preço promocional-->
+            <div class="preco-promocional">
+                <p id="preco-promocional"></p>
+                <span id="desconto"></span>
+            </div>
+            <div id="tamanhos"></div>
+            <div id="cores"></div>
+            <div class="quantidade">
+                <button id="diminuir">-</button>
+                <span id="numero-quantidade"></span>
+                <button id="aumentar">+</button>
+            </div>
+            <div class="btn-add-carrinho">
+                <button id="bnt-add-carrinho"></button>
+            </div>
+            <div class="btn-comprar">
+                <button id="btn-comprar"></button>
+            </div>
+            <div class="area-frete">
+                <p>Calcular o Frete</p>
+                <input id="frete" placeholder="digite seu cep">
+                <button id="btn-calcular-frete">Calcular</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!--FAZENDO A CONEXÃO COM O JAVASCRIPT-->
+    <script src="/js/produto.js"></script>
+</body>
+
+</html>
