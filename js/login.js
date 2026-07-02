@@ -1,204 +1,228 @@
-/* ==========================
-   HEADER
-========================== */
+/* ==========================================================
+   LOGO DA APLICAÇÃO
+   Define a imagem exibida no topo da página.
+========================================================== */
 
-const header = document.getElementById("header");
+const logo = document.getElementById("logo");
 
-header.innerHTML = `
-`;
-
-
-
-/* ==========================
-   LOGIN
-========================== */
-
-const loginContainer = document.getElementById("login-container");
-
-loginContainer.innerHTML = `
-
-<div class="login-card">
-
-    <h1 class="login-title">
-        Bem-vindo de volta
-    </h1>
-
-    <p class="login-subtitle">
-        Por favor, insira seus dados para acessar sua conta
-    </p>
-
-    <form id="loginForm">
-
-        <div class="form-group">
-
-            <label class="form-label">
-                E-mail
-            </label>
-
-            <div class="input-wrapper">
-
-                <span class="input-icon">✉</span>
-
-                <input
-                    type="email"
-                    class="form-input"
-                    id="email"
-                    placeholder="exemplo@email.com"
-                    required
-                >
-
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <div class="password-header">
-
-                <label class="form-label">
-                    Senha
-                </label>
-
-                <a href="#" class="forgot-password">
-                    Esqueceu a senha?
-                </a>
-
-            </div>
-
-            <div class="input-wrapper">
-
-                <span class="input-icon">🔒</span>
-
-                <input
-                    type="password"
-                    class="form-input"
-                    id="password"
-                    placeholder="••••••••"
-                    required
-                >
-
-                <span
-                    class="toggle-password"
-                    id="togglePassword"
-                >
-                    👁
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="remember-area">
-
-            <input
-                type="checkbox"
-                id="remember"
-            >
-
-            <label for="remember">
-                Lembrar de mim
-            </label>
-
-        </div>
-
-        <button
-            type="submit"
-            class="login-btn"
-        >
-            Entrar
-        </button>
-
-    </form>
-
-    <div class="divider">
-        OU CONTINUAR COM
-    </div>
-
-    <button class="google-btn">
-
-        <span>
-            🌐
-        </span>
-
-        Entrar com Google
-
-    </button>
-
-    <div class="register-area">
-
-        Não tem uma conta?
-
-        <a href="#">
-            Criar conta
-        </a>
-
-    </div>
-
-</div>
-
-`;
+logo.src = "assets/images/logo.png";
+logo.alt = "Logo da aplicação";
 
 
+/* ==========================================================
+   TÍTULO DA TELA
+========================================================== */
 
-/* ==========================
-   FOOTER
-========================== */
-
-const footer = document.getElementById("footer");
-
-footer.innerHTML = `
-`;
+document.getElementById("loginTitle").textContent =
+"Bem-vindo";
 
 
+/* ==========================================================
+   SUBTÍTULO
+========================================================== */
 
-/* ==========================
+document.getElementById("loginSubtitle").textContent =
+"Por favor, faça login para acessar sua conta.";
+
+
+/* ==========================================================
+   CAMPO E-MAIL
+========================================================== */
+
+document.getElementById("emailLabel").textContent =
+"E-mail";
+
+document.getElementById("email").placeholder =
+"Digite seu e-mail";
+
+document.getElementById("emailIcon").textContent =
+"✉";
+
+
+/* ==========================================================
+   CAMPO SENHA
+========================================================== */
+
+document.getElementById("passwordLabel").textContent =
+"Senha";
+
+document.getElementById("password").placeholder =
+"Digite sua senha";
+
+document.getElementById("passwordIcon").textContent =
+"🔒";
+
+
+/* ==========================================================
+   LINK ESQUECEU SENHA
+========================================================== */
+
+const forgotPassword =
+document.getElementById("forgotPassword");
+
+forgotPassword.textContent =
+"Esqueceu a senha?";
+
+forgotPassword.href = "#";
+
+
+/* ==========================================================
+   CHECKBOX LEMBRAR DE MIM
+========================================================== */
+
+document.getElementById("rememberLabel").textContent =
+"Lembrar de mim";
+
+
+/* ==========================================================
+   BOTÃO ENTRAR
+========================================================== */
+
+document.getElementById("loginButton").textContent =
+"Entrar";
+
+
+/* ==========================================================
+   DIVISOR
+========================================================== */
+
+document.getElementById("dividerText").textContent =
+"OU CONTINUAR COM";
+
+
+/* ==========================================================
+   BOTÃO GOOGLE
+========================================================== */
+
+document.getElementById("googleIcon").textContent =
+"🌐";
+
+document.getElementById("googleText").textContent =
+"Entrar com Google";
+
+
+/* ==========================================================
+   ÁREA DE CADASTRO
+========================================================== */
+
+document.getElementById("registerText").textContent =
+"Não possui uma conta?";
+
+const registerLink =
+document.getElementById("registerLink");
+
+registerLink.textContent =
+"Criar conta";
+
+registerLink.href = "#";
+
+
+/* ==========================================================
+   RODAPÉ
+========================================================== */
+
+document.getElementById("footerText").textContent =
+"© 2026 Todos os direitos reservados.";
+
+
+/* ==========================================================
    MOSTRAR / OCULTAR SENHA
-========================== */
+========================================================== */
 
-document.addEventListener("click", (event) => {
+const password = document.getElementById("password");
+const eyeIcon = document.getElementById("eyeIcon");
+const showPassword = document.getElementById("showPassword");
 
-    if(event.target.id === "togglePassword"){
+showPassword.addEventListener("click", () => {
 
-        const password = document.getElementById("password");
-
-        if(password.type === "password"){
-
-            password.type = "text";
-            event.target.textContent = "🙈";
-
-        }else{
-
-            password.type = "password";
-            event.target.textContent = "👁";
-
-        }
-
+    if (password.type === "password") {
+        password.type = "text";
+        eyeIcon.src = "/assets/visivel.png";
+    } else {
+        password.type = "password";
+        eyeIcon.src = "/assets/esconder.png";
     }
+
+});
+``
+
+/* ==========================================================
+   ENVIO DO FORMULÁRIO
+========================================================== */
+
+const loginForm =
+document.getElementById("loginForm");
+
+loginForm.addEventListener("submit",(event)=>{
+
+    /* Impede o recarregamento da página */
+
+    event.preventDefault();
+
+
+    /* Captura os valores dos campos */
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const remember =
+    document.getElementById("remember").checked;
+
+
+    /* Exibe os dados no console */
+
+    console.clear();
+
+    console.log("========= LOGIN =========");
+
+    console.log("E-mail:", email);
+
+    console.log("Senha:", password);
+
+    console.log("Lembrar:", remember);
+
+    console.log("=========================");
+
+
+    /* Aqui será chamada futuramente a API */
 
 });
 
 
+/* ==========================================================
+   BOTÃO LOGIN GOOGLE
+========================================================== */
 
-/* ==========================
-   LOGIN
-========================== */
+const googleButton =
+document.getElementById("googleButton");
 
-document.addEventListener("submit", (event) => {
+googleButton.addEventListener("click",()=>{
 
-    if(event.target.id === "loginForm"){
-
-        event.preventDefault();
-
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-        console.log({
-            email,
-            password
-        });
-
-        alert("Login enviado!");
-
-    }
+    console.log("Login Google");
 
 });
+
+
+/* ==========================================================
+   FUTURAS IMPLEMENTAÇÕES
+
+   ✔ Login JWT
+
+   ✔ Login Firebase
+
+   ✔ API REST
+
+   ✔ Recuperação de senha
+
+   ✔ Cadastro
+
+   ✔ Toast
+
+   ✔ Loading
+
+   ✔ LocalStorage
+
+========================================================== */

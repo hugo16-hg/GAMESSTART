@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <!-- =====================================================
+         CONFIGURAÇÕES DA PÁGINA
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title id="pageTitle"></title>
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="/style/home.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CONTAINER PRINCIPAL
+    ====================================================== -->
+
+    <div id="app">
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+
+        <header id="header">
+
+            <!-- Barra Superior -->
+
+            <div id="topBar">
+
+                <!-- Campo de Pesquisa -->
+
+                <div id="searchContainer">
+
+                    <button
+                        id="searchButton"
+                        type="button">
+
+                        <img
+                            id="searchIcon"
+                            src=""
+                            alt="Pesquisar">
+
+                    </button>
+
+                    <input
+                        id="searchInput"
+                        type="text">
+
+                </div>
+
+                <!-- Botões -->
+
+                <div id="topButtons">
+
+                    <button
+                        id="notificationButton"
+                        type="button">
+
+                        <img
+                            id="notificationIcon"
+                            src=""
+                            alt="Notificações">
+
+                    </button>
+
+                    <button
+                        id="favoriteButton"
+                        type="button">
+
+                        <img
+                            id="favoriteIcon"
+                            src=""
+                            alt="Favoritos">
+
+                    </button>
+
+                    <button
+                        id="cartButton"
+                        type="button">
+
+                        <img
+                            id="cartIcon"
+                            src=""
+                            alt="Carrinho">
+
+                    </button>
+
+                    <button
+                        id="profileButton"
+                        type="button">
+
+                        <img
+                            id="profileIcon"
+                            src=""
+                            alt="Usuário">
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Navegação -->
+
+            <div id="navigation">
+
+                <!-- Logo -->
+
+                <a
+                    id="logoLink"
+                    href="#">
+
+                    <img
+                        id="logo"
+                        src=""
+                        alt="Logo">
+
+                </a>
+
+                <!-- Menu -->
+
+                <nav id="menu">
+
+                </nav>
+
+            </div>
+
+        </header>
+
+        <!-- =====================================================
+             CONTEÚDO PRINCIPAL
+        ====================================================== -->
+
+        <main id="main">
+
+            <!-- =====================================================
+                 HERO / BANNER PRINCIPAL
+            ====================================================== -->
+
+            <section id="heroSection">
+
+                <img
+                    id="heroBanner"
+                    src=""
+                    alt="Banner Principal">
+
+                <div id="heroButtons">
+
+                    <button
+                        id="buyButton"
+                        type="button">
+
+                        <img
+                            id="buyIcon"
+                            src=""
+                            alt="Comprar">
+
+                        <span id="buyText"></span>
+
+                    </button>
+
+                    <button
+                        id="watchButton"
+                        type="button">
+
+                        <img
+                            id="watchIcon"
+                            src=""
+                            alt="Trailer">
+
+                        <span id="watchText"></span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- =====================================================
+                 CATEGORIAS
+            ====================================================== -->
+
+            <section id="categoriesSection">
+
+                <div id="categoriesHeader">
+
+                    <h2 id="categoriesTitle"></h2>
+
+                    <a
+                        id="categoriesLink"
+                        href="#">
+
+                    </a>
+
+                </div>
+
+                <div id="categoriesContainer">
+
+                </div>
+
+            </section>
+
+            <!-- =====================================================
+                 JOGOS EM DESTAQUE
+            ====================================================== -->
+
+            <section id="gamesSection">
+
+                <div id="gamesHeader">
+
+                    <h2 id="gamesTitle"></h2>
+
+                    <div id="gamesNavigation">
+
+                        <button
+                            id="previousButton"
+                            type="button">
+
+                            <img
+                                id="previousIcon"
+                                src=""
+                                alt="Anterior">
+
+                        </button>
+
+                        <button
+                            id="nextButton"
+                            type="button">
+
+                            <img
+                                id="nextIcon"
+                                src=""
+                                alt="Próximo">
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div id="gamesContainer">
+
+                </div>
+
+            </section>
+
+            <!-- =====================================================
+                 PROMOÇÃO
+            ====================================================== -->
+
+            <section id="promotionSection">
+
+                <img
+                    id="promotionBanner"
+                    src=""
+                    alt="Promoção">
+
+                <div id="promotionButtons">
+
+                    <button
+                        id="promotionButton"
+                        type="button">
+
+                        <img
+                            id="promotionButtonIcon"
+                            src=""
+                            alt="Comprar">
+
+                        <span id="promotionButtonText"></span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- =====================================================
+                 NEWSLETTER
+            ====================================================== -->
+
+            <section id="newsletterSection">
+
+                <h2 id="newsletterTitle"></h2>
+
+                <p id="newsletterDescription"></p>
+
+                <div id="newsletterForm">
+
+                    <input
+                        id="newsletterEmail"
+                        type="email">
+
+                    <button
+                        id="newsletterButton"
+                        type="button">
+
+                        <span id="newsletterButtonText"></span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- =====================================================
+             RODAPÉ
+        ====================================================== -->
+
+        <footer id="footer">
+
+            <div id="footerContainer">
+
+                <!-- Logo -->
+
+                <div id="footerLogoArea">
+
+                    <img
+                        id="footerLogo"
+                        src=""
+                        alt="Logo">
+
+                    <p id="footerDescription"></p>
+
+                    <div id="socialContainer">
+
+                    </div>
+
+                </div>
+
+                <!-- Plataformas -->
+
+                <div id="platformsColumn">
+
+                    <h3 id="platformsTitle"></h3>
+
+                    <ul id="platformsList">
+
+                    </ul>
+
+                </div>
+
+                <!-- Suporte -->
+
+                <div id="supportColumn">
+
+                    <h3 id="supportTitle"></h3>
+
+                    <ul id="supportList">
+
+                    </ul>
+
+                </div>
+
+                <!-- Minha Conta -->
+
+                <div id="accountColumn">
+
+                    <h3 id="accountTitle"></h3>
+
+                    <ul id="accountList">
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div id="footerBottom">
+
+                <span id="copyright"></span>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="/js/home.js"></script>
+
+</body>
+
+</html>

@@ -1,39 +1,236 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
+    <!-- ==========================================
+         CONFIGURAÇÕES DA PÁGINA
+    ========================================== -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
 
-    <link rel="stylesheet" href="/style/login.css">
+    <!-- ==========================================
+         ARQUIVO CSS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="/style/login.css">
+
 </head>
+
 <body>
 
-    <!-- Container Principal -->
+    <!-- ==========================================
+         CONTAINER PRINCIPAL DA APLICAÇÃO
+    ========================================== -->
+
     <div id="app">
 
-        <!-- Header -->
-        <header id="header"></header>
+        <!-- ==========================================
+             CABEÇALHO
+        ========================================== -->
 
-        <!-- Conteúdo -->
-        <main id="main-content">
+        <header id="header">
 
-            <!-- Card Login -->
-            <section id="login-section">
+            <img
+                id="logo"
+                alt="Logo">
 
-                <!-- Conteúdo gerado via JS -->
-                <div id="login-container"></div>
+        </header>
+
+
+
+        <!-- ==========================================
+             CONTEÚDO PRINCIPAL
+        ========================================== -->
+
+        <main id="main">
+
+            <!-- ==========================================
+                 SEÇÃO LOGIN
+            ========================================== -->
+
+            <section id="loginSection">
+
+                <!-- Card -->
+
+                <div id="loginCard">
+
+                    <!-- Título -->
+
+                    <h1 id="loginTitle"></h1>
+
+                    <!-- Subtítulo -->
+
+                    <p id="loginSubtitle"></p>
+
+
+
+                    <!-- ==========================================
+                         FORMULÁRIO
+                    ========================================== -->
+
+                    <form id="loginForm">
+
+                        <!-- Campo E-mail -->
+
+                        <div id="emailGroup">
+
+                            <label
+                                id="emailLabel"
+                                for="email">
+                            </label>
+
+                            <div id="emailInputArea">
+
+                                <span id="emailIcon"></span>
+
+                                <input
+                                    id="email"
+                                    type="email">
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Campo Senha -->
+
+                        <div id="passwordGroup">
+
+                            <div id="passwordHeader">
+
+                                <label
+                                    id="passwordLabel"
+                                    for="password">
+                                </label>
+
+                                <a
+                                    id="forgotPassword"
+                                    href="#">
+                                </a>
+
+                            </div>
+
+                            <div id="passwordInputArea">
+
+                                <img id="passwordIcon" src="/assets/cadeado.png" alt="Google"></img>
+
+                                <input
+                                    id="password"
+                                    type="password">
+
+                              
+                               <button id="showPassword" type="button">
+                                     <img id="eyeIcon" src="/assets/visivel.png" alt="Mostrar senha">
+                               </button>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Lembrar -->
+
+                        <div id="rememberArea">
+
+                            <input
+                                id="remember"
+                                type="checkbox">
+
+                            <label
+                                id="rememberLabel"
+                                for="remember">
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- Botão Login -->
+
+                        <button
+                            id="loginButton"
+                            type="submit">
+                        </button>
+
+                    </form>
+
+
+
+                    <!-- Divisor -->
+
+                    <div id="divider">
+
+                        <span id="dividerText"></span>
+
+                    </div>
+
+
+
+                    <!-- Botão Google -->
+
+                    <button
+                        id="googleButton"
+                        type="button">
+
+                        <img id="googleIcon" src="/assets/google.png"></img>
+
+                        <span id="googleText"></span>
+
+                    </button>
+
+
+
+                    <!-- Cadastro -->
+
+                    <div id="registerArea">
+
+                        <span id="registerText"></span>
+
+                        <a
+                            id="registerLink"
+                            href="#">
+                        </a>
+
+                    </div>
+
+                </div>
 
             </section>
 
         </main>
 
-        <!-- Footer -->
-        <footer id="footer"></footer>
+
+
+        <!-- ==========================================
+             RODAPÉ
+        ========================================== -->
+
+        <footer id="footer">
+
+            <p id="footerText"></p>
+
+        </footer>
 
     </div>
+
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
 
     <script src="/js/login.js"></script>
 
 </body>
+
 </html>
