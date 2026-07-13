@@ -2,11 +2,11 @@
    LOGO DA APLICAÇÃO
    Define a imagem exibida no topo da página.
 ========================================================== */
-
+/*
 const logo = document.getElementById("logo");
 
 logo.src = "assets/images/logo.png";
-logo.alt = "Logo da aplicação";
+logo.alt = "Logo da aplicação"; */
 
 
 /* ==========================================================
