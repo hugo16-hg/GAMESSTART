@@ -34,6 +34,8 @@ const cadastro = {
 
     labelCpf: "CPF",
 
+    labelDataNascimento: "Data de Nascimento",
+
     labelSenha: "Senha",
 
     labelConfirmarSenha: "Confirmar Senha",
@@ -45,6 +47,8 @@ const cadastro = {
     placeholderTelefone: "(00) 00000-0000",
 
     placeholderCpf: "000.000.000-00",
+
+    placeholderDataNascimento: "00/00/0000",
 
     placeholderSenha: "Digite sua senha",
 
@@ -67,6 +71,7 @@ const cadastro = {
 
 };
 
+
 /* ==========================================================
    INICIALIZAÇÃO
 ========================================================== */
@@ -82,6 +87,7 @@ function iniciarPagina(){
     adicionarEventos();
 
 }
+
 
 /* ==========================================================
    PREENCHER TEXTOS
@@ -115,6 +121,8 @@ function preencherTextos(){
 
     document.getElementById("labelCpf").textContent = cadastro.labelCpf;
 
+    document.getElementById("labelDataNascimento").textContent = cadastro.labelDataNascimento;
+
     document.getElementById("labelSenha").textContent = cadastro.labelSenha;
 
     document.getElementById("labelConfirmarSenha").textContent = cadastro.labelConfirmarSenha;
@@ -135,6 +143,7 @@ function preencherTextos(){
 
 }
 
+
 /* ==========================================================
    PLACEHOLDERS
 ========================================================== */
@@ -149,11 +158,14 @@ function preencherPlaceholders(){
 
     document.getElementById("inputCpf").placeholder = cadastro.placeholderCpf;
 
+    document.getElementById("inputDataNascimento").placeholder = cadastro.placeholderDataNascimento;
+
     document.getElementById("inputSenha").placeholder = cadastro.placeholderSenha;
 
     document.getElementById("inputConfirmarSenha").placeholder = cadastro.placeholderConfirmarSenha;
 
 }
+
 
 /* ==========================================================
    EVENTOS
@@ -165,7 +177,69 @@ function adicionarEventos(){
         .getElementById("formCadastro")
         .addEventListener("submit", enviarFormulario);
 
+    document
+        .getElementById("inputTelefone")
+        .addEventListener("input", mascaraTelefone);
+
+    document
+        .getElementById("inputCpf")
+        .addEventListener("input", mascaraCpf);
+
+    document
+        .getElementById("inputDataNascimento")
+        .addEventListener("input", mascaraData);
+
 }
+
+
+/* ==========================================================
+   MÁSCARAS
+========================================================== */
+
+function mascaraTelefone(e){
+
+    let valor = e.target.value.replace(/\D/g,'');
+
+    valor = valor.substring(0,11);
+
+    valor = valor.replace(/^(\d{2})(\d)/,'($1) $2');
+
+    valor = valor.replace(/(\d{5})(\d)/,'$1-$2');
+
+    e.target.value = valor;
+
+}
+
+function mascaraCpf(e){
+
+    let valor = e.target.value.replace(/\D/g,'');
+
+    valor = valor.substring(0,11);
+
+    valor = valor.replace(/(\d{3})(\d)/,'$1.$2');
+
+    valor = valor.replace(/(\d{3})(\d)/,'$1.$2');
+
+    valor = valor.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+
+    e.target.value = valor;
+
+}
+
+function mascaraData(e){
+
+    let valor = e.target.value.replace(/\D/g,'');
+
+    valor = valor.substring(0,8);
+
+    valor = valor.replace(/(\d{2})(\d)/,'$1/$2');
+
+    valor = valor.replace(/(\d{2})(\d)/,'$1/$2');
+
+    e.target.value = valor;
+
+}
+
 
 /* ==========================================================
    ENVIO
@@ -177,13 +251,15 @@ function enviarFormulario(event){
 
     const usuario = {
 
-        nome: document.getElementById("inputNome").value,
+        nome: document.getElementById("inputNome").value.trim(),
 
-        email: document.getElementById("inputEmail").value,
+        email: document.getElementById("inputEmail").value.trim(),
 
-        telefone: document.getElementById("inputTelefone").value,
+        telefone: document.getElementById("inputTelefone").value.trim(),
 
-        cpf: document.getElementById("inputCpf").value,
+        cpf: document.getElementById("inputCpf").value.trim(),
+
+        dataNascimento: document.getElementById("inputDataNascimento").value.trim(),
 
         senha: document.getElementById("inputSenha").value,
 
@@ -193,6 +269,14 @@ function enviarFormulario(event){
 
     };
 
+    if(usuario.dataNascimento.length !== 10){
+
+        alert("Informe uma data de nascimento válida.");
+
+        return;
+
+    }
+
     console.clear();
 
     console.log("Dados do usuário:");
@@ -201,6 +285,7 @@ function enviarFormulario(event){
 
 }
 
+
 /* ==========================================================
    FUTURAMENTE
 ========================================================== */
@@ -208,8 +293,6 @@ function enviarFormulario(event){
 /*
 
 Aqui será feita a conexão com o banco.
-
-Exemplo:
 
 fetch("http://localhost:3000/usuarios",{
 

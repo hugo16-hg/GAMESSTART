@@ -8,6 +8,10 @@ app.use(express.json());
 
 const conexao = require("./conexao");
 
+
+
+
+
 app.listen(3000, ()=> {
     console.log("Servidor iniciado!");
 }); 
