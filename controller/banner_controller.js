@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const bannerModel = require("../model/banner_model");
+const bannerModel = require("../model/banner_model.js");
 
 
 //==========================================

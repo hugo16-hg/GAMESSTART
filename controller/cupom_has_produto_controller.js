@@ -1,4 +1,4 @@
-const CupomHasProdutoModel = require("../model/Cupom_has_Produto_model");
+const CupomHasProdutoModel = require("../model/cupom_has_produto_model.js");
 
 // LISTAR TODOS OS RELACIONAMENTOS
 exports.listar = (req, res) => {

@@ -81,6 +81,7 @@ foreign key (Cliente_id_cliente) references Cliente (id_cliente),
 foreign key (Endereco_id_endereco) references Endereco (id_endereco)
 );
 
+DROP TABLE Cartao_pagamento;
 CREATE TABLE Cartao_pagamento(
 id_cartao_pagamento INT AUTO_INCREMENT PRIMARY KEY,
 numero MEDIUMINT (40) NOT NULL,
@@ -89,7 +90,7 @@ cvc INT NOT NULL,
 cpf MEDIUMINT (12) NOT NULL,
 nome_proprietario VARCHAR (45) NOT NULL,
 nome_indentificacao VARCHAR (45) NOT NULL,
-bandereira VARCHAR (45) NOT NULL,
+bandeira VARCHAR (45) NOT NULL,
 tipo VARCHAR (45) NOT NULL,
 ativo boolean,
 

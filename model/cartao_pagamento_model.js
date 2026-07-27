@@ -136,7 +136,7 @@ function atualizar(id, cartao, callback) {
             cartao.cpf,
             cartao.nome_proprietario,
             cartao.nome_indentificacao,
-            cartao.bandereira,
+            cartao.bandeira,
             cartao.tipo,
             cartao.ativo,
             cartao.Cliente_id_cliente,

@@ -1,4 +1,4 @@
-const PromocaoHasCategoriasModel = require("../model/Promocao_has_Categorias_model");
+const PromocaoHasCategoriasModel = require("../model/promocao_has_categorias_model.js");
 
 // LISTAR TODOS OS RELACIONAMENTOS
 exports.listar = (req, res) => {

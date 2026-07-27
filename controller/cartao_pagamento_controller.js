@@ -23,7 +23,7 @@ function cadastrar(req, res) {
         !cartao.cpf ||
         !cartao.nome_proprietario ||
         !cartao.nome_indentificacao ||
-        !cartao.bandereira ||
+        !cartao.bandeira ||
         !cartao.tipo ||
         !cartao.Cliente_id_cliente
     ) {

@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const enderecoModel = require("../model/endereco_model");
+const enderecoModel = require("../model/endereco_model.js");
 
 
 //==========================================

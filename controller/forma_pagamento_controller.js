@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const formaPagamentoModel = require("../model/forma_pagamento_model");
+const formaPagamentoModel = require("../model/forma_pagamento_model.js");
 
 
 //==========================================

@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const lojistaModel = require("../model/lojista_model");
+const lojistaModel = require("../model/lojista_model.js");
 
 //==========================================
 // CADASTRAR LOJISTA

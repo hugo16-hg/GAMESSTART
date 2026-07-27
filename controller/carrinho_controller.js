@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const carrinhoModel = require("../model/carrinho_model");
+const carrinhoModel = require("../model/carrinho_model.js");
 
 
 //==========================================

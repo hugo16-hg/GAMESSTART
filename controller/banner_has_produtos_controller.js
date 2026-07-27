@@ -1,4 +1,4 @@
-const BannerHasProdutoModel = require("../model/Banner_has_Produto_model");
+const BannerHasProdutoModel = require("../model/banner_has_produto_model.js");
 
 // LISTAR TODOS OS RELACIONAMENTOS
 exports.listar = (req, res) => {

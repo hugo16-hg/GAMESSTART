@@ -1,4 +1,4 @@
-const ProdutoHasCarrinhoModel = require("../model/Produto_has_Carrinho_model");
+const ProdutoHasCarrinhoModel = require("../model/produto_has_carrinho_model.js");
 
 // LISTAR TODOS OS RELACIONAMENTOS
 exports.listar = (req, res) => {

@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const imagemProdutoModel = require("../model/imagem_produto_model");
+const imagemProdutoModel = require("../model/imagem_produto_model.js");
 
 
 //==========================================

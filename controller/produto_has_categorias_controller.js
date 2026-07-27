@@ -1,4 +1,4 @@
-const ProdutoHasCategoriasModel = require("../model/Produto_has_Categorias_model");
+const ProdutoHasCategoriasModel = require("../model/produto_has_categorias_model.js");
 
 // LISTAR TODOS OS RELACIONAMENTOS
 exports.listar = (req, res) => {

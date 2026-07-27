@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const promocaoModel = require("../model/promocao_model");
+const promocaoModel = require("../model/promocao_model.js");
 
 
 //==========================================

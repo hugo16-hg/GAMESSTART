@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const avaliacaoModel = require("../model/avaliacao_model");
+const avaliacaoModel = require("../model/avaliacao_model.js");
 
 
 //==========================================

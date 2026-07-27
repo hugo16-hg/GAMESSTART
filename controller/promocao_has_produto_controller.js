@@ -1,4 +1,4 @@
-const PromocaoHasProdutoModel = require("../model/Promocao_has_Produto_model");
+const PromocaoHasProdutoModel = require("../model/promocao_has_produto_model.js");
 
 // LISTAR TODOS OS RELACIONAMENTOS
 exports.listar = (req, res) => {

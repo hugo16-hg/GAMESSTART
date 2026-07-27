@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const lojaModel = require("../model/loja_model");
+const lojaModel = require("../model/loja_model.js");
 
 
 //==========================================

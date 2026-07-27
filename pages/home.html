@@ -1,842 +1,540 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GamesStart</title>
 
-    <meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <title>GamesStart - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../style/home.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
-<body id="bodyHome" class="body-home">
+<body>
 
-    <!-- ==========================================================
-         HEADER
-    =========================================================== -->
+<div class="top-bar">
+🚚 Frete Grátis em compras acima de R$ 50
+</div>
 
-    <header
-        id="headerHome"
-        class="header-home">
+<header>
 
-        <div
-            id="containerHeader"
-            class="container-header">
+<nav class="navbar">
 
-            <!-- ==========================
-                 LOGO
-            =========================== -->
+<div class="logo">
+🎮 GamesStart
+</div>
 
-            <div
-                id="areaLogo"
-                class="area-logo">
+<button id="menu-btn" class="menu-btn">
+☰
+</button>
 
-                <a
-                    id="linkLogo"
-                    class="link-logo"
-                    href="../index.html">
+<ul id="menu">
 
-                    <img
-                        id="imagemLogo"
-                        class="imagem-logo"
-                        src="../assets/img/logo.png"
-                        alt="GamesStart">
+<li><a href="#">Home</a></li>
+<li><a href="#">Consoles</a></li>
+<li><a href="#">PCs</a></li>
+<li><a href="#">Periféricos</a></li>
+<li><a href="#">Jogos</a></li>
+<li><a href="#">Promoções</a></li>
 
-                    <span
-                        id="textoLogo"
-                        class="texto-logo">
-                    </span>
+</ul>
 
-                </a>
+<div class="search">
 
-            </div>
+<input
+type="text"
+placeholder="O que você está procurando hoje?">
 
-            <!-- ==========================
-                 PESQUISA
-            =========================== -->
+</div>
 
-            <div
-                id="areaPesquisa"
-                class="area-pesquisa">
+<div class="icons">
 
-                <input
-                    id="inputPesquisa"
-                    class="input-pesquisa"
-                    type="text"
-                    placeholder="">
+<span>👤</span>
 
-                <button
-                    id="botaoPesquisar"
-                    class="botao-pesquisar">
+<span>❤️</span>
 
-                    <i class="fa-solid fa-magnifying-glass"></i>
+<div class="cart">
 
-                </button>
+🛒
 
-            </div>
+<span id="cart-count">0</span>
 
-            <!-- ==========================
-                 MENU
-            =========================== -->
+</div>
 
-            <nav
-                id="menuPrincipal"
-                class="menu-principal">
+</div>
 
-                <ul
-                    id="listaMenu"
-                    class="lista-menu">
+</nav>
 
-                    <li
-                        id="itemMenuHome"
-                        class="item-menu">
+</header>
 
-                        <a
-                            id="linkHome"
-                            class="link-menu"
-                            href="#">
-                        </a>
+<!-- HERO -->
 
-                    </li>
+<section class="hero">
 
-                    <li
-                        id="itemMenuConsoles"
-                        class="item-menu">
+<div class="hero-content">
 
-                        <a
-                            id="linkConsoles"
-                            class="link-menu"
-                            href="#">
-                        </a>
+<h1>TEMPORADA GAMER</h1>
 
-                    </li>
+<p>
 
-                    <li
-                        id="itemMenuPC"
-                        class="item-menu">
+Upgrade seu Setup com até 40% OFF.
+As melhores marcas de hardware e os lançamentos mais esperados em mídia física estão aqui.
 
-                        <a
-                            id="linkPC"
-                            class="link-menu"
-                            href="#">
-                        </a>
+</p>
 
-                    </li>
+<div class="hero-buttons">
 
-                    <li
-                        id="itemMenuPerifericos"
-                        class="item-menu">
+<button class="btn-primary">
+Confira
+</button>
 
-                        <a
-                            id="linkPerifericos"
-                            class="link-menu"
-                            href="#">
-                        </a>
+<button class="btn-secondary">
+Saiba Mais
+</button>
 
-                    </li>
+</div>
 
-                    <li
-                        id="itemMenuJogos"
-                        class="item-menu">
+<div class="hero-badges">
 
-                        <a
-                            id="linkJogos"
-                            class="link-menu"
-                            href="#">
-                        </a>
+<div>✅ Frete Grátis em compras acima de R$50</div>
 
-                    </li>
+<div>✅ Até 12x sem juros</div>
 
-                    <li
-                        id="itemMenuPromocoes"
-                        class="item-menu">
+<div>✅ Garantia Estendida GamesStart</div>
 
-                        <a
-                            id="linkPromocoes"
-                            class="link-menu"
-                            href="#">
-                        </a>
+</div>
 
-                    </li>
+</div>
 
-                </ul>
+</section>
 
-            </nav>
+<!-- CATEGORIAS -->
 
-            <!-- ==========================
-                 AÇÕES
-            =========================== -->
+<section class="section">
 
-            <div
-                id="areaAcoes"
-                class="area-acoes">
+<div class="section-title">
 
-                <button
-                    id="botaoNotificacao"
-                    class="botao-icone">
+<h2>Compre por Categoria</h2>
 
-                    <i class="fa-regular fa-bell"></i>
+<a href="#">Ver Todas ></a>
 
-                </button>
+</div>
 
-                <button
-                    id="botaoCarrinho"
-                    class="botao-icone">
+<div class="categories">
 
-                    <i class="fa-solid fa-cart-shopping"></i>
+<div class="category">
 
-                </button>
+<div class="icon">
+🎮
+</div>
 
-                <div
-                    id="areaUsuario"
-                    class="area-usuario">
+<h3>Consoles</h3>
 
-                    <img
-                        id="imagemUsuario"
-                        class="imagem-usuario"
-                        src=""
-                        alt="Usuário">
+<p>Explorar →</p>
 
-                    <div
-                        id="dadosUsuario"
-                        class="dados-usuario">
+</div>
 
-                        <span
-                            id="nomeUsuario"
-                            class="nome-usuario">
-                        </span>
+<div class="category">
 
-                        <span
-                            id="tipoUsuario"
-                            class="tipo-usuario">
-                        </span>
+<div class="icon">
+💻
+</div>
 
-                    </div>
+<h3>PC Gamer</h3>
 
-                </div>
+<p>Explorar →</p>
 
-            </div>
+</div>
 
-        </div>
+<div class="category">
 
-    </header>
+<div class="icon">
+📱
+</div>
 
-    <!-- ==========================================================
-         MAIN
-    =========================================================== -->
+<h3>Notebook Gamer</h3>
 
-    <main
-        id="mainHome"
-        class="main-home">
+<p>Explorar →</p>
 
-        <!-- ======================================================
-             BANNER PRINCIPAL
-        ======================================================= -->
+</div>
 
-        <section
-            id="secaoBanner"
-            class="secao-banner">
+<div class="category">
 
-            <div
-                id="containerBanner"
-                class="container-banner">
+<div class="icon">
+⌨️
+</div>
 
-                <div
-                    id="conteudoBanner"
-                    class="conteudo-banner">
+<h3>Periféricos</h3>
 
-                    <span
-                        id="subtituloBanner"
-                        class="subtitulo-banner">
-                    </span>
+<p>Explorar →</p>
 
-                    <h1
-                        id="tituloBanner"
-                        class="titulo-banner">
-                    </h1>
+</div>
 
-                    <p
-                        id="descricaoBanner"
-                        class="descricao-banner">
-                    </p>
+<div class="category">
 
-                    <div
-                        id="botoesBanner"
-                        class="botoes-banner">
+<div class="icon">
+🪑
+</div>
 
-                        <button
-                            id="botaoBannerPrimario"
-                            class="botao-banner botao-banner-primario">
-                        </button>
+<h3>Mesas Gamer</h3>
 
-                        <button
-                            id="botaoBannerSecundario"
-                            class="botao-banner botao-banner-secundario">
-                        </button>
+<p>Explorar →</p>
 
-                    </div>
+</div>
 
-                </div>
+<div class="category">
 
-                <div
-                    id="imagemBannerContainer"
-                    class="imagem-banner-container">
+<div class="icon">
+📀
+</div>
 
-                    <img
-                        id="imagemBanner"
-                        class="imagem-banner"
-                        src=""
-                        alt="Banner">
+<h3>Jogos</h3>
 
-                </div>
+<p>Explorar →</p>
 
-            </div>
+</div>
 
-        </section>        <!-- ======================================================
-             BENEFÍCIOS
-        ======================================================= -->
+</div>
 
-        <section
-            id="secaoBeneficios"
-            class="secao-beneficios">
+</section>
 
-            <div
-                id="containerBeneficios"
-                class="container-beneficios">
+<!-- OFERTA -->
 
-                <div
-                    id="beneficioFrete"
-                    class="card-beneficio">
+<section class="offer">
 
-                    <div
-                        id="iconeFrete"
-                        class="icone-beneficio">
+<h2>Oferta de Fim de Semana!</h2>
 
-                        <i class="fa-solid fa-truck-fast"></i>
+<p>
 
-                    </div>
+Consiga até 75% de desconto em títulos selecionados da franquia Warhammer e RPGs clássicos.
 
-                    <div
-                        id="textoFrete"
-                        class="texto-beneficio">
+</p>
 
-                        <h3
-                            id="tituloFrete"
-                            class="titulo-beneficio">
-                        </h3>
+<div id="countdown">
+24h : 00m : 00s
+</div>
 
-                        <p
-                            id="descricaoFrete"
-                            class="descricao-beneficio">
-                        </p>
+<button class="btn-primary">
 
-                    </div>
+Aproveitar agora
 
-                </div>
+</button>
 
-                <div
-                    id="beneficioParcelamento"
-                    class="card-beneficio">
+</section>
 
-                    <div
-                        id="iconeParcelamento"
-                        class="icone-beneficio">
+<!-- MAIS VENDIDOS -->
 
-                        <i class="fa-regular fa-credit-card"></i>
+<section class="section">
 
-                    </div>
+<h2 class="center">
+Mais Vendidos
+</h2>
 
-                    <div
-                        id="textoParcelamento"
-                        class="texto-beneficio">
+<div class="products">
 
-                        <h3
-                            id="tituloParcelamento"
-                            class="titulo-beneficio">
-                        </h3>
+<div class="product">
 
-                        <p
-                            id="descricaoParcelamento"
-                            class="descricao-beneficio">
-                        </p>
+<span class="discount">
+-20%
+</span>
 
-                    </div>
+<img src="https://placehold.co/200x200">
 
-                </div>
+<h3>
 
-                <div
-                    id="beneficioGarantia"
-                    class="card-beneficio">
+Controle Sem Fio DualSense PS5
 
-                    <div
-                        id="iconeGarantia"
-                        class="icone-beneficio">
+</h3>
 
-                        <i class="fa-solid fa-shield-halved"></i>
+<h4>
 
-                    </div>
+R$ 449,90
 
-                    <div
-                        id="textoGarantia"
-                        class="texto-beneficio">
+</h4>
 
-                        <h3
-                            id="tituloGarantia"
-                            class="titulo-beneficio">
-                        </h3>
+<button class="add-cart">
 
-                        <p
-                            id="descricaoGarantia"
-                            class="descricao-beneficio">
-                        </p>
+🛒 Adicionar ao carrinho
 
-                    </div>
+</button>
 
-                </div>
+</div>
 
-            </div>
+<div class="product">
 
-        </section>
+<img src="https://placehold.co/200x200">
 
-        <!-- ======================================================
-             CATEGORIAS
-        ======================================================= -->
+<h3>
 
-        <section
-            id="secaoCategorias"
-            class="secao-categorias">
+Xbox Series X
 
-            <div
-                id="containerCategoriasPrincipal"
-                class="container-categorias-principal">
+</h3>
 
-                <div
-                    id="cabecalhoCategorias"
-                    class="cabecalho-categorias">
+<h4>
 
-                    <div
-                        id="tituloCategoriasContainer"
-                        class="titulo-categorias-container">
+R$ 4.199,90
 
-                        <h2
-                            id="tituloCategorias"
-                            class="titulo-categorias">
-                        </h2>
+</h4>
 
-                    </div>
+<button class="add-cart">
 
-                    <div
-                        id="acoesCategorias"
-                        class="acoes-categorias">
+🛒 Adicionar ao carrinho
 
-                        <a
-                            id="linkVerTodasCategorias"
-                            class="link-ver-todas"
-                            href="#">
-                        </a>
+</button>
 
-                    </div>
+</div>
 
-                </div>
+<div class="product">
 
-                <div
-                    id="containerCategorias"
-                    class="container-categorias">
+<span class="discount">
 
-                    <!--
-                        Os cards de categorias
-                        serão criados pelo JavaScript.
-                    -->
+-15%
 
-                </div>
+</span>
 
-            </div>
+<img src="https://placehold.co/200x200">
 
-        </section>
+<h3>
 
-        <!-- ======================================================
-             BANNER PROMOCIONAL
-        ======================================================= -->
+RTX 4070
 
-        <section
-            id="secaoOferta"
-            class="secao-oferta">
+</h3>
 
-            <div
-                id="containerOferta"
-                class="container-oferta">
+<h4>
 
-                <div
-                    id="conteudoOferta"
-                    class="conteudo-oferta">
+R$ 4.899,90
 
-                    <span
-                        id="subtituloOferta"
-                        class="subtitulo-oferta">
-                    </span>
+</h4>
 
-                    <h2
-                        id="tituloOferta"
-                        class="titulo-oferta">
-                    </h2>
+<button class="add-cart">
 
-                    <p
-                        id="descricaoOferta"
-                        class="descricao-oferta">
-                    </p>
+🛒 Adicionar
 
-                    <button
-                        id="botaoOferta"
-                        class="botao-oferta">
-                    </button>
+</button>
 
-                    <div
-                        id="contadorOferta"
-                        class="contador-oferta">
+</div>
 
-                        <span
-                            id="textoContadorOferta"
-                            class="texto-contador-oferta">
-                        </span>
+<div class="product">
 
-                    </div>
+<img src="https://placehold.co/200x200">
 
-                </div>
+<h3>
 
-                <div
-                    id="imagemOfertaContainer"
-                    class="imagem-oferta-container">
+Headset HyperX
 
-                    <img
-                        id="imagemOferta"
-                        class="imagem-oferta"
-                        src=""
-                        alt="Oferta">
+</h3>
 
-                </div>
+<h4>
 
-            </div>
+R$ 599,90
 
-        </section>        <!-- ======================================================
-             MAIS VENDIDOS
-        ======================================================= -->
+</h4>
 
-        <section
-            id="secaoMaisVendidos"
-            class="secao-mais-vendidos">
+<button class="add-cart">
 
-            <div
-                id="containerMaisVendidosPrincipal"
-                class="container-produtos-principal">
+🛒 Adicionar
 
-                <div
-                    id="cabecalhoMaisVendidos"
-                    class="cabecalho-produtos">
+</button>
 
-                    <div
-                        id="tituloMaisVendidosContainer"
-                        class="titulo-produtos-container">
+</div>
 
-                        <h2
-                            id="tituloMaisVendidos"
-                            class="titulo-produtos">
-                        </h2>
+</div>
 
-                        <p
-                            id="descricaoMaisVendidos"
-                            class="descricao-produtos">
-                        </p>
+</section>
 
-                    </div>
+<!-- NOVIDADES -->
 
-                </div>
+<section class="section">
 
-                <div
-                    id="containerMaisVendidos"
-                    class="container-produtos">
+<h2 class="center">
 
-                    <!-- Cards criados pelo JavaScript -->
+Novidades
 
-                </div>
+</h2>
 
-            </div>
+<div class="products">
 
-        </section>
+<div class="product">
 
-        <!-- ======================================================
-             NOVIDADES
-        ======================================================= -->
+<img src="https://placehold.co/200x200">
 
-        <section
-            id="secaoNovidades"
-            class="secao-novidades">
+<h3>
 
-            <div
-                id="containerNovidadesPrincipal"
-                class="container-produtos-principal">
+Silent Hill 2
 
-                <div
-                    id="cabecalhoNovidades"
-                    class="cabecalho-produtos">
+</h3>
 
-                    <div
-                        id="tituloNovidadesContainer"
-                        class="titulo-produtos-container">
+<h4>
 
-                        <h2
-                            id="tituloNovidades"
-                            class="titulo-produtos">
-                        </h2>
+R$ 349,90
 
-                        <p
-                            id="descricaoNovidades"
-                            class="descricao-produtos">
-                        </p>
+</h4>
 
-                    </div>
+<button class="add-cart">
 
-                </div>
+🛒 Adicionar
 
-                <div
-                    id="containerNovidades"
-                    class="container-produtos">
+</button>
 
-                    <!-- Cards criados pelo JavaScript -->
+</div>
 
-                </div>
+<div class="product">
 
-            </div>
+<img src="https://placehold.co/200x200">
 
-        </section>
+<h3>
 
-    </main>
+Kingdom Come II
 
-    <!-- ==========================================================
-         FOOTER
-    =========================================================== -->
+</h3>
 
-    <footer
-        id="footerHome"
-        class="footer-home">
+<h4>
 
-        <div
-            id="containerFooter"
-            class="container-footer">
+R$ 299,90
 
-            <!-- ==========================================
-                 LOGO
-            =========================================== -->
+</h4>
 
-            <div
-                id="colunaLogoFooter"
-                class="coluna-footer">
+<button class="add-cart">
 
-                <div
-                    id="logoFooter"
-                    class="logo-footer">
+🛒 Adicionar
 
-                    <img
-                        id="imagemLogoFooter"
-                        class="imagem-logo-footer"
-                        src="../assets/img/logo.png"
-                        alt="GamesStart">
+</button>
 
-                    <span
-                        id="textoLogoFooter"
-                        class="texto-logo-footer">
-                    </span>
+</div>
 
-                </div>
+<div class="product">
 
-                <p
-                    id="descricaoFooter"
-                    class="descricao-footer">
-                </p>
+<img src="https://placehold.co/200x200">
 
-                <div
-                    id="redesSociais"
-                    class="redes-sociais">
+<h3>
 
-                    <a
-                        id="linkInstagram"
-                        class="link-rede-social"
-                        href="#">
+Mouse Logitech G Pro
 
-                        <i class="fa-brands fa-instagram"></i>
+</h3>
 
-                    </a>
+<h4>
 
-                    <a
-                        id="linkFacebook"
-                        class="link-rede-social"
-                        href="#">
+R$ 429,90
 
-                        <i class="fa-brands fa-facebook-f"></i>
+</h4>
 
-                    </a>
+<button class="add-cart">
 
-                    <a
-                        id="linkYoutube"
-                        class="link-rede-social"
-                        href="#">
+🛒 Adicionar
 
-                        <i class="fa-brands fa-youtube"></i>
+</button>
 
-                    </a>
+</div>
 
-                </div>
+<div class="product">
 
-            </div>
+<img src="https://placehold.co/200x200">
 
-            <!-- ==========================================
-                 INSTITUCIONAL
-            =========================================== -->
+<h3>
 
-            <div
-                id="colunaInstitucional"
-                class="coluna-footer">
+Teclado Mecânico
 
-                <h3
-                    id="tituloInstitucional"
-                    class="titulo-footer">
-                </h3>
+</h3>
 
-                <ul
-                    id="listaInstitucional"
-                    class="lista-footer">
+<h4>
 
-                    <li><a id="linkSobre" class="link-footer" href="#"></a></li>
+R$ 559,90
 
-                    <li><a id="linkLojas" class="link-footer" href="#"></a></li>
+</h4>
 
-                    <li><a id="linkPrivacidade" class="link-footer" href="#"></a></li>
+<button class="add-cart">
 
-                    <li><a id="linkTermos" class="link-footer" href="#"></a></li>
+🛒 Adicionar
 
-                    <li><a id="linkTrabalhe" class="link-footer" href="#"></a></li>
+</button>
 
-                </ul>
+</div>
 
-            </div>
+</div>
 
-            <!-- ==========================================
-                 ATENDIMENTO
-            =========================================== -->
+</section>
 
-            <div
-                id="colunaAtendimento"
-                class="coluna-footer">
+<footer>
 
-                <h3
-                    id="tituloAtendimento"
-                    class="titulo-footer">
-                </h3>
+<div class="footer-grid">
 
-                <ul
-                    id="listaAtendimento"
-                    class="lista-footer">
+<div>
 
-                    <li><a id="linkAjuda" class="link-footer" href="#"></a></li>
+<h3>Institucional</h3>
 
-                    <li><a id="linkPedidos" class="link-footer" href="#"></a></li>
+<a href="#">Sobre Nós</a>
 
-                    <li><a id="linkDevolucao" class="link-footer" href="#"></a></li>
+<a href="#">Nossas Lojas</a>
 
-                    <li><a id="linkGarantia" class="link-footer" href="#"></a></li>
+<a href="#">Privacidade</a>
 
-                    <li><a id="linkContato" class="link-footer" href="#"></a></li>
+<a href="#">Termos</a>
 
-                </ul>
+<a href="#">Trabalhe Conosco</a>
 
-            </div>
+</div>
 
-            <!-- ==========================================
-                 NEWSLETTER
-            =========================================== -->
+<div>
 
-            <div
-                id="colunaNewsletter"
-                class="coluna-footer">
+<h3>Atendimento</h3>
 
-                <h3
-                    id="tituloNewsletter"
-                    class="titulo-footer">
-                </h3>
+<a href="#">Central de Ajuda</a>
 
-                <p
-                    id="descricaoNewsletter"
-                    class="descricao-newsletter">
-                </p>
+<a href="#">Pagamento</a>
 
-                <div
-                    id="formNewsletter"
-                    class="form-newsletter">
+<a href="#">Devoluções</a>
 
-                    <input
-                        id="inputNewsletter"
-                        class="input-newsletter"
-                        type="email"
-                        placeholder="">
+<a href="#">Garantia</a>
 
-                    <button
-                        id="botaoNewsletter"
-                        class="botao-newsletter">
+<a href="#">Contato</a>
 
-                        <i class="fa-solid fa-paper-plane"></i>
+</div>
 
-                    </button>
+<div>
 
-                </div>
+<h3>Newsletter</h3>
 
-            </div>
+<p>
 
-        </div>
+Fique por dentro das promoções
 
-        <!-- ==========================================
-             COPYRIGHT
-        =========================================== -->
+</p>
 
-        <div
-            id="rodapeFooter"
-            class="rodape-footer">
+<input
+type="email"
+placeholder="Seu e-mail">
 
-            <span
-                id="textoCopyright"
-                class="texto-copyright">
-            </span>
+<button>
 
-            <span
-                id="textoCnpj"
-                class="texto-cnpj">
-            </span>
+Inscrever
 
-            <span
-                id="textoEmpresa"
-                class="texto-empresa">
-            </span>
+</button>
 
-        </div>
+</div>
 
-    </footer>
+</div>
 
-    <!-- JavaScript -->
+<div class="copyright">
 
-    <script src="../js/home.js"></script>
+© 2024 GamesStart Tecnologia S.A.
+
+</div>
+
+</footer>
+
+<div id="toast">
+
+Produto adicionado ao carrinho!
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
