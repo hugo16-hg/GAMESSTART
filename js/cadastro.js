@@ -286,20 +286,20 @@ function enviarFormulario(event){
 }
 document.getElementById("btnCadastrar").addEventListener("click", () => {
  
-    const nome = document.getElementById("nome").value.trim();
+    const nome = document.getElementById("inputNome").value.trim();
  
-    const cpf = document.getElementById("cpf").value.trim();
+    const cpf = document.getElementById("inputCpf").value.trim();
  
-    const telefone = document.getElementById("telefone").value.trim();
+    const telefone = document.getElementById("inputTelefone").value.trim();
  
-    const email = document.getElementById("email").value.trim();
+    const email = document.getElementById("inputEmail").value.trim();
  
-    const senha = document.getElementById("senha").value;
+    const senha = document.getElementById("inputSenha").value;
 
-     const confirmarsenha = document.getElementById("confirmarsenha").value;
+     const confirmarsenha = document.getElementById("inputConfirmarSenha").value;
  
     const dataNascimento =
-        document.getElementById("dataNascimento").value;
+        document.getElementById("inputDataNascimento").value;
  
     const mensagem =
         document.getElementById("mensagem");
@@ -321,8 +321,7 @@ document.getElementById("btnCadastrar").addEventListener("click", () => {
  
     }
  
-    if (senha.length > 13) {
- 
+    if(senha.length < 6 || senha.length > 15){
         mensagem.style.color = "red";
         mensagem.innerHTML =
             "A senha deve possuir entre 6 e 15 caracteres.";
@@ -330,8 +329,49 @@ document.getElementById("btnCadastrar").addEventListener("click", () => {
         return;
  
     }
- 
-    if (!email.includes("@")) {
+
+    //verificar se a senha possui letras maiusculas, minúsculas, números e caracteres especiais
+        if (!senha.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,15}$/)) {
+            mensagem.style.color = "red";
+            mensagem.innerHTML =
+                "A senha deve conter letras maiúsculas, minúsculas, números e caracteres especiais.";   
+
+                return; 
+        }
+
+        //Verificar se a senha possue nome do usuário
+        if (senha.toLowerCase().includes(nome.toLowerCase())) {
+            mensagem.style.color = "red";
+            mensagem.innerHTML =
+                "A senha não pode conter o nome do usuário.";
+                return;
+        }
+     if (senha !== confirmarsenha){
+            mensagem.style.color = "red";
+            mensagem.innerHTML =
+                "As senhas não coincidem.";
+                return;
+       }
+
+       //verificar se o cliente tem mais de 18 anos
+        const idade = new Date().getFullYear() - new Date(dataNascimento).getFullYear();
+        if (idade < 18) {
+            mensagem.style.color = "red";
+            mensagem.innerHTML =
+                "O cliente deve ter mais de 18 anos.";
+            return;
+        }
+
+        if(!usuario.aceitouTermos){
+            mensagem.style.color = "red";
+            mensagem.innerHTML = "Você deve aceitar os termos e condições.";
+            return;
+        }
+
+    if (!email.includes("@gmail.com") &&
+        !email.includes("@hotmail.com") &&
+         !email.includes("@yahoo.com") &&
+          !email.includes("@outlook.com")) {
  
         mensagem.style.color = "red";
         mensagem.innerHTML = "Digite um e-mail válido.";
@@ -358,8 +398,6 @@ document.getElementById("btnCadastrar").addEventListener("click", () => {
         email: email,
  
         senha: senha,
-
-        confirmarsenha: confirmarsenha,
  
         data_nascimento: dataNascimento,
  
@@ -391,13 +429,13 @@ document.getElementById("btnCadastrar").addEventListener("click", () => {
                 mensagem.innerHTML = resposta.mensagem;
  
                 // Limpa os campos
-                document.getElementById("nome").value = "";
-                document.getElementById("cpf").value = "";
-                document.getElementById("telefone").value = "";
-                document.getElementById("email").value = "";
-                document.getElementById("senha").value = "";
-                document.getElementById("confirmarsenha").value = "";
-                document.getElementById("dataNascimento").value = "";
+                document.getElementById("inputNome").value = "";
+                document.getElementById("inputCpf").value = "";
+                document.getElementById("inputTelefone").value = "";
+                document.getElementById("inputEmail").value = "";
+                document.getElementById("inputSenha").value = "";
+                document.getElementById("inputConfirmarSenha").value = "";
+                document.getElementById("inputDataNascimento").value = "";
  
             } else {
  
@@ -423,10 +461,10 @@ document.getElementById("btnCadastrar").addEventListener("click", () => {
    FUTURAMENTE
 ========================================================== */
 
+
+
+//Aqui será feita a conexão com o banco.
 /*
-
-Aqui será feita a conexão com o banco.
-
 fetch("http://localhost:3000/usuarios",{
 
     method:"POST",
@@ -440,5 +478,4 @@ fetch("http://localhost:3000/usuarios",{
     body:JSON.stringify(usuario)
 
 });
-
 */
