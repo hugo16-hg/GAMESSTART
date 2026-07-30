@@ -78,7 +78,7 @@ const cadastro = {
 
 document.addEventListener("DOMContentLoaded", iniciarPagina);
 
-function iniciarPagina(){
+function iniciarPagina() {
 
     preencherTextos();
 
@@ -93,7 +93,7 @@ function iniciarPagina(){
    PREENCHER TEXTOS
 ========================================================== */
 
-function preencherTextos(){
+function preencherTextos() {
 
     document.getElementById("nomeSistema").textContent = cadastro.sistema;
 
@@ -148,7 +148,7 @@ function preencherTextos(){
    PLACEHOLDERS
 ========================================================== */
 
-function preencherPlaceholders(){
+function preencherPlaceholders() {
 
     document.getElementById("inputNome").placeholder = cadastro.placeholderNome;
 
@@ -171,11 +171,8 @@ function preencherPlaceholders(){
    EVENTOS
 ========================================================== */
 
-function adicionarEventos(){
+function adicionarEventos() {
 
-    document
-        .getElementById("formCadastro")
-        .addEventListener("submit", enviarFormulario);
 
     document
         .getElementById("inputTelefone")
@@ -196,45 +193,45 @@ function adicionarEventos(){
    MÁSCARAS
 ========================================================== */
 
-function mascaraTelefone(e){
+function mascaraTelefone(e) {
 
-    let valor = e.target.value.replace(/\D/g,'');
+    let valor = e.target.value.replace(/\D/g, '');
 
-    valor = valor.substring(0,11);
+    valor = valor.substring(0, 11);
 
-    valor = valor.replace(/^(\d{2})(\d)/,'($1) $2');
+    valor = valor.replace(/^(\d{2})(\d)/, '($1) $2');
 
-    valor = valor.replace(/(\d{5})(\d)/,'$1-$2');
-
-    e.target.value = valor;
-
-}
-
-function mascaraCpf(e){
-
-    let valor = e.target.value.replace(/\D/g,'');
-
-    valor = valor.substring(0,11);
-
-    valor = valor.replace(/(\d{3})(\d)/,'$1.$2');
-
-    valor = valor.replace(/(\d{3})(\d)/,'$1.$2');
-
-    valor = valor.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+    valor = valor.replace(/(\d{5})(\d)/, '$1-$2');
 
     e.target.value = valor;
 
 }
 
-function mascaraData(e){
+function mascaraCpf(e) {
 
-    let valor = e.target.value.replace(/\D/g,'');
+    let valor = e.target.value.replace(/\D/g, '');
 
-    valor = valor.substring(0,8);
+    valor = valor.substring(0, 11);
 
-    valor = valor.replace(/(\d{2})(\d)/,'$1/$2');
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
 
-    valor = valor.replace(/(\d{2})(\d)/,'$1/$2');
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+
+    e.target.value = valor;
+
+}
+
+function mascaraData(e) {
+
+    let valor = e.target.value.replace(/\D/g, '');
+
+    valor = valor.substring(0, 8);
+
+    valor = valor.replace(/(\d{2})(\d)/, '$1/$2');
+
+    valor = valor.replace(/(\d{2})(\d)/, '$1/$2');
 
     e.target.value = valor;
 
@@ -245,7 +242,7 @@ function mascaraData(e){
    ENVIO
 ========================================================== */
 
-function enviarFormulario(event){
+function enviarFormulario(event) {
 
     event.preventDefault();
 
@@ -269,7 +266,7 @@ function enviarFormulario(event){
 
     };
 
-    if(usuario.dataNascimento.length !== 10){
+    if (usuario.dataNascimento.length !== 10) {
 
         alert("Informe uma data de nascimento válida.");
 
@@ -284,26 +281,33 @@ function enviarFormulario(event){
     console.table(usuario);
 
 }
+
+
+
+
+
 document.getElementById("btnCadastrar").addEventListener("click", () => {
- 
+
     const nome = document.getElementById("inputNome").value.trim();
- 
+
     const cpf = document.getElementById("inputCpf").value.trim();
- 
+
     const telefone = document.getElementById("inputTelefone").value.trim();
- 
+
     const email = document.getElementById("inputEmail").value.trim();
- 
+
     const senha = document.getElementById("inputSenha").value;
 
-     const confirmarsenha = document.getElementById("inputConfirmarSenha").value;
- 
+    const confirmarsenha = document.getElementById("inputConfirmarSenha").value;
+
+    const aceitouTermos = document.getElementById("checkTermos").checked;
+
     const dataNascimento =
         document.getElementById("inputDataNascimento").value;
- 
+
     const mensagem =
         document.getElementById("mensagem");
- 
+
     if (
         nome == "" ||
         cpf == "" ||
@@ -313,121 +317,135 @@ document.getElementById("btnCadastrar").addEventListener("click", () => {
         confirmarsenha == "" ||
         dataNascimento == ""
     ) {
- 
+
         mensagem.style.color = "red";
         mensagem.innerHTML = "Preencha todos os campos.";
- 
+
         return;
- 
+
     }
- 
-    if(senha.length < 6 || senha.length > 15){
+
+    if (senha.length < 6 || senha.length > 15) {
         mensagem.style.color = "red";
         mensagem.innerHTML =
             "A senha deve possuir entre 6 e 15 caracteres.";
- 
+
         return;
- 
+
     }
 
-    //verificar se a senha possui letras maiusculas, minúsculas, números e caracteres especiais
-        if (!senha.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,15}$/)) {
-            mensagem.style.color = "red";
-            mensagem.innerHTML =
-                "A senha deve conter letras maiúsculas, minúsculas, números e caracteres especiais.";   
+    //verificar se a senha possui letras maiusculas
+    if (!/[A-Z]/.test(senha)) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "A senha deve possuir pelo menos 1 letra maiúscula.";
 
-                return; 
-        }
+        return;
+    }
 
-        //Verificar se a senha possue nome do usuário
-        if (senha.toLowerCase().includes(nome.toLowerCase())) {
-            mensagem.style.color = "red";
-            mensagem.innerHTML =
-                "A senha não pode conter o nome do usuário.";
-                return;
-        }
-     if (senha !== confirmarsenha){
-            mensagem.style.color = "red";
-            mensagem.innerHTML =
-                "As senhas não coincidem.";
-                return;
-       }
+    if (!/[a-z]/.test(senha)) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "A senha deve possuir pelo menos 1 letra minúscula.";
 
-       //verificar se o cliente tem mais de 18 anos
-        const idade = new Date().getFullYear() - new Date(dataNascimento).getFullYear();
-        if (idade < 18) {
-            mensagem.style.color = "red";
-            mensagem.innerHTML =
-                "O cliente deve ter mais de 18 anos.";
-            return;
-        }
+        return;
+    }
 
-        if(!usuario.aceitouTermos){
-            mensagem.style.color = "red";
-            mensagem.innerHTML = "Você deve aceitar os termos e condições.";
-            return;
-        }
+    if (!/[0-9]/.test(senha)) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "A senha deve possuir pelo menos 1 número.";
 
-    if (!email.includes("@gmail.com") &&
-        !email.includes("@hotmail.com") &&
-         !email.includes("@yahoo.com") &&
-          !email.includes("@outlook.com")) {
- 
+        return;
+    }
+
+    //Verificar se a senha possue nome do usuário
+    if (senha.toLowerCase().includes(nome.toLowerCase())) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "A senha não pode conter o nome do usuário.";
+        return;
+    }
+
+
+    if (senha !== confirmarsenha) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "As senhas não coincidem.";
+        return;
+    }
+
+    //verificar se o cliente tem mais de 18 anos
+    const idade = new Date().getFullYear() - new Date(dataNascimento).getFullYear();
+    if (idade < 18) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "O cliente deve ter mais de 18 anos.";
+        return;
+    }
+
+    if (!aceitouTermos) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML = "Você deve aceitar os termos e condições.";
+        return;
+    }
+
+    if (!email.includes("@")){
+
         mensagem.style.color = "red";
         mensagem.innerHTML = "Digite um e-mail válido.";
- 
+
         return;
- 
+
     }
- 
-    mensagem.style.color = "green";
- 
-    mensagem.innerHTML =
-        "Cadastro realizado com sucesso!";
- 
+
+    const partes = dataNascimento.split("/");
+
+const dataMysql = `${partes[2]}-${partes[1]}-${partes[0]}`;
+
     // Objeto pronto para enviar ao Node.js
- 
+
     const cliente = {
- 
+
         nome: nome,
- 
+
         cpf: cpf.replace(/\D/g, ""),
- 
+
         telefone: telefone.replace(/\D/g, ""),
- 
+
         email: email,
- 
+
         senha: senha,
- 
-        data_nascimento: dataNascimento,
- 
-        Loja_idLoja: 1
- 
+
+        data_nascimento: dataMysql,
+
+        Loja_idloja: 1
+
     };
- 
+
     console.log(cliente);
- 
- 
+
+
     fetch("http://localhost:3000/clientes", {
- 
+
         method: "POST",
- 
+
         headers: {
             "Content-Type": "application/json"
         },
- 
+
         body: JSON.stringify(cliente)
- 
+
     })
         .then(res => res.json())
- 
+
         .then(resposta => {
- 
+
             if (resposta.sucesso) {
- 
+
                 mensagem.style.color = "green";
                 mensagem.innerHTML = resposta.mensagem;
- 
+
                 // Limpa os campos
                 document.getElementById("inputNome").value = "";
                 document.getElementById("inputCpf").value = "";
@@ -436,46 +454,41 @@ document.getElementById("btnCadastrar").addEventListener("click", () => {
                 document.getElementById("inputSenha").value = "";
                 document.getElementById("inputConfirmarSenha").value = "";
                 document.getElementById("inputDataNascimento").value = "";
- 
+
             } else {
- 
+
                 mensagem.style.color = "red";
                 mensagem.innerHTML = resposta.mensagem;
- 
+
             }
- 
+
         })
- 
+
         .catch(() => {
- 
+
             mensagem.style.color = "red";
             mensagem.innerHTML = "Erro ao conectar com o servidor.";
- 
+
         });
- 
- 
+
+
 });
 
+ /*function mostrarSenha(idCampo, elemento){
 
-/* ==========================================================
-   FUTURAMENTE
-========================================================== */
+    const campo = document.getElementById(idCampo);
+    const icone = elemento.querySelector("i");
 
+    if(campo.type === "password"){
+        campo.type = "text";
+        icone.classList.remove("fa-eye");
+        icone.classList.add("fa-eye-slash");
+    }else{
+        campo.type = "password";
+        icone.classList.remove("fa-eye-slash");
+        icone.classList.add("fa-eye");
+    }
 
-
-//Aqui será feita a conexão com o banco.
-/*
-fetch("http://localhost:3000/usuarios",{
-
-    method:"POST",
-
-    headers:{
-
-        "Content-Type":"application/json"
-
-    },
-
-    body:JSON.stringify(usuario)
-
-});
+}
 */
+

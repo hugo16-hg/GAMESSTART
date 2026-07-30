@@ -6,9 +6,9 @@ const conexao = require("../conexao/conexao.js");
 
 function cadastrar(cliente, callback) {
 
-    const sql = `INSERT INTO Cliente
+    const sql = `INSERT INTO cliente
         ( nome,cpf,telefone,email,senha,
-         data_nascimento,Loja_id_Loja )
+         data_nascimento,Loja_idloja )
         VALUES (?, ?, ?, ?, ?, ?, ?)`;
 
     conexao.query(
@@ -20,7 +20,7 @@ function cadastrar(cliente, callback) {
             cliente.email,
             cliente.senha,
             cliente.data_nascimento,
-            cliente.Loja_id_Loja
+            cliente.Loja_idloja
         ],
         callback
     );
@@ -88,9 +88,9 @@ function atualizar(id, cliente, callback) {
             email = ?,
             senha = ?,
             data_nascimento = ?,
-            Loja_id_Loja = ?
+            Loja_idloja = ?
 
-        WHERE idCliente = ?
+        WHERE id_cliente = ?
     `;
 
     conexao.query(
@@ -102,7 +102,7 @@ function atualizar(id, cliente, callback) {
             cliente.email,
             cliente.senha,
             cliente.data_nascimento,
-            cliente.Loja_id_Loja,
+            cliente.Loja_idloja,
             id
         ],
         callback
@@ -118,7 +118,7 @@ function excluir(id, callback) {
 
     const sql = `
         DELETE FROM Cliente
-        WHERE idCliente = ?
+        WHERE id_cliente = ?
     `;
 
     conexao.query(sql, [id], callback);

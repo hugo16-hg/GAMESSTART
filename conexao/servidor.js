@@ -8,6 +8,12 @@ app.use(express.json());
 
 const conexao = require("./conexao");
 
+//criar uma rota para testar a conexão com o 
+// banco de dados
+const clienteRotas = require("../routes/clientes_routes.js");
+app.use("/clientes", clienteRotas);
+
+
 
 
 

@@ -1219,7 +1219,39 @@ button:focus{
     }
 
 }
+.senha-group{
+    position: relative;
+}
 
-/* ==========================================================
-   FIM DO ARQUIVO
-========================================================== */
+.senha-group .input-campo{
+    padding-right:40px;
+}
+
+.toggle-password{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    color:#667085;
+    font-size:16px;
+}
+
+.toggle-password:hover{
+    color:#1976d2;
+}/* Remove o botão nativo de mostrar senha do Edge/Chrome */
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear{
+    display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button{
+    display: none !important;
+}
+
+input[type="password"]::-webkit-textfield-decoration-container{
+    display: none;
+}

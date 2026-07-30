@@ -7,6 +7,12 @@ CREATE DATABASE GAMESSTART;
 
 use GAMESSTART;
 
+
+select * from cliente;
+
+
+
+
 CREATE TABLE Lojista(
 id_lojista INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(450) NOT NULL,
@@ -65,8 +71,8 @@ references Lojista (id_lojista)
 CREATE TABLE Cliente(
 id_cliente INT AUTO_INCREMENT PRIMARY KEY,
 nome varchar (450)not null,
-cpf mediumint (12) not null,
-telefone mediumint (15) not null,
+cpf  varchar (20) not null,
+telefone  varchar (20) not null,
 email varchar(450) not null,
 senha varchar (20) not null,
 data_nascimento date not null,
@@ -87,7 +93,7 @@ id_cartao_pagamento INT AUTO_INCREMENT PRIMARY KEY,
 numero MEDIUMINT (40) NOT NULL,
 data_vencimento VARCHAR(45) NOT NULL,
 cvc INT NOT NULL,
-cpf MEDIUMINT (12) NOT NULL,
+cpf  varchar (20) NOT NULL,
 nome_proprietario VARCHAR (45) NOT NULL,
 nome_indentificacao VARCHAR (45) NOT NULL,
 bandeira VARCHAR (45) NOT NULL,

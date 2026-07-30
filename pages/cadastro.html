@@ -348,20 +348,30 @@
                                 for="inputSenha">
                             </label>
 
-                            <div
-                                id="containerSenha"
-                                class="container-input">
+                           <div class="container-input senha-group">
 
-                                <i class="fa-solid fa-lock"></i>
+    <i class="fas fa-lock"></i>
 
-                                <input
-                                    id="inputSenha"
-                                    class="input-campo"
-                                    type="password">
+    <input
+        type="password"
+        id="senha"
+        class="input-campo"
+        placeholder="Digite sua senha"
+    >
 
-                            </div>
+    <button
+        type="button"
+        class="toggle-password"
+        onclick="mostrarSenha('senha', this)">
+
+        <i class="fas fa-eye"></i>
+
+    </button>
+
+</div>
 
                         </div>
+                        
 
                         <div
                             id="grupoConfirmarSenha"
@@ -373,18 +383,27 @@
                                 for="inputConfirmarSenha">
                             </label>
 
-                            <div
-                                id="containerConfirmarSenha"
-                                class="container-input">
+                          <div class="container-input senha-group">
 
-                                <i class="fa-solid fa-unlock"></i>
+    <i class="fas fa-lock"></i>
 
-                                <input
-                                    id="inputConfirmarSenha"
-                                    class="input-campo"
-                                    type="password">
+    <input
+        type="password"
+        id="confirmarSenha"
+        class="input-campo"
+        placeholder="Confirme sua senha"
+    >
 
-                            </div>
+    <button
+        type="button"
+        class="toggle-password"
+        onclick="mostrarSenha('confirmarSenha', this)">
+
+        <i class="fas fa-eye"></i>
+
+    </button>
+
+</div>
 
                         </div>
 
@@ -408,13 +427,14 @@
                         </label>
 
                     </div>
-                             <p id="mensagem"></p>
+                        
+                    <p id="mensagem"></p>
                     <!-- Botão -->
 
                     <button
                         id="btnCadastrar"
                         class="btn-cadastrar"
-                        type="submit">
+                        type="button">
                     </button>
 
                 </form>
