@@ -1,158 +1,379 @@
-
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="pt-BR">
+
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>GAMESSTART</title>
-	
-    <link rel="stylesheet" href="style/index.css" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GamesStart</title>
+
+    <link rel="stylesheet" href="../style/index.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
-    <!-- Cabeçalho do site -->
-    <header>
-        <div class="topo">
-        <!-- Caixa de pesquisa -->
-            <div class="Caixa-de-pesquisa">
-                    <button type="submit">
-                        <img src="assets/lupa.png" alt="Ícone de pesquisa" />
-                    </button>
-                <input type="text" placeholder="Buscar por jogos..." />
-           </div>
-            <div class= "Ícones">
-                <a href=""><img src="assets/carrinho.png" alt="Ícone de carrinho" class="carrinho" /></a>
-                <a href=""><img src="assets/usuario.png" alt="Ícone de usuário" class="usuario" /></a>
-                <a href=""><img src="assets/ajustes.png" alt="Ícone de ajustes" class="sino" /></a>
-           </div>
-      
-    </div>
-        <nav class="menu">
 
-             <!-- Logo do site -->
-            <div class="logo">
-                <img src="assets/logo.png" alt="Logo do GAMESSTART" />
-            </div>
-        <a  id="idinício"href="">Início</a> 
-        <a href="">Novidades</a>
-        <a href="">Categorias</a>
-        <a href="">Promoções</a>
-        </nav>
-        
-    </header>
-            <!-- Banner principal -->
-             <div class="banner">
-                <div class="imagens-banner">
-                    <img src="assets/Banner.png" alt="Banner principal do GAMESSTART" />
-                 
+    <!-- HEADER -->
 
-                </div>
+    <header class="header">
 
-         <div class="botões-banner">
+        <div class="logo">
 
+            <i class="fa-solid fa-gamepad"></i>
 
-               <button class="btn-anterior">
-                    <img src="assets/anterior.png" alt="Seta para esquerda">
-                </button>
-                <button class="btn-comprar">Comprar</button>
-                <button class="btn-proximo">
-                    <img src="assets/proximo.png" alt="Seta para direita">
-                </button>
+            <span>GamesStart</span>
 
         </div>
-             </div>
 
-        
-             <section class="destaques">
-                <div class="titulo-destaque">
-                    <h2>Jogos em Destaque</h2>
+        <div class="search">
 
-                </div>
-                <a href="#" class="Ver tudo">Ver Tudo > </a>
-                 
-                <div class="lista-categorias">
-                    <div class="card-produtos">
-                        <img src="assets/bf6.png" alt="produto 1">
-                        <h3>Battlefield 6</h3>
-                        <p>R$ 299,00</p>
+            <input type="text" placeholder="O que você está procurando hoje?">
 
-                    </div>
+            <button>
 
-                </div>
-             </section>
-             <!--Banner 2 -->
-              <!-- Banner principal -->
-             <div class="banner">
-                <div class="imagens-banner">
-                    <img src="assets/Banner2.png" alt="Banner principal do GAMESSTART" />
-                </div>
-                
-             </div>  
-                 
+                <i class="fa-solid fa-magnifying-glass"></i>
 
-             
+            </button>
+
+        </div>
+
+        <div class="header-icons">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <i class="fa-solid fa-gear"></i>
+
+            <img src="./img/avatar.png" alt="Perfil">
+
+        </div>
+
+    </header>
+
+    <!-- MENU -->
+
+    <nav class="menu">
+
+        <a href="#">Home</a>
+
+        <a href="#">Consoles</a>
+
+        <a href="#">PCs</a>
+
+        <a href="#">Periféricos</a>
+
+        <a href="#">Jogos</a>
+
+        <a href="#">Promoções</a>
+
+    </nav>
+
+    <!-- BANNER -->
+
+    <section class="banner">
+
+        <div class="banner-info">
+
+            <small>TEMPORADA GAMER</small>
+
+            <h1>
+
+                Upgrade seu Setup com
+
+                <br>
+
+                até 40% OFF
+
+            </h1>
+
+            <p>
+
+                As melhores marcas de hardware e os lançamentos mais esperados.
+
+            </p>
+
+            <div class="buttons">
+
+                <button class="primary">
+
+                    Confira
+
+                </button>
+
+                <button class="secondary">
+
+                    Saiba Mais
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BENEFÍCIOS -->
+
+    <section class="benefits">
+
+        <div class="benefit">
+
+            <i class="fa-solid fa-truck"></i>
+
+            <div>
+
+                <h4>Frete Grátis</h4>
+
+                <p>Compras acima de R$ 50</p>
+
+            </div>
+
+        </div>
+
+        <div class="benefit">
+
+            <i class="fa-solid fa-credit-card"></i>
+
+            <div>
+
+                <h4>Até 12x sem juros</h4>
+
+                <p>Parcelas mínimas de R$ 50</p>
+
+            </div>
+
+        </div>
+
+        <div class="benefit">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <div>
+
+                <h4>Garantia Estendida</h4>
+
+                <p>Proteção oficial GamesStart</p>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
+    <!--=========================================
+    BANNER PROMOCIONAL
+==========================================-->
 
-             <footer>
-                <div class="superior">
-                    <div class="coluna1">
-                        <h2>GamesStart</h2>
-                        <p>A maior loja de jogos digitais do Brasil. Qualidade,
-                          segurança e os melhores preços para o seu setup.</p>
-<div class="redes-sociais">
-    <a href="">
-        <img src="assets/fbk.png">
-    </a>
-     <a href="">
-        <img src="assets/yot.png">
-    </a>
-     <a href="">
-        <img src="assets/whtpp.png">
-    </a>
-     <a href="">
-        <img src="assets/insta.png">
-    </a>
-</div>
-                        
-                    </div>
-               <div class="coluna2">
-                <h2>Plataformas</h2>
-                <p>PC (Steam/Epic)</p>
-                <p>PlayStation 5</p>
-                <p>Xbox Series X|S</p>
-                <p>Nintendo Switch</p>
-               </div>
-                <div class="coluna3">
-                <h2>Suporte</h2>
-                <!--Criando lista-->
-                <ul>
-                    <li><a href="">Central de ajuda</a> </li>
-                    <li><a href="">Termos de uso</a> </li>
-                    <li><a href="">Privacidade</a> </li>
-                    <li><a href="">Reembolso</a> </li>
-                </ul>
-               </div>
-                <div class="coluna4">
-                    <h2>Minha conta</h2>
-                    <ul>
-                        <li><a href="">Perfil</a> </li>
-                        <li><a href="">Meus pedidos</a> </li>
-                        <li><a href="">Lista de desejos</a> </li>
-                        <li><a href="">Configurações</a> </li>
-                    </ul>
-               </div>
+    <section class="promo-banner">
 
-                </div>
+        <div class="promo-text">
+
+            <h2>Oferta de Fim de Semana!</h2>
+
+            <p>
+                Consiga até <strong>75% de desconto</strong> em títulos selecionados
+                da franquia Warhammer e RPGs clássicos.
+            </p>
+
+            <div class="promo-bottom">
+
+                <button>Aproveitar agora</button>
+
+                <span>
+
+                    TERMINA EM:
+
+                    <strong id="countdown">
+                        24h : 15m : 42s
+                    </strong>
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="promo-image">
+
+            <img src="./img/banner/controle.png">
+
+        </div>
+
+    </section>
+
+    <!--=========================================
+    MAIS VENDIDOS
+==========================================-->
+
+    <section class="products-section">
+
+        <div class="section-title">
+
+            <h2>Mais Vendidos</h2>
+
+        </div>
+
+        <div id="bestProducts" class="products-grid"></div>
+
+    </section>
+
+    <!--=========================================
+    NOVIDADES
+==========================================-->
+
+    <section class="products-section">
+
+        <div class="section-title">
+
+            <h2>Novidades</h2>
+
+            <p>Recém chegados ao nosso catálogo</p>
+
+        </div>
+
+        <div id="newProducts" class="products-grid"></div>
+
+    </section>
 
 
+    <!--=========================================
+                FOOTER
+==========================================-->
 
-                <div class="inferior">
-                <p>© 2026 GameStart Todos os direitos reservados.</p>
+<footer class="footer">
 
+    <div class="footer-container">
 
-                </div>
+        <!-- LOGO -->
 
+        <div class="footer-column">
 
-             </footer>
+            <div class="footer-logo">
+
+                <i class="fa-solid fa-gamepad"></i>
+
+                <span>GamesStart</span>
+
+            </div>
+
+            <p>
+
+                A maior loja de hardware e games do Brasil.
+                Qualidade e confiança para o seu setup.
+
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                <a href="#"><i class="fab fa-youtube"></i></a>
+
+                <a href="#"><i class="fab fa-discord"></i></a>
+
+            </div>
+
+        </div>
+
+        <!-- INSTITUCIONAL -->
+
+        <div class="footer-column">
+
+            <h3>Institucional</h3>
+
+            <a href="#">Sobre Nós</a>
+
+            <a href="#">Nossas Lojas</a>
+
+            <a href="#">Política de Privacidade</a>
+
+            <a href="#">Termos de Uso</a>
+
+            <a href="#">Trabalhe Conosco</a>
+
+        </div>
+
+        <!-- ATENDIMENTO -->
+
+        <div class="footer-column">
+
+            <h3>Atendimento</h3>
+
+            <a href="#">Central de Ajuda</a>
+
+            <a href="#">Meus Pedidos</a>
+
+            <a href="#">Devoluções</a>
+
+            <a href="#">Garantia</a>
+
+            <a href="#">Fale Conosco</a>
+
+        </div>
+
+        <!-- NEWSLETTER -->
+
+        <div class="footer-column">
+
+            <h3>Receba nossas promoções</h3>
+
+            <p>
+
+                Cadastre seu e-mail e receba ofertas exclusivas.
+
+            </p>
+
+            <form class="newsletter">
+
+                <input
+                    type="email"
+                    placeholder="Seu e-mail">
+
+                <button>
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <span>
+
+            © 2026 GamesStart. Todos os direitos reservados.
+
+        </span>
+
+        <span>
+
+            CNPJ: 00.000.000/0001-00
+
+        </span>
+
+        <span>
+
+            GamesStart Tecnologia S.A.
+
+        </span>
+
+    </div>
+
+</footer>
+
+    <script src="../js/index.js"></script>
+
 </body>
+
 </html>

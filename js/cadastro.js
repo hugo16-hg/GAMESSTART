@@ -173,21 +173,23 @@ function preencherPlaceholders() {
 
 function adicionarEventos() {
 
+    const inputTelefone = document.getElementById("inputTelefone");
+    const inputCpf = document.getElementById("inputCpf");
+    const inputDataNascimento = document.getElementById("inputDataNascimento");
 
-    document
-        .getElementById("inputTelefone")
-        .addEventListener("input", mascaraTelefone);
+    if (inputTelefone) {
+        inputTelefone.addEventListener("input", mascaraTelefone);
+    }
 
-    document
-        .getElementById("inputCpf")
-        .addEventListener("input", mascaraCpf);
+    if (inputCpf) {
+        inputCpf.addEventListener("input", mascaraCpf);
+    }
 
-    document
-        .getElementById("inputDataNascimento")
-        .addEventListener("input", mascaraData);
+    if (inputDataNascimento) {
+        inputDataNascimento.addEventListener("input", mascaraData);
+    }
 
 }
-
 
 /* ==========================================================
    MÁSCARAS
@@ -195,29 +197,29 @@ function adicionarEventos() {
 
 function mascaraTelefone(e) {
 
-    let valor = e.target.value.replace(/\D/g, '');
+    let valor = e.target.value.replace(/\D/g, "");
 
     valor = valor.substring(0, 11);
 
-    valor = valor.replace(/^(\d{2})(\d)/, '($1) $2');
-
-    valor = valor.replace(/(\d{5})(\d)/, '$1-$2');
+    if (valor.length <= 10) {
+        valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
+        valor = valor.replace(/(\d{4})(\d)/, "$1-$2");
+    } else {
+        valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
+        valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+    }
 
     e.target.value = valor;
-
 }
-
 function mascaraCpf(e) {
 
-    let valor = e.target.value.replace(/\D/g, '');
+    let valor = e.target.value.replace(/\D/g, "");
 
     valor = valor.substring(0, 11);
 
-    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
-
-    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
-
-    valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    valor = valor.replace(/^(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
+    valor = valor.replace(/\.(\d{3})(\d{1,2})$/, ".$1-$2");
 
     e.target.value = valor;
 
@@ -237,6 +239,22 @@ function mascaraData(e) {
 
 }
 
+function mostrarSenha(idCampo, elemento){
+
+    const campo = document.getElementById(idCampo);
+    const icone = elemento.querySelector("i");
+
+    if(campo.type === "password"){
+        campo.type = "text";
+        icone.classList.remove("fa-eye");
+        icone.classList.add("fa-eye-slash");
+    }else{
+        campo.type = "password";
+        icone.classList.remove("fa-eye-slash");
+        icone.classList.add("fa-eye");
+    }
+
+}
 
 /* ==========================================================
    ENVIO
@@ -287,6 +305,7 @@ function enviarFormulario(event) {
 
 
 document.getElementById("btnCadastrar").addEventListener("click", () => {
+    
 
     const nome = document.getElementById("inputNome").value.trim();
 
@@ -417,7 +436,7 @@ const dataMysql = `${partes[2]}-${partes[1]}-${partes[0]}`;
 
         senha: senha,
 
-        data_nascimento: dataMysql,
+        data_nascimento: dataNascimento,
 
         Loja_idloja: 1
 

@@ -14,7 +14,7 @@ logo.alt = "Logo da aplicação"; */
 ========================================================== */
 
 document.getElementById("loginTitle").textContent =
-"Bem-vindo";
+   "Bem-vindo";
 
 
 /* ==========================================================
@@ -22,7 +22,7 @@ document.getElementById("loginTitle").textContent =
 ========================================================== */
 
 document.getElementById("loginSubtitle").textContent =
-"Por favor, faça login para acessar sua conta.";
+   "Por favor, faça login para acessar sua conta.";
 
 
 /* ==========================================================
@@ -30,13 +30,13 @@ document.getElementById("loginSubtitle").textContent =
 ========================================================== */
 
 document.getElementById("emailLabel").textContent =
-"E-mail";
+   "E-mail";
 
 document.getElementById("email").placeholder =
-"Digite seu e-mail";
+   "Digite seu e-mail";
 
 document.getElementById("emailIcon").textContent =
-"✉";
+   "✉";
 
 
 /* ==========================================================
@@ -44,13 +44,13 @@ document.getElementById("emailIcon").textContent =
 ========================================================== */
 
 document.getElementById("passwordLabel").textContent =
-"Senha";
+   "Senha";
 
 document.getElementById("password").placeholder =
-"Digite sua senha";
+   "Digite sua senha";
 
 document.getElementById("passwordIcon").textContent =
-"🔒";
+   "🔒";
 
 
 /* ==========================================================
@@ -58,10 +58,10 @@ document.getElementById("passwordIcon").textContent =
 ========================================================== */
 
 const forgotPassword =
-document.getElementById("forgotPassword");
+   document.getElementById("forgotPassword");
 
 forgotPassword.textContent =
-"Esqueceu a senha?";
+   "Esqueceu a senha?";
 
 forgotPassword.href = "#";
 
@@ -71,7 +71,7 @@ forgotPassword.href = "#";
 ========================================================== */
 
 document.getElementById("rememberLabel").textContent =
-"Lembrar de mim";
+   "Lembrar de mim";
 
 
 /* ==========================================================
@@ -79,7 +79,7 @@ document.getElementById("rememberLabel").textContent =
 ========================================================== */
 
 document.getElementById("loginButton").textContent =
-"Entrar";
+   "Entrar";
 
 
 /* ==========================================================
@@ -87,7 +87,7 @@ document.getElementById("loginButton").textContent =
 ========================================================== */
 
 document.getElementById("dividerText").textContent =
-"OU CONTINUAR COM";
+   "OU CONTINUAR COM";
 
 
 /* ==========================================================
@@ -95,10 +95,10 @@ document.getElementById("dividerText").textContent =
 ========================================================== */
 
 document.getElementById("googleIcon").textContent =
-"🌐";
+   "🌐";
 
 document.getElementById("googleText").textContent =
-"Entrar com Google";
+   "Entrar com Google";
 
 
 /* ==========================================================
@@ -106,13 +106,13 @@ document.getElementById("googleText").textContent =
 ========================================================== */
 
 document.getElementById("registerText").textContent =
-"Não possui uma conta?";
+   "Não possui uma conta?";
 
 const registerLink =
-document.getElementById("registerLink");
+   document.getElementById("registerLink");
 
 registerLink.textContent =
-"Criar conta";
+   "Criar conta";
 
 registerLink.href = "#";
 
@@ -122,7 +122,7 @@ registerLink.href = "#";
 ========================================================== */
 
 document.getElementById("footerText").textContent =
-"© 2026 Todos os direitos reservados.";
+   "© 2026 Todos os direitos reservados.";
 
 
 /* ==========================================================
@@ -135,13 +135,13 @@ const showPassword = document.getElementById("showPassword");
 
 showPassword.addEventListener("click", () => {
 
-    if (password.type === "password") {
-        password.type = "text";
-        eyeIcon.src = "/assets/visivel.png";
-    } else {
-        password.type = "password";
-        eyeIcon.src = "/assets/esconder.png";
-    }
+   if (password.type === "password") {
+      password.type = "text";
+      eyeIcon.src = "/assets/visivel.png";
+   } else {
+      password.type = "password";
+      eyeIcon.src = "/assets/esconder.png";
+   }
 
 });
 ``
@@ -151,43 +151,43 @@ showPassword.addEventListener("click", () => {
 ========================================================== */
 
 const loginForm =
-document.getElementById("loginForm");
+   document.getElementById("loginForm");
 
-loginForm.addEventListener("submit",(event)=>{
+loginForm.addEventListener("submit", (event) => {
 
-    /* Impede o recarregamento da página */
+   /* Impede o recarregamento da página */
 
-    event.preventDefault();
-
-
-    /* Captura os valores dos campos */
-
-    const email =
-    document.getElementById("email").value;
-
-    const password =
-    document.getElementById("password").value;
-
-    const remember =
-    document.getElementById("remember").checked;
+   event.preventDefault();
 
 
-    /* Exibe os dados no console */
+   /* Captura os valores dos campos */
 
-    console.clear();
+   const email =
+      document.getElementById("email").value;
 
-    console.log("========= LOGIN =========");
+   const password =
+      document.getElementById("password").value;
 
-    console.log("E-mail:", email);
-
-    console.log("Senha:", password);
-
-    console.log("Lembrar:", remember);
-
-    console.log("=========================");
+   const remember =
+      document.getElementById("remember").checked;
 
 
-    /* Aqui será chamada futuramente a API */
+   /* Exibe os dados no console */
+
+   console.clear();
+
+   console.log("========= LOGIN =========");
+
+   console.log("E-mail:", email);
+
+   console.log("Senha:", password);
+
+   console.log("Lembrar:", remember);
+
+   console.log("=========================");
+
+
+   /* Aqui será chamada futuramente a API */
 
 });
 
@@ -197,11 +197,11 @@ loginForm.addEventListener("submit",(event)=>{
 ========================================================== */
 
 const googleButton =
-document.getElementById("googleButton");
+   document.getElementById("googleButton");
 
-googleButton.addEventListener("click",()=>{
+googleButton.addEventListener("click", () => {
 
-    console.log("Login Google");
+   console.log("Login Google");
 
 });
 
@@ -226,3 +226,67 @@ googleButton.addEventListener("click",()=>{
    ✔ LocalStorage
 
 ========================================================== */
+
+
+const btnEntrar = document.getElementById("loginButton");
+
+btnEntrar.addEventListener("click", () => {
+
+   const email = document.getElementById("email").value.trim();
+   const senha = document.getElementById("password").value;
+
+   const mensagem = document.getElementById("mensagem");
+
+   if (email === "" || senha === "") {
+
+      mensagem.innerHTML = "Preencha todos os campos.";
+      mensagem.style.color = "red";
+      return;
+
+   }
+
+   if (senha.length < 6) {
+
+      mensagem.innerHTML = "A senha deve possuir no mínimo 6 caracteres.";
+      mensagem.style.color = "red";
+      return;
+
+   }
+
+   fetch("http://localhost:3000/clientes/login", {
+
+      method: "POST",
+
+      headers: {
+         "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+         email,
+         senha
+      })
+
+   })
+
+      .then(res => res.json())
+
+      .then(resposta => {
+
+         if (resposta.sucesso) {
+
+            localStorage.setItem(
+               "cliente",
+               JSON.stringify(resposta.cliente)
+            );
+
+            window.location.href = "../index.html";
+
+         } else {
+
+            mensagem.innerHTML = resposta.mensagem;
+            mensagem.style.color = "red";
+
+         }
+
+      });
+});

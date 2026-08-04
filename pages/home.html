@@ -3,1206 +3,249 @@
 
 <head>
 
+    <!-- ==========================================================
+        Projeto : GamesStart
+        Página  : Home
+        Descrição:
+        Estrutura da Home.
+
+        Todo o conteúdo será criado pelo arquivo home.js.
+
+        O CSS utilizará apenas classes.
+
+        O JavaScript utilizará apenas IDs.
+    =========================================================== -->
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>GamesStart</title>
 
-    <!-- Google Font -->
+    <!-- CSS -->
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link
+        rel="stylesheet"
+        href="../style/home.css">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <!-- Fonte -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-    <!-- Font Awesome -->
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="../css/home.css">
+    <!-- Ícones -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
 <body>
 
-<div class="page">
-
-<!-- ================= HEADER ================= -->
-
-<header>
-
-<div class="container">
-
-<div class="top-header">
-
-<!-- LOGO -->
-
-<div class="logo">
-
-<div class="logo-icon">
-
-<i class="fa-solid fa-gamepad"></i>
-
-</div>
-
-<span>GamesStart</span>
-
-</div>
-
-<!-- PESQUISA -->
-
-<div class="search-box">
-
-<i class="fa-solid fa-magnifying-glass"></i>
-
-<input
-type="text"
-placeholder="O que você está procurando hoje?">
-
-</div>
-
-<!-- AÇÕES -->
-
-<div class="header-actions">
-
-<div class="cart">
-
-<i class="fa-solid fa-cart-shopping"></i>
-
-<span>2</span>
-
-</div>
-
-<div class="settings">
-
-<i class="fa-solid fa-gear"></i>
-
-</div>
-
-<div class="profile">
-
-<img
-src="https://i.pravatar.cc/80?img=5"
-alt="">
-
-</div>
-
-</div>
-
-</div>
-
-<!-- MENU -->
-
-<nav>
-
-<ul>
-
-<li class="active">
-
-<a href="#">Home</a>
-
-</li>
-
-<li>
-
-<a href="#">Consoles</a>
-
-</li>
-
-<li>
-
-<a href="#">PCs</a>
-
-</li>
-
-<li>
-
-<a href="#">Periféricos</a>
-
-</li>
-
-<li>
-
-<a href="#">Jogos</a>
-
-</li>
-
-<li>
-
-<a href="#">
-
-<i class="fa-solid fa-fire"></i>
-
-Promoções
-
-</a>
-
-</li>
-
-</ul>
-
-</nav>
-
-</div>
-
-</header>
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-<div class="container">
-
-<div class="hero-slider">
-
-<img
-src="images/banner.jpg"
-alt="">
-
-<div class="hero-overlay">
-
-<p>
-
-TEMPORADA GAMER
-
-</p>
-
-<h1>
-
-Upgrade seu Setup com até 40% OFF
-
-</h1>
-
-<span>
-
-As melhores marcas de hardware e os lançamentos mais esperados em mídia física estão aqui.
-
-</span>
-
-<div class="hero-buttons">
-
-<button class="primary">
-
-Confira
-
-</button>
-
-<button class="secondary">
-
-Saiba Mais
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= BENEFÍCIOS ================= -->
-
-<section class="benefits">
-
-<div class="container">
-
-<div class="benefits-grid">
-
-<div class="benefit">
-
-<div class="icon">
-
-<i class="fa-solid fa-truck-fast"></i>
-
-</div>
-
-<div>
-
-<h3>
-
-Frete Grátis
-
-</h3>
-
-<p>
-
-Em compras acima de R$ 50
-
-</p>
-
-</div>
-
-</div>
-
-<div class="benefit">
-
-<div class="icon">
-
-<i class="fa-solid fa-credit-card"></i>
-
-</div>
-
-<div>
-
-<h3>
-
-Até 12x Sem Juros
-
-</h3>
-
-<p>
-
-Parcelas mínimas de R$ 50
-
-</p>
-
-</div>
-
-</div>
-
-<div class="benefit">
-
-<div class="icon">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-</div>
-
-<div>
-
-<h3>
-
-Garantia Estendida
-
-</h3>
-
-<p>
-
-Proteção oficial GamesStart
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= CATEGORIAS ================= -->
-
-<section class="categories">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>
-
-Compre por Categoria
-
-</h2>
-
-<a href="#">
-
-Ver Todas
-
-<i class="fa-solid fa-chevron-right"></i>
-
-</a>
-
-</div>
-
-<div class="categories-grid">
-
-<!-- CARD -->
-
-<div class="category-card">
-
-<div class="text">
-
-<h3>
-
-Consoles
-
-</h3>
-
-<a href="#">
-
-Explorar
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-</div>
-
-<img
-src="images/ps5.png"
-alt="">
-
-</div>
-
-<!-- CARD -->
-
-<div class="category-card">
-
-<div class="text">
-
-<h3>
-
-PCs Gamer
-
-</h3>
-
-<a href="#">
-
-Explorar
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-</div>
-
-<img
-src="images/pc.png"
-alt="">
-
-</div>
-
-<!-- CARD -->
-
-<div class="category-card">
-
-<div class="text">
-
-<h3>
-
-Notebooks Gamer
-
-</h3>
-
-<a href="#">
-
-Explorar
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-</div>
-
-<img
-src="images/notebook.png"
-alt="">
-
-</div>
-
-<!-- CARD -->
-
-<div class="category-card">
-
-<div class="text">
-
-<h3>
-
-Periféricos
-
-</h3>
-
-<a href="#">
-
-Explorar
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-</div>
-
-<img
-src="images/perifericos.png"
-alt="">
-
-</div>
-
-<!-- CARD -->
-
-<div class="category-card">
-
-<div class="text">
-
-<h3>
-
-Mesas e Cadeiras Gamer
-
-</h3>
-
-<a href="#">
-
-Explorar
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-</div>
-
-<img
-src="images/mesa.png"
-alt="">
-
-</div>
-
-<!-- CARD -->
-
-<div class="category-card">
-
-<div class="text">
-
-<h3>
-
-Jogos Mídia Física
-
-</h3>
-
-<a href="#">
-
-Explorar
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-</div>
-
-<img
-src="images/jogos.png"
-alt="">
-
-</div>
-
-</div>
-
-</div>
-
-</section><!-- ================= OFERTA ================= -->
-
-<section class="offer">
-
-    <div class="container">
-
-        <div class="offer-banner">
-
-            <div class="offer-content">
-
-                <h2>
-                    Oferta de Fim de Semana!
-                </h2>
-
-                <p>
-                    Consiga até <strong>75% de desconto</strong> em títulos
-                    selecionados da franquia Warhammer e RPGs clássicos.
-                </p>
-
-                <button>
-
-                    Aproveitar agora
-
-                </button>
-
-                <div class="countdown">
-
-                    <span>TERMINA EM</span>
-
-                    <h3>
-
-                        <span id="hours">24</span>h :
-
-                        <span id="minutes">15</span>m :
-
-                        <span id="seconds">42</span>s
-
-                    </h3>
-
-                </div>
-
+    <!-- ==========================================================
+                            HEADER
+    =========================================================== -->
+
+    <header
+        id="header"
+        class="header">
+
+        <!-- Barra Superior -->
+
+        <div
+            id="headerSuperior"
+            class="header-superior">
+
+            <div
+                id="logoContainer"
+                class="logo-container">
             </div>
 
-            <div class="offer-image">
+            <div
+                id="pesquisaContainer"
+                class="pesquisa-container">
+            </div>
 
-                <img
-                    src="images/controller.png"
-                    alt="Controle Xbox">
-
+            <div
+                id="acoesContainer"
+                class="acoes-container">
             </div>
 
         </div>
 
-    </div>
+        <!-- Barra Inferior -->
 
-</section>
+        <div
+            id="headerInferior"
+            class="header-inferior">
 
-<!-- ================= MAIS VENDIDOS ================= -->
-
-<section class="products">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>
-
-                Mais Vendidos
-
-            </h2>
+            <nav
+                id="menuContainer"
+                class="menu-container">
+            </nav>
 
         </div>
 
-        <div class="products-grid">
+    </header>
 
-            <!-- Produto -->
 
-            <div class="product-card">
 
-                <div class="product-image">
+    <!-- ==========================================================
+                            CONTEÚDO
+    =========================================================== -->
 
-                    <img
-                        src="images/dualsense.png"
-                        alt="">
+    <main
+        id="main"
+        class="main">
 
-                </div>
+        <!-- Banner Principal -->
 
-                <div class="product-info">
+        <section
+            id="bannerPrincipal"
+            class="banner-principal">
+        </section>
 
-                    <h3>
 
-                        Controle Sem Fio DualSense - PlayStation 5
 
-                    </h3>
+        <!-- Benefícios -->
 
-                    <div class="price">
+        <section
+            id="beneficios"
+            class="beneficios">
+        </section>
 
-                        R$ 449,90
 
-                    </div>
 
-                    <button>
+        <!-- Categorias -->
 
-                        <i class="fa-solid fa-cart-shopping"></i>
+        <section
+            id="categorias"
+            class="categorias">
 
-                        Adicionar
+            <header
+                id="cabecalhoCategorias"
+                class="cabecalho-secao">
+            </header>
 
-                    </button>
-
-                </div>
-
+            <div
+                id="listaCategorias"
+                class="lista-categorias">
             </div>
 
-            <!-- Produto -->
+        </section>
 
-            <div class="product-card">
 
-                <div class="product-image">
 
-                    <img
-                        src="images/ryzen7.png"
-                        alt="">
+        <!-- Banner Promoção -->
 
-                </div>
+        <section
+            id="bannerPromocional"
+            class="banner-promocional">
+        </section>
 
-                <div class="product-info">
 
-                    <h3>
 
-                        Processador AMD Ryzen 7 7800X3D
+        <!-- Mais Vendidos -->
 
-                    </h3>
+        <section
+            id="maisVendidos"
+            class="produtos">
 
-                    <div class="price">
+            <header
+                id="cabecalhoMaisVendidos"
+                class="cabecalho-secao">
+            </header>
 
-                        R$ 2.899,00
-
-                    </div>
-
-                    <button>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        Adicionar
-
-                    </button>
-
-                </div>
-
+            <div
+                id="listaMaisVendidos"
+                class="lista-produtos">
             </div>
 
-            <!-- Produto -->
+        </section>
 
-            <div class="product-card">
 
-                <div class="product-image">
 
-                    <img
-                        src="images/hyperx.png"
-                        alt="">
+        <!-- Novidades -->
 
-                </div>
+        <section
+            id="novidades"
+            class="produtos">
 
-                <div class="product-info">
+            <header
+                id="cabecalhoNovidades"
+                class="cabecalho-secao">
+            </header>
 
-                    <h3>
-
-                        Headset Gamer HyperX Cloud II 7.1 Surround
-
-                    </h3>
-
-                    <div class="price">
-
-                        R$ 699,00
-
-                    </div>
-
-                    <button>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        Adicionar
-
-                    </button>
-
-                </div>
-
+            <div
+                id="listaNovidades"
+                class="lista-produtos">
             </div>
 
-            <!-- Produto -->
+        </section>
 
-            <div class="product-card promotion">
+    </main>
 
-                <span class="badge">
 
-                    PROMOÇÃO
 
-                </span>
+    <!-- ==========================================================
+                            FOOTER
+    =========================================================== -->
 
-                <div class="product-image">
+    <footer
+        id="footer"
+        class="footer">
 
-                    <img
-                        src="images/eldenring.png"
-                        alt="">
+        <div
+            id="footerContainer"
+            class="footer-container">
 
-                </div>
+            <section
+                id="footerEmpresa"
+                class="footer-empresa">
+            </section>
 
-                <div class="product-info">
+            <section
+                id="footerInstitucional"
+                class="footer-institucional">
+            </section>
 
-                    <div class="stars">
+            <section
+                id="footerAtendimento"
+                class="footer-atendimento">
+            </section>
 
-                        ★★★★★
-
-                        <span>(256)</span>
-
-                    </div>
-
-                    <h3>
-
-                        Elden Ring: Shadow of the Erdtree PS5
-
-                    </h3>
-
-                    <div class="price">
-
-                        R$ 314,10
-
-                    </div>
-
-                    <button>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        Adicionar
-
-                    </button>
-
-                </div>
-
-            </div>
+            <section
+                id="footerRedesSociais"
+                class="footer-redes">
+            </section>
 
         </div>
 
-    </div>
-
-</section>
-
-<!-- ================= NOVIDADES ================= -->
-
-<section class="products">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <div>
-
-                <h2>
-
-                    Novidades
-
-                </h2>
-
-                <p>
-
-                    Recém chegados ao nosso catálogo
-
-                </p>
-
-            </div>
-
+        <div
+            id="footerCopyright"
+            class="footer-copyright">
         </div>
 
-        <div class="products-grid">
+    </footer>
 
-            <!-- Produto -->
+    <!-- ==========================================================
+                            JAVASCRIPT
+    =========================================================== -->
 
-            <div class="product-card">
-
-                <span class="badge new">
-
-                    NOVO
-
-                </span>
-
-                <div class="product-image">
-
-                    <img
-                        src="images/oled.png"
-                        alt="">
-
-                </div>
-
-                <div class="product-info">
-
-                    <h3>
-
-                        Monitor Gamer OLED 240Hz 27" QHD 0.03ms
-
-                    </h3>
-
-                    <div class="price">
-
-                        R$ 6.199,00
-
-                    </div>
-
-                    <button>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        Adicionar
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- Produto -->
-
-            <div class="product-card">
-
-                <span class="badge new">
-
-                    NOVO
-
-                </span>
-
-                <div class="product-image">
-
-                    <img
-                        src="images/astro.png"
-                        alt="">
-
-                </div>
-
-                <div class="product-info">
-
-                    <h3>
-
-                        Headset Astro A50 Wireless Gen 4 + Base
-
-                    </h3>
-
-                    <div class="price">
-
-                        R$ 1.999,00
-
-                    </div>
-
-                    <button>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        Adicionar
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- Produto -->
-
-            <div class="product-card">
-
-                <span class="badge new">
-
-                    NOVO
-
-                </span>
-
-                <div class="product-image">
-
-                    <img
-                        src="images/ffvii.png"
-                        alt="">
-
-                </div>
-
-                <div class="product-info">
-
-                    <h3>
-
-                        Final Fantasy VII Rebirth - PlayStation 5
-
-                    </h3>
-
-                    <div class="price">
-
-                        R$ 349,00
-
-                    </div>
-
-                    <button>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        Adicionar
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- Produto -->
-
-            <div class="product-card">
-
-                <span class="badge new">
-
-                    NOVO
-
-                </span>
-
-                <div class="product-image">
-
-                    <img
-                        src="images/i9.png"
-                        alt="">
-
-                </div>
-
-                <div class="product-info">
-
-                    <h3>
-
-                        Processador Intel Core i9-14900K LGA1700
-
-                    </h3>
-
-                    <div class="price">
-
-                        R$ 4.299,00
-
-                    </div>
-
-                    <button>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        Adicionar
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section><!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div class="container">
-
-        <div class="footer-grid">
-
-            <!-- LOGO -->
-
-            <div class="footer-column">
-
-                <div class="footer-logo">
-
-                    <div class="logo-icon">
-
-                        <i class="fa-solid fa-gamepad"></i>
-
-                    </div>
-
-                    <span>GamesStart</span>
-
-                </div>
-
-                <p>
-
-                    A maior loja de hardware e games do Brasil.
-                    Qualidade e confiança para o seu setup.
-
-                </p>
-
-                <div class="socials">
-
-                    <a href="#">
-
-                        <i class="fab fa-instagram"></i>
-
-                    </a>
-
-                    <a href="#">
-
-                        <i class="fab fa-whatsapp"></i>
-
-                    </a>
-
-                    <a href="#">
-
-                        <i class="fab fa-youtube"></i>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            <!-- Institucional -->
-
-            <div class="footer-column">
-
-                <h4>
-
-                    Institucional
-
-                </h4>
-
-                <ul>
-
-                    <li>
-
-                        <a href="#">
-
-                            Sobre Nós
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Nossas Lojas
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Políticas de Privacidade
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Termos de Uso
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Trabalhe Conosco
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <!-- Atendimento -->
-
-            <div class="footer-column">
-
-                <h4>
-
-                    Atendimento
-
-                </h4>
-
-                <ul>
-
-                    <li>
-
-                        <a href="#">
-
-                            Central de Ajuda
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Meus Pedidos
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Devoluções
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Garantia
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Fale Conosco
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <!-- Newsletter -->
-
-            <div class="footer-column">
-
-                <h4>
-
-                    Fique por dentro das promoções
-
-                </h4>
-
-                <form class="newsletter">
-
-                    <input
-                        type="email"
-                        placeholder="Seu e-mail">
-
-                    <button>
-
-                        <i class="fa-solid fa-paper-plane"></i>
-
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-        <!-- Rodapé -->
-
-        <div class="footer-bottom">
-
-            <p>
-
-                © 2024 GamesStart. Todos os direitos reservados.
-
-            </p>
-
-            <p>
-
-                CNPJ: 00.000.000/0001-00
-
-            </p>
-
-            <p>
-
-                GamesStart Tecnologia S.A.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-</div>
-
-<script src="../js/home.js"></script>
+    <script src="../js/home.js"></script>
 
 </body>
 

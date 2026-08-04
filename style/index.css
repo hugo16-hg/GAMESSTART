@@ -1,392 +1,760 @@
-/* Colocando cor de fundo no cabeçalho */
-header {
-    background-color: #ffffff;
-    /* Cor de fundo branca */
-    font-family: Roboto, sans-serif;
-    /* fonte do cabeçalho */
-    color: #64748B;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-nav a {
-    color: #64748B;
-    /* Cor dos links do menu de navegação */
-    text-decoration: none;
-    /* Remove o sublinhado dos links */
-    margin: 0 15px;
-    /* Espaçamento entre os links */
-    font-size: 1.2rem;
-    /* Tamanho da fonte dos links */
-    position: relative;
-    /* Permite posicionar o link "Início" */
-    right: 90px;
-    /* Ajusta a posição horizontal do link "Início" */
-    top: 20px;
-    /* Ajusta a posição vertical do link "Início" */
-    transform: translateY(-50%);
-    /* Centraliza verticalmente o link "Início" */
-}
+body{
 
-#idinício {
-    color: #242c99;
-    /* Cor do link "Início" */
-    font-weight: bold;
-    /* Deixa o link "Início" em negrito */
-}
-
-nav {
-    text-align: right;
-    /* Centraliza os links do menu de navegação */
-    padding: 10px;
-    /* Distância da borda do menu de navegação */
-    position: relative;
-    /* Permite posicionar os elementos do menu de navegação */
-    right: 200px;
-    /* Ajusta a posição horizontal do menu de navegação */
+    background:#f5f7fb;
 
 }
 
+/* HEADER */
 
-/* cinfigurando a caixa de pesquisa */
-.Caixa-de-pesquisa input {
-    padding: 10px;
-    /* Adiciona espaçamento interno à caixa de pesquisa */
-    border-radius: 45px;
-    /* Adiciona cantos arredondados à caixa de pesquisa */
-    font-family: Roboto, sans-serif;
-    /* Define a fonte da caixa de pesquisa */
-    width: 700px;
-    /* Define a largura da caixa de pesquisa */
-    height: 7px;
-    /* Define a altura da caixa de pesquisa */
-    border: 1px solid #64748B;
-    /* Adiciona uma borda cinza clara à caixa de pesquisa */
-    padding-left: 40px;
-    /* Adiciona espaço à esquerda para os ícones de pesquisa */
-    position: relative;
-    /* Permite posicionar os ícones de pesquisa dentro da caixa de pesquisa */
-    left: 200px;
-    /* Ajusta a posição horizontal da caixa de pesquisa */
-}
+.header{
 
-.Caixa-de-pesquisa button {
-    padding: 10px 20px;
-    /* Adiciona espaçamento interno ao botão de pesquisa */
-    background-color: #f3f3f500;
-    /* Define a cor de fundo do botão de pesquisa */
-    border: none;
-    /* Remove a borda do botão de pesquisa */
-    cursor: pointer;
-    /* Altera o cursor para indicar que o botão é clicável */
-    position: absolute;
-    /* Permite posicionar o botão de pesquisa */
-    right: 60px;
-    /* Ajusta a posição horizontal do botão de pesquisa */
-    top: 5px;
-    /* Ajusta a posição vertical do botão de pesquisa */
-    transform: translateY(-50%);
-    /* Centraliza verticalmente o botão de pesquisa */
-}
+    width:100%;
 
-/* Configurando a divi da pesquisa */
-.Caixa-de-pesquisa {
-    display: flex;
-    /* Exibe os elementos da caixa de pesquisa em linha */
-    justify-content: center;
-    /* Centraliza os elementos da caixa de pesquisa horizontalmente */
-    margin-top: 20px;
-    /* Adiciona uma margem superior à caixa de pesquisa */
-    margin-bottom: 20px;
-    /* Adiciona uma margem inferior à caixa de pesquisa */
-    position: relative;
-    /* Permite posicionar os ícones de pesquisa dentro da caixa de pesquisa */
-}
+    background:#fff;
 
-.topo {
-    border-color: #969191;
-    /* Cor da borda do menu de navegação */
-    border-width: 1px;
-    /* Largura da borda do menu de navegação */
-    border-style: solid;
-    /* Estilo da borda do menu de navegação */
-    text-align: right;
-    /* Centraliza os links do menu de navegação */
-    display: flex;
-    /* Exibe os elementos do cabeçalho em linha */
-    align-items: center;
-    /* Alinha os elementos do cabeçalho verticalmente */
-    justify-content: space-between;
-    /* Distribui os elementos do cabeçalho com espaço entre eles */
-    padding: 10px;
-    /* Adiciona espaçamento interno ao cabeçalho */
-}
+    display:flex;
 
-/*configurando os ícones */
-.Caixa-de-pesquisa img {
-    height: 20px;
-    /* Ajusta a altura dos ícones */
-    width: 20px;
-    /* Ajusta a largura dos ícones */
-    margin-left: 10px;
-    /* Adiciona uma margem à esquerda dos ícones */
-    position: absolute;
-    /* Permite posicionar os ícones de pesquisa */
-    left: -500px;
-    /* Ajusta a posição horizontal dos ícones de pesquisa */
-    top: 50%;
-    /* Ajusta a posição vertical dos ícones de pesquisa */
-}
+    justify-content:space-between;
 
-/*configurando a div icones */
-.Ícones {
-    display: flex;
-    /* Exibe os ícones do cliente em linha */
-    align-items: center;
-    /* Alinha os ícones do cliente verticalmente */
-    gap: 20px;
-    /* Adiciona um espaço entre os ícones do cliente */
-    margin-right: 20px;
-    /* Adiciona uma margem à direita dos ícones do cliente */
-    position: relative;
-    /* Permite posicionar os ícones do cliente dentro do cabeçalho */
-    right: 200px;
-    /* Ajusta a posição horizontal dos ícones do cliente */
-}
+    align-items:center;
 
-nav .logo img {
-    height: 90px;
-    /* Ajusta a altura do logo */
-    width: auto;
-    /* Mantém a proporção do logo */
-    position: absolute;
-    /* Permite posicionar o logo */
-    left: 400px;
-    /* Ajusta a posição horizontal do logo */
-    top: 100%;
-    /* Ajusta a posição vertical do logo */
-    transform: translateY(-50%);
-    /* Centraliza verticalmente o logo */
-}
-
-
-/*Configurando o banner principal */
-.banner {
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    height: auto;
-}
-
-.imagens-banner {
-    width: 100%;
-    margin-top: 40px;
-    position: relative;
-    /* posição relativa para a posicionar os botões do banner */
-}
-
-.imagens-banner img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-/*
-.botões-banner {
-    position: absolute; 
-    top: 60%; 
-    left: 15% 
-   
-}
-
-.btn-comprar{
-    background-color: #2563EB;
-    color: #ffffff; 
-    border-radius: 45px; 
-    font-family: Roboto, sans-serif;
-    padding: 5px 20px;
-    border: none;
-}
-
-.btn-comprar:hover{
-   background-color: #7dcaf2;
-    color: #2563EB; 
-    border-color: none;
-}
-
-.btn-anterior, .btn-proximo{
-    background-color: #2563EB;
-    color: #ffffff;
-    border-radius: 45px;
-    font-family: Roboto, sans-serif;
-    border: none;
-    padding: 5px 10px;
+    padding:15px 60px;
 
 }
 
-.btn-anterior:hover, .btn-proximo:hover{
-     background-color: #7dcaf2;
-    color: #2563EB; 
-    border-color: none;
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#2d7ef7;
+
+    font-weight:bold;
+
+    font-size:22px;
 
 }
 
-*/
-.btn-comprar{
-    position: absolute;
-    top: 60%;
-    left: 20%;
-    background-color: #2081CB;
-    color: #7dcaf2;
-    border-radius: 10px;
-    font-family: poppins, sans-serif;       
-    font-size: 18px;
-    padding: 5px 20px;
-    border: none;
+.search{
+
+    width:45%;
+
+    display:flex;
+
 }
-.btn-anterior{
+
+.search input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px 0 0 8px;
+
+    outline:none;
+
+}
+
+.search button{
+
+    width:55px;
+
+    border:none;
+
+    background:#2d7ef7;
+
+    color:#fff;
+
+    border-radius:0 8px 8px 0;
+
+    cursor:pointer;
+
+}
+
+.header-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    font-size:20px;
+
+}
+
+.header-icons img{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+}
+
+/* MENU */
+
+.menu{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    background:#fff;
+
+    padding:15px;
+
+}
+
+.menu a{
+
+    text-decoration:none;
+
+    color:#444;
+
+    font-weight:600;
+
+}
+
+.menu a:hover{
+
+    color:#2d7ef7;
+
+}
+
+/* BANNER */
+
+.banner{
+
+    width:92%;
+
+    height:430px;
+
+    margin:30px auto;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:url("../img/banner/banner01.jpg") center center/cover;
+
+    display:flex;
+
+    align-items:center;
+
+    padding-left:70px;
+
+}
+
+.banner-info{
+
+    width:450px;
+
+    color:#fff;
+
+}
+
+.banner small{
+
+    color:#8fd0ff;
+
+    letter-spacing:2px;
+
+}
+
+.banner h1{
+
+    font-size:48px;
+
+    margin:20px 0;
+
+}
+
+.banner p{
+
+    line-height:28px;
+
+    margin-bottom:25px;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.primary{
+
+    background:#2d7ef7;
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.secondary{
+
+    background:#ffffff30;
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:10px;
+
+    backdrop-filter:blur(10px);
+
+    cursor:pointer;
+
+}
+
+/* BENEFÍCIOS */
+
+.benefits{
+
+    width:92%;
+
+    margin:auto;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    padding:30px;
+
+}
+
+.benefit{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.benefit i{
+
+    width:55px;
+
+    height:55px;
+
+    background:#e8f2ff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#2d7ef7;
+
+    font-size:20px;
+
+}
+
+.benefit h4{
+
+    margin-bottom:5px;
+
+}
+
+.benefit p{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+/*==========================
+BANNER PROMOCIONAL
+==========================*/
+
+.promo-banner{
+
+    width:92%;
+    margin:60px auto;
+
+    height:250px;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    background:#101828;
+
+}
+
+.promo-text{
+
+    width:50%;
+
+    padding:45px;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.promo-text h2{
+
+    font-size:38px;
+    margin-bottom:15px;
+
+}
+
+.promo-text p{
+
+    color:#bfc7d3;
+    line-height:28px;
+    margin-bottom:35px;
+
+}
+
+.promo-text strong{
+
+    color:#2d7ef7;
+
+}
+
+.promo-bottom{
+
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+}
+
+.promo-bottom button{
+
+    border:none;
+
+    background:#2d7ef7;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.promo-bottom span{
+
+    color:#cfcfcf;
+    font-size:14px;
+
+}
+
+.promo-image{
+
+    width:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:url("../img/banner/bg-banner2.jpg");
+
+    background-size:cover;
+
+}
+
+.promo-image img{
+
+    width:250px;
+
+}
+
+/*==========================
+SEÇÕES
+==========================*/
+
+.products-section{
+
+    width:92%;
+    margin:45px auto;
+
+}
+
+.section-title{
+
+    margin-bottom:25px;
+
+}
+
+.section-title h2{
+
+    font-size:36px;
+
+}
+
+.section-title p{
+
+    color:#777;
+
+}
+
+/*==========================
+GRID
+==========================*/
+
+.products-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+/*==========================
+CARD
+==========================*/
+
+.product-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+    transition:.3s;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.product-image{
+
+    height:220px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#fafafa;
+
+}
+
+.product-image img{
+
+    width:150px;
+
+}
+
+.product-info{
+
+    padding:18px;
+
+}
+
+.product-name{
+
+    height:55px;
+
+    font-size:15px;
+
+    color:#444;
+
+}
+
+.product-price{
+
+    color:#2d7ef7;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin:15px 0;
+
+}
+
+.product-btn{
+
+    width:100%;
+
+    border:none;
+
+    padding:13px;
+
+    border-radius:8px;
+
+    background:#2d7ef7;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.product-tag{
+
     position:absolute;
-    top: 42%;
-    left: 2%;
-    background-color: transparent;
-    color: #2081CB;
-    border-radius: 50%;
-    border: none;
-    padding: 10px;
-}
-.btn-proximo{
-    position:absolute;
-    top: 42%;
-    left: 93%;
-    background-color: transparent;
-    color: #2081CB;
-    border-radius: 50%;
-    border: none;
-    padding: 10px;
-   
-}
-.btn-comprar:hover{
-    background-color: #5b8ff0;
-    color: #7dcaf2;
-}
-.btn-anterior:hover, .btn-proximo:hover{
-    background-color: #2081CB;
-    color: #FFFFFF;
-}
 
+    margin:12px;
 
+    background:#45b6ff;
 
-.destaques{
-    padding: 20px;
-    /* Distancia entre o conteúdo da div
-    de ofertas e as bordas da div*/
-}
+    color:white;
 
-/* configurando os textos das ofertas*/
-.titulo-destaque{
-    font-family: Roboto, sans-serif; /* fonte do título das ofertas*/
-    display: grid; /* Exibe os elementos em grade */
-    grid-template-columns: 2 80%;
-    /* Define o tamanho das colunas da grade */
-    grid-template-rows: 2 50% 50%;
-    /* Define o tamanho das linhas da grade */
-}
+    font-size:11px;
 
-.destaques h2{
-    color: #000000; /* cor do título das ofertas */
-    font-size: 24px; /* tamanho da fonte do título das ofertas*/
-    grid-column: 1;/* ocupa a primeira coluna da grade para alinhar o título ao lado direito do ícone */
-    grid-row: 1; /* ocupa a primeira linha da grade para alinhar o título verticalmente com o ícone */
-    margin: 0; /* remove a margem padrão do elemento h2 */
-    padding-left: 100px;
-}
+    padding:4px 10px;
 
-.destaques a{
-    text-decoration: none; /* remove o sublinhado dos links*/
-    color: #2081CB; /* cor do link do título das ofertas */
-    font-size: 14px; /* tamanho da fonte do link do título dos destaques*/
-    grid-column: 2; /* ocupa a segunda coluna da grade para alinhar o link ao lado direito do título e subtítulo*/
-    grid-row: 2; /* ocupa  as duas linhas da grade para alinhar o link verticalmente com o título e subtítulo*/
-    align-self: center; /* alinha os links verticalmente no subtítulo */
-    padding-left: 90%;
-}
-
-.lista-produto{
-    display: flex;
-    justify-content: space-between;
-    font-family: Roboto, sans-serif;
-    margin-top: 20px;
-}
-
-.card-produtos{
-    width: 23%; /* largura de cada card de produto*/
-    height: 50%; /* altura de cada card de produto */
-    background-color: #ffffff;/* cord de fundo de cada card de produto*/
-    border: 1px solid #fffdfd;/*borda de cada card de produto*/
-    border-radius: 10px; /* arrendodamento das bordas de cada card de produto */
-    padding: 10px;/* distancia entre o conteúdo do card e as bordas do card */
-    text-align: center; /*alinhamento do texto no centro do card*/
-}
-
-.card-produtos img{
-    width: 100%; /* largura da imagen*/
-    height: auto; /* altura da imagem*/
-    margin-bottom: 10px; /* margem inferior da imagem do produto*/
-    border-radius: 10px; /* aredondamento da imagen*/
-}
-
-footer{
-    background-color: #E5E7EB; /* cor de fundo*/
-    color:#6B7280; /* cor do texto*/
-    font-family: Roboto, sans-serif; /* configuração de fonte/texto */
-    padding: 150px;
+    border-radius:30px;
 
 }
-.superior{
-    display:flex; /* espaçamento dentro do rodape*/
-    gap: 50px; /*espaçamento entre as divs*/
-    justify-content: space-between;
-    /* define o tamanho igualmente para as divs*/
-    flex-wrap: wrap; /* joga os textos para outra linha caso não possa caber na div*/
-}
-.imferior{
-    display:flex; /* espaçamento dentro do rodape*/
-    gap: 50px; /*espaçamento entre as divs*/
-    justify-content: space-between;
-    /* define o tamanho igualmente para as divs*/
-    flex-wrap: wrap; /* joga os textos para outra linha caso não possa caber na div*/
-    align-items: center;
-    border-top: #2c2626 2px;
-}
 
-.coluna1,.coluna2, .coluna4, .coluna4{
-    flex: 1; /* que cada coluna ocupa 1 espaço na página */
-}
+.product-image{
 
-.superior h2{
-    font-size: 23px;/* tamanho dos titulos*/
-    font-weight: bold; /* aplica negrito aos titulos*/
-}
-
-.superior p{
-    font-size: 18px; /* tamanho dos paragrafos*/
-}
-
-.superior a{
-    color:#969191; /*cor dos links*/
-    font-size: 18px; /* tamanho dos paragrafos*/
-    text-decoration: none; /* remove o sublinado*/
+    position:relative;
 
 }
-.superior ul{
-    text-decoration: none; /* retira a decoração do texto*/
-    list-style: none; /* retira a decoração da lista*/
-    padding: 1px; /*retira os espaçamentos*/
+
+/*==========================
+FOOTER
+==========================*/
+
+.footer{
+
+    width:100%;
+
+    background:#fff;
+
+    margin-top:70px;
+
+    border-top:1px solid #ececec;
+
 }
 
-.superior img{
-    width: 29px;
+.footer-container{
+
+    width:92%;
+
+    margin:auto;
+
+    padding:60px 0;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1.5fr;
+
+    gap:50px;
+
 }
 
-.coluna1 a img{
-    padding-right: 15px;
-    /*distancia as imagens dos ícones*/
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:#2d7ef7;
+
+    margin-bottom:20px;
+
+}
+
+.footer-column p{
+
+    color:#777;
+
+    line-height:28px;
+
+    margin-bottom:25px;
+
+}
+
+.footer-column h3{
+
+    margin-bottom:22px;
+
+    font-size:18px;
+
+    color:#222;
+
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#666;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.footer-column a:hover{
+
+    color:#2d7ef7;
+
+    padding-left:6px;
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.social-icons a{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#f4f6fa;
+
+    color:#2d7ef7;
+
+    transition:.3s;
+
+}
+
+.social-icons a:hover{
+
+    background:#2d7ef7;
+
+    color:#fff;
+
+}
+
+.newsletter{
+
+    display:flex;
+
+    margin-top:20px;
+
+}
+
+.newsletter input{
+
+    flex:1;
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px 0 0 8px;
+
+    outline:none;
+
+}
+
+.newsletter button{
+
+    width:60px;
+
+    border:none;
+
+    background:#2d7ef7;
+
+    color:#fff;
+
+    border-radius:0 8px 8px 0;
+
+    cursor:pointer;
+
+}
+
+.footer-bottom{
+
+    width:92%;
+
+    margin:auto;
+
+    border-top:1px solid #ececec;
+
+    padding:25px 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#999;
+
+    font-size:14px;
+
 }

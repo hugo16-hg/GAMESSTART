@@ -14,6 +14,8 @@ const ClienteController = require("../controller/clientes_controller");
 
 router.post("/", ClienteController.cadastrar);
 
+router.post("/login", ClienteController.login);
+
 router.get("/", ClienteController.listar);
 
 router.get("/:id", ClienteController.buscarPorId);
