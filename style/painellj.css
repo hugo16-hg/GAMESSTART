@@ -1,0 +1,4149 @@
+/*==================================================
+    GAMESSTART
+    painellj.css
+==================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/*=========================================
+    VARIÁVEIS
+=========================================*/
+
+:root{
+
+    --primary:#2081CB;
+    --primary-light:#7DCAF2;
+    --primary-dark:#1568A8;
+
+    --success:#28C76F;
+    --warning:#FF9F43;
+    --danger:#EA5455;
+
+    --bg:#F5F7FB;
+    --card:#FFFFFF;
+
+    --text:#243041;
+    --text-light:#7B8794;
+
+    --border:#E8EEF5;
+
+    --radius:18px;
+
+    --shadow:0 10px 30px rgba(0,0,0,.06);
+
+    --transition:.25s ease;
+
+}
+
+/*=========================================
+    RESET
+=========================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Roboto',sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+button{
+
+    cursor:pointer;
+    border:none;
+    outline:none;
+    background:none;
+    font-family:inherit;
+
+}
+
+img{
+
+    display:block;
+    max-width:100%;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+/*=========================================
+    DASHBOARD
+=========================================*/
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    min-height:100vh;
+
+}
+
+/*=========================================
+    SIDEBAR
+=========================================*/
+
+.sidebar{
+
+    background:#FFFFFF;
+
+    border-right:1px solid var(--border);
+
+    padding:30px 24px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+}
+
+/*=========================================
+    LOGO
+=========================================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:45px;
+
+}
+
+.logo img{
+
+    width:55px;
+
+}
+
+.logo h2{
+
+    font-size:27px;
+
+    color:var(--primary);
+
+    font-weight:800;
+
+}
+
+.logo span{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+}
+
+/*=========================================
+    MENU
+=========================================*/
+
+.menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.menu li{
+
+    width:100%;
+
+}
+
+.menu a{
+
+    height:55px;
+
+    border-radius:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:0 18px;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    color:var(--text-light);
+
+    transition:var(--transition);
+
+}
+
+.menu a i{
+
+    font-size:20px;
+
+}
+
+.menu a:hover{
+
+    background:#EEF8FF;
+
+    color:var(--primary);
+
+}
+
+.menu a.active{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+}
+
+/*=========================================
+    CARD DA SIDEBAR
+=========================================*/
+
+.sidebar-card{
+
+    background:linear-gradient(
+
+        180deg,
+
+        var(--primary),
+
+        var(--primary-dark)
+
+    );
+
+    border-radius:22px;
+
+    padding:22px;
+
+    color:#FFFFFF;
+
+    text-align:center;
+
+}
+
+.sidebar-card .icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    margin:auto;
+
+    margin-bottom:18px;
+
+    background:rgba(255,255,255,.18);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.sidebar-card .icon i{
+
+    font-size:30px;
+
+}
+
+.sidebar-card h3{
+
+    margin-bottom:12px;
+
+    font-size:22px;
+
+}
+
+.sidebar-card p{
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    margin-bottom:22px;
+
+    opacity:.95;
+
+}
+
+.sidebar-card button{
+
+    width:100%;
+
+    height:48px;
+
+    border-radius:12px;
+
+    background:#FFFFFF;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.sidebar-card button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+/*=========================================
+    CONTEÚDO
+=========================================*/
+
+.content{
+
+    padding:35px;
+
+    overflow:hidden;
+
+}/*=========================================
+    HEADER
+=========================================*/
+
+.topbar{
+
+    height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:35px;
+
+}
+
+/*=========================================
+    ESQUERDA HEADER
+=========================================*/
+
+.topbar-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.menu-toggle{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:12px;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.menu-toggle:hover{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+}
+
+.menu-toggle i{
+
+    font-size:22px;
+
+}
+
+/*=========================================
+    PESQUISA
+=========================================*/
+
+.search-box{
+
+    width:430px;
+
+    height:52px;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:0 18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.search-box i{
+
+    font-size:18px;
+
+    color:var(--text-light);
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    font-size:15px;
+
+    color:var(--text);
+
+}
+
+.search-box input::placeholder{
+
+    color:var(--text-light);
+
+}
+
+/*=========================================
+    DIREITA HEADER
+=========================================*/
+
+.topbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/*=========================================
+    BOTÕES
+=========================================*/
+
+.icon-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow);
+
+}
+
+.icon-btn:hover{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+}
+
+.icon-btn i{
+
+    font-size:20px;
+
+}
+
+.badge{
+
+    position:absolute;
+
+    top:8px;
+
+    right:8px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:10px;
+
+    font-weight:700;
+
+}
+
+/*=========================================
+    PERFIL
+=========================================*/
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#FFFFFF;
+
+    padding:10px 18px;
+
+    border-radius:16px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.profile:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.profile img{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.profile-info h4{
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+.profile-info span{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+}
+
+.profile i{
+
+    font-size:15px;
+
+    color:var(--text-light);
+
+}
+
+/*=========================================
+    TÍTULO
+=========================================*/
+
+.page-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:35px;
+
+}
+
+.page-title h1{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    margin-bottom:6px;
+
+}
+
+.page-title p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+/*=========================================
+    BOTÃO PRINCIPAL
+=========================================*/
+
+.primary-btn{
+
+    height:52px;
+
+    padding:0 24px;
+
+    border-radius:14px;
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.primary-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================
+    CARDS
+=========================================*/
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:#FFFFFF;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:18px;
+
+    background:rgba(32,129,203,.12);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.card-icon i{
+
+    font-size:28px;
+
+    color:var(--primary);
+
+}
+
+.card-info{
+
+    flex:1;
+
+}
+
+.card-info span{
+
+    display:block;
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+    margin-bottom:8px;
+
+}
+
+.card-info h2{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+.card-info small{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.success{
+
+    color:var(--success);
+
+}
+
+.warning{
+
+    color:var(--warning);
+
+}
+
+.danger{
+
+    color:var(--danger);
+
+}/*=========================================
+    DASHBOARD GRID
+=========================================*/
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+/*=========================================
+    CARD PADRÃO
+=========================================*/
+
+.sales-chart,
+.quick-actions,
+.campaign-card{
+
+    background:#FFFFFF;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+/*=========================================
+    CABEÇALHO DOS CARDS
+=========================================*/
+
+.card-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:24px 28px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.card-header h2{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.card-header p{
+
+    margin-top:5px;
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+}
+
+/*=========================================
+    BOTÕES DO GRÁFICO
+=========================================*/
+
+.chart-actions{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.chart-actions button{
+
+    height:42px;
+
+    padding:0 18px;
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    background:#FFFFFF;
+
+    color:var(--text);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.chart-actions button:hover{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+}
+
+.chart-actions button.active{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+    border-color:var(--primary);
+
+}
+
+/*=========================================
+    GRÁFICO
+=========================================*/
+
+.sales-chart{
+
+    overflow:hidden;
+
+}
+
+.chart-body{
+
+    height:380px;
+
+    padding:20px 28px 28px;
+
+}
+
+.chart-body canvas{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
+
+/*=========================================
+    LADO DIREITO
+=========================================*/
+
+.dashboard-side{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+/*=========================================
+    ANIMAÇÃO DOS CARDS
+=========================================*/
+
+.sales-chart,
+.quick-actions,
+.campaign-card{
+
+    transition:var(--transition);
+
+}
+
+.sales-chart:hover,
+.quick-actions:hover,
+.campaign-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/*=========================================
+    CLASSES DO JAVASCRIPT
+=========================================*/
+
+.visible{
+
+    animation:fadeUp .5s ease forwards;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}/*=========================================
+    ATALHOS RÁPIDOS
+=========================================*/
+
+.quick-actions{
+
+    padding:28px;
+
+}
+
+.quick-actions .card-header{
+
+    padding:0;
+    padding-bottom:22px;
+    margin-bottom:22px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.quick-actions{
+
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+
+}
+
+.quick-actions button{
+
+    width:100%;
+    height:58px;
+
+    border-radius:15px;
+
+    background:#F7F9FC;
+
+    border:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:0 18px;
+
+    transition:var(--transition);
+
+}
+
+.quick-actions button:hover{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+    transform:translateX(5px);
+
+}
+
+.quick-actions button i{
+
+    font-size:22px;
+
+    color:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+.quick-actions button:hover i{
+
+    color:#FFFFFF;
+
+}
+
+.quick-actions button span{
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+/*=========================================
+    BANNER
+=========================================*/
+
+.campaign-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:350px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    color:#FFFFFF;
+
+    padding:30px;
+
+}
+
+.campaign-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:260px;
+
+}
+
+.campaign-tag{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:20px;
+
+}
+
+.campaign-content h2{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    margin-bottom:18px;
+
+}
+
+.campaign-content p{
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+    margin-bottom:28px;
+
+}
+
+.campaign-content button{
+
+    width:180px;
+
+    height:50px;
+
+    border-radius:14px;
+
+    background:#FFFFFF;
+
+    color:var(--primary);
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.campaign-content button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
+
+}
+
+.campaign-card img{
+
+    position:absolute;
+
+    right:-20px;
+
+    bottom:0;
+
+    width:260px;
+
+    pointer-events:none;
+
+    user-select:none;
+
+}
+
+/*=========================================
+    DECORAÇÃO DO BANNER
+=========================================*/
+
+.campaign-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    top:-90px;
+
+    right:-70px;
+
+}
+
+.campaign-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    bottom:-60px;
+
+    left:-40px;
+
+}
+
+/*=========================================
+    CLASSES DO JAVASCRIPT
+=========================================*/
+
+.campaign-card button:disabled{
+
+    background:#28C76F;
+
+    color:#FFFFFF;
+
+    cursor:default;
+
+}
+
+.campaign-card button:disabled:hover{
+
+    transform:none;
+
+    box-shadow:none;
+
+}/*=========================================
+    PEDIDOS
+=========================================*/
+
+.orders{
+
+    background:#FFFFFF;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+/*=========================================
+    CABEÇALHO
+=========================================*/
+
+.orders .card-header{
+
+    padding:24px 30px;
+
+}
+
+.orders .card-header button{
+
+    height:44px;
+
+    padding:0 20px;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.orders .card-header button:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/*=========================================
+    TABELA
+=========================================*/
+
+.table-responsive{
+
+    width:100%;
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#F8FAFD;
+
+}
+
+thead th{
+
+    padding:18px 25px;
+
+    text-align:left;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+tbody td{
+
+    padding:20px 25px;
+
+    font-size:15px;
+
+    color:var(--text);
+
+    border-bottom:1px solid var(--border);
+
+    vertical-align:middle;
+
+}
+
+tbody tr{
+
+    transition:var(--transition);
+
+}
+
+tbody tr:hover{
+
+    background:#F8FBFF;
+
+}
+
+/*=========================================
+    CLIENTE
+=========================================*/
+
+.client{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.client img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.client span{
+
+    font-weight:600;
+
+}
+
+/*=========================================
+    STATUS
+=========================================*/
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:95px;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.status.success{
+
+    background:rgba(40,199,111,.15);
+
+    color:#28C76F;
+
+}
+
+.status.warning{
+
+    background:rgba(255,159,67,.15);
+
+    color:#FF9F43;
+
+}
+
+.status.primary{
+
+    background:rgba(32,129,203,.15);
+
+    color:var(--primary);
+
+}
+
+.status.danger{
+
+    background:rgba(234,84,85,.15);
+
+    color:#EA5455;
+
+}
+
+/*=========================================
+    BOTÃO DA TABELA
+=========================================*/
+
+.table-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:12px;
+
+    background:#F4F7FB;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.table-btn i{
+
+    font-size:18px;
+
+}
+
+.table-btn:hover{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+}
+
+.table-btn.hover{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+}
+
+/*=========================================
+    SCROLL DA TABELA
+=========================================*/
+
+.table-responsive::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-responsive::-webkit-scrollbar-track{
+
+    background:#F1F3F6;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb{
+
+    background:var(--primary-light);
+
+    border-radius:20px;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary);
+
+}
+
+/*=========================================
+    ANIMAÇÃO
+=========================================*/
+
+.orders{
+
+    opacity:0;
+
+    animation:fadeTable .6s ease forwards;
+
+    animation-delay:.2s;
+
+}
+
+@keyframes fadeTable{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}/*=========================================
+    MODAL
+=========================================*/
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+.modal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.modal-content{
+
+    width:500px;
+
+    max-width:95%;
+
+    background:#FFFFFF;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
+
+    animation:modalUp .3s ease;
+
+}
+
+@keyframes modalUp{
+
+    from{
+
+        transform:translateY(30px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+.modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 28px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.modal-header h2{
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.close-modal{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:12px;
+
+    background:#F5F7FB;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:var(--transition);
+
+}
+
+.close-modal:hover{
+
+    background:var(--danger);
+
+    color:#FFFFFF;
+
+}
+
+.modal-body{
+
+    padding:28px;
+
+}
+
+.detail{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.detail:last-child{
+
+    border-bottom:none;
+
+}
+
+.detail strong{
+
+    color:var(--text);
+
+}
+
+.detail span{
+
+    color:var(--text-light);
+
+}
+
+.modal-footer{
+
+    padding:22px 28px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.secondary-btn{
+
+    height:48px;
+
+    padding:0 22px;
+
+    border-radius:12px;
+
+    background:#EEF2F7;
+
+    color:var(--text);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.secondary-btn:hover{
+
+    background:#DCE5EF;
+
+}
+
+/*=========================================
+    LOADER
+=========================================*/
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    transition:.4s;
+
+}
+
+.loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.spinner{
+
+    width:55px;
+
+    height:55px;
+
+    border:5px solid #E8EEF5;
+
+    border-top-color:var(--primary);
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================
+    BOTÃO VOLTAR AO TOPO
+=========================================*/
+
+.scroll-top{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:var(--shadow);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:var(--transition);
+
+    z-index:900;
+
+}
+
+.scroll-top i{
+
+    font-size:22px;
+
+}
+
+.scroll-top.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.scroll-top:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-4px);
+
+}
+
+/*=========================================
+    CLASSES DO JAVASCRIPT
+=========================================*/
+
+.sidebar.open{
+
+    left:0;
+
+}
+
+.profile.active{
+
+    box-shadow:0 0 0 3px rgba(32,129,203,.15);
+
+}
+
+.visible{
+
+    opacity:1 !important;
+
+    transform:translateY(0) !important;
+
+}
+
+/*=========================================
+    RESPONSIVIDADE
+=========================================*/
+
+@media(max-width:1200px){
+
+    .cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .dashboard{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sidebar{
+
+        position:fixed;
+
+        left:-290px;
+
+        top:0;
+
+        width:280px;
+
+        z-index:1000;
+
+        transition:.3s;
+
+    }
+
+    .content{
+
+        width:100%;
+
+        padding:25px;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .topbar{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        align-items:stretch;
+
+        height:auto;
+
+    }
+
+    .topbar-left,
+    .topbar-right{
+
+        width:100%;
+
+        justify-content:space-between;
+
+    }
+
+    .page-title{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .content{
+
+        padding:18px;
+
+    }
+
+    .profile-info{
+
+        display:none;
+
+    }
+
+    .search-box{
+
+        height:48px;
+
+    }
+
+    .card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .card-icon{
+
+        width:60px;
+
+        height:60px;
+
+    }
+
+    .modal-content{
+
+        width:95%;
+
+    }
+
+    .modal-footer{
+
+        flex-direction:column;
+
+    }
+
+    .primary-btn,
+    .secondary-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}/* =====================================================
+   PARTE 2 - SIDEBAR
+===================================================== */
+
+
+/* ===============================
+   MENU LATERAL
+=============================== */
+
+.sidebar {
+
+    width: 240px;
+
+    background: var(--cor-branco);
+
+    border-right: 1px solid var(--cor-borda);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 24px 20px;
+
+}
+
+
+
+/* ===============================
+   LOGO
+=============================== */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 40px;
+
+}
+
+
+.logo img {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 10px;
+
+}
+
+
+.logo h1 {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #377dce;
+
+}
+
+
+.logo span {
+
+    display: block;
+
+    font-size: 11px;
+
+    color: var(--cor-texto-secundario);
+
+    margin-top: 2px;
+
+}
+
+
+
+/* ===============================
+   MENU
+=============================== */
+
+.menu {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+
+.menu-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    height: 44px;
+
+    padding: 0 14px;
+
+    border-radius: 10px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    transition: .2s;
+
+}
+
+
+
+.menu-item:hover {
+
+    background: #f1f5f9;
+
+    color: var(--cor-principal);
+
+}
+
+
+
+/* ===============================
+   ITEM ATIVO
+=============================== */
+
+.menu-item.active {
+
+    background: #377dce;
+
+    color: white;
+
+}
+
+
+
+.menu-item.active svg {
+
+    color: white;
+
+}
+
+
+
+/* ===============================
+   ÍCONES DO MENU
+=============================== */
+
+.menu-item svg {
+
+    width: 20px;
+
+    height: 20px;
+
+}
+
+
+
+/* ===============================
+   SUPORTE PREMIUM
+=============================== */
+
+.suporte {
+
+    border: 1px solid var(--cor-borda);
+
+    background: #fafafa;
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+}
+
+
+
+.suporte h3 {
+
+    font-size: 13px;
+
+    color: #377dce;
+
+    margin-bottom: 12px;
+
+}
+
+
+
+.suporte button {
+
+    width: 100%;
+
+    height: 34px;
+
+    background: white;
+
+    border: 1px solid var(--cor-borda);
+
+    border-radius: 8px;
+
+    color: #377dce;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+
+.suporte button:hover {
+
+    background: #f1f5f9;
+
+}/* =====================================================
+   PARTE 3 - ÁREA PRINCIPAL DO PAINEL
+===================================================== */
+
+
+/* ===============================
+   CONTEÚDO PRINCIPAL
+=============================== */
+
+.content {
+
+    flex: 1;
+
+    background: var(--cor-fundo);
+
+    min-width: 0;
+
+}
+
+
+
+/* ===============================
+   HEADER SUPERIOR
+=============================== */
+
+.topbar {
+
+    height: 82px;
+
+    background: var(--cor-branco);
+
+    border-bottom: 1px solid var(--cor-borda);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+}
+
+
+
+/* ===============================
+   BUSCA PRINCIPAL
+=============================== */
+
+.busca-top {
+
+    width: 400px;
+
+    height: 42px;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--cor-borda);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    gap: 10px;
+
+}
+
+
+
+.busca-top input {
+
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--cor-texto);
+
+}
+
+
+
+.busca-top input::placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+
+/* ===============================
+   PERFIL DO USUÁRIO
+=============================== */
+
+.usuario {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+
+.usuario-texto {
+
+    text-align: right;
+
+}
+
+
+
+.usuario-texto strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    color: #2563eb;
+
+}
+
+
+
+.usuario-texto span {
+
+    font-size: 12px;
+
+    color: var(--cor-texto-secundario);
+
+}
+
+
+
+.usuario img {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+}
+
+
+
+/* ===============================
+   ÁREA INTERNA
+=============================== */
+
+.pagina {
+
+    padding: 38px 34px;
+
+}
+
+
+
+/* ===============================
+   CABEÇALHO DA PÁGINA
+=============================== */
+
+.titulo-area {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+
+}
+
+
+
+.titulo-area h2 {
+
+    color: #377dce;
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+}
+
+
+
+.titulo-area p {
+
+    margin-top: 6px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+}
+
+
+
+/* ===============================
+   BOTÃO NOVO PRODUTO
+=============================== */
+
+.btn-novo {
+
+    height: 42px;
+
+    padding: 0 22px;
+
+    border-radius: 10px;
+
+    background: #377dce;
+
+    color: white;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    box-shadow: var(--sombra);
+
+}
+
+
+
+.btn-novo:hover {
+
+    opacity: .9;
+
+}/* =====================================================
+   PARTE 4 - BARRA DE FILTROS
+===================================================== */
+
+
+/* ===============================
+   CONTAINER DOS FILTROS
+=============================== */
+
+.filtros {
+
+    background: var(--cor-branco);
+
+    border: 1px solid var(--cor-borda);
+
+    border-radius: 14px;
+
+    padding: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+
+}
+
+
+
+/* ===============================
+   CAMPO DE PESQUISA
+=============================== */
+
+.campo-pesquisa {
+
+    flex: 1;
+
+    height: 44px;
+
+    border: 1px solid var(--cor-borda);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    gap: 10px;
+
+    background: #fff;
+
+}
+
+
+
+.campo-pesquisa input {
+
+    border: none;
+
+    width: 100%;
+
+    height: 100%;
+
+    color: var(--cor-texto);
+
+}
+
+
+
+.campo-pesquisa input::placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+
+/* ===============================
+   SELECTS
+=============================== */
+
+.filtro-select {
+
+    height: 44px;
+
+    width: 140px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--cor-borda);
+
+    background: white;
+
+    padding: 0 14px;
+
+    color: #64748b;
+
+    cursor: pointer;
+
+}
+
+
+
+/* ===============================
+   BOTÃO LIMPAR FILTROS
+=============================== */
+
+.btn-limpar {
+
+    height: 44px;
+
+    padding: 0 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--cor-borda);
+
+    background: white;
+
+    color: #377dce;
+
+    font-weight: 600;
+
+}
+
+
+
+.btn-limpar:hover {
+
+    background: #f1f5f9;
+
+}/* =====================================================
+   PARTE 5 - TABELA DE PRODUTOS
+===================================================== */
+
+
+/* ===============================
+   CARD DA TABELA
+=============================== */
+
+.tabela-container {
+
+    background: var(--cor-branco);
+
+    border: 1px solid var(--cor-borda);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+}
+
+
+
+/* ===============================
+   TABELA
+=============================== */
+
+.tabela-container table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+
+/* ===============================
+   CABEÇALHO
+=============================== */
+
+.tabela-container thead {
+
+    background: #f8fafc;
+
+}
+
+
+
+.tabela-container th {
+
+    height: 50px;
+
+    padding: 0 24px;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    color: #94a3b8;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+}
+
+
+
+/* ===============================
+   LINHAS
+=============================== */
+
+.tabela-container td {
+
+    padding: 16px 24px;
+
+    border-top: 1px solid #f1f5f9;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+
+.tabela-container tbody tr {
+
+    transition: .2s;
+
+}
+
+
+
+.tabela-container tbody tr:hover {
+
+    background: #fafafa;
+
+}
+
+
+
+/* ===============================
+   IMAGEM DO PRODUTO
+=============================== */
+
+.produto-img {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 8px;
+
+    object-fit: cover;
+
+    background: #f1f5f9;
+
+}
+
+
+
+/* ===============================
+   NOME DO PRODUTO
+=============================== */
+
+.tabela-container td strong {
+
+    color: #377dce;
+
+    font-size: 14px;
+
+}
+
+
+
+.tabela-container td small {
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+}
+
+
+
+/* ===============================
+   PREÇO
+=============================== */
+
+.tabela-container td:nth-child(4) {
+
+    color: #377dce;
+
+    font-weight: 700;
+
+}
+
+
+
+/* ===============================
+   ESTOQUE
+=============================== */
+
+.tabela-container td:nth-child(5) {
+
+    font-weight: 600;
+
+}
+
+
+
+/* ===============================
+   STATUS
+=============================== */
+
+.status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 24px;
+
+    padding: 0 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+
+.status.ativo {
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+}
+
+
+
+.status.inativo {
+
+    background: #f1f5f9;
+
+    color: #94a3b8;
+
+}
+
+
+
+/* ===============================
+   AÇÕES
+=============================== */
+
+.acoes {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+
+.acoes button {
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--cor-borda);
+
+    background: white;
+
+    color: #94a3b8;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+
+.acoes button:hover {
+
+    color: #377dce;
+
+    background: #f8fafc;
+
+}
+
+
+
+/* ===============================
+   PRODUTO NÃO ENCONTRADO
+=============================== */
+
+.sem-produtos {
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: #94a3b8;
+
+}/* =====================================================
+   PARTE 6 - PAGINAÇÃO E RODAPÉ DA TABELA
+===================================================== */
+
+
+/* ===============================
+   RODAPÉ DA TABELA
+=============================== */
+
+.tabela-footer {
+
+    height: 70px;
+
+    padding: 0 24px;
+
+    border-top: 1px solid var(--cor-borda);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: white;
+
+}
+
+
+
+/* ===============================
+   CONTADOR DE PRODUTOS
+=============================== */
+
+#contadorProdutos {
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+
+
+
+/* ===============================
+   PAGINAÇÃO
+=============================== */
+
+#pagination {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+
+/* ===============================
+   BOTÕES DE PÁGINA
+=============================== */
+
+.pagina {
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--cor-borda);
+
+    background: white;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: .2s;
+
+}
+
+
+
+.pagina:hover {
+
+    background: #f1f5f9;
+
+}
+
+
+
+/* ===============================
+   PÁGINA ATIVA
+=============================== */
+
+.pagina.ativa {
+
+    background: #377dce;
+
+    color: white;
+
+    border-color: #377dce;
+
+}/* =====================================================
+   PARTE 7 - MODAL DE PRODUTO
+===================================================== */
+
+
+/* ===============================
+   FUNDO DO MODAL
+=============================== */
+
+#modalProduto {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.45);
+
+    backdrop-filter: blur(3px);
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1000;
+
+}
+
+
+
+/* ===============================
+   CAIXA DO MODAL
+=============================== */
+
+.modal-box {
+
+    width: 520px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.15);
+
+    animation: abrirModal .2s ease;
+
+}
+
+
+
+@keyframes abrirModal {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-20px);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+/* ===============================
+   CABEÇALHO DO MODAL
+=============================== */
+
+.modal-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+
+}
+
+
+
+.modal-header h2 {
+
+    font-size: 22px;
+
+    color: #377dce;
+
+}
+
+
+
+#fecharModal {
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 8px;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    font-size: 18px;
+
+}
+
+
+
+#fecharModal:hover {
+
+    background: #e2e8f0;
+
+}
+
+
+
+/* ===============================
+   FORMULÁRIO
+=============================== */
+
+#formProduto {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+
+#formProduto label {
+
+    font-size: 13px;
+
+    color: #64748b;
+
+    font-weight: 600;
+
+}
+
+
+
+#formProduto input,
+#formProduto select {
+
+
+    width: 100%;
+
+    height: 42px;
+
+    border: 1px solid var(--cor-borda);
+
+    border-radius: 10px;
+
+    padding: 0 12px;
+
+    color: var(--cor-texto);
+
+}
+
+
+
+#formProduto input:focus,
+#formProduto select:focus {
+
+    border-color: #377dce;
+
+}
+
+
+
+/* ===============================
+   LINHA DUPLA
+=============================== */
+
+.form-linha {
+
+    display: flex;
+
+    gap: 14px;
+
+}
+
+
+
+.form-linha > div {
+
+    flex: 1;
+
+}
+
+
+
+/* ===============================
+   BOTÕES
+=============================== */
+
+.modal-acoes {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+
+
+.btn-cancelar {
+
+    height: 42px;
+
+    padding: 0 20px;
+
+    border-radius: 10px;
+
+    background: white;
+
+    border: 1px solid var(--cor-borda);
+
+    color: #64748b;
+
+}
+
+
+
+.btn-salvar {
+
+    height: 42px;
+
+    padding: 0 22px;
+
+    border-radius: 10px;
+
+    background: #377dce;
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+
+
+.btn-salvar:hover {
+
+    opacity: .9;
+
+}/* =====================================================
+   PARTE 8 - RESPONSIVIDADE
+===================================================== */
+
+
+/* ===============================
+   TABLET
+   até 1024px
+=============================== */
+
+@media (max-width: 1024px) {
+
+
+    .sidebar {
+
+        width: 210px;
+
+    }
+
+
+    .pagina {
+
+        padding: 28px 20px;
+
+    }
+
+
+    .busca-top {
+
+        width: 300px;
+
+    }
+
+
+    .filtros {
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .campo-pesquisa {
+
+        min-width: 100%;
+
+    }
+
+
+    .filtro-select {
+
+        flex: 1;
+
+    }
+
+
+}
+
+
+
+/* ===============================
+   CELULAR
+   até 768px
+=============================== */
+
+@media (max-width: 768px) {
+
+
+    .container {
+
+        flex-direction: column;
+
+    }
+
+
+
+    /* MENU LATERAL */
+
+    .sidebar {
+
+        width: 100%;
+
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--cor-borda);
+
+        padding: 15px;
+
+    }
+
+
+
+    .menu {
+
+        flex-direction: row;
+
+        overflow-x: auto;
+
+    }
+
+
+
+    .menu-item {
+
+        min-width: 120px;
+
+    }
+
+
+
+    .suporte {
+
+        display: none;
+
+    }
+
+
+
+    /* HEADER */
+
+    .topbar {
+
+        height: auto;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        align-items: stretch;
+
+    }
+
+
+
+    .busca-top {
+
+        width: 100%;
+
+    }
+
+
+
+    .usuario {
+
+        justify-content: flex-end;
+
+    }
+
+
+
+    /* CONTEÚDO */
+
+    .pagina {
+
+        padding: 20px 15px;
+
+    }
+
+
+
+    .titulo-area {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+
+    .btn-novo {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
+
+    /* FILTROS */
+
+    .filtros {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+
+    .filtro-select,
+    .btn-limpar {
+
+        width: 100%;
+
+    }
+
+
+
+    /* TABELA */
+
+    .tabela-container {
+
+        overflow-x: auto;
+
+    }
+
+
+
+    .tabela-container table {
+
+        min-width: 750px;
+
+    }
+
+
+
+    /* PAGINAÇÃO */
+
+    .tabela-footer {
+
+        flex-direction: column;
+
+        height: auto;
+
+        gap: 15px;
+
+        padding: 20px;
+
+    }
+
+
+
+}
+
+
+
+/* ===============================
+   CELULAR PEQUENO
+   até 480px
+=============================== */
+
+@media (max-width: 480px) {
+
+
+    .logo h1 {
+
+        font-size: 18px;
+
+    }
+
+
+
+    .titulo-area h2 {
+
+        font-size: 22px;
+
+    }
+
+
+
+    .modal-box {
+
+        width: calc(100% - 30px);
+
+        padding: 20px;
+
+    }
+
+
+
+    .form-linha {
+
+        flex-direction: column;
+
+    }
+
+
+
+    .modal-acoes {
+
+        flex-direction: column;
+
+    }
+
+
+
+    .btn-cancelar,
+    .btn-salvar {
+
+        width: 100%;
+
+    }
+
+
+}/* =====================================================
+   PARTE 9 - ANIMAÇÕES E ACABAMENTO VISUAL
+===================================================== */
+
+
+/* ===============================
+   TRANSIÇÃO GLOBAL
+=============================== */
+
+button,
+input,
+select,
+.menu-item,
+.tabela-container tbody tr {
+
+    transition: .2s ease;
+
+}
+
+
+
+/* ===============================
+   CARDS COM EFEITO
+=============================== */
+
+.tabela-container,
+.filtros,
+.suporte {
+
+    transition: .25s ease;
+
+}
+
+
+.tabela-container:hover,
+.filtros:hover {
+
+    box-shadow: var(--sombra);
+
+}
+
+
+
+/* ===============================
+   BOTÕES PRINCIPAIS
+=============================== */
+
+.btn-novo,
+.btn-salvar {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+
+.btn-novo:hover,
+.btn-salvar:hover {
+
+    transform: translateY(-1px);
+
+}
+
+
+
+/* ===============================
+   BOTÕES DE AÇÃO DA TABELA
+=============================== */
+
+.acoes button {
+
+    transition: .2s ease;
+
+}
+
+
+
+.acoes .editar:hover {
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    border-color: #bfdbfe;
+
+}
+
+
+
+.acoes .excluir:hover {
+
+    background: #fef2f2;
+
+    color: #dc2626;
+
+    border-color: #fecaca;
+
+}
+
+
+
+/* ===============================
+   INPUTS
+=============================== */
+
+input:hover,
+select:hover {
+
+    border-color: #cbd5e1;
+
+}
+
+
+
+input:focus,
+select:focus {
+
+    box-shadow: 0 0 0 3px rgba(55,125,206,.12);
+
+}
+
+
+
+/* ===============================
+   STATUS
+=============================== */
+
+.status {
+
+    animation: aparecerStatus .25s ease;
+
+}
+
+
+
+@keyframes aparecerStatus {
+
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(.9);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+
+/* ===============================
+   MODAL
+=============================== */
+
+#modalProduto {
+
+    animation: fundoModal .2s ease;
+
+}
+
+
+
+@keyframes fundoModal {
+
+
+    from {
+
+        opacity: 0;
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+
+/* ===============================
+   PAGINAÇÃO
+=============================== */
+
+.pagina {
+
+    transition: .2s ease;
+
+}
+
+
+
+.pagina:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+
+.pagina.ativa {
+
+    box-shadow: 0 4px 12px rgba(55,125,206,.25);
+
+}
+
+
+
+/* ===============================
+   MENU
+=============================== */
+
+.menu-item {
+
+    position: relative;
+
+}
+
+
+
+.menu-item.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -20px;
+
+    width: 4px;
+
+    height: 28px;
+
+    background: white;
+
+    border-radius: 0 5px 5px 0;
+
+}/* =====================================================
+   PARTE 10 - AJUSTES FINAIS PIXEL PERFECT
+===================================================== */
+
+
+/* ===============================
+   AJUSTE GERAL DO PAINEL
+=============================== */
+
+.content {
+
+    overflow: hidden;
+
+}
+
+
+.pagina {
+
+    max-width: 1400px;
+
+}
+
+
+
+/* ===============================
+   ESPAÇAMENTO DO TÍTULO
+=============================== */
+
+.titulo-area {
+
+    margin-bottom: 22px;
+
+}
+
+
+.titulo-area h2 {
+
+    letter-spacing: -0.5px;
+
+}
+
+
+
+/* ===============================
+   BOTÃO PRINCIPAL
+=============================== */
+
+.btn-novo {
+
+    height: 44px;
+
+    padding: 0 24px;
+
+    border-radius: 9px;
+
+}
+
+
+
+/* ===============================
+   FILTROS MAIS PRÓXIMOS DO DESIGN
+=============================== */
+
+.filtros {
+
+    min-height: 72px;
+
+}
+
+
+.campo-pesquisa {
+
+    height: 42px;
+
+}
+
+
+
+.filtro-select {
+
+    height: 42px;
+
+}
+
+
+
+/* ===============================
+   TABELA MAIS COMPACTA
+=============================== */
+
+.tabela-container th {
+
+    height: 48px;
+
+}
+
+
+
+.tabela-container td {
+
+    height: 68px;
+
+}
+
+
+
+/* ===============================
+   PRODUTO
+=============================== */
+
+.produto-img {
+
+    width: 48px;
+
+    height: 48px;
+
+}
+
+
+
+.tabela-container td strong {
+
+    font-weight: 600;
+
+}
+
+
+
+/* ===============================
+   SIDEBAR FINAL
+=============================== */
+
+.sidebar {
+
+    flex-shrink: 0;
+
+}
+
+
+
+.logo {
+
+    margin-bottom: 35px;
+
+}
+
+
+
+.menu-item {
+
+    height: 42px;
+
+}
+
+
+
+/* ===============================
+   MODAL FINAL
+=============================== */
+
+.modal-box {
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+}
+
+
+
+/* ===============================
+   SCROLL PERSONALIZADO
+=============================== */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #cbd5e1;
+
+    border-radius: 10px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: transparent;
+
+}

@@ -13,7 +13,7 @@ const express = require("express");
 const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas às avaliações.
 
-const AvaliacaoController = require("../controller/avaliacao_controller.js");
+const AvaliacaoController = require("../controller/avaliacao_controller");
 
 router.post("/", AvaliacaoController.cadastrar);
 

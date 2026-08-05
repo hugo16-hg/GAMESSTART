@@ -1,28 +1,28 @@
-// Nesse arquivo, definimos as rotas relacionadas aos carrinhos e associamos
-// cada rota a uma função do CarrinhoController.
+// Nesse arquivo, definimos as rotas relacionadas aos cartões de pagamento e associamos
+// cada rota a uma função do CartaoPagamentoController.
 // As rotas são:
-// POST /carrinhos: para cadastrar um novo carrinho.
-// GET /carrinhos: para listar todos os carrinhos.
-// GET /carrinhos/:id: para buscar um carrinho específico pelo ID.
-// PUT /carrinhos/:id: para atualizar as informações de um carrinho específico pelo ID.
-// DELETE /carrinhos/:id: para excluir um carrinho específico pelo ID.
+// POST /cartao_pagamento: para cadastrar um novo cartão de pagamento.
+// GET /cartao_pagamento: para listar todos os cartões de pagamento.
+// GET /cartao_pagamento/:id: para buscar um cartão de pagamento específico pelo ID.
+// PUT /cartao_pagamento/:id: para atualizar as informações de um cartão de pagamento específico pelo ID.
+// DELETE /cartao_pagamento/:id: para excluir um cartão de pagamento específico pelo ID.
 
 const express = require("express");
 // Importando o módulo express para criar rotas e lidar com requisições HTTP.
 
 const router = express.Router();
-// Criando um objeto router para definir as rotas relacionadas aos carrinhos.
+// Criando um objeto router para definir as rotas relacionadas aos cartões de pagamento.
 
-const CarrinhoController = require("../controller/carrinho_controller.js");
+const CartaoPagamentoController = require("../controller/cartao_pagamento_controller.js");
 
-router.post("/", CarrinhoController.cadastrar);
+router.post("/", CartaoPagamentoController.cadastrar);
 
-router.get("/", CarrinhoController.listar);
+router.get("/", CartaoPagamentoController.listar);
 
-router.get("/:id", CarrinhoController.buscarPorId);
+router.get("/:id", CartaoPagamentoController.buscarPorId);
 
-router.put("/:id", CarrinhoController.atualizar);
+router.put("/:id", CartaoPagamentoController.atualizar);
 
-router.delete("/:id", CarrinhoController.excluir);
+router.delete("/:id", CartaoPagamentoController.excluir);
 
 module.exports = router;

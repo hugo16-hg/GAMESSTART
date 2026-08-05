@@ -1,46 +1,41 @@
 const conexao = require("../conexao/conexao.js");
 
 // =========================
-// Cadastrar categorias
+// Cadastrar Categoria
 // =========================
-
-function cadastrar(Categorias, callback) {
-
-    const sql = `INSERT INTO Categorias
-        ( nome, icone )
-        VALUES (?, ?)`;
+function cadastrar(categoria, callback) {
+    const sql = `
+        INSERT INTO Categorias
+        (nome, icone)
+        VALUES (?, ?)
+    `;
 
     conexao.query(
         sql,
         [
-            Categorias.nome,
-            Categorias.icone
+            categoria.nome,
+            categoria.icone
         ],
         callback
     );
-
 }
 
 // =========================
 // Listar Categorias
 // =========================
-
 function listar(callback) {
-
     const sql = `
-        SELECT * FROM Categorias
+        SELECT *
+        FROM Categorias
     `;
 
     conexao.query(sql, callback);
-
 }
 
 // =========================
 // Buscar por ID
 // =========================
-
 function buscarPorId(id, callback) {
-
     const sql = `
         SELECT *
         FROM Categorias
@@ -48,75 +43,47 @@ function buscarPorId(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
 
 // =========================
-// Buscar por Email
+// Atualizar Categoria
 // =========================
-
-function buscarPorEmail(email, callback) {
-
-    const sql = `
-        SELECT * FROM Categorias
-        WHERE email = ?
-    `;
-
-    conexao.query(sql, [email], callback);
-
-}
-
-// =========================
-// Atualizar Categorias
-// =========================
-
-function atualizar(id, Categorias, callback) {
-
+function atualizar(id, categoria, callback) {
     const sql = `
         UPDATE Categorias
         SET
-
             nome = ?,
-            icone = ?,
-            
+            icone = ?
         WHERE id_Categorias = ?
     `;
 
     conexao.query(
         sql,
         [
-            Categorias.nome,
-            Categorias.icone,
-            
+            categoria.nome,
+            categoria.icone,
             id
         ],
         callback
     );
-
 }
 
 // =========================
-// Excluir Categorais
+// Excluir Categoria
 // =========================
-
 function excluir(id, callback) {
-
     const sql = `
         DELETE FROM Categorias
         WHERE id_Categorias = ?
     `;
 
     conexao.query(sql, [id], callback);
-
 }
 
 module.exports = {
-
     cadastrar,
     listar,
     buscarPorId,
-    buscarPorEmail,
     atualizar,
     excluir
-
 };
