@@ -7,12 +7,6 @@ CREATE DATABASE GAMESSTART;
 
 use GAMESSTART;
 
-
-select * from cliente;
-
-
-
-
 CREATE TABLE Lojista(
 id_lojista INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(450) NOT NULL,
@@ -87,7 +81,7 @@ foreign key (Cliente_id_cliente) references Cliente (id_cliente),
 foreign key (Endereco_id_endereco) references Endereco (id_endereco)
 );
 
-DROP TABLE Cartao_pagamento;
+
 CREATE TABLE Cartao_pagamento(
 id_cartao_pagamento INT AUTO_INCREMENT PRIMARY KEY,
 numero MEDIUMINT (40) NOT NULL,
@@ -278,12 +272,11 @@ foreign key (Promocao_id_promocao) references Promocao (id_promocao),
 foreign key (Categorias_id_categorias) references Categorias (id_categorias)
 );
 
-USE GAMESSTART;
+
 -- DML - COMANDO DE MODELAGEM DO BD
 -- INSERIR, EDITAR, EXCLUIR, LISTAR
 
--- LISTAGEM DE TABELAS
-SHOW TABLES;
+
 
 
 -- INSERT - INSERT DADOS NA TABELA
@@ -294,11 +287,13 @@ values("Rodoviário",77781708,"Rodoviário",1230,"Ao lado do Senac","Comercial")
 INSERT INTO Lojista(nome,cpf,email,senha,telefone)
 VALUES ("João", 12345678901,"joao@gmail.com","123abc",94991861563);
 
--- LISTAR DADOS DA TABELA
-SELECT * FROM Endereco;
-SELECT * FROM lojista;
-SELECT * FROM loja;
 
 -- CADASTRAR OS DADOS DA LOJA
 INSERT INTO Loja (nome, whatsapp, telefone, email, endereco_id_endereco, lojista_id_lojista)
 values("GAMESSTART","94991861563",9491861563,"startgames@gmail.com", 1,1);
+-- LISTAR DADOS DA TABELA
+SELECT * FROM Endereco;
+SELECT * FROM lojista;
+SELECT * FROM loja;
+select * from cliente;
+
