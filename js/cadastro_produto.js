@@ -261,3 +261,265 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarSelectsCategorias();
     renderizarTabela();
 });
+//======================================================
+// CADASTRO CATEGORIA
+//======================================================
+ 
+document.getElementById("btnCategoria").
+    addEventListener("click", function () {
+        //capturar os dados do input
+        const categoriaNome
+            = document.getElementById("categoriaNome").value;
+ 
+        // criar um if para validar se o campo está vazio    
+        if (categoriaNome === "") {
+            alert("Por favor, preencha o nome da categoria.");
+            return;
+        }
+ 
+        // criar um objeto com os dados da categoria
+        const categoria = {
+            nome: categoriaNome
+ 
+        };
+ 
+        // enviar os dados para o servidor
+        fetch("http://localhost:3000/categorias", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(categoria)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Categoria cadastrada:", data);
+                alert("Categoria cadastrada com sucesso!");
+            })
+            .catch(error => {
+                console.error("Erro ao cadastrar categoria:", error);
+                alert("Erro ao cadastrar categoria.");
+            });
+    });
+  
+        //======================================================
+        // CADASTRO PRODUTO
+        //======================================================
+        document.getElementById("btnProduto").
+        addEventListener("click", function () {
+
+    //==================================================
+    // CAPTURAR DADOS DOS INPUTS
+    //==================================================
+    const nome =
+        document.getElementById("produtoNome").value;
+
+    const descricao =
+        document.getElementById("produtoDescricao").value;
+
+    const codigo =
+        document.getElementById("produtoCodigo").value;
+
+    const precoAntigo =
+        document.getElementById("produtoPrecoAntigo").value;
+
+    const precoPromo =
+        document.getElementById("produtoPrecoPromo").value;
+
+    const estoque =
+        document.getElementById("produtoEstoque").value;
+
+    //==================================================
+    // CAPTURAR SELECTS
+    //==================================================
+    const marca =
+        document.getElementById("produtoMarca").value;
+
+    const cor =
+        document.getElementById("produtoCor").value;
+
+    const tamanho =
+        document.getElementById("produtoTamanho").value;
+
+    const categoria =
+        document.getElementById("produtoCategoria").value;
+
+    const status =
+        document.getElementById("produtoStatus").value;
+
+    //==================================================
+    // VALIDAÇÃO
+    //==================================================
+    if (
+        nome === "" ||
+        codigo === "" ||
+        precoAntigo === "" ||
+        precoPromo === "" ||
+        estoque === "" ||
+        marca === "" ||
+        cor === "" ||
+        tamanho === "" ||
+        categoria === ""
+    ) {
+        alert("Preencha todos os campos obrigatórios.");
+        return;
+    }
+
+    //==================================================
+    // CRIAR OBJETO PRODUTO
+    //==================================================
+    const produto = {
+
+        nome: nome,
+        descricao: descricao,
+        codigo: codigo,
+        precoAntigo: precoAntigo,
+        precoPromo: precoPromo,
+        estoque: estoque,
+        status: status,
+
+        Marca_idMarca: marca,
+        Cores_idCores: cor,
+        Tamanho_idTamanho: tamanho,
+        Categoria_idCategoria: categoria
+
+    };
+
+    //==================================================
+    // ENVIAR PARA O SERVIDOR
+    //==================================================
+    fetch("http://localhost:3000/produtos", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(produto)
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        console.log("Produto cadastrado:", data);
+
+        alert("Produto cadastrado com sucesso!");
+
+        // limpar formulário
+        document.getElementById("produtoNome").value = "";
+        document.getElementById("produtoDescricao").value = "";
+        document.getElementById("produtoCodigo").value = "";
+        document.getElementById("produtoPrecoAntigo").value = "";
+        document.getElementById("produtoPrecoPromo").value = "";
+        document.getElementById("produtoEstoque").value = "";
+
+    })
+
+    .catch(error => {
+
+        console.error("Erro ao cadastrar produto:", error);
+
+        alert("Erro ao cadastrar produto.");
+
+    });
+
+});
+ 
+
+//======================================================
+// CADASTRAR IMAGEM DO PRODUTO
+//======================================================
+document.getElementById("btnImagem")
+.addEventListener("click", function () {
+
+    // capturar dados
+    const produto =
+        document.getElementById("imagemProduto").value;
+
+    const arquivo =
+        document.getElementById("imagemArquivo").files[0];
+
+
+    // validar
+    if (produto === "") {
+
+        alert("Selecione o produto.");
+        return;
+    }
+
+    if (!arquivo) {
+
+        alert("Selecione uma imagem.");
+        return;
+    }
+
+
+    // criar FormData
+    const imagem = new FormData();
+
+    imagem.append(
+        "Produto_idProduto",
+        produto
+    );
+
+    imagem.append(
+        "imagem",
+        arquivo
+    );
+
+
+    // enviar para servidor
+    fetch(`${API}/imagens`, {
+
+        method: "POST",
+
+        body: imagem
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        console.log(
+            "Imagem cadastrada:",
+            data
+        );
+
+        alert(
+            "Imagem cadastrada com sucesso!"
+        );
+
+        document.getElementById(
+            "imagemArquivo"
+        ).value = "";
+
+    })
+
+    .catch(error => {
+
+        console.error(
+            "Erro ao cadastrar imagem:",
+            error
+        );
+
+        alert(
+            "Erro ao cadastrar imagem."
+        );
+
+    });
+
+});
+
+
+//======================================================
+// CARREGAR PRODUTOS AO ABRIR A PÁGINA
+//======================================================
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        listarProdutosImagem();
+
+    }
+);
+ 

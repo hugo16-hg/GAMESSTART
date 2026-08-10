@@ -1,237 +1,120 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Produto
-// =========================
 
-function cadastrar(produto, callback) {
+// ==========================================
+// CADASTRAR AVALIAÇÃO
+// ==========================================
+
+function cadastrar(avaliacao, callback) {
 
     const sql = `
-        INSERT INTO Produto
+        INSERT INTO Avaliacao
         (
-            nome,
+            data_publicacao,
+            nota,
             descricao,
-            codigo,
-            preco_antigo,
-            preco_promocional,
-            quantidade_estoque,
-            ativo,
-            Loja_id_loja,
-            Lojista_id_lojista
+            Produto_id_produto
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?)
     `;
 
     conexao.query(
         sql,
         [
-            produto.nome,
-            produto.descricao,
-            produto.codigo,
-            produto.preco_antigo,
-            produto.preco_promocional,
-            produto.quantidade_estoque,
-            produto.ativo,
-            produto.Loja_id_loja,
-            produto.Lojista_id_lojista
+            avaliacao.data_publicacao,
+            avaliacao.nota,
+            avaliacao.descricao,
+            avaliacao.Produto_id_produto
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Produtos
-// =========================
+
+// ==========================================
+// LISTAR AVALIAÇÕES
+// ==========================================
 
 function listar(callback) {
 
     const sql = `
         SELECT *
-        FROM Produto
+        FROM Avaliacao
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Buscar Produto por ID
-// =========================
+
+// ==========================================
+// BUSCAR AVALIAÇÃO POR ID
+// ==========================================
 
 function buscarPorId(id, callback) {
 
     const sql = `
         SELECT *
-        FROM Produto
-        WHERE id_produto = ?
+        FROM Avaliacao
+        WHERE id_avaliacao = ?
     `;
 
     conexao.query(sql, [id], callback);
-
 }
 
-// =========================
-// Buscar Produto por Nome
-// =========================
 
-function buscarPorNome(nome, callback) {
+// ==========================================
+// ATUALIZAR AVALIAÇÃO
+// ==========================================
 
-    const sql = `
-        SELECT *
-        FROM Produto
-        WHERE nome LIKE ?
-    `;
-
-    conexao.query(sql, [`%${nome}%`], callback);
-
-}
-
-// =========================
-// Buscar Produto por Código
-// =========================
-
-function buscarPorCodigo(codigo, callback) {
+function atualizar(id, avaliacao, callback) {
 
     const sql = `
-        SELECT *
-        FROM Produto
-        WHERE codigo = ?
-    `;
-
-    conexao.query(sql, [codigo], callback);
-
-}
-
-// =========================
-// Listar Produtos por Loja
-// =========================
-
-function listarPorLoja(idLoja, callback) {
-
-    const sql = `
-        SELECT *
-        FROM Produto
-        WHERE Loja_id_loja = ?
-    `;
-
-    conexao.query(sql, [idLoja], callback);
-
-}
-
-// =========================
-// Listar Produtos por Lojista
-// =========================
-
-function listarPorLojista(idLojista, callback) {
-
-    const sql = `
-        SELECT *
-        FROM Produto
-        WHERE Lojista_id_lojista = ?
-    `;
-
-    conexao.query(sql, [idLojista], callback);
-
-}
-
-// =========================
-// Listar Produtos Ativos
-// =========================
-
-function listarAtivos(callback) {
-
-    const sql = `
-        SELECT *
-        FROM Produto
-        WHERE ativo = TRUE
-    `;
-
-    conexao.query(sql, callback);
-
-}
-
-// =========================
-// Listar Produtos em Estoque
-// =========================
-
-function listarEmEstoque(callback) {
-
-    const sql = `
-        SELECT *
-        FROM Produto
-        WHERE quantidade_estoque > 0
-    `;
-
-    conexao.query(sql, callback);
-
-}
-
-// =========================
-// Atualizar Produto
-// =========================
-
-function atualizar(id, produto, callback) {
-
-    const sql = `
-        UPDATE Produto
+        UPDATE Avaliacao
         SET
-            nome = ?,
+            data_publicacao = ?,
+            nota = ?,
             descricao = ?,
-            codigo = ?,
-            preco_antigo = ?,
-            preco_promocional = ?,
-            quantidade_estoque = ?,
-            ativo = ?,
-            Loja_id_loja = ?,
-            Lojista_id_lojista = ?
-        WHERE id_produto = ?
+            Produto_id_produto = ?
+        WHERE id_avaliacao = ?
     `;
 
     conexao.query(
         sql,
         [
-            produto.nome,
-            produto.descricao,
-            produto.codigo,
-            produto.preco_antigo,
-            produto.preco_promocional,
-            produto.quantidade_estoque,
-            produto.ativo,
-            produto.Loja_id_loja,
-            produto.Lojista_id_lojista,
+            avaliacao.data_publicacao,
+            avaliacao.nota,
+            avaliacao.descricao,
+            avaliacao.Produto_id_produto,
             id
         ],
         callback
     );
-
 }
 
-// =========================
-// Excluir Produto
-// =========================
+
+// ==========================================
+// EXCLUIR AVALIAÇÃO
+// ==========================================
 
 function excluir(id, callback) {
 
     const sql = `
-        DELETE FROM Produto
-        WHERE id_produto = ?
+        DELETE FROM Avaliacao
+        WHERE id_avaliacao = ?
     `;
 
     conexao.query(sql, [id], callback);
-
 }
+
+
+// ==========================================
+// EXPORTAÇÃO
+// ==========================================
 
 module.exports = {
     cadastrar,
     listar,
     buscarPorId,
-    buscarPorNome,
-    buscarPorCodigo,
-    listarPorLoja,
-    listarPorLojista,
-    listarAtivos,
-    listarEmEstoque,
     atualizar,
     excluir
 };

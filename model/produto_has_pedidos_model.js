@@ -1,8 +1,9 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Adicionar Produto ao Pedido
-// =========================
+
+// ==========================================
+// CADASTRAR
+// ==========================================
 
 function cadastrar(produtoPedido, callback) {
 
@@ -23,12 +24,12 @@ function cadastrar(produtoPedido, callback) {
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Relações
-// =========================
+
+// ==========================================
+// LISTAR TODAS AS ASSOCIAÇÕES
+// ==========================================
 
 function listar(callback) {
 
@@ -38,12 +39,12 @@ function listar(callback) {
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Listar Produtos do Pedido
-// =========================
+
+// ==========================================
+// LISTAR PRODUTOS DE UM PEDIDO
+// ==========================================
 
 function listarPorPedido(idPedido, callback) {
 
@@ -53,13 +54,17 @@ function listarPorPedido(idPedido, callback) {
         WHERE Pedidos_id_pedidos = ?
     `;
 
-    conexao.query(sql, [idPedido], callback);
-
+    conexao.query(
+        sql,
+        [idPedido],
+        callback
+    );
 }
 
-// =========================
-// Listar Pedidos do Produto
-// =========================
+
+// ==========================================
+// LISTAR PEDIDOS DE UM PRODUTO
+// ==========================================
 
 function listarPorProduto(idProduto, callback) {
 
@@ -69,32 +74,40 @@ function listarPorProduto(idProduto, callback) {
         WHERE Produto_id_produto = ?
     `;
 
-    conexao.query(sql, [idProduto], callback);
-
+    conexao.query(
+        sql,
+        [idProduto],
+        callback
+    );
 }
 
-// =========================
-// Buscar Produtos com Dados Completos do Pedido
-// =========================
+
+// ==========================================
+// BUSCAR PRODUTOS COMPLETOS DO PEDIDO
+// ==========================================
 
 function buscarProdutosDoPedido(idPedido, callback) {
 
     const sql = `
-        SELECT 
-            Produto.*
+        SELECT Produto.*
         FROM Produto
         INNER JOIN Produto_has_Pedidos
-        ON Produto.id_produto = Produto_has_Pedidos.Produto_id_produto
+            ON Produto.id_produto =
+               Produto_has_Pedidos.Produto_id_produto
         WHERE Produto_has_Pedidos.Pedidos_id_pedidos = ?
     `;
 
-    conexao.query(sql, [idPedido], callback);
-
+    conexao.query(
+        sql,
+        [idPedido],
+        callback
+    );
 }
 
-// =========================
-// Remover Produto do Pedido
-// =========================
+
+// ==========================================
+// EXCLUIR UMA ASSOCIAÇÃO
+// ==========================================
 
 function excluir(idProduto, idPedido, callback) {
 
@@ -112,12 +125,12 @@ function excluir(idProduto, idPedido, callback) {
         ],
         callback
     );
-
 }
 
-// =========================
-// Remover Todos os Produtos do Pedido
-// =========================
+
+// ==========================================
+// EXCLUIR TODOS OS PRODUTOS DE UM PEDIDO
+// ==========================================
 
 function excluirPorPedido(idPedido, callback) {
 
@@ -126,13 +139,17 @@ function excluirPorPedido(idPedido, callback) {
         WHERE Pedidos_id_pedidos = ?
     `;
 
-    conexao.query(sql, [idPedido], callback);
-
+    conexao.query(
+        sql,
+        [idPedido],
+        callback
+    );
 }
 
-// =========================
-// Remover Produto de Todos os Pedidos
-// =========================
+
+// ==========================================
+// EXCLUIR PRODUTO DE TODOS OS PEDIDOS
+// ==========================================
 
 function excluirPorProduto(idProduto, callback) {
 
@@ -141,9 +158,17 @@ function excluirPorProduto(idProduto, callback) {
         WHERE Produto_id_produto = ?
     `;
 
-    conexao.query(sql, [idProduto], callback);
-
+    conexao.query(
+        sql,
+        [idProduto],
+        callback
+    );
 }
+
+
+// ==========================================
+// EXPORTAR
+// ==========================================
 
 module.exports = {
     cadastrar,

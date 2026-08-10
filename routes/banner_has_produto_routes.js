@@ -9,16 +9,16 @@ const express = require("express");
 // Importando o módulo express para criar rotas e lidar com requisições HTTP.
 const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas às associações entre banners e produtos.
-const BannerHasProdutosController = require("../controller/banner_has_produtos_controller.js");
+const BannerHasProdutoController = require("../controller/banner_has_produto_controller.js");
 
-router.post("/", BannerHasProdutosController.cadastrar);
+router.post("/", BannerHasProdutoController.cadastrar);
 
-router.get("/", BannerHasProdutosController.listar);
+router.get("/", BannerHasProdutoController.listar);
 
-router.get("/:id", BannerHasProdutosController.buscarPorId);
+router.get("/:id", BannerHasProdutoController.buscarPorId);
 
-router.put("/:id", BannerHasProdutosController.atualizar);
+router.put("/:id", BannerHasProdutoController.atualizar);
 
-router.delete("/:id", BannerHasProdutosController.excluir);
+router.delete("/:id", BannerHasProdutoController.excluir);
 
 module.exports = router;

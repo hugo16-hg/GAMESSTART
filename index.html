@@ -4,375 +4,953 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GamesStart</title>
+    <meta
+        name="description"
+        content="GamesStart - Sua loja gamer com consoles, PCs, periféricos, jogos e muito mais."
+    >
 
-    <link rel="stylesheet" href="../style/index.css">
+    <title>GamesStart | Loja Gamer</title>
 
-    <!-- Font Awesome -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style/index.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
 </head>
 
+
 <body>
 
-    <!-- HEADER -->
+
+    <!-- =====================================================
+                            HEADER
+    ====================================================== -->
 
     <header class="header">
 
-        <div class="logo">
+        <!-- LOGO -->
+
+        <a href="#" class="logo">
 
             <i class="fa-solid fa-gamepad"></i>
 
             <span>GamesStart</span>
 
-        </div>
+        </a>
 
-        <div class="search">
 
-            <input type="text" placeholder="O que você está procurando hoje?">
+        <!-- PESQUISA -->
 
-            <button>
+        <form class="search" id="searchForm">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="O que você está procurando hoje?"
+                autocomplete="off"
+            >
+
+            <button
+                type="submit"
+                aria-label="Pesquisar"
+            >
 
                 <i class="fa-solid fa-magnifying-glass"></i>
 
             </button>
 
-        </div>
+        </form>
 
-        <div class="header-icons">
 
-            <i class="fa-solid fa-cart-shopping"></i>
+        <!-- AÇÕES -->
 
-            <i class="fa-solid fa-gear"></i>
+        <div class="header-actions">
 
-            <img src="./img/avatar.png" alt="Perfil">
+            <!-- CARRINHO -->
+
+            <button
+                class="header-button"
+                id="cartButton"
+                aria-label="Carrinho"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+            <!-- CONFIGURAÇÕES -->
+
+            <button
+                class="header-button"
+                id="settingsButton"
+                aria-label="Configurações"
+            >
+
+                <i class="fa-solid fa-gear"></i>
+
+            </button>
+
+
+            <!-- PERFIL -->
+
+            <button
+                class="profile-button"
+                id="profileButton"
+                aria-label="Perfil"
+            >
+
+                <!-- IMAGEM: adicionar posteriormente -->
+
+                <img
+                    src="./img/avatar.png"
+                    alt="Perfil"
+                >
+
+            </button>
 
         </div>
 
     </header>
 
-    <!-- MENU -->
+
+
+    <!-- =====================================================
+                              MENU
+    ====================================================== -->
 
     <nav class="menu">
 
-        <a href="#">Home</a>
+        <div class="menu-container">
 
-        <a href="#">Consoles</a>
+            <a
+                href="#"
+                class="menu-link active"
+            >
+                Home
+            </a>
 
-        <a href="#">PCs</a>
+            <a
+                href="#"
+                class="menu-link"
+            >
+                Consoles
+            </a>
 
-        <a href="#">Periféricos</a>
+            <a
+                href="#"
+                class="menu-link"
+            >
+                PCs
+            </a>
 
-        <a href="#">Jogos</a>
+            <a
+                href="#"
+                class="menu-link"
+            >
+                Periféricos
+            </a>
 
-        <a href="#">Promoções</a>
+            <a
+                href="#"
+                class="menu-link"
+            >
+                Jogos
+            </a>
+
+            <a
+                href="#"
+                class="menu-link"
+            >
+                Promoções
+            </a>
+
+        </div>
 
     </nav>
 
-    <!-- BANNER -->
 
-    <section class="banner">
 
-        <div class="banner-info">
+    <!-- =====================================================
+                           CONTEÚDO
+    ====================================================== -->
 
-            <small>TEMPORADA GAMER</small>
+    <main>
 
-            <h1>
 
-                Upgrade seu Setup com
+        <!-- =================================================
+                         BANNER PRINCIPAL
+        ================================================== -->
 
-                <br>
+        <section class="hero">
 
-                até 40% OFF
+            <!-- IMAGEM DO BANNER -->
 
-            </h1>
+            <img
+                src="./img/banner/banner01.jpg"
+                alt="Temporada Gamer"
+                class="hero-image"
+            >
 
-            <p>
 
-                As melhores marcas de hardware e os lançamentos mais esperados.
+            <!-- BOTÕES DO BANNER -->
 
-            </p>
+            <div class="hero-buttons">
 
-            <div class="buttons">
-
-                <button class="primary">
-
+                <button
+                    type="button"
+                    class="hero-button hero-button-primary"
+                    id="heroOfferButton"
+                >
                     Confira
-
                 </button>
 
-                <button class="secondary">
 
+                <button
+                    type="button"
+                    class="hero-button hero-button-secondary"
+                    id="heroInfoButton"
+                >
                     Saiba Mais
-
                 </button>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
 
-    <!-- BENEFÍCIOS -->
 
-    <section class="benefits">
+        <!-- =================================================
+                           BENEFÍCIOS
+        ================================================== -->
 
-        <div class="benefit">
+        <section class="benefits">
 
-            <i class="fa-solid fa-truck"></i>
+            <div class="benefits-container">
 
-            <div>
 
-                <h4>Frete Grátis</h4>
+                <!-- FRETE GRÁTIS -->
 
-                <p>Compras acima de R$ 50</p>
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+
+                        <i class="fa-solid fa-truck"></i>
+
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <h3>
+                            Frete Grátis
+                        </h3>
+
+                        <p>
+                            Compras acima de R$ 50
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PAGAMENTO -->
+
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+
+                        <i class="fa-solid fa-credit-card"></i>
+
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <h3>
+                            Até 12x sem juros
+                        </h3>
+
+                        <p>
+                            Parcelas mínimas de R$ 50
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- GARANTIA -->
+
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <h3>
+                            Garantia Estendida
+                        </h3>
+
+                        <p>
+                            Proteção oficial GamesStart
+                        </p>
+
+                    </div>
+
+                </article>
+
 
             </div>
 
-        </div>
+        </section>
 
-        <div class="benefit">
 
-            <i class="fa-solid fa-credit-card"></i>
 
-            <div>
+        <!-- =================================================
+                         CATEGORIAS
+        ================================================== -->
 
-                <h4>Até 12x sem juros</h4>
+        <section
+            class="categories"
+            id="categories"
+        >
 
-                <p>Parcelas mínimas de R$ 50</p>
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        EXPLORE
+                    </span>
+
+                    <h2>
+                        Compre por Categoria
+                    </h2>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="view-all"
+                >
+
+                    Ver Todas
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </a>
 
             </div>
 
-        </div>
 
-        <div class="benefit">
+            <div class="categories-grid">
 
-            <i class="fa-solid fa-shield-halved"></i>
 
-            <div>
+                <!-- CONSOLES -->
 
-                <h4>Garantia Estendida</h4>
+                <a
+                    href="#"
+                    class="category-card"
+                >
 
-                <p>Proteção oficial GamesStart</p>
+                    <div class="category-content">
+
+                        <h3>
+                            Consoles
+                        </h3>
+
+                        <span>
+                            Explorar
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+
+                    </div>
+
+
+                    <div class="category-image">
+
+                        <!-- IMAGEM: adicionar posteriormente -->
+
+                        <img
+                            src="./img/categorias/consoles.png"
+                            alt="Consoles"
+                        >
+
+                    </div>
+
+                </a>
+
+
+                <!-- PC GAMER -->
+
+                <a
+                    href="#"
+                    class="category-card"
+                >
+
+                    <div class="category-content">
+
+                        <h3>
+                            PCs Gamer
+                        </h3>
+
+                        <span>
+                            Explorar
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+
+                    </div>
+
+
+                    <div class="category-image">
+
+                        <!-- IMAGEM: adicionar posteriormente -->
+
+                        <img
+                            src="./img/categorias/pc-gamer.png"
+                            alt="PC Gamer"
+                        >
+
+                    </div>
+
+                </a>
+
+
+                <!-- NOTEBOOK -->
+
+                <a
+                    href="#"
+                    class="category-card"
+                >
+
+                    <div class="category-content">
+
+                        <h3>
+                            Notebooks Gamer
+                        </h3>
+
+                        <span>
+                            Explorar
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+
+                    </div>
+
+
+                    <div class="category-image">
+
+                        <!-- IMAGEM: adicionar posteriormente -->
+
+                        <img
+                            src="./img/categorias/notebook.png"
+                            alt="Notebook Gamer"
+                        >
+
+                    </div>
+
+                </a>
+
+
+                <!-- PERIFÉRICOS -->
+
+                <a
+                    href="#"
+                    class="category-card"
+                >
+
+                    <div class="category-content">
+
+                        <h3>
+                            Periféricos
+                        </h3>
+
+                        <span>
+                            Explorar
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+
+                    </div>
+
+
+                    <div class="category-image">
+
+                        <!-- IMAGEM: adicionar posteriormente -->
+
+                        <img
+                            src="./img/categorias/perifericos.png"
+                            alt="Periféricos"
+                        >
+
+                    </div>
+
+                </a>
+
+
+                <!-- MESAS E CADEIRAS -->
+
+                <a
+                    href="#"
+                    class="category-card"
+                >
+
+                    <div class="category-content">
+
+                        <h3>
+                            Mesas e Cadeiras Gamer
+                        </h3>
+
+                        <span>
+                            Explorar
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+
+                    </div>
+
+
+                    <div class="category-image">
+
+                        <!-- IMAGEM: adicionar posteriormente -->
+
+                        <img
+                            src="./img/categorias/setup.png"
+                            alt="Mesas e cadeiras gamer"
+                        >
+
+                    </div>
+
+                </a>
+
+
+                <!-- JOGOS -->
+
+                <a
+                    href="#"
+                    class="category-card"
+                >
+
+                    <div class="category-content">
+
+                        <h3>
+                            Jogos Mídia Física
+                        </h3>
+
+                        <span>
+                            Explorar
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+
+                    </div>
+
+
+                    <div class="category-image">
+
+                        <!-- IMAGEM: adicionar posteriormente -->
+
+                        <img
+                            src="./img/categorias/jogos.png"
+                            alt="Jogos mídia física"
+                        >
+
+                    </div>
+
+                </a>
+
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!--=========================================
-    BANNER PROMOCIONAL
-==========================================-->
 
-    <section class="promo-banner">
+        <!-- =================================================
+                       BANNER DE OFERTA
+        ================================================== -->
 
-        <div class="promo-text">
+        <section class="weekend-offer">
 
-            <h2>Oferta de Fim de Semana!</h2>
 
-            <p>
-                Consiga até <strong>75% de desconto</strong> em títulos selecionados
-                da franquia Warhammer e RPGs clássicos.
-            </p>
+            <!-- IMAGEM COMPLETA DO BANNER -->
 
-            <div class="promo-bottom">
+            <img
+                src="./img/banner/banner-oferta.jpg"
+                alt="Oferta de fim de semana"
+                class="weekend-offer-image"
+            >
 
-                <button>Aproveitar agora</button>
 
-                <span>
+            <!-- BOTÕES / CONTROLES DO BANNER -->
 
-                    TERMINA EM:
+            <div class="weekend-offer-actions">
+
+
+                <button
+                    type="button"
+                    class="offer-button"
+                    id="offerButton"
+                >
+                    Aproveitar agora
+                </button>
+
+
+                <div class="countdown-container">
+
+                    <span>
+                        TERMINA EM:
+                    </span>
 
                     <strong id="countdown">
                         24h : 15m : 42s
                     </strong>
 
-                </span>
+                </div>
+
 
             </div>
 
-        </div>
-
-        <div class="promo-image">
-
-            <img src="./img/banner/controle.png">
-
-        </div>
-
-    </section>
-
-    <!--=========================================
-    MAIS VENDIDOS
-==========================================-->
-
-    <section class="products-section">
-
-        <div class="section-title">
-
-            <h2>Mais Vendidos</h2>
-
-        </div>
-
-        <div id="bestProducts" class="products-grid"></div>
-
-    </section>
-
-    <!--=========================================
-    NOVIDADES
-==========================================-->
-
-    <section class="products-section">
-
-        <div class="section-title">
-
-            <h2>Novidades</h2>
-
-            <p>Recém chegados ao nosso catálogo</p>
-
-        </div>
-
-        <div id="newProducts" class="products-grid"></div>
-
-    </section>
+        </section>
 
 
-    <!--=========================================
-                FOOTER
-==========================================-->
 
-<footer class="footer">
+        <!-- =================================================
+                         PRODUTOS
+        ================================================== -->
 
-    <div class="footer-container">
+        <section
+            class="products"
+            id="products"
+        >
 
-        <!-- LOGO -->
 
-        <div class="footer-column">
+            <!-- =============================================
+                         MAIS VENDIDOS
+            ============================================== -->
 
-            <div class="footer-logo">
+            <div class="product-section">
 
-                <i class="fa-solid fa-gamepad"></i>
+                <div class="section-header">
 
-                <span>GamesStart</span>
+                    <div>
+
+                        <span class="section-label">
+                            DESTAQUES
+                        </span>
+
+                        <h2>
+                            Mais Vendidos
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="#"
+                        class="view-all"
+                    >
+
+                        Ver Todos
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <!--
+                    OS CARDS SERÃO GERADOS PELO JAVASCRIPT
+                -->
+
+                <div
+                    class="products-grid"
+                    id="bestProducts"
+                ></div>
 
             </div>
 
-            <p>
 
-                A maior loja de hardware e games do Brasil.
-                Qualidade e confiança para o seu setup.
 
-            </p>
+            <!-- =============================================
+                            NOVIDADES
+            ============================================== -->
 
-            <div class="social-icons">
+            <div class="product-section">
 
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="section-header">
 
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <div>
 
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                        <span class="section-label">
+                            LANÇAMENTOS
+                        </span>
 
-                <a href="#"><i class="fab fa-discord"></i></a>
+                        <h2>
+                            Novidades
+                        </h2>
+
+                        <p>
+                            Recém chegados ao nosso catálogo
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="#"
+                        class="view-all"
+                    >
+
+                        Ver Todos
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <!--
+                    OS CARDS SERÃO GERADOS PELO JAVASCRIPT
+                -->
+
+                <div
+                    class="products-grid"
+                    id="newProducts"
+                ></div>
 
             </div>
 
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+                            FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <!-- MARCA -->
+
+            <div class="footer-column footer-brand">
+
+                <a
+                    href="#"
+                    class="footer-logo"
+                >
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    <span>
+                        GamesStart
+                    </span>
+
+                </a>
+
+
+                <p>
+
+                    A maior loja de hardware e games do Brasil.
+                    Qualidade e confiança para o seu setup.
+
+                </p>
+
+
+                <div class="social-icons">
+
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                    >
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        aria-label="Facebook"
+                    >
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        aria-label="YouTube"
+                    >
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        aria-label="Discord"
+                    >
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INSTITUCIONAL -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Institucional
+                </h3>
+
+                <a href="#">
+                    Sobre Nós
+                </a>
+
+                <a href="#">
+                    Nossas Lojas
+                </a>
+
+                <a href="#">
+                    Política de Privacidade
+                </a>
+
+                <a href="#">
+                    Termos de Uso
+                </a>
+
+                <a href="#">
+                    Trabalhe Conosco
+                </a>
+
+            </div>
+
+
+
+            <!-- ATENDIMENTO -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Atendimento
+                </h3>
+
+                <a href="#">
+                    Central de Ajuda
+                </a>
+
+                <a href="#">
+                    Meus Pedidos
+                </a>
+
+                <a href="#">
+                    Devoluções
+                </a>
+
+                <a href="#">
+                    Garantia
+                </a>
+
+                <a href="#">
+                    Fale Conosco
+                </a>
+
+            </div>
+
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Receba nossas promoções
+                </h3>
+
+                <p>
+                    Cadastre seu e-mail e receba ofertas exclusivas.
+                </p>
+
+
+                <form
+                    class="newsletter"
+                    id="newsletterForm"
+                >
+
+                    <input
+                        type="email"
+                        placeholder="Seu e-mail"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        aria-label="Cadastrar e-mail"
+                    >
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
         </div>
 
-        <!-- INSTITUCIONAL -->
 
-        <div class="footer-column">
 
-            <h3>Institucional</h3>
+        <!-- RODAPÉ INFERIOR -->
 
-            <a href="#">Sobre Nós</a>
+        <div class="footer-bottom">
 
-            <a href="#">Nossas Lojas</a>
+            <span>
+                © 2026 GamesStart. Todos os direitos reservados.
+            </span>
 
-            <a href="#">Política de Privacidade</a>
+            <span>
+                CNPJ: 00.000.000/0001-00
+            </span>
 
-            <a href="#">Termos de Uso</a>
-
-            <a href="#">Trabalhe Conosco</a>
-
-        </div>
-
-        <!-- ATENDIMENTO -->
-
-        <div class="footer-column">
-
-            <h3>Atendimento</h3>
-
-            <a href="#">Central de Ajuda</a>
-
-            <a href="#">Meus Pedidos</a>
-
-            <a href="#">Devoluções</a>
-
-            <a href="#">Garantia</a>
-
-            <a href="#">Fale Conosco</a>
+            <span>
+                GamesStart Tecnologia S.A.
+            </span>
 
         </div>
 
-        <!-- NEWSLETTER -->
+    </footer>
 
-        <div class="footer-column">
 
-            <h3>Receba nossas promoções</h3>
 
-            <p>
+    <!-- =====================================================
+                         JAVASCRIPT
+    ====================================================== -->
 
-                Cadastre seu e-mail e receba ofertas exclusivas.
-
-            </p>
-
-            <form class="newsletter">
-
-                <input
-                    type="email"
-                    placeholder="Seu e-mail">
-
-                <button>
-
-                    <i class="fa-solid fa-paper-plane"></i>
-
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-        <span>
-
-            © 2026 GamesStart. Todos os direitos reservados.
-
-        </span>
-
-        <span>
-
-            CNPJ: 00.000.000/0001-00
-
-        </span>
-
-        <span>
-
-            GamesStart Tecnologia S.A.
-
-        </span>
-
-    </div>
-
-</footer>
-
-    <script src="../js/index.js"></script>
+    <script src="./js/index.js"></script>
 
 </body>
 
