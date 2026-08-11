@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GamesStart | Pedido Confirmado</title>
+
+    <link rel="stylesheet" href="../style/confirmacao.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <main id="paginaConfirmacao" class="pagina-confirmacao">
+
+        <!-- CABEÇALHO -->
+
+        <header id="cabecalhoPrincipal" class="cabecalho-principal">
+
+            <a id="linkInicio" class="logo-container" href="../index.html">
+
+                <i class="fa-solid fa-gamepad"></i>
+
+                <span id="nomeSistema" class="nome-sistema"></span>
+
+            </a>
+
+            <!-- ETAPAS -->
+
+            <nav id="etapasCheckout" class="etapas-checkout">
+
+                <a id="etapaCarrinho" class="etapa-checkout etapa-concluida"
+                    href="carrinho.html">
+
+                    <span class="numero-etapa">1</span>
+
+                    <span id="textoEtapaCarrinho"></span>
+
+                </a>
+
+                <div class="linha-etapa"></div>
+
+                <a id="etapaFinalizacao"
+                    class="etapa-checkout etapa-concluida"
+                    href="finalizar_compra.html">
+
+                    <span class="numero-etapa">2</span>
+
+                    <span id="textoEtapaFinalizacao"></span>
+
+                </a>
+
+                <div class="linha-etapa"></div>
+
+                <div id="etapaConfirmacao"
+                    class="etapa-checkout etapa-ativa">
+
+                    <span class="numero-etapa">3</span>
+
+                    <span id="textoEtapaConfirmacao"></span>
+
+                </div>
+
+            </nav>
+
+            <!-- USUÁRIO -->
+
+            <nav id="navegacaoUsuario" class="navegacao-usuario">
+
+                <a id="linkPerfil" class="perfil-usuario" href="#">
+
+                    <img id="fotoPerfil" class="foto-perfil" src="" alt="">
+
+                    <span id="nomeUsuario" class="nome-usuario"></span>
+
+                </a>
+
+                <a id="linkCarrinho"
+                    class="botao-carrinho"
+                    href="carrinho.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="contadorCarrinho" class="contador-carrinho"></span>
+
+                    <span id="textoCarrinho" class="texto-oculto"></span>
+
+                </a>
+
+            </nav>
+
+        </header>
+
+        <!-- CONTEÚDO -->
+
+        <section id="conteudoConfirmacao" class="conteudo-confirmacao">
+
+            <section id="areaConfirmacao" class="area-confirmacao">
+
+                <!-- SUCESSO -->
+
+                <header id="cabecalhoSucesso" class="cabecalho-sucesso">
+
+                    <div class="icone-sucesso">
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </div>
+
+                    <h1 id="tituloSucesso"></h1>
+
+                    <p id="descricaoSucesso"></p>
+
+                </header>
+
+                <!-- INFORMAÇÕES DO PEDIDO -->
+
+                <section id="informacoesPedido" class="card-confirmacao">
+
+                    <header class="cabecalho-card">
+
+                        <div class="icone-card">
+
+                            <i class="fa-solid fa-receipt"></i>
+
+                        </div>
+
+                        <h2 id="tituloInformacoesPedido"></h2>
+
+                    </header>
+
+                    <div class="grid-informacoes">
+
+                        <div class="informacao-pedido">
+
+                            <span id="labelNumeroPedido"></span>
+
+                            <strong id="numeroPedido"></strong>
+
+                        </div>
+
+                        <div class="informacao-pedido">
+
+                            <span id="labelDataPedido"></span>
+
+                            <strong id="dataPedido"></strong>
+
+                        </div>
+
+                        <div class="informacao-pedido">
+
+                            <span id="labelEmailConfirmacao"></span>
+
+                            <strong id="emailConfirmacao"></strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ENTREGA -->
+
+                <section id="informacoesEntrega" class="card-confirmacao">
+
+                    <header class="cabecalho-card">
+
+                        <div class="icone-card">
+
+                            <i class="fa-solid fa-truck"></i>
+
+                        </div>
+
+                        <h2 id="tituloEntrega"></h2>
+
+                    </header>
+
+                    <div class="detalhes-entrega">
+
+                        <div class="previsao-entrega">
+
+                            <div class="icone-previsao">
+
+                                <i class="fa-solid fa-calendar-days"></i>
+
+                            </div>
+
+                            <div>
+
+                                <span id="labelPrevisaoEntrega"></span>
+
+                                <strong id="previsaoEntrega"></strong>
+
+                            </div>
+
+                        </div>
+
+                        <div class="endereco-entrega">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <div>
+
+                                <span id="labelEnderecoEntrega"></span>
+
+                                <p id="textoEnderecoEntrega"></p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- PRÓXIMOS PASSOS -->
+
+                <section id="proximosPassos" class="card-confirmacao">
+
+                    <header class="cabecalho-card">
+
+                        <div class="icone-card">
+
+                            <i class="fa-solid fa-circle-info"></i>
+
+                        </div>
+
+                        <h2 id="tituloProximosPassos"></h2>
+
+                    </header>
+
+                    <ol id="listaProximosPassos" class="lista-proximos-passos">
+
+                        <li>
+                            <span class="numero-passo">1</span>
+
+                            <p id="passoUm"></p>
+                        </li>
+
+                        <li>
+                            <span class="numero-passo">2</span>
+
+                            <p id="passoDois"></p>
+                        </li>
+
+                        <li>
+                            <span class="numero-passo">3</span>
+
+                            <p id="passoTres"></p>
+                        </li>
+
+                    </ol>
+
+                </section>
+
+                <!-- AÇÕES -->
+
+                <section id="acoesConfirmacao" class="acoes-confirmacao">
+
+                    <a id="linkMeusPedidos"
+                        class="btn-principal"
+                        href="#">
+
+                        <i class="fa-solid fa-box"></i>
+
+                        <span id="textoMeusPedidos"></span>
+
+                    </a>
+
+                    <a id="linkContinuarComprando"
+                        class="btn-secundario"
+                        href="../index.html">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                        <span id="textoContinuarComprando"></span>
+
+                    </a>
+
+                </section>
+
+            </section>
+
+            <!-- RESUMO -->
+
+            <aside id="resumoPedido" class="resumo-pedido">
+
+                <h2 id="tituloResumo"></h2>
+
+                <section id="listaResumoProdutos"
+                    class="lista-resumo-produtos">
+                </section>
+
+                <section id="valoresResumo" class="valores-resumo">
+
+                    <div class="linha-resumo">
+
+                        <span id="labelSubtotal"></span>
+
+                        <strong id="valorSubtotal"></strong>
+
+                    </div>
+
+                    <div class="linha-resumo">
+
+                        <span id="labelDesconto"></span>
+
+                        <strong id="valorDesconto"></strong>
+
+                    </div>
+
+                    <div class="linha-resumo">
+
+                        <span id="labelFrete"></span>
+
+                        <strong id="valorFrete"></strong>
+
+                    </div>
+
+                </section>
+
+                <section id="totalPedido" class="total-pedido">
+
+                    <span id="labelTotal"></span>
+
+                    <strong id="valorTotal"></strong>
+
+                    <p id="textoFormaPagamento"></p>
+
+                </section>
+
+                <section id="compraSegura" class="compra-segura">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span id="textoCompraSegura"></span>
+
+                </section>
+
+            </aside>
+
+        </section>
+
+        <!-- MODELO DE PRODUTO -->
+
+        <template id="templateResumoProduto">
+
+            <article class="item-resumo-produto">
+
+                <img class="imagem-resumo-produto" src="" alt="">
+
+                <div class="informacoes-resumo-produto">
+
+                    <h3 class="nome-resumo-produto"></h3>
+
+                    <span class="quantidade-resumo-produto"></span>
+
+                </div>
+
+                <strong class="preco-resumo-produto"></strong>
+
+            </article>
+
+        </template>
+
+        <!-- NOTIFICAÇÃO -->
+
+        <div id="notificacao"
+            class="notificacao"
+            role="status"
+            aria-live="polite"
+            hidden>
+
+            <p id="textoNotificacao"></p>
+
+        </div>
+
+        <!-- RODAPÉ -->
+
+        <footer id="rodapePrincipal" class="rodape-principal">
+
+            <a id="linkLogoRodape" class="logo-rodape" href="../index.html">
+
+                <i class="fa-solid fa-gamepad"></i>
+
+                <span id="nomeSistemaRodape"></span>
+
+            </a>
+
+            <p id="textoDireitosAutorais"></p>
+
+            <nav id="redesSociais" class="redes-sociais">
+
+                <a id="linkWhatsapp" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    <span id="textoWhatsapp" class="texto-oculto"></span>
+
+                </a>
+
+                <a id="linkInstagram" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                    <span id="textoInstagram" class="texto-oculto"></span>
+
+                </a>
+
+                <a id="linkFacebook" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                    <span id="textoFacebook" class="texto-oculto"></span>
+
+                </a>
+
+            </nav>
+
+        </footer>
+
+    </main>
+
+    <script src="../js/confirmacao.js"></script>
+
+</body>
+
+</html>

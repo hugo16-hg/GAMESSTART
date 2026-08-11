@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GamesStart | Finalizar Compra</title>
+
+    <link rel="stylesheet" href="../style/finalizar_compra.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <main id="paginaCheckout" class="pagina-checkout">
+
+        <!-- CABEÇALHO -->
+
+        <header id="cabecalhoPrincipal" class="cabecalho-principal">
+
+            <a id="linkInicio" class="logo-container" href="../index.html">
+
+                <i class="fa-solid fa-gamepad"></i>
+
+                <span id="nomeSistema" class="nome-sistema"></span>
+
+            </a>
+
+            <!-- ETAPAS -->
+
+            <nav id="etapasCheckout" class="etapas-checkout">
+
+                <a id="etapaCarrinho" class="etapa-checkout" href="carrinho.html">
+
+                    <span class="numero-etapa">1</span>
+
+                    <span id="textoEtapaCarrinho"></span>
+
+                </a>
+
+                <div class="linha-etapa"></div>
+
+                <div id="etapaDadosPagamento" class="etapa-checkout etapa-ativa">
+
+                    <span class="numero-etapa">2</span>
+
+                    <span id="textoEtapaDadosPagamento"></span>
+
+                </div>
+
+                <div class="linha-etapa"></div>
+
+                <div id="etapaFinalizacao" class="etapa-checkout">
+
+                    <span class="numero-etapa">3</span>
+
+                    <span id="textoEtapaFinalizacao"></span>
+
+                </div>
+
+            </nav>
+
+            <!-- USUÁRIO -->
+
+            <nav id="navegacaoUsuario" class="navegacao-usuario">
+
+                <a id="linkPerfil" class="perfil-usuario" href="#">
+
+                    <img id="fotoPerfil" class="foto-perfil" src="" alt="">
+
+                    <span id="nomeUsuario" class="nome-usuario"></span>
+
+                </a>
+
+                <a id="linkCarrinho"
+                    class="botao-carrinho"
+                    href="carrinho.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="contadorCarrinho" class="contador-carrinho"></span>
+
+                    <span id="textoCarrinho" class="texto-oculto"></span>
+
+                </a>
+
+            </nav>
+
+        </header>
+
+        <!-- CONTEÚDO -->
+
+        <section id="conteudoCheckout" class="conteudo-checkout">
+
+            <section id="areaFormulario" class="area-formulario">
+
+                <header id="cabecalhoCheckout" class="cabecalho-checkout">
+
+                    <i class="fa-solid fa-sliders"></i>
+
+                    <h1 id="tituloCheckout"></h1>
+
+                </header>
+
+                <form id="formCheckout" class="form-checkout">
+
+                    <!-- DADOS DO CLIENTE -->
+
+                    <section id="secaoDadosCliente" class="card-checkout">
+
+                        <header class="cabecalho-card">
+
+                            <div class="icone-etapa">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+                            <h2 id="tituloDadosCliente"></h2>
+
+                        </header>
+
+                        <div class="grid-dupla">
+
+                            <div class="grupo-campo">
+
+                                <label id="labelNome" for="inputNome"></label>
+
+                                <input id="inputNome"
+                                    class="input-campo"
+                                    type="text"
+                                    autocomplete="name"
+                                    required>
+
+                            </div>
+
+                            <div class="grupo-campo">
+
+                                <label id="labelEmail" for="inputEmail"></label>
+
+                                <input id="inputEmail"
+                                    class="input-campo"
+                                    type="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="grupo-campo">
+
+                                <label id="labelTelefone" for="inputTelefone"></label>
+
+                                <input id="inputTelefone"
+                                    class="input-campo"
+                                    type="text"
+                                    autocomplete="tel"
+                                    required>
+
+                            </div>
+
+                            <div class="grupo-campo">
+
+                                <label id="labelCpf" for="inputCpf"></label>
+
+                                <input id="inputCpf"
+                                    class="input-campo"
+                                    type="text"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- ENDEREÇO -->
+
+                    <section id="secaoEndereco" class="card-checkout">
+
+                        <header class="cabecalho-card">
+
+                            <div class="icone-etapa">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                            </div>
+
+                            <h2 id="tituloEndereco"></h2>
+
+                        </header>
+
+                        <div class="grid-endereco">
+
+                            <div class="grupo-campo grupo-cep">
+
+                                <label id="labelCep" for="inputCep"></label>
+
+                                <div class="campo-com-botao">
+
+                                    <input id="inputCep"
+                                        class="input-campo"
+                                        type="text"
+                                        maxlength="9"
+                                        autocomplete="postal-code"
+                                        required>
+
+                                    <button id="btnBuscarCep"
+                                        class="btn-buscar-cep"
+                                        type="button">
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="grupo-campo grupo-rua">
+
+                                <label id="labelRua" for="inputRua"></label>
+
+                                <input id="inputRua"
+                                    class="input-campo"
+                                    type="text"
+                                    autocomplete="street-address"
+                                    required>
+
+                            </div>
+
+                            <div class="grupo-campo grupo-numero">
+
+                                <label id="labelNumero" for="inputNumero"></label>
+
+                                <input id="inputNumero"
+                                    class="input-campo"
+                                    type="text"
+                                    inputmode="numeric"
+                                    required>
+
+                            </div>
+
+                            <div class="grupo-campo grupo-complemento">
+
+                                <label id="labelComplemento"
+                                    for="inputComplemento">
+                                </label>
+
+                                <input id="inputComplemento"
+                                    class="input-campo"
+                                    type="text"
+                                    autocomplete="address-line2">
+
+                            </div>
+
+                            <div class="grupo-campo grupo-bairro">
+
+                                <label id="labelBairro" for="inputBairro"></label>
+
+                                <input id="inputBairro"
+                                    class="input-campo"
+                                    type="text"
+                                    required>
+
+                            </div>
+
+                            <div class="grupo-campo grupo-cidade">
+
+                                <label id="labelCidade" for="inputCidade"></label>
+
+                                <input id="inputCidade"
+                                    class="input-campo"
+                                    type="text"
+                                    required>
+
+                            </div>
+
+                            <div class="grupo-campo grupo-estado">
+
+                                <label id="labelEstado" for="inputEstado"></label>
+
+                                <input id="inputEstado"
+                                    class="input-campo"
+                                    type="text"
+                                    maxlength="2"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                        <p id="mensagemCep" class="mensagem-campo" aria-live="polite"></p>
+
+                        <button id="btnConfirmarEndereco"
+                            class="btn-contorno"
+                            type="button">
+                        </button>
+
+                    </section>
+
+                    <!-- MÉTODO DE ENTREGA -->
+
+                    <section id="secaoEntrega" class="card-checkout">
+
+                        <header class="cabecalho-card">
+
+                            <div class="icone-etapa">
+
+                                <i class="fa-solid fa-truck"></i>
+
+                            </div>
+
+                            <h2 id="tituloEntrega"></h2>
+
+                        </header>
+
+                        <div id="opcoesEntrega" class="opcoes-entrega">
+
+                            <label id="cardEntregaEconomica"
+                                class="card-opcao card-opcao-selecionada"
+                                for="entregaEconomica">
+
+                                <input id="entregaEconomica"
+                                    name="metodoEntrega"
+                                    type="radio"
+                                    value="economica">
+
+                                <span id="tituloEntregaEconomica"
+                                    class="titulo-opcao">
+                                </span>
+
+                                <span id="prazoEntregaEconomica"
+                                    class="descricao-opcao">
+                                </span>
+
+                                <strong id="precoEntregaEconomica"
+                                    class="preco-opcao">
+                                </strong>
+
+                                <i class="fa-solid fa-circle-check icone-selecao"></i>
+
+                            </label>
+
+                            <label id="cardEntregaPadrao"
+                                class="card-opcao"
+                                for="entregaPadrao">
+
+                                <input id="entregaPadrao"
+                                    name="metodoEntrega"
+                                    type="radio"
+                                    value="padrao">
+
+                                <span id="tituloEntregaPadrao"
+                                    class="titulo-opcao">
+                                </span>
+
+                                <span id="prazoEntregaPadrao"
+                                    class="descricao-opcao">
+                                </span>
+
+                                <strong id="precoEntregaPadrao"
+                                    class="preco-opcao">
+                                </strong>
+
+                                <i class="fa-regular fa-circle icone-selecao"></i>
+
+                            </label>
+
+                            <label id="cardEntregaExpresso"
+                                class="card-opcao"
+                                for="entregaExpresso">
+
+                                <input id="entregaExpresso"
+                                    name="metodoEntrega"
+                                    type="radio"
+                                    value="expresso">
+
+                                <span id="tituloEntregaExpresso"
+                                    class="titulo-opcao">
+                                </span>
+
+                                <span id="prazoEntregaExpresso"
+                                    class="descricao-opcao">
+                                </span>
+
+                                <strong id="precoEntregaExpresso"
+                                    class="preco-opcao">
+                                </strong>
+
+                                <i class="fa-regular fa-circle icone-selecao"></i>
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+                    <!-- PAGAMENTO -->
+
+                    <section id="secaoPagamento" class="card-checkout">
+
+                        <header class="cabecalho-card">
+
+                            <div class="icone-etapa">
+
+                                <i class="fa-solid fa-credit-card"></i>
+
+                            </div>
+
+                            <h2 id="tituloPagamento"></h2>
+
+                        </header>
+
+                        <div id="opcoesPagamento" class="opcoes-pagamento">
+
+                            <label id="cardPagamentoCartao"
+                                class="metodo-pagamento metodo-pagamento-ativo"
+                                for="pagamentoCartao">
+
+                                <input id="pagamentoCartao"
+                                    name="metodoPagamento"
+                                    type="radio"
+                                    value="cartao">
+
+                                <i class="fa-solid fa-credit-card"></i>
+
+                                <span id="textoPagamentoCartao"></span>
+
+                            </label>
+
+                            <label id="cardPagamentoPix"
+                                class="metodo-pagamento"
+                                for="pagamentoPix">
+
+                                <input id="pagamentoPix"
+                                    name="metodoPagamento"
+                                    type="radio"
+                                    value="pix">
+
+                                <i class="fa-brands fa-pix"></i>
+
+                                <span id="textoPagamentoPix"></span>
+
+                            </label>
+
+                            <label id="cardPagamentoBoleto"
+                                class="metodo-pagamento"
+                                for="pagamentoBoleto">
+
+                                <input id="pagamentoBoleto"
+                                    name="metodoPagamento"
+                                    type="radio"
+                                    value="boleto">
+
+                                <i class="fa-solid fa-barcode"></i>
+
+                                <span id="textoPagamentoBoleto"></span>
+
+                            </label>
+
+                        </div>
+
+                        <!-- CARTÃO -->
+
+                        <section id="formCartao" class="form-pagamento">
+
+                            <div class="grupo-campo">
+
+                                <label id="labelNumeroCartao"
+                                    for="inputNumeroCartao">
+                                </label>
+
+                                <div class="campo-cartao">
+
+                                    <input id="inputNumeroCartao"
+                                        class="input-campo"
+                                        type="text"
+                                        inputmode="numeric"
+                                        autocomplete="cc-number">
+
+                                    <div class="bandeiras-cartao">
+
+                                        <i class="fa-brands fa-cc-visa"></i>
+
+                                        <i class="fa-brands fa-cc-mastercard"></i>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="grupo-campo">
+
+                                <label id="labelNomeCartao"
+                                    for="inputNomeCartao">
+                                </label>
+
+                                <input id="inputNomeCartao"
+                                    class="input-campo"
+                                    type="text"
+                                    autocomplete="cc-name">
+
+                            </div>
+
+                            <div class="grid-dupla">
+
+                                <div class="grupo-campo">
+
+                                    <label id="labelValidadeCartao"
+                                        for="inputValidadeCartao">
+                                    </label>
+
+                                    <input id="inputValidadeCartao"
+                                        class="input-campo"
+                                        type="text"
+                                        inputmode="numeric"
+                                        autocomplete="cc-exp">
+
+                                </div>
+
+                                <div class="grupo-campo">
+
+                                    <label id="labelCvvCartao"
+                                        for="inputCvvCartao">
+                                    </label>
+
+                                    <input id="inputCvvCartao"
+                                        class="input-campo"
+                                        type="text"
+                                        inputmode="numeric"
+                                        autocomplete="cc-csc">
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                        <!-- PIX -->
+
+                        <section id="painelPix" class="form-pagamento" hidden>
+
+                            <div class="pagamento-alternativo">
+
+                                <i class="fa-brands fa-pix"></i>
+
+                                <h3 id="tituloPix"></h3>
+
+                                <p id="descricaoPix"></p>
+
+                            </div>
+
+                        </section>
+
+                        <!-- BOLETO -->
+
+                        <section id="painelBoleto" class="form-pagamento" hidden>
+
+                            <div class="pagamento-alternativo">
+
+                                <i class="fa-solid fa-barcode"></i>
+
+                                <h3 id="tituloBoleto"></h3>
+
+                                <p id="descricaoBoleto"></p>
+
+                            </div>
+
+                        </section>
+
+                        <p id="mensagemPagamento"
+                            class="mensagem-campo"
+                            aria-live="polite">
+                        </p>
+
+                        <div id="pagamentoSeguro" class="pagamento-seguro">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <span id="textoPagamentoSeguro"></span>
+
+                        </div>
+
+                    </section>
+
+                </form>
+
+            </section>
+
+            <!-- RESUMO -->
+
+            <aside id="resumoPedido" class="resumo-pedido">
+
+                <h2 id="tituloResumo"></h2>
+
+                <section id="listaResumoProdutos" class="lista-resumo-produtos"></section>
+
+                <section id="valoresResumo" class="valores-resumo">
+
+                    <div class="linha-resumo">
+
+                        <span id="labelSubtotal"></span>
+
+                        <strong id="valorSubtotal"></strong>
+
+                    </div>
+
+                    <div class="linha-resumo">
+
+                        <span id="labelDesconto"></span>
+
+                        <strong id="valorDesconto"></strong>
+
+                    </div>
+
+                    <div class="linha-resumo">
+
+                        <span id="labelFrete"></span>
+
+                        <strong id="valorFrete"></strong>
+
+                    </div>
+
+                </section>
+
+                <section id="totalPedido" class="total-pedido">
+
+                    <span id="labelTotal"></span>
+
+                    <strong id="valorTotal"></strong>
+
+                    <p id="textoParcelamento"></p>
+
+                </section>
+
+                <button id="btnFinalizarCompra"
+                    class="btn-finalizar-compra"
+                    type="submit"
+                    form="formCheckout">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="textoFinalizarCompra"></span>
+
+                </button>
+
+                <a id="linkVoltarCarrinho"
+                    class="link-voltar-carrinho"
+                    href="carrinho.html">
+                </a>
+
+            </aside>
+
+            <section id="compraSegura" class="compra-segura">
+
+                <div class="avaliacao-compra">
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <span id="textoCompraSegura"></span>
+
+            </section>
+
+        </section>
+
+        <!-- MODELO DE PRODUTO DO RESUMO -->
+
+        <template id="templateResumoProduto">
+
+            <article class="item-resumo-produto">
+
+                <img class="imagem-resumo-produto" src="" alt="">
+
+                <div class="informacoes-resumo-produto">
+
+                    <h3 class="nome-resumo-produto"></h3>
+
+                    <span class="quantidade-resumo-produto"></span>
+
+                </div>
+
+                <strong class="preco-resumo-produto"></strong>
+
+            </article>
+
+        </template>
+
+        <!-- NOTIFICAÇÃO -->
+
+        <div id="notificacao"
+            class="notificacao"
+            role="status"
+            aria-live="polite"
+            hidden>
+
+            <p id="textoNotificacao"></p>
+
+        </div>
+
+        <!-- RODAPÉ -->
+
+        <footer id="rodapePrincipal" class="rodape-principal">
+
+            <a id="linkLogoRodape" class="logo-rodape" href="../index.html">
+
+                <i class="fa-solid fa-gamepad"></i>
+
+                <span id="nomeSistemaRodape"></span>
+
+            </a>
+
+            <p id="textoDireitosAutorais"></p>
+
+            <nav id="redesSociais" class="redes-sociais">
+
+                <a id="linkWhatsapp" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    <span id="textoWhatsapp" class="texto-oculto"></span>
+
+                </a>
+
+                <a id="linkInstagram" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                    <span id="textoInstagram" class="texto-oculto"></span>
+
+                </a>
+
+                <a id="linkFacebook" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                    <span id="textoFacebook" class="texto-oculto"></span>
+
+                </a>
+
+            </nav>
+
+        </footer>
+
+    </main>
+
+    <script src="../js/finalizar_compra.js"></script>
+
+</body>
+
+</html>

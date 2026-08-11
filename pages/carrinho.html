@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GamesStart | Carrinho</title>
+
+    <link rel="stylesheet" href="../style/carrinho.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <main id="paginaCarrinho" class="pagina-carrinho">
+
+        <!-- CABEÇALHO -->
+
+        <header id="cabecalhoPrincipal" class="cabecalho-principal">
+
+            <a id="linkInicio" class="logo-container" href="../index.html">
+
+                <i id="iconeLogo" class="fa-solid fa-gamepad"></i>
+
+                <span id="nomeSistema" class="nome-sistema"></span>
+
+            </a>
+
+            <nav id="navegacaoUsuario" class="navegacao-usuario">
+
+                <a id="linkFavoritos" class="botao-icone" href="#">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span id="textoFavoritos" class="texto-oculto"></span>
+
+                </a>
+
+                <a id="linkPerfil" class="perfil-usuario" href="#">
+
+                    <img id="fotoPerfil" class="foto-perfil" src="" alt="">
+
+                    <span id="nomeUsuario" class="nome-usuario"></span>
+
+                </a>
+
+                <a id="linkCarrinho" class="botao-icone botao-carrinho" href="carrinho.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="contadorCarrinho" class="contador-carrinho"></span>
+
+                    <span id="textoCarrinho" class="texto-oculto"></span>
+
+                </a>
+
+            </nav>
+
+        </header>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+
+        <section id="conteudoCarrinho" class="conteudo-carrinho">
+
+            <!-- PRODUTOS -->
+
+            <section id="areaProdutos" class="area-produtos">
+
+                <header id="cabecalhoCarrinho" class="cabecalho-carrinho">
+
+                    <div class="titulo-carrinho-container">
+
+                        <i class="fa-solid fa-sliders"></i>
+
+                        <h1 id="tituloCarrinho" class="titulo-carrinho"></h1>
+
+                    </div>
+
+                    <div id="acoesSelecao" class="acoes-selecao">
+
+                        <label id="labelSelecionarTodos" class="label-selecao"
+                            for="checkSelecionarTodos">
+
+                            <input id="checkSelecionarTodos"
+                                class="check-selecao"
+                                type="checkbox">
+
+                            <span id="textoSelecionarTodos"></span>
+
+                        </label>
+
+                        <button id="btnRemoverTodos"
+                            class="btn-remover-todos"
+                            type="button">
+
+                            <i class="fa-solid fa-trash-can"></i>
+
+                            <span id="textoRemoverTodos"></span>
+
+                        </button>
+
+                    </div>
+
+                </header>
+
+                <!-- O JS INSERE OS PRODUTOS AQUI -->
+
+                <section id="listaItensCarrinho"
+                    class="lista-itens-carrinho"
+                    aria-live="polite">
+                </section>
+
+                <!-- CARRINHO VAZIO -->
+
+                <section id="carrinhoVazio"
+                    class="carrinho-vazio"
+                    hidden>
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <h2 id="tituloCarrinhoVazio"></h2>
+
+                    <p id="descricaoCarrinhoVazio"></p>
+
+                    <a id="linkContinuarComprandoVazio"
+                        class="btn-continuar-comprando"
+                        href="../index.html">
+                    </a>
+
+                </section>
+
+                <!-- CUPOM -->
+
+                <section id="cupomContainer" class="cupom-container">
+
+                    <div class="cupom-info">
+
+                        <i class="fa-solid fa-fire"></i>
+
+                        <div>
+
+                            <h2 id="tituloCupom"></h2>
+
+                            <p id="descricaoCupom"></p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="cupom-formulario">
+
+                        <label id="labelCupom"
+                            class="texto-oculto"
+                            for="inputCupom">
+                        </label>
+
+                        <input id="inputCupom"
+                            class="input-cupom"
+                            type="text">
+
+                        <button id="btnAplicarCupom"
+                            class="btn-aplicar-cupom"
+                            type="button">
+                        </button>
+
+                    </div>
+
+                    <p id="mensagemCupom"
+                        class="mensagem-cupom"
+                        aria-live="polite">
+                    </p>
+
+                </section>
+
+            </section>
+
+            <!-- RESUMO DO PEDIDO -->
+
+            <aside id="resumoPedido" class="resumo-pedido">
+
+                <h2 id="tituloResumo"></h2>
+
+                <div id="linhasResumo" class="linhas-resumo">
+
+                    <div class="linha-resumo">
+
+                        <span id="labelSubtotal"></span>
+
+                        <strong id="valorSubtotal"></strong>
+
+                    </div>
+
+                    <div class="linha-resumo">
+
+                        <span id="labelDesconto"></span>
+
+                        <strong id="valorDesconto"></strong>
+
+                    </div>
+
+                    <div class="linha-resumo">
+
+                        <span id="labelFrete"></span>
+
+                        <strong id="valorFrete"></strong>
+
+                    </div>
+
+                </div>
+
+                <!-- CEP -->
+
+                <section id="calculoFrete" class="calculo-frete">
+
+                    <label id="labelCep" for="inputCep"></label>
+
+                    <div class="cep-formulario">
+
+                        <input id="inputCep"
+                            class="input-cep"
+                            type="text"
+                            maxlength="9">
+
+                        <button id="btnCalcularFrete"
+                            class="btn-calcular-frete"
+                            type="button">
+                        </button>
+
+                    </div>
+
+                    <p id="mensagemFrete"
+                        class="mensagem-frete"
+                        aria-live="polite">
+                    </p>
+
+                </section>
+
+                <!-- TOTAL -->
+
+                <section id="totalPedido" class="total-pedido">
+
+                    <span id="labelTotal"></span>
+
+                    <strong id="valorTotal"></strong>
+
+                    <p id="textoParcelamento"></p>
+
+                </section>
+
+                <!-- BOTÕES -->
+
+                <button id="btnFinalizarCompra"
+                    class="btn-finalizar-compra"
+                    type="button"
+                    disabled>
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="textoFinalizarCompra"></span>
+
+                </button>
+
+                <a id="linkContinuarComprando"
+                    class="link-continuar-comprando"
+                    href="../index.html">
+                </a>
+
+                <!-- COMPRA SEGURA -->
+
+                <section id="compraSegura" class="compra-segura">
+
+                    <div id="avaliacaoCompra" class="avaliacao-compra">
+
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <span id="textoCompraSegura"></span>
+
+                </section>
+
+            </aside>
+
+        </section>
+
+        <!-- NOTIFICAÇÃO DE DESFAZER -->
+
+        <div id="notificacao"
+            class="notificacao"
+            role="status"
+            aria-live="polite"
+            hidden>
+
+            <p id="textoNotificacao"></p>
+
+            <button id="btnDesfazer"
+                class="btn-desfazer"
+                type="button">
+            </button>
+
+        </div>
+
+        <!-- MODAL DE CONFIRMAÇÃO -->
+
+        <div id="modalConfirmacao"
+            class="modal-confirmacao"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloModal"
+            hidden>
+
+            <div class="modal-conteudo">
+
+                <button id="btnFecharModal"
+                    class="btn-fechar-modal"
+                    type="button">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                    <span id="textoFecharModal"
+                        class="texto-oculto">
+                    </span>
+
+                </button>
+
+                <h2 id="tituloModal"></h2>
+
+                <p id="descricaoModal"></p>
+
+                <div class="acoes-modal">
+
+                    <button id="btnCancelarModal"
+                        class="btn-cancelar-modal"
+                        type="button">
+                    </button>
+
+                    <button id="btnConfirmarModal"
+                        class="btn-confirmar-modal"
+                        type="button">
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MODELO DE PRODUTO: O JS VAI DUPLICAR ESTA ESTRUTURA -->
+
+        <template id="templateItemCarrinho">
+
+            <article class="item-carrinho">
+
+                <label class="label-selecao-item">
+
+                    <input class="check-item" type="checkbox">
+
+                    <span class="texto-oculto"></span>
+
+                </label>
+
+                <img class="imagem-produto" src="" alt="">
+
+                <div class="informacoes-produto">
+
+                    <h2 class="nome-produto"></h2>
+
+                    <p class="variacao-produto"></p>
+
+                    <strong class="preco-unitario"></strong>
+
+                </div>
+
+                <div class="acoes-item">
+
+                    <div class="controle-quantidade">
+
+                        <button class="btn-diminuir-quantidade" type="button">
+
+                            <i class="fa-solid fa-minus"></i>
+
+                            <span class="texto-oculto"></span>
+
+                        </button>
+
+                        <span class="quantidade-produto"></span>
+
+                        <button class="btn-aumentar-quantidade" type="button">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            <span class="texto-oculto"></span>
+
+                        </button>
+
+                    </div>
+
+                    <div class="preco-acoes-item">
+
+                        <strong class="preco-total-item"></strong>
+
+                        <button class="btn-remover-item" type="button">
+
+                            <i class="fa-solid fa-trash-can"></i>
+
+                            <span class="texto-oculto"></span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </template>
+
+        <!-- RODAPÉ -->
+
+        <footer id="rodapePrincipal" class="rodape-principal">
+
+            <a id="linkLogoRodape" class="logo-rodape" href="../index.html">
+
+                <i class="fa-solid fa-gamepad"></i>
+
+                <span id="nomeSistemaRodape"></span>
+
+            </a>
+
+            <p id="textoDireitosAutorais"></p>
+
+            <nav id="redesSociais" class="redes-sociais">
+
+                <a id="linkWhatsapp" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    <span id="textoWhatsapp" class="texto-oculto"></span>
+
+                </a>
+
+                <a id="linkInstagram" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                    <span id="textoInstagram" class="texto-oculto"></span>
+
+                </a>
+
+                <a id="linkFacebook" class="link-rede-social" href="#">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                    <span id="textoFacebook" class="texto-oculto"></span>
+
+                </a>
+
+            </nav>
+
+        </footer>
+
+    </main>
+
+    <script src="../js/carrinho.js"></script>
+
+</body>
+
+</html>
