@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Notebook Gamer RTX RGB Ultra | GamesStart</title>
+    <title>GamesStart</title>
 
     <link rel="stylesheet" href="../style/detalhe_produto.css">
-
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -15,421 +14,110 @@
 </head>
 
 <body>
-
-    <!-- HEADER -->
-    <header class="header">
-
-        <a href="../index.html" class="logo" aria-label="Ir para a página inicial">
-            <i class="fa-solid fa-gamepad"></i>
-            <span>GamesStart</span>
-        </a>
-
-        <nav class="header-menu" aria-label="Menu principal">
-            <a href="../index.html" class="active">Início</a>
-            <a href="./produtos.html">Promoções</a>
-        </nav>
-
-        <div class="header-actions">
-
-            <button
-                type="button"
-                class="cart-button"
-                id="cartButton"
-                aria-label="Carrinho de compras"
-            >
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="cart-count" id="cartCount">3</span>
-            </button>
-
-            <button
-                type="button"
-                class="profile-button"
-                id="profileButton"
-                aria-label="Perfil"
-            >
-                <!-- IMAGEM: adicionar avatar posteriormente -->
-                <i class="fa-solid fa-user"></i>
-            </button>
-
-        </div>
-
-    </header>
+    <header class="header" id="header"></header>
 
     <main>
+        <nav
+            class="breadcrumb"
+            id="breadcrumb"
+            aria-label="Navegação estrutural"
+        ></nav>
 
-        <!-- BREADCRUMB -->
-        <nav class="breadcrumb" aria-label="Navegação estrutural">
-            <a href="../index.html">Início</a>
-            <i class="fa-solid fa-chevron-right"></i>
-
-            <a href="./produtos.html">Notebooks</a>
-            <i class="fa-solid fa-chevron-right"></i>
-
-            <span>Notebook Gamer RTX RGB Ultra</span>
-        </nav>
-
-        <!-- PRODUTO -->
-        <section class="product-details">
-
-            <!-- GALERIA -->
+        <section
+            class="product-details"
+            id="productDetails"
+            aria-label="Detalhes do produto"
+        >
             <div class="product-gallery">
+                <div
+                    class="product-thumbnails"
+                    id="productThumbnails"
+                    aria-label="Galeria de imagens do produto"
+                ></div>
 
-                <div class="product-thumbnails" id="productThumbnails">
-
-                    <button
-                        type="button"
-                        class="thumbnail-button active"
-                        data-image="../img/produtos/notebook-gamer-1.jpg"
-                        aria-label="Ver imagem principal do notebook"
-                    >
-                        <img
-                            src="../img/produtos/notebook-gamer-1.jpg"
-                            alt="Notebook gamer visto de frente"
-                        >
-                    </button>
-
-                    <button
-                        type="button"
-                        class="thumbnail-button"
-                        data-image="../img/produtos/notebook-gamer-2.jpg"
-                        aria-label="Ver teclado RGB do notebook"
-                    >
-                        <img
-                            src="../img/produtos/notebook-gamer-2.jpg"
-                            alt="Teclado RGB do notebook gamer"
-                        >
-                    </button>
-
-                    <button
-                        type="button"
-                        class="thumbnail-button"
-                        data-image="../img/produtos/notebook-gamer-3.jpg"
-                        aria-label="Ver parte traseira do notebook"
-                    >
-                        <img
-                            src="../img/produtos/notebook-gamer-3.jpg"
-                            alt="Parte traseira do notebook gamer"
-                        >
-                    </button>
-
-                    <button
-                        type="button"
-                        class="thumbnail-button"
-                        data-image="../img/produtos/notebook-gamer-4.jpg"
-                        aria-label="Ver tela do notebook"
-                    >
-                        <img
-                            src="../img/produtos/notebook-gamer-4.jpg"
-                            alt="Tela do notebook gamer"
-                        >
-                    </button>
-
-                </div>
-
-                <div class="main-product-image">
-
-                    <div class="product-badges">
-                        <span class="badge badge-best-seller">Mais vendido</span>
-                        <span class="badge badge-free-shipping">Frete grátis</span>
-                    </div>
-
-                    <img
-                        id="productMainImage"
-                        src="../img/produtos/notebook-gamer-1.jpg"
-                        alt="Notebook Gamer RTX RGB Ultra"
-                    >
-                </div>
-
+                <div
+                    class="main-product-image"
+                    id="mainProductImage"
+                ></div>
             </div>
 
-            <!-- INFORMAÇÕES -->
-            <div class="product-summary">
-
-                <p class="product-category">Hardware Premium</p>
-
-                <h1 id="productTitle">
-                    Notebook Gamer RTX RGB Ultra - i9 13th Gen, 32GB RAM, 1TB SSD
-                </h1>
-
-                <div class="product-review">
-
-                    <div class="stars" aria-label="Avaliação: 4,5 de 5 estrelas">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-
-                    <span>(128 avaliações)</span>
-
-                    <span class="stock-status">
-                        <i class="fa-solid fa-circle"></i>
-                        Em estoque
-                    </span>
-                </div>
-
-                <!-- PREÇO -->
-                <div class="price-card">
-
-                    <span class="old-price">R$ 14.899,00</span>
-
-                    <div class="current-price-container">
-                        <strong class="current-price">R$ 11.499,00</strong>
-                        <span class="discount-badge">-23% OFF</span>
-                    </div>
-
-                    <p class="installments">
-                        ou em até
-                        <strong>12x de R$ 958,25</strong>
-                        sem juros
-                    </p>
-
-                    <button type="button" class="buy-now-button" id="buyNowButton">
-                        <i class="fa-solid fa-bolt"></i>
-                        Comprar Agora
-                    </button>
-
-                    <button type="button" class="add-to-cart-button" id="addToCartButton">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        Adicionar ao Carrinho
-                    </button>
-
-                </div>
-
-                <!-- BENEFÍCIOS -->
-                <div class="product-benefits">
-
-                    <article class="product-benefit">
-                        <span class="benefit-icon">
-                            <i class="fa-solid fa-truck-fast"></i>
-                        </span>
-
-                        <div>
-                            <h2>Entrega Rápida</h2>
-                            <p>Receba em até 2 dias</p>
-                        </div>
-                    </article>
-
-                    <article class="product-benefit">
-                        <span class="benefit-icon">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </span>
-
-                        <div>
-                            <h2>Garantia Gamer</h2>
-                            <p>12 meses de proteção</p>
-                        </div>
-                    </article>
-
-                </div>
-
-            </div>
-
+            <article
+                class="product-summary"
+                id="productSummary"
+            ></article>
         </section>
 
-        <!-- ESPECIFICAÇÕES -->
-        <section class="specifications" aria-labelledby="specificationsTitle">
+        <section
+            class="description"
+            id="productDescription"
+            aria-labelledby="descriptionTitle"
+        >
+            <h2 id="descriptionTitle"></h2>
 
-            <h2 id="specificationsTitle">
-                <i class="fa-solid fa-grip-lines-vertical"></i>
-                Especificações Técnicas
-            </h2>
-
-            <div class="specifications-grid">
-
-                <article class="specification-item">
-                    <span>Processador</span>
-                    <strong>Intel Core i9-13900HX</strong>
-                </article>
-
-                <article class="specification-item">
-                    <span>Tela</span>
-                    <strong>17.3" QHD+ IPS 240Hz 100% DCI-P3</strong>
-                </article>
-
-                <article class="specification-item">
-                    <span>Placa de Vídeo</span>
-                    <strong>NVIDIA GeForce RTX 4080 (12GB GDDR6X)</strong>
-                </article>
-
-                <article class="specification-item">
-                    <span>Teclado</span>
-                    <strong>Mecânico Per-Key RGB Aura Sync</strong>
-                </article>
-
-                <article class="specification-item">
-                    <span>Memória RAM</span>
-                    <strong>32GB DDR5 5200MHz</strong>
-                </article>
-
-                <article class="specification-item">
-                    <span>Conectividade</span>
-                    <strong>Wi-Fi 6E + Bluetooth 5.3 + Thunderbolt 4</strong>
-                </article>
-
-                <article class="specification-item">
-                    <span>Armazenamento</span>
-                    <strong>1TB SSD NVMe Gen 4</strong>
-                </article>
-
-                <article class="specification-item">
-                    <span>Sistema Operacional</span>
-                    <strong>Windows 11 Home</strong>
-                </article>
-
-            </div>
-
+            <div
+                class="description-content"
+                id="descriptionContent"
+            ></div>
         </section>
 
-        <!-- RECOMENDAÇÕES -->
-        <section class="recommendations" aria-labelledby="recommendationsTitle">
+        <section
+            class="comments"
+            id="productComments"
+            aria-labelledby="commentsTitle"
+        >
+            <div class="comments-header">
+                <h2 id="commentsTitle"></h2>
 
+                <span
+                    class="comments-count"
+                    id="commentsCount"
+                ></span>
+            </div>
+
+            <div
+                class="comments-summary"
+                id="commentsSummary"
+            ></div>
+
+            <form
+                class="comment-form"
+                id="commentForm"
+            ></form>
+
+            <div
+                class="comments-list-header"
+                id="commentsListHeader"
+            ></div>
+
+            <div
+                class="comments-list"
+                id="commentsList"
+            ></div>
+        </section>
+
+        <section
+            class="recommendations"
+            id="recommendations"
+            aria-labelledby="recommendationsTitle"
+        >
             <div class="recommendations-header">
+                <h2 id="recommendationsTitle"></h2>
 
-                <h2 id="recommendationsTitle">Complete seu Setup</h2>
-
-                <div class="recommendation-controls">
-                    <button type="button" id="previousRecommendation" aria-label="Produto anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-
-                    <button type="button" id="nextRecommendation" aria-label="Próximo produto">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </div>
-
+                <div
+                    class="recommendation-controls"
+                    id="recommendationControls"
+                ></div>
             </div>
 
-            <div class="recommendations-grid" id="recommendationsGrid">
-
-                <article class="recommendation-card">
-
-                    <div class="recommendation-image">
-                        <img
-                            src="../img/produtos/headset-gamer.png"
-                            alt="Headset Gamer Pro Wireless"
-                        >
-                    </div>
-
-                    <span class="recommendation-category">Headsets</span>
-                    <h3>Headset Gamer Pro Wireless 7.1 Surround</h3>
-
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-
-                    <div class="recommendation-bottom">
-                        <strong>R$ 899,00</strong>
-
-                        <button type="button" class="recommendation-cart" aria-label="Adicionar headset ao carrinho">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-
-                </article>
-
-                <article class="recommendation-card">
-
-                    <div class="recommendation-image">
-                        <img
-                            src="../img/produtos/teclado-gamer.png"
-                            alt="Teclado Mecânico RGB"
-                        >
-                    </div>
-
-                    <span class="recommendation-category">Teclados</span>
-                    <h3>Teclado Mecânico RGB Stealth Silent Switch</h3>
-
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-
-                    <div class="recommendation-bottom">
-                        <strong>R$ 649,00</strong>
-
-                        <button type="button" class="recommendation-cart" aria-label="Adicionar teclado ao carrinho">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-
-                </article>
-
-                <article class="recommendation-card">
-
-                    <div class="recommendation-image">
-                        <img
-                            src="../img/produtos/mouse-gamer.png"
-                            alt="Mouse Gamer Ultra-Light"
-                        >
-                    </div>
-
-                    <span class="recommendation-category">Mouses</span>
-                    <h3>Mouse Gamer Ultra-Light 26K DPI</h3>
-
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-
-                    <div class="recommendation-bottom">
-                        <strong>R$ 429,00</strong>
-
-                        <button type="button" class="recommendation-cart" aria-label="Adicionar mouse ao carrinho">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-
-                </article>
-
-                <article class="recommendation-card">
-
-                    <div class="recommendation-image">
-                        <img
-                            src="../img/produtos/monitor-curvo.png"
-                            alt="Monitor Curvo Ultrawide"
-                        >
-                    </div>
-
-                    <span class="recommendation-category">Monitores</span>
-                    <h3>Monitor Curvo 34" Ultrawide 165Hz</h3>
-
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-
-                    <div class="recommendation-bottom">
-                        <strong>R$ 3.899,00</strong>
-
-                        <button type="button" class="recommendation-cart" aria-label="Adicionar monitor ao carrinho">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-
-                </article>
-
-            </div>
-
+            <div
+                class="recommendations-grid"
+                id="recommendationsGrid"
+            ></div>
         </section>
-
     </main>
 
-    <script src="../js/detalhe_produto.js"></script>
+    <footer class="footer" id="footer"></footer>
 
+    <script src="../js/detalhe_produto.js"></script>
 </body>
 </html>

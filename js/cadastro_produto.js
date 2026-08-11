@@ -318,7 +318,7 @@ document.getElementById("btnCategoria").
         document.getElementById("produtoDescricao").value;
 
     const codigo =
-        document.getElementById("produtoCodigo").value;
+        document.getElementById("produtoSku").value;
 
     const precoAntigo =
         document.getElementById("produtoPrecoAntigo").value;
@@ -332,15 +332,7 @@ document.getElementById("btnCategoria").
     //==================================================
     // CAPTURAR SELECTS
     //==================================================
-    const marca =
-        document.getElementById("produtoMarca").value;
-
-    const cor =
-        document.getElementById("produtoCor").value;
-
-    const tamanho =
-        document.getElementById("produtoTamanho").value;
-
+    
     const categoria =
         document.getElementById("produtoCategoria").value;
 
@@ -356,9 +348,6 @@ document.getElementById("btnCategoria").
         precoAntigo === "" ||
         precoPromo === "" ||
         estoque === "" ||
-        marca === "" ||
-        cor === "" ||
-        tamanho === "" ||
         categoria === ""
     ) {
         alert("Preencha todos os campos obrigatórios.");
