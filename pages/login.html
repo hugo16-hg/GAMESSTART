@@ -3,45 +3,28 @@
 
 <head>
 
-    <!-- ==========================================
-         CONFIGURAÇÕES DA PÁGINA
-    ========================================== -->
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login</title>
 
-    <!-- ==========================================
-         ARQUIVO CSS
-    ========================================== -->
-
-    <link
-        rel="stylesheet"
-        href="../style/login.css">
+    <link rel="stylesheet" href="../style/login.css">
 
 </head>
 
+
 <body>
 
-    <!-- ==========================================
-         CONTAINER PRINCIPAL DA APLICAÇÃO
-    ========================================== -->
 
     <div id="app">
+
 
         <!-- ==========================================
              CABEÇALHO
         ========================================== -->
 
         <header id="header">
-
-          <!-- <img
-                id="logo"
-                alt="Logo"> -->
 
         </header>
 
@@ -53,21 +36,19 @@
 
         <main id="main">
 
-            <!-- ==========================================
-                 SEÇÃO LOGIN
-            ========================================== -->
 
             <section id="loginSection">
 
-                <!-- Card -->
 
                 <div id="loginCard">
 
-                    <!-- Título -->
+
+                    <!-- TÍTULO -->
 
                     <h1 id="loginTitle"></h1>
 
-                    <!-- Subtítulo -->
+
+                    <!-- SUBTÍTULO -->
 
                     <p id="loginSubtitle"></p>
 
@@ -79,94 +60,122 @@
 
                     <form id="loginForm">
 
-                        <!-- Campo E-mail -->
+
+                        <!-- ==========================================
+                             EMAIL
+                        ========================================== -->
 
                         <div id="emailGroup">
 
-                            <label
-                                id="emailLabel"
-                                for="email">
+
+                            <label id="emailLabel" for="email">
                             </label>
+
 
                             <div id="emailInputArea">
 
+
                                 <span id="emailIcon"></span>
 
-                                <input
-                                    id="email"
-                                    type="email">
+
+                                <input id="email" type="email" autocomplete="email">
+
 
                             </div>
+
 
                         </div>
 
 
 
-                        <!-- Campo Senha -->
+                        <!-- ==========================================
+                             SENHA
+                        ========================================== -->
 
                         <div id="passwordGroup">
 
+
                             <div id="passwordHeader">
 
-                                <label
-                                    id="passwordLabel"
-                                    for="password">
+
+                                <label id="passwordLabel" for="password">
                                 </label>
 
-                                <a
-                                    id="forgotPassword"
-                                    href="#">
+
+                                <a id="forgotPassword" href="#">
                                 </a>
 
+
                             </div>
+
+
 
                             <div id="passwordInputArea">
 
-                                <img id="passwordIcon" src="/assets/cadeado.png" alt="Google"></img>
 
-                                <input
-                                    id="password"
-                                    type="password">
+                                <img id="passwordIcon" src="/assets/cadeado.png" alt="Senha">
 
-                              
-                               
+
+                                <input id="password" type="password" autocomplete="current-password">
+
+
+                                <!-- Mostrar / ocultar senha -->
+
+                                <button id="showPassword" type="button">
+
+                                    <img id="eyeIcon" src="/assets/esconder.png" alt="Mostrar senha">
+
+                                </button>
 
 
                             </div>
 
+
                         </div>
 
 
 
-                        <!-- Lembrar -->
+                        <!-- ==========================================
+                             LEMBRAR
+                        ========================================== -->
 
                         <div id="rememberArea">
 
-                            <input
-                                id="remember"
-                                type="checkbox">
 
-                            <label
-                                id="rememberLabel"
-                                for="remember">
+                            <input id="remember" type="checkbox">
+
+
+                            <label id="rememberLabel" for="remember">
                             </label>
+
 
                         </div>
 
 
 
-                        <!-- Botão Login -->
+                        <!-- ==========================================
+                             MENSAGEM
+                        ========================================== -->
 
-                        <button
-                            id="loginButton"
-                            type="submit">
+                        <p id="mensagem"></p>
+
+
+
+                        <!-- ==========================================
+                             BOTÃO LOGIN
+                        ========================================== -->
+
+                        <button id="loginButton" type="submit">
                         </button>
+
 
                     </form>
 
 
 
-                    <!-- Divisor -->
+                    <!-- ==========================================
+                         DIVISOR
+                    ========================================== -->
 
                     <div id="divider">
 
@@ -176,36 +185,45 @@
 
 
 
-                    <!-- Botão Google -->
+                    <!-- ==========================================
+                         GOOGLE
+                    ========================================== -->
 
-                    <button
-                        id="googleButton"
-                        type="button">
+                    <button id="googleButton" type="button">
 
-                        <img id="googleIcon" src="/assets/google.png"></img>
+
+                        <img id="googleIcon" src="/assets/google.png" alt="Google">
+
 
                         <span id="googleText"></span>
+
 
                     </button>
 
 
 
-                    <!-- Cadastro -->
+                    <!-- ==========================================
+                         CADASTRO
+                    ========================================== -->
 
                     <div id="registerArea">
 
+
                         <span id="registerText"></span>
 
-                        <a
-                            id="registerLink"
-                            href="#">
+
+                        <a id="registerLink" href="#">
                         </a>
+
 
                     </div>
 
+
                 </div>
 
+
             </section>
+
 
         </main>
 
@@ -221,13 +239,17 @@
 
         </footer>
 
+
     </div>
+
+
 
     <!-- ==========================================
          JAVASCRIPT
     ========================================== -->
 
     <script src="../js/login.js"></script>
+
 
 </body>
 

@@ -1,27 +1,16 @@
-// nesse arquivo, definimos as rotas relacionadas aos clientes e associamos cada rota a uma função do ClienteController. As rotas são:
-// POST /clientes: para cadastrar um novo cliente.
-// GET /clientes: para listar todos os clientes.
-// GET /clientes/:id: para buscar um cliente específico pelo ID.
-// PUT /clientes/:id: para atualizar as informações de um cliente específico pelo ID.
-// DELETE /clientes/:id: para excluir um cliente específico pelo ID.
-
-
 const express = require("express");
-// Importando o módulo express para criar rotas e lidar com requisições HTTP.
 const router = express.Router();
-// Criando um objeto router para definir as rotas relacionadas aos clientes.
-const ClienteController = require("../controller/clientes_controller");
 
-router.post("/", ClienteController.cadastrar);
+const ClientesController =
+    require("../controller/clientes_controller.js");
 
-router.post("/login", ClienteController.login);
+router.post("/", ClientesController.cadastrar);
+router.post("/login", ClientesController.login);
 
-router.get("/", ClienteController.listar);
+router.get("/", ClientesController.listar);
+router.get("/:id", ClientesController.buscarPorId);
 
-router.get("/:id", ClienteController.buscarPorId);
-
-router.put("/:id", ClienteController.atualizar);
-
-router.delete("/:id", ClienteController.excluir);
+router.put("/:id", ClientesController.atualizar);
+router.delete("/:id", ClientesController.excluir);
 
 module.exports = router;

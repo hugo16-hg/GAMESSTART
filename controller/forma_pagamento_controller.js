@@ -1,197 +1,99 @@
-//==========================================
-// IMPORTA O MODEL
-// passe aqui o caminho correto do seu arquivo model
-//==========================================
-
 const formaPagamentoModel = require("../model/forma_pagamento_model.js");
-
-
-//==========================================
-// CADASTRAR FORMA DE PAGAMENTO
-//==========================================
 
 function cadastrar(req, res) {
 
     const formaPagamento = req.body;
 
-    // Validação dos campos obrigatórios
-
-    if (
-        !formaPagamento.nome
-    ) {
-
+    if (!formaPagamento.nome) {
         return res.status(400).json({
             sucesso: false,
-            mensagem: "Preencha todos os campos."
+            mensagem: "Informe o nome da forma de pagamento."
         });
-
     }
 
-    // Cadastra a forma de pagamento
+    formaPagamento.link = formaPagamento.link || null;
+
+    if (formaPagamento.ativo === undefined) {
+        formaPagamento.ativo = true;
+    }
 
     formaPagamentoModel.cadastrar(formaPagamento, (erro, resultado) => {
-
-        if (erro) {
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao cadastrar forma de pagamento."
-            });
-
-        }
-
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: erro.sqlMessage || "Erro ao cadastrar forma de pagamento." });
         return res.status(201).json({
-
             sucesso: true,
             mensagem: "Forma de pagamento cadastrada com sucesso!",
             idFormaPagamento: resultado.insertId
-
         });
-
     });
-
 }
-
-
-//==========================================
-// LISTAR FORMAS DE PAGAMENTO
-//==========================================
 
 function listar(req, res) {
-
     formaPagamentoModel.listar((erro, resultado) => {
-
-        if (erro) {
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao listar formas de pagamento."
-            });
-
-        }
-
-        // Retorna a lista de formas de pagamento em formato JSON
-
-        res.json(resultado);
-
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: "Erro ao listar formas de pagamento.", erro: erro.message });
+        return res.status(200).json(resultado);
     });
-
 }
-
-
-//==========================================
-// BUSCAR FORMA DE PAGAMENTO POR ID
-//==========================================
 
 function buscarPorId(req, res) {
-
-    const id = req.params.id;
-
-    formaPagamentoModel.buscarPorId(id, (erro, resultado) => {
-
-        if (erro) {
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao buscar forma de pagamento."
-            });
-
-        }
-
-        if (resultado.length === 0) {
-
-            return res.status(404).json({
-                sucesso: false,
-                mensagem: "Forma de pagamento não encontrada."
-            });
-
-        }
-
-        // Retorna a forma de pagamento encontrada em formato JSON
-
-        res.json(resultado[0]);
-
+    formaPagamentoModel.buscarPorId(req.params.id, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: "Erro ao buscar forma de pagamento.", erro: erro.message });
+        if (resultado.length === 0) return res.status(404).json({ sucesso: false, mensagem: "Forma de pagamento não encontrada." });
+        return res.status(200).json(resultado[0]);
     });
-
 }
 
+function buscarPorNome(req, res) {
+    formaPagamentoModel.buscarPorNome(req.params.nome, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: "Erro ao buscar forma de pagamento.", erro: erro.message });
+        return res.status(200).json(resultado);
+    });
+}
 
-//==========================================
-// ATUALIZAR FORMA DE PAGAMENTO
-//==========================================
+function listarAtivas(req, res) {
+    formaPagamentoModel.listarAtivas((erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: "Erro ao listar formas ativas.", erro: erro.message });
+        return res.status(200).json(resultado);
+    });
+}
 
 function atualizar(req, res) {
 
-    // Obtém o ID da forma de pagamento a ser atualizada a partir dos parâmetros da URL
-
-    const id = req.params.id;
-
-    // Obtém os dados atualizados da forma de pagamento a partir do corpo da requisição
-
     const formaPagamento = req.body;
 
-    formaPagamentoModel.atualizar(id, formaPagamento, (erro, resultado) => {
-
-        if (erro) {
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao atualizar forma de pagamento."
-            });
-
-        }
-
-        res.json({
-            sucesso: true,
-            mensagem: "Forma de pagamento atualizada com sucesso."
+    if (!formaPagamento.nome) {
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "Informe o nome da forma de pagamento."
         });
+    }
 
+    formaPagamento.link = formaPagamento.link || null;
+
+    if (formaPagamento.ativo === undefined) {
+        formaPagamento.ativo = true;
+    }
+
+    formaPagamentoModel.atualizar(req.params.id, formaPagamento, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: erro.sqlMessage || "Erro ao atualizar forma de pagamento." });
+        if (resultado.affectedRows === 0) return res.status(404).json({ sucesso: false, mensagem: "Forma de pagamento não encontrada." });
+        return res.status(200).json({ sucesso: true, mensagem: "Forma de pagamento atualizada com sucesso." });
     });
-
 }
-
-
-//==========================================
-// EXCLUIR FORMA DE PAGAMENTO
-//==========================================
 
 function excluir(req, res) {
-
-    // Obtém o ID da forma de pagamento a ser excluída a partir dos parâmetros da URL
-
-    const id = req.params.id;
-
-    formaPagamentoModel.excluir(id, (erro, resultado) => {
-
-        if (erro) {
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao excluir forma de pagamento."
-            });
-
-        }
-
-        res.json({
-            sucesso: true,
-            mensagem: "Forma de pagamento excluída com sucesso."
-        });
-
+    formaPagamentoModel.excluir(req.params.id, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: erro.sqlMessage || "Erro ao excluir forma de pagamento." });
+        if (resultado.affectedRows === 0) return res.status(404).json({ sucesso: false, mensagem: "Forma de pagamento não encontrada." });
+        return res.status(200).json({ sucesso: true, mensagem: "Forma de pagamento excluída com sucesso." });
     });
-
 }
 
-
-//==========================================
-// EXPORTAÇÃO
-//==========================================
-
 module.exports = {
-
     cadastrar,
     listar,
     buscarPorId,
+    buscarPorNome,
+    listarAtivas,
     atualizar,
     excluir
-
 };

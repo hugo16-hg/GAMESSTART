@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Lojista - GamesStart</title>
+
+    <link rel="stylesheet" href="../style/login_lojista.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+    <main id="main">
+
+
+        <section id="loginContainer">
+
+
+            <!-- ==========================================
+                 LADO ESQUERDO
+            ========================================== -->
+
+            <div id="loginBanner">
+
+
+                <div id="brandArea">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    <h1 id="brandName"></h1>
+
+                </div>
+
+
+                <div id="bannerContent">
+
+                    <h2 id="bannerTitle"></h2>
+
+                    <p id="bannerText"></p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 LADO DIREITO
+            ========================================== -->
+
+            <div id="loginArea">
+
+
+                <div id="loginCard">
+
+
+                    <div id="loginHeader">
+
+                        <h2 id="loginTitle"></h2>
+
+                        <p id="loginSubtitle"></p>
+
+                    </div>
+
+
+
+                    <!-- ==========================================
+                         FORMULÁRIO
+                    ========================================== -->
+
+                    <form id="loginForm">
+
+
+                        <!-- E-MAIL -->
+
+                        <div class="input-group">
+
+                            <label id="emailLabel" for="email">
+                            </label>
+
+
+                            <div class="input-area">
+
+
+                                <i class="fa-regular fa-envelope"></i>
+
+
+                                <input id="email" type="email" autocomplete="email">
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- SENHA -->
+
+                        <div class="input-group">
+
+
+                            <div id="passwordHeader">
+
+                                <label id="passwordLabel" for="password">
+                                </label>
+
+
+                                <a id="forgotPassword" href="#">
+                                </a>
+
+                            </div>
+
+
+                            <div class="input-area">
+
+
+                                <i class="fa-solid fa-lock"></i>
+
+
+                                <input id="password" type="password" autocomplete="current-password">
+
+
+                                <button id="showPassword" type="button" class="btn-eye">
+
+                                    <i id="eyeIcon" class="fa-regular fa-eye"></i>
+
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- LEMBRAR -->
+
+                        <div id="rememberArea">
+
+
+                            <input id="remember" type="checkbox">
+
+
+                            <label id="rememberLabel" for="remember">
+                            </label>
+
+
+                        </div>
+
+
+
+                        <!-- MENSAGEM -->
+
+                        <p id="mensagem"></p>
+
+
+
+                        <!-- BOTÃO -->
+
+                        <button id="loginButton" type="submit">
+                        </button>
+
+
+                    </form>
+
+
+
+                    <!-- CADASTRO -->
+
+                    <div id="registerArea">
+
+                        <span id="registerText"></span>
+
+                        <a id="registerLink" href="#">
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="../js/login_lojista.js"></script>
+
+
+</body>
+
+</html>

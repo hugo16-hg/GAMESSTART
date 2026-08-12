@@ -1,203 +1,262 @@
-//==========================================
-// IMPORTA O MODEL
-// passe aqui o caminho correto do seu arquivo model
-//==========================================
-
-const produtoModel = require("../model/produto_model");
-
-
-//==========================================
-// CADASTRAR PRODUTO
-//==========================================
+const produtoModel = require("../model/produto_model.js");
 
 function cadastrar(req, res) {
 
     const produto = req.body;
 
-    // Validação dos campos obrigatórios
-
     if (
         !produto.nome ||
         !produto.descricao ||
-        !produto.codigo ||
-        !produto.preco_antigo ||
-        !produto.quantidade_estoque ||
+        !produto.sku ||
+        produto.preco_antigo === undefined ||
+        produto.quantidade_estoque === undefined ||
         !produto.Loja_id_loja ||
-        !produto.Lojista_id_Lojista
+        !produto.Lojista_id_lojista
     ) {
-
         return res.status(400).json({
             sucesso: false,
-            mensagem: "Preencha todos os campos."
+            mensagem: "Preencha todos os campos obrigatórios."
         });
-
     }
 
-    // Cadastra o produto
+    if (produto.preco_promocional === undefined || produto.preco_promocional === "") {
+        produto.preco_promocional = null;
+    }
 
-    produtoModel.cadastrar(produto, (erro, resultado) => {
+    if (produto.ativo === undefined) {
+        produto.ativo = true;
+    }
 
-        if (erro) {
+    produtoModel.buscarPorSku(produto.sku, (erroSku, resultadoSku) => {
 
+        if (erroSku) {
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao cadastrar produto."
+                mensagem: "Erro ao consultar SKU.",
+                erro: erroSku.message
             });
-
         }
 
-        return res.status(201).json({
+        if (resultadoSku.length > 0) {
+            return res.status(409).json({
+                sucesso: false,
+                mensagem: "Já existe um produto com este SKU."
+            });
+        }
 
-            sucesso: true,
-            mensagem: "Produto cadastrado com sucesso!",
-            idProduto: resultado.insertId
+        produtoModel.cadastrar(produto, (erro, resultado) => {
 
+            if (erro) {
+                return res.status(500).json({
+                    sucesso: false,
+                    mensagem: erro.sqlMessage || "Erro ao cadastrar produto."
+                });
+            }
+
+            return res.status(201).json({
+                sucesso: true,
+                mensagem: "Produto cadastrado com sucesso!",
+                idProduto: resultado.insertId
+            });
         });
-
     });
-
 }
-
-
-//==========================================
-// LISTAR PRODUTOS
-//==========================================
 
 function listar(req, res) {
-
     produtoModel.listar((erro, resultado) => {
-
         if (erro) {
-
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao listar produtos."
+                mensagem: "Erro ao listar produtos.",
+                erro: erro.message
             });
-
         }
-
-        // Retorna a lista de produtos em formato JSON
-
-        res.json(resultado);
-
+        return res.status(200).json(resultado);
     });
-
 }
 
-
-//==========================================
-// BUSCAR PRODUTO POR ID
-//==========================================
-
 function buscarPorId(req, res) {
-
-    const id = req.params.id;
-
-    produtoModel.buscarPorId(id, (erro, resultado) => {
-
+    produtoModel.buscarPorId(req.params.id, (erro, resultado) => {
         if (erro) {
-
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao buscar produto."
+                mensagem: "Erro ao buscar produto.",
+                erro: erro.message
             });
-
         }
-
         if (resultado.length === 0) {
-
             return res.status(404).json({
                 sucesso: false,
                 mensagem: "Produto não encontrado."
             });
-
         }
-
-        // Retorna o produto encontrado em formato JSON
-
-        res.json(resultado[0]);
-
+        return res.status(200).json(resultado[0]);
     });
-
 }
 
+function buscarPorNome(req, res) {
+    produtoModel.buscarPorNome(req.params.nome, (erro, resultado) => {
+        if (erro) {
+            return res.status(500).json({
+                sucesso: false,
+                mensagem: "Erro ao buscar produtos.",
+                erro: erro.message
+            });
+        }
+        return res.status(200).json(resultado);
+    });
+}
 
-//==========================================
-// ATUALIZAR PRODUTO
-//==========================================
+function buscarPorSku(req, res) {
+    produtoModel.buscarPorSku(req.params.sku, (erro, resultado) => {
+        if (erro) {
+            return res.status(500).json({
+                sucesso: false,
+                mensagem: "Erro ao buscar produto.",
+                erro: erro.message
+            });
+        }
+        if (resultado.length === 0) {
+            return res.status(404).json({
+                sucesso: false,
+                mensagem: "Produto não encontrado."
+            });
+        }
+        return res.status(200).json(resultado[0]);
+    });
+}
+
+function listarPorLoja(req, res) {
+    produtoModel.listarPorLoja(req.params.idLoja, (erro, resultado) => {
+        if (erro) {
+            return res.status(500).json({
+                sucesso: false,
+                mensagem: "Erro ao listar produtos da loja.",
+                erro: erro.message
+            });
+        }
+        return res.status(200).json(resultado);
+    });
+}
+
+function listarPorLojista(req, res) {
+    produtoModel.listarPorLojista(req.params.idLojista, (erro, resultado) => {
+        if (erro) {
+            return res.status(500).json({
+                sucesso: false,
+                mensagem: "Erro ao listar produtos do lojista.",
+                erro: erro.message
+            });
+        }
+        return res.status(200).json(resultado);
+    });
+}
+
+function listarAtivos(req, res) {
+    produtoModel.listarAtivos((erro, resultado) => {
+        if (erro) {
+            return res.status(500).json({
+                sucesso: false,
+                mensagem: "Erro ao listar produtos ativos.",
+                erro: erro.message
+            });
+        }
+        return res.status(200).json(resultado);
+    });
+}
+
+function listarEmEstoque(req, res) {
+    produtoModel.listarEmEstoque((erro, resultado) => {
+        if (erro) {
+            return res.status(500).json({
+                sucesso: false,
+                mensagem: "Erro ao listar produtos em estoque.",
+                erro: erro.message
+            });
+        }
+        return res.status(200).json(resultado);
+    });
+}
 
 function atualizar(req, res) {
 
-    // Obtém o ID do produto a ser atualizado a partir dos parâmetros da URL
-
     const id = req.params.id;
-
-    // Obtém os dados atualizados do produto a partir do corpo da requisição
-
     const produto = req.body;
 
+    if (
+        !produto.nome ||
+        !produto.descricao ||
+        !produto.sku ||
+        produto.preco_antigo === undefined ||
+        produto.quantidade_estoque === undefined ||
+        !produto.Loja_id_loja ||
+        !produto.Lojista_id_lojista
+    ) {
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "Preencha todos os campos obrigatórios."
+        });
+    }
+
+    if (produto.preco_promocional === undefined || produto.preco_promocional === "") {
+        produto.preco_promocional = null;
+    }
+
+    if (produto.ativo === undefined) {
+        produto.ativo = true;
+    }
+
     produtoModel.atualizar(id, produto, (erro, resultado) => {
-
         if (erro) {
-
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao atualizar produto."
+                mensagem: erro.sqlMessage || "Erro ao atualizar produto."
             });
-
         }
-
-        res.json({
+        if (resultado.affectedRows === 0) {
+            return res.status(404).json({
+                sucesso: false,
+                mensagem: "Produto não encontrado."
+            });
+        }
+        return res.status(200).json({
             sucesso: true,
             mensagem: "Produto atualizado com sucesso."
         });
-
     });
-
 }
 
-
-//==========================================
-// EXCLUIR PRODUTO
-//==========================================
-
 function excluir(req, res) {
-
-    // Obtém o ID do produto a ser excluído a partir dos parâmetros da URL
-
-    const id = req.params.id;
-
-    produtoModel.excluir(id, (erro, resultado) => {
-
+    produtoModel.excluir(req.params.id, (erro, resultado) => {
         if (erro) {
-
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao excluir produto."
+                mensagem: erro.sqlMessage || "Erro ao excluir produto."
             });
-
         }
-
-        res.json({
+        if (resultado.affectedRows === 0) {
+            return res.status(404).json({
+                sucesso: false,
+                mensagem: "Produto não encontrado."
+            });
+        }
+        return res.status(200).json({
             sucesso: true,
             mensagem: "Produto excluído com sucesso."
         });
-
     });
-
 }
 
-
-//==========================================
-// EXPORTAÇÃO
-//==========================================
-
 module.exports = {
-
     cadastrar,
     listar,
     buscarPorId,
+    buscarPorNome,
+    buscarPorSku,
+    listarPorLoja,
+    listarPorLojista,
+    listarAtivos,
+    listarEmEstoque,
     atualizar,
     excluir
-
 };

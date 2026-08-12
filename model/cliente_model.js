@@ -1,15 +1,29 @@
+//==========================================
+// IMPORTA A CONEXÃO
+//==========================================
+
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Cliente
-// =========================
+
+//==========================================
+// CADASTRAR CLIENTE
+//==========================================
 
 function cadastrar(cliente, callback) {
 
-    const sql = `INSERT INTO cliente
-        ( nome,cpf,telefone,email,senha,
-         data_nascimento,Loja_idloja )
-        VALUES (?, ?, ?, ?, ?, ?, ?)`;
+    const sql = `
+        INSERT INTO Cliente
+        (
+            nome,
+            cpf,
+            telefone,
+            email,
+            senha,
+            data_nascimento,
+            Loja_id_loja
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
 
     conexao.query(
         sql,
@@ -20,76 +34,104 @@ function cadastrar(cliente, callback) {
             cliente.email,
             cliente.senha,
             cliente.data_nascimento,
-            cliente.Loja_idloja
+            cliente.Loja_id_loja
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Clientes
-// =========================
+
+//==========================================
+// LISTAR CLIENTES
+//==========================================
 
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM Cliente
+        SELECT *
+        FROM Cliente
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Buscar por ID
-// =========================
+
+//==========================================
+// BUSCAR POR ID
+//==========================================
 
 function buscarPorId(id, callback) {
 
     const sql = `
         SELECT *
         FROM Cliente
-        WHERE idCliente = ?
+        WHERE id_cliente = ?
     `;
 
-    conexao.query(sql, [id], callback);
-
+    conexao.query(
+        sql,
+        [id],
+        callback
+    );
 }
 
-// =========================
-// Buscar por Email
-// =========================
+
+//==========================================
+// BUSCAR POR EMAIL
+//==========================================
 
 function buscarPorEmail(email, callback) {
 
     const sql = `
-        SELECT * FROM Cliente
+        SELECT *
+        FROM Cliente
         WHERE email = ?
     `;
 
-    conexao.query(sql, [email], callback);
-
+    conexao.query(
+        sql,
+        [email],
+        callback
+    );
 }
 
-// =========================
-// Atualizar Cliente
-// =========================
+
+//==========================================
+// BUSCAR POR CPF
+//==========================================
+
+function buscarPorCpf(cpf, callback) {
+
+    const sql = `
+        SELECT *
+        FROM Cliente
+        WHERE cpf = ?
+    `;
+
+    conexao.query(
+        sql,
+        [cpf],
+        callback
+    );
+}
+
+
+//==========================================
+// ATUALIZAR CLIENTE
+//==========================================
 
 function atualizar(id, cliente, callback) {
 
     const sql = `
         UPDATE Cliente
         SET
-
             nome = ?,
             cpf = ?,
             telefone = ?,
             email = ?,
             senha = ?,
             data_nascimento = ?,
-            Loja_idloja = ?
-
+            Loja_id_loja = ?
         WHERE id_cliente = ?
     `;
 
@@ -102,17 +144,17 @@ function atualizar(id, cliente, callback) {
             cliente.email,
             cliente.senha,
             cliente.data_nascimento,
-            cliente.Loja_idloja,
+            cliente.Loja_id_loja,
             id
         ],
         callback
     );
-
 }
 
-// =========================
-// Excluir Cliente
-// =========================
+
+//==========================================
+// EXCLUIR CLIENTE
+//==========================================
 
 function excluir(id, callback) {
 
@@ -121,9 +163,17 @@ function excluir(id, callback) {
         WHERE id_cliente = ?
     `;
 
-    conexao.query(sql, [id], callback);
-
+    conexao.query(
+        sql,
+        [id],
+        callback
+    );
 }
+
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = {
 
@@ -131,6 +181,7 @@ module.exports = {
     listar,
     buscarPorId,
     buscarPorEmail,
+    buscarPorCpf,
     atualizar,
     excluir
 

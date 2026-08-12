@@ -1,8 +1,9 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Carrinho
-// =========================
+
+//==========================================
+// CADASTRAR CARRINHO
+//==========================================
 
 function cadastrar(carrinho, callback) {
 
@@ -11,7 +12,7 @@ function cadastrar(carrinho, callback) {
         (
             quantidade_produto,
             preco_total,
-            Carrinho_id_carrinho
+            Cliente_id_cliente
         )
         VALUES (?, ?, ?)
     `;
@@ -21,16 +22,16 @@ function cadastrar(carrinho, callback) {
         [
             carrinho.quantidade_produto,
             carrinho.preco_total,
-            carrinho.Carrinho_id_carrinho
+            carrinho.Cliente_id_cliente
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Carrinhos
-// =========================
+
+//==========================================
+// LISTAR CARRINHOS
+//==========================================
 
 function listar(callback) {
 
@@ -40,12 +41,12 @@ function listar(callback) {
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Buscar Carrinho por ID
-// =========================
+
+//==========================================
+// BUSCAR CARRINHO POR ID
+//==========================================
 
 function buscarPorId(id, callback) {
 
@@ -56,12 +57,32 @@ function buscarPorId(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
 
-// =========================
-// Atualizar Carrinho
-// =========================
+
+//==========================================
+// BUSCAR CARRINHO DO CLIENTE
+//==========================================
+
+function buscarPorCliente(idCliente, callback) {
+
+    const sql = `
+        SELECT *
+        FROM Carrinho
+        WHERE Cliente_id_cliente = ?
+    `;
+
+    conexao.query(
+        sql,
+        [idCliente],
+        callback
+    );
+}
+
+
+//==========================================
+// ATUALIZAR CARRINHO
+//==========================================
 
 function atualizar(id, carrinho, callback) {
 
@@ -70,7 +91,7 @@ function atualizar(id, carrinho, callback) {
         SET
             quantidade_produto = ?,
             preco_total = ?,
-            Carrinho_id_carrinho = ?
+            Cliente_id_cliente = ?
         WHERE id_carrinho = ?
     `;
 
@@ -79,17 +100,17 @@ function atualizar(id, carrinho, callback) {
         [
             carrinho.quantidade_produto,
             carrinho.preco_total,
-            carrinho.Carrinho_id_carrinho,
+            carrinho.Cliente_id_cliente,
             id
         ],
         callback
     );
-
 }
 
-// =========================
-// Excluir Carrinho
-// =========================
+
+//==========================================
+// EXCLUIR CARRINHO
+//==========================================
 
 function excluir(id, callback) {
 
@@ -99,13 +120,18 @@ function excluir(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
+
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = {
     cadastrar,
     listar,
     buscarPorId,
+    buscarPorCliente,
     atualizar,
     excluir
 };

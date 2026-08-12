@@ -1,292 +1,475 @@
-/* ==========================================================
-   LOGO DA APLICAÇÃO
-   Define a imagem exibida no topo da página.
-========================================================== */
-/*
-const logo = document.getElementById("logo");
+//=====================================================
+// CONFIGURAÇÕES
+//=====================================================
 
-logo.src = "assets/images/logo.png";
-logo.alt = "Logo da aplicação"; */
+const API = "http://localhost:3000";
 
 
-/* ==========================================================
-   TÍTULO DA TELA
-========================================================== */
+//=====================================================
+// ELEMENTOS DA PÁGINA
+//=====================================================
+
+const loginForm =
+   document.getElementById("loginForm");
+
+const email =
+   document.getElementById("email");
+
+const password =
+   document.getElementById("password");
+
+const remember =
+   document.getElementById("remember");
+
+const mensagem =
+   document.getElementById("mensagem");
+
+const loginButton =
+   document.getElementById("loginButton");
+
+const showPassword =
+   document.getElementById("showPassword");
+
+const eyeIcon =
+   document.getElementById("eyeIcon");
+
+const googleButton =
+   document.getElementById("googleButton");
+
+const forgotPassword =
+   document.getElementById("forgotPassword");
+
+const registerLink =
+   document.getElementById("registerLink");
+
+
+//=====================================================
+// TEXTOS DA PÁGINA
+//=====================================================
 
 document.getElementById("loginTitle").textContent =
    "Bem-vindo";
 
 
-/* ==========================================================
-   SUBTÍTULO
-========================================================== */
-
 document.getElementById("loginSubtitle").textContent =
    "Por favor, faça login para acessar sua conta.";
 
 
-/* ==========================================================
-   CAMPO E-MAIL
-========================================================== */
-
 document.getElementById("emailLabel").textContent =
    "E-mail";
 
-document.getElementById("email").placeholder =
+
+email.placeholder =
    "Digite seu e-mail";
+
 
 document.getElementById("emailIcon").textContent =
    "✉";
 
 
-/* ==========================================================
-   CAMPO SENHA
-========================================================== */
-
 document.getElementById("passwordLabel").textContent =
    "Senha";
 
-document.getElementById("password").placeholder =
+
+password.placeholder =
    "Digite sua senha";
 
-document.getElementById("passwordIcon").textContent =
-   "🔒";
-
-
-/* ==========================================================
-   LINK ESQUECEU SENHA
-========================================================== */
-
-const forgotPassword =
-   document.getElementById("forgotPassword");
 
 forgotPassword.textContent =
    "Esqueceu a senha?";
 
-forgotPassword.href = "#";
-
-
-/* ==========================================================
-   CHECKBOX LEMBRAR DE MIM
-========================================================== */
 
 document.getElementById("rememberLabel").textContent =
    "Lembrar de mim";
 
 
-/* ==========================================================
-   BOTÃO ENTRAR
-========================================================== */
-
-document.getElementById("loginButton").textContent =
+loginButton.textContent =
    "Entrar";
 
-
-/* ==========================================================
-   DIVISOR
-========================================================== */
 
 document.getElementById("dividerText").textContent =
    "OU CONTINUAR COM";
 
 
-/* ==========================================================
-   BOTÃO GOOGLE
-========================================================== */
-
-document.getElementById("googleIcon").textContent =
-   "🌐";
-
 document.getElementById("googleText").textContent =
    "Entrar com Google";
 
 
-/* ==========================================================
-   ÁREA DE CADASTRO
-========================================================== */
-
 document.getElementById("registerText").textContent =
    "Não possui uma conta?";
 
-const registerLink =
-   document.getElementById("registerLink");
 
 registerLink.textContent =
    "Criar conta";
 
-registerLink.href = "#";
-
-
-/* ==========================================================
-   RODAPÉ
-========================================================== */
 
 document.getElementById("footerText").textContent =
    "© 2026 Todos os direitos reservados.";
 
 
-/* ==========================================================
-   MOSTRAR / OCULTAR SENHA
-========================================================== */
-
-const password = document.getElementById("password");
-const eyeIcon = document.getElementById("eyeIcon");
-const showPassword = document.getElementById("showPassword");
+//=====================================================
+// MOSTRAR / OCULTAR SENHA
+//=====================================================
 
 showPassword.addEventListener("click", () => {
 
+
    if (password.type === "password") {
+
+
       password.type = "text";
-      eyeIcon.src = "/assets/visivel.png";
+
+
+      eyeIcon.src =
+         "/assets/visivel.png";
+
+
+      eyeIcon.alt =
+         "Ocultar senha";
+
+
    } else {
+
+
       password.type = "password";
-      eyeIcon.src = "/assets/esconder.png";
+
+
+      eyeIcon.src =
+         "/assets/esconder.png";
+
+
+      eyeIcon.alt =
+         "Mostrar senha";
+
+
    }
 
+
 });
-``
 
-/* ==========================================================
-   ENVIO DO FORMULÁRIO
-========================================================== */
 
-const loginForm =
-   document.getElementById("loginForm");
+//=====================================================
+// LOGIN
+//=====================================================
 
-loginForm.addEventListener("submit", (event) => {
+loginForm.addEventListener("submit", async (event) => {
 
-   /* Impede o recarregamento da página */
 
+   // Impede o formulário de recarregar a página
    event.preventDefault();
 
 
-   /* Captura os valores dos campos */
-
-   const email =
-      document.getElementById("email").value;
-
-   const password =
-      document.getElementById("password").value;
-
-   const remember =
-      document.getElementById("remember").checked;
+   // Limpa mensagem anterior
+   mensagem.innerHTML = "";
 
 
-   /* Exibe os dados no console */
-
-   console.clear();
-
-   console.log("========= LOGIN =========");
-
-   console.log("E-mail:", email);
-
-   console.log("Senha:", password);
-
-   console.log("Lembrar:", remember);
-
-   console.log("=========================");
+   // Obtém os dados
+   const emailDigitado =
+      email.value.trim();
 
 
-   /* Aqui será chamada futuramente a API */
-
-});
-
-
-/* ==========================================================
-   BOTÃO LOGIN GOOGLE
-========================================================== */
-
-const googleButton =
-   document.getElementById("googleButton");
-
-googleButton.addEventListener("click", () => {
-
-   console.log("Login Google");
-
-});
+   const senhaDigitada =
+      password.value;
 
 
-/* ==========================================================
-   FUTURAS IMPLEMENTAÇÕES
+   //=================================================
+   // VALIDAR CAMPOS
+   //=================================================
 
-   ✔ Login JWT
-
-   ✔ Login Firebase
-
-   ✔ API REST
-
-   ✔ Recuperação de senha
-
-   ✔ Cadastro
-
-   ✔ Toast
-
-   ✔ Loading
-
-   ✔ LocalStorage
-
-========================================================== */
+   if (
+      emailDigitado === "" ||
+      senhaDigitada === ""
+   ) {
 
 
-const btnEntrar = document.getElementById("loginButton");
-
-btnEntrar.addEventListener("click", () => {
-
-   const email = document.getElementById("email").value.trim();
-   const senha = document.getElementById("password").value;
-
-   const mensagem = document.getElementById("mensagem");
-
-   if (email === "" || senha === "") {
-
-      mensagem.innerHTML = "Preencha todos os campos.";
       mensagem.style.color = "red";
+
+      mensagem.innerHTML =
+         "Preencha todos os campos.";
+
+
       return;
+
 
    }
 
-   if (senha.length < 6) {
 
-      mensagem.innerHTML = "A senha deve possuir no mínimo 6 caracteres.";
+   //=================================================
+   // VALIDAR SENHA
+   //=================================================
+
+   if (senhaDigitada.length < 6) {
+
+
       mensagem.style.color = "red";
+
+      mensagem.innerHTML =
+         "A senha deve possuir no mínimo 6 caracteres.";
+
+
       return;
+
 
    }
 
-   fetch("http://localhost:3000/clientes/login", {
 
-      method: "POST",
+   //=================================================
+   // DESABILITAR BOTÃO
+   //=================================================
 
-      headers: {
-         "Content-Type": "application/json"
-      },
+   loginButton.disabled = true;
 
-      body: JSON.stringify({
-         email,
-         senha
-      })
+   loginButton.textContent =
+      "Entrando...";
 
-   })
 
-      .then(res => res.json())
+   try {
 
-      .then(resposta => {
 
-         if (resposta.sucesso) {
+      //=================================================
+      // CHAMAR API
+      //=================================================
+
+      const resposta = await fetch(
+         `${API}/clientes/login`,
+         {
+
+            method: "POST",
+
+            headers: {
+
+               "Content-Type":
+                  "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+               email: emailDigitado,
+
+               senha: senhaDigitada
+
+            })
+
+         }
+      );
+
+
+      //=================================================
+      // TRANSFORMAR RESPOSTA EM JSON
+      //=================================================
+
+      const dados =
+         await resposta.json();
+
+
+      //=================================================
+      // LOGIN CORRETO
+      //=================================================
+
+      if (
+         resposta.ok &&
+         dados.sucesso
+      ) {
+
+
+         //=================================================
+         // SALVAR CLIENTE
+         //=================================================
+
+         localStorage.setItem(
+            "cliente",
+            JSON.stringify(dados.cliente)
+         );
+
+
+         //=================================================
+         // LEMBRAR LOGIN
+         //=================================================
+
+         if (remember.checked) {
+
 
             localStorage.setItem(
-               "cliente",
-               JSON.stringify(resposta.cliente)
+               "lembrarLogin",
+               emailDigitado
             );
 
-            window.location.href = "../index.html";
 
          } else {
 
-            mensagem.innerHTML = resposta.mensagem;
-            mensagem.style.color = "red";
+
+            localStorage.removeItem(
+               "lembrarLogin"
+            );
+
 
          }
 
-      });
+
+         //=================================================
+         // MENSAGEM
+         //=================================================
+
+         mensagem.style.color =
+            "green";
+
+
+         mensagem.innerHTML =
+            "Login realizado com sucesso!";
+
+
+         //=================================================
+         // REDIRECIONAR
+         //=================================================
+
+         setTimeout(() => {
+
+
+            window.location.href =
+               "../index.html";
+
+
+         }, 700);
+
+
+         return;
+
+
+      }
+
+
+      //=================================================
+      // LOGIN INCORRETO
+      //=================================================
+
+      mensagem.style.color =
+         "red";
+
+
+      mensagem.innerHTML =
+         dados.mensagem ||
+         "E-mail ou senha incorretos.";
+
+
+   } catch (erro) {
+
+
+      //=================================================
+      // ERRO DE CONEXÃO
+      //=================================================
+
+      console.error(
+         "Erro ao realizar login:",
+         erro
+      );
+
+
+      mensagem.style.color =
+         "red";
+
+
+      mensagem.innerHTML =
+         "Não foi possível conectar com o servidor.";
+
+
+   } finally {
+
+
+      //=================================================
+      // REATIVAR BOTÃO
+      //=================================================
+
+      loginButton.disabled =
+         false;
+
+
+      loginButton.textContent =
+         "Entrar";
+
+
+   }
+
+
 });
+
+
+//=====================================================
+// RECUPERAR E-MAIL SALVO
+//=====================================================
+
+const emailSalvo =
+   localStorage.getItem("lembrarLogin");
+
+
+if (emailSalvo) {
+
+
+   email.value =
+      emailSalvo;
+
+
+   remember.checked =
+      true;
+
+
+}
+
+
+//=====================================================
+// LINK CRIAR CONTA
+//=====================================================
+
+registerLink.addEventListener(
+   "click",
+   (event) => {
+
+
+      event.preventDefault();
+
+
+      window.location.href =
+         "./cadastro.html";
+
+
+   }
+);
+
+
+//=====================================================
+// ESQUECEU A SENHA
+//=====================================================
+
+forgotPassword.addEventListener(
+   "click",
+   (event) => {
+
+
+      event.preventDefault();
+
+
+      alert(
+         "Recuperação de senha ainda não configurada."
+      );
+
+
+   }
+);
+
+
+//=====================================================
+// LOGIN GOOGLE
+//=====================================================
+
+googleButton.addEventListener(
+   "click",
+   () => {
+
+
+      alert(
+         "Login com Google ainda não configurado."
+      );
+
+
+   }
+);

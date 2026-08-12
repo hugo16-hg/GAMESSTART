@@ -1,21 +1,22 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Cartão de Pagamento
-// =========================
+
+//==========================================
+// CADASTRAR CARTÃO
+//==========================================
 
 function cadastrar(cartao, callback) {
 
     const sql = `
-        INSERT INTO Cartao_pagamento
+        INSERT INTO Cartao_Pagamento
         (
             numero,
             data_vencimento,
             cvc,
             cpf,
             nome_proprietario,
-            nome_indentificacao,
-            bandereira,
+            nome_identificacao,
+            bandeira,
             tipo,
             ativo,
             Cliente_id_cliente
@@ -31,96 +32,100 @@ function cadastrar(cartao, callback) {
             cartao.cvc,
             cartao.cpf,
             cartao.nome_proprietario,
-            cartao.nome_indentificacao,
-            cartao.bandereira,
+            cartao.nome_identificacao,
+            cartao.bandeira,
             cartao.tipo,
             cartao.ativo,
             cartao.Cliente_id_cliente
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Cartões
-// =========================
+
+//==========================================
+// LISTAR CARTÕES
+//==========================================
 
 function listar(callback) {
 
     const sql = `
         SELECT *
-        FROM Cartao_pagamento
+        FROM Cartao_Pagamento
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Buscar Cartão por ID
-// =========================
+
+//==========================================
+// BUSCAR POR ID
+//==========================================
 
 function buscarPorId(id, callback) {
 
     const sql = `
         SELECT *
-        FROM Cartao_pagamento
+        FROM Cartao_Pagamento
         WHERE id_cartao_pagamento = ?
     `;
 
     conexao.query(sql, [id], callback);
-
 }
 
-// =========================
-// Listar Cartões por Cliente
-// =========================
+
+//==========================================
+// LISTAR POR CLIENTE
+//==========================================
 
 function listarPorCliente(idCliente, callback) {
 
     const sql = `
         SELECT *
-        FROM Cartao_pagamento
+        FROM Cartao_Pagamento
         WHERE Cliente_id_cliente = ?
     `;
 
-    conexao.query(sql, [idCliente], callback);
-
+    conexao.query(
+        sql,
+        [idCliente],
+        callback
+    );
 }
 
-// =========================
-// Listar Cartões Ativos
-// =========================
+
+//==========================================
+// LISTAR CARTÕES ATIVOS
+//==========================================
 
 function listarAtivos(callback) {
 
     const sql = `
         SELECT *
-        FROM Cartao_pagamento
+        FROM Cartao_Pagamento
         WHERE ativo = TRUE
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Atualizar Cartão
-// =========================
+
+//==========================================
+// ATUALIZAR CARTÃO
+//==========================================
 
 function atualizar(id, cartao, callback) {
 
     const sql = `
-        UPDATE Cartao_pagamento
+        UPDATE Cartao_Pagamento
         SET
             numero = ?,
             data_vencimento = ?,
             cvc = ?,
             cpf = ?,
             nome_proprietario = ?,
-            nome_indentificacao = ?,
-            bandereira = ?,
+            nome_identificacao = ?,
+            bandeira = ?,
             tipo = ?,
             ativo = ?,
             Cliente_id_cliente = ?
@@ -135,7 +140,7 @@ function atualizar(id, cartao, callback) {
             cartao.cvc,
             cartao.cpf,
             cartao.nome_proprietario,
-            cartao.nome_indentificacao,
+            cartao.nome_identificacao,
             cartao.bandeira,
             cartao.tipo,
             cartao.ativo,
@@ -144,23 +149,27 @@ function atualizar(id, cartao, callback) {
         ],
         callback
     );
-
 }
 
-// =========================
-// Excluir Cartão
-// =========================
+
+//==========================================
+// EXCLUIR CARTÃO
+//==========================================
 
 function excluir(id, callback) {
 
     const sql = `
-        DELETE FROM Cartao_pagamento
+        DELETE FROM Cartao_Pagamento
         WHERE id_cartao_pagamento = ?
     `;
 
     conexao.query(sql, [id], callback);
-
 }
+
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = {
     cadastrar,

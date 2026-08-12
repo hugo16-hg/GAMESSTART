@@ -1,8 +1,9 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Banner
-// =========================
+
+//==========================================
+// CADASTRAR BANNER
+//==========================================
 
 function cadastrar(banner, callback) {
 
@@ -12,7 +13,7 @@ function cadastrar(banner, callback) {
             imagem,
             data_inicio,
             data_final,
-            statutos_visibilidade,
+            status_visibilidade,
             Loja_id_loja
         )
         VALUES (?, ?, ?, ?, ?)
@@ -24,17 +25,17 @@ function cadastrar(banner, callback) {
             banner.imagem,
             banner.data_inicio,
             banner.data_final,
-            banner.statutos_visibilidade,
+            banner.status_visibilidade,
             banner.Loja_id_loja
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Banners
-// =========================
+
+//==========================================
+// LISTAR BANNERS
+//==========================================
 
 function listar(callback) {
 
@@ -44,12 +45,12 @@ function listar(callback) {
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Buscar Banner por ID
-// =========================
+
+//==========================================
+// BUSCAR BANNER POR ID
+//==========================================
 
 function buscarPorId(id, callback) {
 
@@ -60,28 +61,28 @@ function buscarPorId(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
 
-// =========================
-// Listar Banners Visíveis
-// =========================
+
+//==========================================
+// LISTAR BANNERS VISÍVEIS
+//==========================================
 
 function listarVisiveis(callback) {
 
     const sql = `
         SELECT *
         FROM Banner
-        WHERE statutos_visibilidade = TRUE
+        WHERE status_visibilidade = TRUE
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Atualizar Banner
-// =========================
+
+//==========================================
+// ATUALIZAR BANNER
+//==========================================
 
 function atualizar(id, banner, callback) {
 
@@ -91,7 +92,7 @@ function atualizar(id, banner, callback) {
             imagem = ?,
             data_inicio = ?,
             data_final = ?,
-            statutos_visibilidade = ?,
+            status_visibilidade = ?,
             Loja_id_loja = ?
         WHERE id_banner = ?
     `;
@@ -102,18 +103,18 @@ function atualizar(id, banner, callback) {
             banner.imagem,
             banner.data_inicio,
             banner.data_final,
-            banner.statutos_visibilidade,
+            banner.status_visibilidade,
             banner.Loja_id_loja,
             id
         ],
         callback
     );
-
 }
 
-// =========================
-// Excluir Banner
-// =========================
+
+//==========================================
+// EXCLUIR BANNER
+//==========================================
 
 function excluir(id, callback) {
 
@@ -123,8 +124,12 @@ function excluir(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
+
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = {
     cadastrar,

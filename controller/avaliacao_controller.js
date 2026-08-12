@@ -1,172 +1,18 @@
-// ==========================================
-// IMPORTA O MODEL
-// ==========================================
-
 const avaliacaoModel = require("../model/avaliacao_model.js");
 
-
-// ==========================================
-// CADASTRAR AVALIAÇÃO
-// ==========================================
-
 function cadastrar(req, res) {
-
     const avaliacao = req.body;
-
-    // Validação dos campos obrigatórios
-    if (
-        !avaliacao.data_publicacao ||
-        avaliacao.nota === undefined ||
-        avaliacao.nota === null ||
-        !avaliacao.Produto_id_produto
-    ) {
-        return res.status(400).json({
-            sucesso: false,
-            mensagem: "Preencha todos os campos."
-        });
+    if (!avaliacao.data_publicacao || avaliacao.nota === undefined || !avaliacao.Produto_id_produto) {
+        return res.status(400).json({ sucesso: false, mensagem: "Preencha os campos obrigatórios." });
     }
-
-    avaliacaoModel.cadastrar(avaliacao, (erro, resultado) => {
-
-        if (erro) {
-            console.error("Erro ao cadastrar avaliação:", erro);
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao cadastrar avaliação.",
-                erro: erro.message
-            });
-        }
-
-        return res.status(201).json({
-            sucesso: true,
-            mensagem: "Avaliação cadastrada com sucesso!",
-            idAvaliacao: resultado.insertId
-        });
-    });
+    avaliacao.descricao = avaliacao.descricao || null;
+    avaliacaoModel.cadastrar(avaliacao,(e,r)=>e?res.status(500).json({sucesso:false,mensagem:e.sqlMessage||"Erro ao cadastrar avaliação."}):res.status(201).json({sucesso:true,mensagem:"Avaliação cadastrada com sucesso!",idAvaliacao:r.insertId}));
 }
-
-
-// ==========================================
-// LISTAR AVALIAÇÕES
-// ==========================================
-
-function listar(req, res) {
-
-    avaliacaoModel.listar((erro, resultado) => {
-
-        if (erro) {
-            console.error("Erro ao listar avaliações:", erro);
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao listar avaliações.",
-                erro: erro.message
-            });
-        }
-
-        return res.json(resultado);
-    });
+function listar(req,res){avaliacaoModel.listar((e,r)=>e?res.status(500).json({sucesso:false,mensagem:"Erro ao listar avaliações.",erro:e.message}):res.status(200).json(r));}
+function buscarPorId(req,res){avaliacaoModel.buscarPorId(req.params.id,(e,r)=>e?res.status(500).json({sucesso:false,mensagem:"Erro ao buscar avaliação.",erro:e.message}):r.length===0?res.status(404).json({sucesso:false,mensagem:"Avaliação não encontrada."}):res.status(200).json(r[0]));}
+function atualizar(req,res){
+    const a=req.body;a.descricao=a.descricao||null;
+    avaliacaoModel.atualizar(req.params.id,a,(e,r)=>e?res.status(500).json({sucesso:false,mensagem:e.sqlMessage||"Erro ao atualizar avaliação."}):r.affectedRows===0?res.status(404).json({sucesso:false,mensagem:"Avaliação não encontrada."}):res.status(200).json({sucesso:true,mensagem:"Avaliação atualizada com sucesso."}));
 }
-
-
-// ==========================================
-// BUSCAR AVALIAÇÃO POR ID
-// ==========================================
-
-function buscarPorId(req, res) {
-
-    const id = req.params.id;
-
-    avaliacaoModel.buscarPorId(id, (erro, resultado) => {
-
-        if (erro) {
-            console.error("Erro ao buscar avaliação:", erro);
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao buscar avaliação.",
-                erro: erro.message
-            });
-        }
-
-        if (resultado.length === 0) {
-            return res.status(404).json({
-                sucesso: false,
-                mensagem: "Avaliação não encontrada."
-            });
-        }
-
-        return res.json(resultado[0]);
-    });
-}
-
-
-// ==========================================
-// ATUALIZAR AVALIAÇÃO
-// ==========================================
-
-function atualizar(req, res) {
-
-    const id = req.params.id;
-    const avaliacao = req.body;
-
-    avaliacaoModel.atualizar(id, avaliacao, (erro, resultado) => {
-
-        if (erro) {
-            console.error("Erro ao atualizar avaliação:", erro);
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao atualizar avaliação.",
-                erro: erro.message
-            });
-        }
-
-        return res.json({
-            sucesso: true,
-            mensagem: "Avaliação atualizada com sucesso."
-        });
-    });
-}
-
-
-// ==========================================
-// EXCLUIR AVALIAÇÃO
-// ==========================================
-
-function excluir(req, res) {
-
-    const id = req.params.id;
-
-    avaliacaoModel.excluir(id, (erro, resultado) => {
-
-        if (erro) {
-            console.error("Erro ao excluir avaliação:", erro);
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao excluir avaliação.",
-                erro: erro.message
-            });
-        }
-
-        return res.json({
-            sucesso: true,
-            mensagem: "Avaliação excluída com sucesso."
-        });
-    });
-}
-
-
-// ==========================================
-// EXPORTAÇÃO
-// ==========================================
-
-module.exports = {
-    cadastrar,
-    listar,
-    buscarPorId,
-    atualizar,
-    excluir
-};
+function excluir(req,res){avaliacaoModel.excluir(req.params.id,(e,r)=>e?res.status(500).json({sucesso:false,mensagem:e.sqlMessage||"Erro ao excluir avaliação."}):res.status(200).json({sucesso:true,removidos:r.affectedRows}));}
+module.exports={cadastrar,listar,buscarPorId,atualizar,excluir};

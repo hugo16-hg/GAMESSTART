@@ -1,110 +1,73 @@
 const CupomHasProdutoModel = require("../model/cupom_has_produto_model.js");
 
-// LISTAR TODOS OS RELACIONAMENTOS
-exports.listar = (req, res) => {
+function cadastrar(req, res) {
+    const dados = req.body;
+    if (!dados.Cupom_id_cupom || !dados.Produto_id_produto) {
+        return res.status(400).json({ sucesso: false, mensagem: "Informe cupom e produto." });
+    }
+    CupomHasProdutoModel.cadastrar(dados, (erro) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: erro.sqlMessage || "Erro ao vincular cupom ao produto." });
+        return res.status(201).json({ sucesso: true, mensagem: "Produto vinculado ao cupom com sucesso." });
+    });
+}
 
+function listar(req, res) {
     CupomHasProdutoModel.listar((erro, resultado) => {
-
-        if (erro) {
-            return res.status(500).json(erro);
-        }
-
-        res.status(200).json(resultado);
-
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: "Erro ao listar vínculos.", erro: erro.message });
+        return res.status(200).json(resultado);
     });
+}
 
-};
-
-// BUSCAR RELACIONAMENTO
-exports.buscarPorId = (req, res) => {
-
-    const { cupom, produto } = req.params;
-
-    CupomHasProdutoModel.buscarPorId(
-        cupom,
-        produto,
-        (erro, resultado) => {
-
-            if (erro) {
-                return res.status(500).json(erro);
-            }
-
-            if (resultado.length === 0) {
-                return res.status(404).json({
-                    mensagem: "Relacionamento não encontrado."
-                });
-            }
-
-            res.status(200).json(resultado[0]);
-
-        }
-    );
-
-};
-
-// CADASTRAR RELACIONAMENTO
-exports.cadastrar = (req, res) => {
-
-    const dados = req.body;
-
-    CupomHasProdutoModel.cadastrar(dados, (erro, resultado) => {
-
-        if (erro) {
-            return res.status(500).json(erro);
-        }
-
-        res.status(201).json({
-            mensagem: "Relacionamento cadastrado com sucesso!"
-        });
-
+function listarPorCupom(req, res) {
+    CupomHasProdutoModel.listarPorCupom(req.params.idCupom, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: "Erro ao listar produtos do cupom.", erro: erro.message });
+        return res.status(200).json(resultado);
     });
+}
 
-};
+function listarPorProduto(req, res) {
+    CupomHasProdutoModel.listarPorProduto(req.params.idProduto, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: "Erro ao listar cupons do produto.", erro: erro.message });
+        return res.status(200).json(resultado);
+    });
+}
 
-// ATUALIZAR RELACIONAMENTO
-exports.atualizar = (req, res) => {
+function buscarProdutosPorCupom(req, res) {
+    CupomHasProdutoModel.buscarProdutosPorCupom(req.params.idCupom, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: "Erro ao buscar produtos do cupom.", erro: erro.message });
+        return res.status(200).json(resultado);
+    });
+}
 
-    const { cupom, produto } = req.params;
-    const dados = req.body;
+function excluir(req, res) {
+    CupomHasProdutoModel.excluir(req.params.idCupom, req.params.idProduto, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: erro.sqlMessage || "Erro ao excluir vínculo." });
+        if (resultado.affectedRows === 0) return res.status(404).json({ sucesso: false, mensagem: "Vínculo não encontrado." });
+        return res.status(200).json({ sucesso: true, mensagem: "Vínculo excluído com sucesso." });
+    });
+}
 
-    CupomHasProdutoModel.atualizar(
-        cupom,
-        produto,
-        dados,
-        (erro) => {
+function excluirPorCupom(req, res) {
+    CupomHasProdutoModel.excluirPorCupom(req.params.idCupom, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: erro.sqlMessage || "Erro ao excluir vínculos." });
+        return res.status(200).json({ sucesso: true, removidos: resultado.affectedRows });
+    });
+}
 
-            if (erro) {
-                return res.status(500).json(erro);
-            }
+function excluirPorProduto(req, res) {
+    CupomHasProdutoModel.excluirPorProduto(req.params.idProduto, (erro, resultado) => {
+        if (erro) return res.status(500).json({ sucesso: false, mensagem: erro.sqlMessage || "Erro ao excluir vínculos." });
+        return res.status(200).json({ sucesso: true, removidos: resultado.affectedRows });
+    });
+}
 
-            res.status(200).json({
-                mensagem: "Relacionamento atualizado com sucesso!"
-            });
-
-        }
-    );
-
-};
-
-// EXCLUIR RELACIONAMENTO
-exports.excluir = (req, res) => {
-
-    const { cupom, produto } = req.params;
-
-    CupomHasProdutoModel.excluir(
-        cupom,
-        produto,
-        (erro) => {
-
-            if (erro) {
-                return res.status(500).json(erro);
-            }
-
-            res.status(200).json({
-                mensagem: "Relacionamento excluído com sucesso!"
-            });
-
-        }
-    );
-
+module.exports = {
+    cadastrar,
+    listar,
+    listarPorCupom,
+    listarPorProduto,
+    buscarProdutosPorCupom,
+    excluir,
+    excluirPorCupom,
+    excluirPorProduto
 };

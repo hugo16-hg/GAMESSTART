@@ -1,8 +1,9 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Pedido
-// =========================
+
+//==========================================
+// CADASTRAR PEDIDO
+//==========================================
 
 function cadastrar(pedido, callback) {
 
@@ -12,13 +13,13 @@ function cadastrar(pedido, callback) {
             data_pedido,
             data_entrega,
             nota_fiscal,
-            statutos_entrega,
-            statutos_pagamento,
+            status_entrega,
+            status_pagamento,
             codigo,
             Cliente_id_cliente,
             Loja_id_loja,
             Endereco_id_endereco,
-            Forma_pagamento_id_forma_pagamento
+            Forma_Pagamento_id_forma_pagamento
         )
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
@@ -29,22 +30,22 @@ function cadastrar(pedido, callback) {
             pedido.data_pedido,
             pedido.data_entrega,
             pedido.nota_fiscal,
-            pedido.statutos_entrega,
-            pedido.statutos_pagamento,
+            pedido.status_entrega,
+            pedido.status_pagamento,
             pedido.codigo,
             pedido.Cliente_id_cliente,
             pedido.Loja_id_loja,
             pedido.Endereco_id_endereco,
-            pedido.Forma_pagamento_id_forma_pagamento
+            pedido.Forma_Pagamento_id_forma_pagamento
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Pedidos
-// =========================
+
+//==========================================
+// LISTAR PEDIDOS
+//==========================================
 
 function listar(callback) {
 
@@ -54,12 +55,12 @@ function listar(callback) {
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Buscar Pedido por ID
-// =========================
+
+//==========================================
+// BUSCAR PEDIDO POR ID
+//==========================================
 
 function buscarPorId(id, callback) {
 
@@ -70,12 +71,12 @@ function buscarPorId(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
 
-// =========================
-// Buscar Pedido por Código
-// =========================
+
+//==========================================
+// BUSCAR PEDIDO POR CÓDIGO
+//==========================================
 
 function buscarPorCodigo(codigo, callback) {
 
@@ -86,12 +87,12 @@ function buscarPorCodigo(codigo, callback) {
     `;
 
     conexao.query(sql, [codigo], callback);
-
 }
 
-// =========================
-// Listar Pedidos por Cliente
-// =========================
+
+//==========================================
+// LISTAR PEDIDOS POR CLIENTE
+//==========================================
 
 function listarPorCliente(idCliente, callback) {
 
@@ -102,12 +103,12 @@ function listarPorCliente(idCliente, callback) {
     `;
 
     conexao.query(sql, [idCliente], callback);
-
 }
 
-// =========================
-// Listar Pedidos por Loja
-// =========================
+
+//==========================================
+// LISTAR PEDIDOS POR LOJA
+//==========================================
 
 function listarPorLoja(idLoja, callback) {
 
@@ -118,44 +119,44 @@ function listarPorLoja(idLoja, callback) {
     `;
 
     conexao.query(sql, [idLoja], callback);
-
 }
 
-// =========================
-// Buscar por Status de Entrega
-// =========================
+
+//==========================================
+// LISTAR POR STATUS DE ENTREGA
+//==========================================
 
 function listarPorStatusEntrega(status, callback) {
 
     const sql = `
         SELECT *
         FROM Pedidos
-        WHERE statutos_entrega = ?
+        WHERE status_entrega = ?
     `;
 
     conexao.query(sql, [status], callback);
-
 }
 
-// =========================
-// Buscar por Status de Pagamento
-// =========================
+
+//==========================================
+// LISTAR POR STATUS DE PAGAMENTO
+//==========================================
 
 function listarPorStatusPagamento(status, callback) {
 
     const sql = `
         SELECT *
         FROM Pedidos
-        WHERE statutos_pagamento = ?
+        WHERE status_pagamento = ?
     `;
 
     conexao.query(sql, [status], callback);
-
 }
 
-// =========================
-// Atualizar Pedido
-// =========================
+
+//==========================================
+// ATUALIZAR PEDIDO
+//==========================================
 
 function atualizar(id, pedido, callback) {
 
@@ -165,13 +166,13 @@ function atualizar(id, pedido, callback) {
             data_pedido = ?,
             data_entrega = ?,
             nota_fiscal = ?,
-            statutos_entrega = ?,
-            statutos_pagamento = ?,
+            status_entrega = ?,
+            status_pagamento = ?,
             codigo = ?,
             Cliente_id_cliente = ?,
             Loja_id_loja = ?,
             Endereco_id_endereco = ?,
-            Forma_pagamento_id_forma_pagamento = ?
+            Forma_Pagamento_id_forma_pagamento = ?
         WHERE id_pedidos = ?
     `;
 
@@ -181,23 +182,23 @@ function atualizar(id, pedido, callback) {
             pedido.data_pedido,
             pedido.data_entrega,
             pedido.nota_fiscal,
-            pedido.statutos_entrega,
-            pedido.statutos_pagamento,
+            pedido.status_entrega,
+            pedido.status_pagamento,
             pedido.codigo,
             pedido.Cliente_id_cliente,
             pedido.Loja_id_loja,
             pedido.Endereco_id_endereco,
-            pedido.Forma_pagamento_id_forma_pagamento,
+            pedido.Forma_Pagamento_id_forma_pagamento,
             id
         ],
         callback
     );
-
 }
 
-// =========================
-// Excluir Pedido
-// =========================
+
+//==========================================
+// EXCLUIR PEDIDO
+//==========================================
 
 function excluir(id, callback) {
 
@@ -207,8 +208,12 @@ function excluir(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
+
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = {
     cadastrar,

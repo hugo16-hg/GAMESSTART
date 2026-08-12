@@ -3,7 +3,7 @@ const conexao = mysql2.createConnection({
     host: 'localhost',
     user: 'root',
     password: "",
-    database: "GAMESSTART"
+    database: "GAME_START"
 });
 conexao.connect((erro) => {
 

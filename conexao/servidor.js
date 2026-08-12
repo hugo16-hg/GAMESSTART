@@ -1,35 +1,557 @@
+//=====================================================
+// IMPORTAÇÕES
+//=====================================================
+
 const express = require("express");
+const cors = require("cors");
+
+
+//=====================================================
+// CRIA O SERVIDOR
+//=====================================================
+
 const app = express();
 
-// 1. Middleware fundamental para ler JSON nas requisições POST/PUT
+
+//=====================================================
+// MIDDLEWARES
+//=====================================================
+
+// Permite requisições do front-end
+app.use(cors());
+
+// Permite receber dados JSON
 app.use(express.json());
 
-// 2. Importação de todas as suas rotas
-const avaliacaoRoutes = require("../routes/avaliacao_routes");
-const bannerRoutes = require("../routes/banner_routes");
-const bannerHasProdutoRoutes = require("../routes/banner_has_produto_routes");
-const carrinhoRoutes = require("../routes/carrinho_routes");
-const cartaoPagamentoRoutes = require("../routes/cartao_pagamento_routes");
-const categoriaHasCupomRoutes = require("../routes/categoria_has_cupom_routes");
-const categoriasRoutes = require("../routes/categorias_routes");
-const clientesHasEnderecoRoutes = require("../routes/clientes_has_endereco_routes");
-const clientesRoutes = require("../routes/clientes_routes");
-const cupomHasCategoriasRoutes = require("../routes/cupom_has_categorias_routes");
+// Permite receber dados de formulários
+app.use(express.urlencoded({ extended: true }));
 
-// 3. Associa as rotas aos seus respetivos endpoints no Express
-app.use("/avaliacoes", avaliacaoRoutes);
-app.use("/banners", bannerRoutes);
-app.use("/banner-has-produto", bannerHasProdutoRoutes);
-app.use("/carrinhos", carrinhoRoutes);
-app.use("/cartao_pagamento", cartaoPagamentoRoutes);
-app.use("/categoria-has-cupom", categoriaHasCupomRoutes);
-app.use("/categorias", categoriasRoutes);
-app.use("/clientes_has_endereco", clientesHasEnderecoRoutes);
-app.use("/clientes", clientesRoutes);
-app.use("/cupom_has_categorias", cupomHasCategoriasRoutes);
 
-// 4. Inicia o servidor na porta 3000 (ou outra à sua escolha)
+//=====================================================
+// TESTE DO SERVIDOR
+//=====================================================
+
+app.get("/", (req, res) => {
+
+    res.status(200).json({
+        sucesso: true,
+        mensagem: "API GAME_START funcionando!"
+    });
+
+});
+
+
+//=====================================================
+// IMPORTAÇÃO DAS ROTAS
+//=====================================================
+
+
+//=====================================================
+// AVALIAÇÃO
+//=====================================================
+
+const avaliacaoRoutes =
+    require("../routes/avaliacao_routes.js");
+
+
+//=====================================================
+// BANNER
+//=====================================================
+
+const bannerRoutes =
+    require("../routes/banner_routes.js");
+
+
+//=====================================================
+// BANNER HAS PRODUTO
+//=====================================================
+
+const bannerHasProdutoRoutes =
+    require("../routes/banner_has_produto_routes.js");
+
+
+//=====================================================
+// CARRINHO
+//=====================================================
+
+const carrinhoRoutes =
+    require("../routes/carrinho_routes.js");
+
+
+//=====================================================
+// CARTÃO DE PAGAMENTO
+//=====================================================
+
+const cartaoPagamentoRoutes =
+    require("../routes/cartao_pagamento_routes.js");
+
+
+//=====================================================
+// CATEGORIAS
+//=====================================================
+
+const categoriasRoutes =
+    require("../routes/categorias_routes.js");
+
+
+//=====================================================
+// CLIENTES
+//=====================================================
+
+const clientesRoutes =
+    require("../routes/clientes_routes.js");
+
+
+//=====================================================
+// CLIENTE HAS ENDEREÇO
+//=====================================================
+
+const clienteHasEnderecoRoutes =
+    require("../routes/cliente_has_endereco_routes.js");
+
+
+//=====================================================
+// CUPOM
+//=====================================================
+
+const cupomRoutes =
+    require("../routes/cupom_routes.js");
+
+
+//=====================================================
+// CUPOM HAS CATEGORIAS
+//=====================================================
+
+const cupomHasCategoriasRoutes =
+    require("../routes/cupom_has_categorias_routes.js");
+
+
+//=====================================================
+// CUPOM HAS PRODUTO
+//=====================================================
+
+const cupomHasProdutoRoutes =
+    require("../routes/cupom_has_produto_routes.js");
+
+
+//=====================================================
+// ENDEREÇO
+//=====================================================
+
+const enderecoRoutes =
+    require("../routes/endereco_routes.js");
+
+
+//=====================================================
+// FORMA DE PAGAMENTO
+//=====================================================
+
+const formaPagamentoRoutes =
+    require("../routes/forma_pagamento_routes.js");
+
+
+//=====================================================
+// FRETE
+//=====================================================
+
+const freteRoutes =
+    require("../routes/frete_routes.js");
+
+
+//=====================================================
+// IMAGEM PRODUTO
+//=====================================================
+
+const imagemProdutoRoutes =
+    require("../routes/imagem_produto_routes.js");
+
+
+//=====================================================
+// LOJA
+//=====================================================
+
+const lojaRoutes =
+    require("../routes/loja_routes.js");
+
+
+//=====================================================
+// LOJISTA
+//=====================================================
+
+const lojistaRoutes =
+    require("../routes/lojista_routes.js");
+
+
+//=====================================================
+// PEDIDOS
+//=====================================================
+
+const pedidosRoutes =
+    require("../routes/pedidos_routes.js");
+
+
+//=====================================================
+// PRODUTO
+//=====================================================
+
+const produtoRoutes =
+    require("../routes/produto_routes.js");
+
+
+//=====================================================
+// PRODUTO HAS CARRINHO
+//=====================================================
+
+const produtoHasCarrinhoRoutes =
+    require("../routes/produto_has_carrinho_routes.js");
+
+
+//=====================================================
+// PRODUTO HAS CATEGORIAS
+//=====================================================
+
+const produtoHasCategoriasRoutes =
+    require("../routes/produto_has_categorias_routes.js");
+
+
+//=====================================================
+// PRODUTO HAS PEDIDOS
+//=====================================================
+
+const produtoHasPedidosRoutes =
+    require("../routes/produto_has_pedidos_routes.js");
+
+
+//=====================================================
+// PROMOÇÃO
+//=====================================================
+
+const promocaoRoutes =
+    require("../routes/promocao_routes.js");
+
+
+//=====================================================
+// PROMOÇÃO HAS PRODUTO
+//=====================================================
+
+const promocaoHasProdutoRoutes =
+    require("../routes/promocao_has_produto_routes.js");
+
+
+//=====================================================
+// PROMOÇÃO HAS CATEGORIAS
+//=====================================================
+
+const promocaoHasCategoriasRoutes =
+    require("../routes/promocao_has_categorias_routes.js");
+
+//=====================================================
+// ENDPOINTS
+//=====================================================
+
+
+//=====================================================
+// AVALIAÇÕES
+//=====================================================
+
+app.use(
+    "/avaliacoes",
+    avaliacaoRoutes
+);
+
+
+//=====================================================
+// BANNERS
+//=====================================================
+
+app.use(
+    "/banners",
+    bannerRoutes
+);
+
+
+//=====================================================
+// BANNER HAS PRODUTO
+//=====================================================
+
+app.use(
+    "/banner-has-produto",
+    bannerHasProdutoRoutes
+);
+
+
+//=====================================================
+// CARRINHOS
+//=====================================================
+
+app.use(
+    "/carrinhos",
+    carrinhoRoutes
+);
+
+
+//=====================================================
+// CARTÕES
+//=====================================================
+
+app.use(
+    "/cartao_pagamento",
+    cartaoPagamentoRoutes
+);
+
+
+//=====================================================
+// CATEGORIAS
+//=====================================================
+
+app.use(
+    "/categorias",
+    categoriasRoutes
+);
+
+
+//=====================================================
+// CLIENTES
+//=====================================================
+
+app.use(
+    "/clientes",
+    clientesRoutes
+);
+
+
+//=====================================================
+// CLIENTE HAS ENDEREÇO
+//=====================================================
+
+app.use(
+    "/cliente-has-endereco",
+    clienteHasEnderecoRoutes
+);
+
+
+//=====================================================
+// CUPONS
+//=====================================================
+
+app.use(
+    "/cupons",
+    cupomRoutes
+);
+
+
+//=====================================================
+// CUPOM HAS CATEGORIAS
+//=====================================================
+
+app.use(
+    "/cupom-has-categorias",
+    cupomHasCategoriasRoutes
+);
+
+
+//=====================================================
+// CUPOM HAS PRODUTO
+//=====================================================
+
+app.use(
+    "/cupom-has-produto",
+    cupomHasProdutoRoutes
+);
+
+
+//=====================================================
+// ENDEREÇOS
+//=====================================================
+
+app.use(
+    "/enderecos",
+    enderecoRoutes
+);
+
+
+//=====================================================
+// FORMAS DE PAGAMENTO
+//=====================================================
+
+app.use(
+    "/formas-pagamento",
+    formaPagamentoRoutes
+);
+
+
+//=====================================================
+// FRETES
+//=====================================================
+
+app.use(
+    "/fretes",
+    freteRoutes
+);
+
+
+//=====================================================
+// IMAGENS DE PRODUTOS
+//=====================================================
+
+app.use(
+    "/imagens-produtos",
+    imagemProdutoRoutes
+);
+
+
+//=====================================================
+// LOJAS
+//=====================================================
+
+app.use(
+    "/lojas",
+    lojaRoutes
+);
+
+
+//=====================================================
+// LOJISTAS
+//=====================================================
+
+app.use(
+    "/lojistas",
+    lojistaRoutes
+);
+
+
+//=====================================================
+// PEDIDOS
+//=====================================================
+
+app.use(
+    "/pedidos",
+    pedidosRoutes
+);
+
+
+//=====================================================
+// PRODUTOS
+//=====================================================
+
+app.use(
+    "/produtos",
+    produtoRoutes
+);
+
+
+//=====================================================
+// PRODUTO HAS CARRINHO
+//=====================================================
+
+app.use(
+    "/produto-has-carrinho",
+    produtoHasCarrinhoRoutes
+);
+
+
+//=====================================================
+// PRODUTO HAS CATEGORIAS
+//=====================================================
+
+app.use(
+    "/produto-has-categorias",
+    produtoHasCategoriasRoutes
+);
+
+
+//=====================================================
+// PRODUTO HAS PEDIDOS
+//=====================================================
+
+app.use(
+    "/produto-has-pedidos",
+    produtoHasPedidosRoutes
+);
+
+
+//=====================================================
+// PROMOÇÕES
+//=====================================================
+
+app.use(
+    "/promocoes",
+    promocaoRoutes
+);
+
+
+//=====================================================
+// PROMOÇÃO HAS PRODUTO
+//=====================================================
+
+app.use(
+    "/promocao-has-produto",
+    promocaoHasProdutoRoutes
+);
+
+
+//=====================================================
+// PROMOÇÃO HAS CATEGORIAS
+//=====================================================
+
+app.use(
+    "/promocao-has-categorias",
+    promocaoHasCategoriasRoutes
+);
+
+
+//=====================================================
+// ROTA NÃO ENCONTRADA
+//=====================================================
+
+app.use((req, res) => {
+
+    res.status(404).json({
+        sucesso: false,
+        mensagem: "Rota não encontrada."
+    });
+
+});
+
+
+//=====================================================
+// TRATAMENTO DE ERROS
+//=====================================================
+
+app.use((erro, req, res, next) => {
+
+    console.error("ERRO NO SERVIDOR:");
+
+    console.error(erro);
+
+    res.status(500).json({
+        sucesso: false,
+        mensagem: "Erro interno do servidor."
+    });
+
+});
+
+
+//=====================================================
+// PORTA
+//=====================================================
+
 const PORTA = 3000;
+
+
+//=====================================================
+// INICIAR SERVIDOR
+//=====================================================
+
 app.listen(PORTA, () => {
-    console.log(`Servidor a correr com sucesso na porta ${PORTA}!`);
+
+    console.log("");
+    console.log("====================================");
+    console.log("       API GAME_START INICIADA");
+    console.log("====================================");
+    console.log("");
+    console.log(`Servidor rodando na porta ${PORTA}`);
+    console.log(`http://localhost:${PORTA}`);
+    console.log("");
+
 });

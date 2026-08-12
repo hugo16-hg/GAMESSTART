@@ -1,513 +1,1037 @@
-/* ==========================================================
-   DADOS DA PÁGINA
-========================================================== */
+//=====================================================
+// CONFIGURAÇÃO DA API
+//=====================================================
 
-const cadastro = {
+const API = "http://localhost:3000";
 
-    sistema: "GamesStart",
 
-    tituloBoasVindas: "Bem-vindo à nossa comunidade.",
+//=====================================================
+// TEXTOS DA TELA
+//=====================================================
 
-    descricaoBoasVindas:
-        "Crie sua conta em poucos minutos e comece sua jornada dentro da GamesStart.",
+document.getElementById("nomeSistema").innerHTML =
+    "GamesStart";
 
-    tituloSeguranca: "Segurança",
+document.getElementById("tituloBoasVindas").innerHTML =
+    "Sua próxima aventura começa aqui.";
 
-    descricaoSeguranca:
-        "Todos os seus dados são protegidos utilizando criptografia e boas práticas de segurança.",
+document.getElementById("descricaoBoasVindas").innerHTML =
+    "Crie sua conta e tenha acesso aos melhores jogos, ofertas e novidades.";
 
-    tituloRapidez: "Rapidez",
+document.getElementById("tituloSeguranca").innerHTML =
+    "Compra Segura";
 
-    descricaoRapidez:
-        "Seu cadastro leva menos de um minuto para ser concluído.",
+document.getElementById("descricaoSeguranca").innerHTML =
+    "Seus dados estão protegidos.";
 
-    tituloCadastro: "Criar Conta",
+document.getElementById("tituloRapidez").innerHTML =
+    "Cadastro Rápido";
 
-    subtituloCadastro:
-        "Preencha as informações abaixo para criar sua conta.",
+document.getElementById("descricaoRapidez").innerHTML =
+    "Crie sua conta em poucos minutos.";
 
-    labelNome: "Nome Completo",
+document.getElementById("tituloCadastro").innerHTML =
+    "Criar Conta";
 
-    labelEmail: "E-mail",
+document.getElementById("subtituloCadastro").innerHTML =
+    "Preencha seus dados para começar.";
 
-    labelTelefone: "Telefone",
+document.getElementById("labelNome").innerHTML =
+    "Nome Completo";
 
-    labelCpf: "CPF",
+document.getElementById("labelEmail").innerHTML =
+    "E-mail";
 
-    labelDataNascimento: "Data de Nascimento",
+document.getElementById("labelTelefone").innerHTML =
+    "Telefone";
 
-    labelSenha: "Senha",
+document.getElementById("labelCpf").innerHTML =
+    "CPF";
 
-    labelConfirmarSenha: "Confirmar Senha",
+document.getElementById("labelDataNascimento").innerHTML =
+    "Data de Nascimento";
 
-    placeholderNome: "Digite seu nome",
+document.getElementById("labelSenha").innerHTML =
+    "Senha";
 
-    placeholderEmail: "Digite seu e-mail",
+document.getElementById("labelConfirmarSenha").innerHTML =
+    "Confirmar Senha";
 
-    placeholderTelefone: "(00) 00000-0000",
+document.getElementById("textoTermos").innerHTML =
+    "Li e aceito os termos de uso.";
 
-    placeholderCpf: "000.000.000-00",
+document.getElementById("btnCadastrar").innerHTML =
+    "Criar Conta";
 
-    placeholderDataNascimento: "00/00/0000",
+document.getElementById("textoLogin").innerHTML =
+    "Já possui uma conta?";
 
-    placeholderSenha: "Digite sua senha",
+document.getElementById("linkLogin").innerHTML =
+    "Entrar";
 
-    placeholderConfirmarSenha: "Repita sua senha",
+document.getElementById("textoSeparador").innerHTML =
+    "ou continue com";
 
-    textoTermos:
-        "Li e aceito os Termos de Uso e a Política de Privacidade.",
+document.getElementById("textoGoogle").innerHTML =
+    "Google";
 
-    textoBotao: "Cadastrar",
+document.getElementById("textoApple").innerHTML =
+    "Apple";
 
-    textoLogin: "Já possui uma conta?",
 
-    linkLogin: "Entrar",
+//=====================================================
+// PLACEHOLDERS
+//=====================================================
 
-    textoSeparador: "OU CADASTRE-SE COM",
+document.getElementById("inputNome").placeholder =
+    "Digite seu nome completo";
 
-    textoGoogle: "Google",
+document.getElementById("inputEmail").placeholder =
+    "exemplo@email.com";
 
-    textoApple: "Apple"
+document.getElementById("inputTelefone").placeholder =
+    "(00) 00000-0000";
 
-};
+document.getElementById("inputCpf").placeholder =
+    "000.000.000-00";
 
+document.getElementById("inputDataNascimento").placeholder =
+    "DD/MM/AAAA";
 
-/* ==========================================================
-   INICIALIZAÇÃO
-========================================================== */
+document.getElementById("inputSenha").placeholder =
+    "Digite sua senha";
 
-document.addEventListener("DOMContentLoaded", iniciarPagina);
+document.getElementById("inputConfirmarSenha").placeholder =
+    "Confirme sua senha";
 
-function iniciarPagina() {
 
-    preencherTextos();
+//=====================================================
+// ELEMENTOS
+//=====================================================
 
-    preencherPlaceholders();
+const inputNome =
+    document.getElementById("inputNome");
 
-    adicionarEventos();
+const inputEmail =
+    document.getElementById("inputEmail");
 
-}
+const inputTelefone =
+    document.getElementById("inputTelefone");
 
+const inputCpf =
+    document.getElementById("inputCpf");
 
-/* ==========================================================
-   PREENCHER TEXTOS
-========================================================== */
+const inputDataNascimento =
+    document.getElementById("inputDataNascimento");
 
-function preencherTextos() {
+const inputSenha =
+    document.getElementById("inputSenha");
 
-    document.getElementById("nomeSistema").textContent = cadastro.sistema;
+const inputConfirmarSenha =
+    document.getElementById("inputConfirmarSenha");
 
-    document.getElementById("tituloBoasVindas").textContent = cadastro.tituloBoasVindas;
+const checkTermos =
+    document.getElementById("checkTermos");
 
-    document.getElementById("descricaoBoasVindas").textContent = cadastro.descricaoBoasVindas;
+const btnCadastrar =
+    document.getElementById("btnCadastrar");
 
-    document.getElementById("tituloSeguranca").textContent = cadastro.tituloSeguranca;
+const mensagem =
+    document.getElementById("mensagem");
 
-    document.getElementById("descricaoSeguranca").textContent = cadastro.descricaoSeguranca;
 
-    document.getElementById("tituloRapidez").textContent = cadastro.tituloRapidez;
+//=====================================================
+// MÁSCARA CPF
+//=====================================================
 
-    document.getElementById("descricaoRapidez").textContent = cadastro.descricaoRapidez;
+inputCpf.addEventListener("input", () => {
 
-    document.getElementById("tituloCadastro").textContent = cadastro.tituloCadastro;
+    let cpf =
+        inputCpf.value.replace(/\D/g, "");
 
-    document.getElementById("subtituloCadastro").textContent = cadastro.subtituloCadastro;
+    cpf =
+        cpf.substring(0, 11);
 
-    document.getElementById("labelNome").textContent = cadastro.labelNome;
+    cpf = cpf.replace(
+        /(\d{3})(\d)/,
+        "$1.$2"
+    );
 
-    document.getElementById("labelEmail").textContent = cadastro.labelEmail;
+    cpf = cpf.replace(
+        /(\d{3})(\d)/,
+        "$1.$2"
+    );
 
-    document.getElementById("labelTelefone").textContent = cadastro.labelTelefone;
+    cpf = cpf.replace(
+        /(\d{3})(\d{1,2})$/,
+        "$1-$2"
+    );
 
-    document.getElementById("labelCpf").textContent = cadastro.labelCpf;
-
-    document.getElementById("labelDataNascimento").textContent = cadastro.labelDataNascimento;
-
-    document.getElementById("labelSenha").textContent = cadastro.labelSenha;
-
-    document.getElementById("labelConfirmarSenha").textContent = cadastro.labelConfirmarSenha;
-
-    document.getElementById("textoTermos").textContent = cadastro.textoTermos;
-
-    document.getElementById("btnCadastrar").textContent = cadastro.textoBotao;
-
-    document.getElementById("textoLogin").textContent = cadastro.textoLogin;
-
-    document.getElementById("linkLogin").textContent = cadastro.linkLogin;
-
-    document.getElementById("textoSeparador").textContent = cadastro.textoSeparador;
-
-    document.getElementById("textoGoogle").textContent = cadastro.textoGoogle;
-
-    document.getElementById("textoApple").textContent = cadastro.textoApple;
-
-}
-
-
-/* ==========================================================
-   PLACEHOLDERS
-========================================================== */
-
-function preencherPlaceholders() {
-
-    document.getElementById("inputNome").placeholder = cadastro.placeholderNome;
-
-    document.getElementById("inputEmail").placeholder = cadastro.placeholderEmail;
-
-    document.getElementById("inputTelefone").placeholder = cadastro.placeholderTelefone;
-
-    document.getElementById("inputCpf").placeholder = cadastro.placeholderCpf;
-
-    document.getElementById("inputDataNascimento").placeholder = cadastro.placeholderDataNascimento;
-
-    document.getElementById("inputSenha").placeholder = cadastro.placeholderSenha;
-
-    document.getElementById("inputConfirmarSenha").placeholder = cadastro.placeholderConfirmarSenha;
-
-}
-
-
-/* ==========================================================
-   EVENTOS
-========================================================== */
-
-function adicionarEventos() {
-
-    const inputTelefone = document.getElementById("inputTelefone");
-    const inputCpf = document.getElementById("inputCpf");
-    const inputDataNascimento = document.getElementById("inputDataNascimento");
-
-    if (inputTelefone) {
-        inputTelefone.addEventListener("input", mascaraTelefone);
-    }
-
-    if (inputCpf) {
-        inputCpf.addEventListener("input", mascaraCpf);
-    }
-
-    if (inputDataNascimento) {
-        inputDataNascimento.addEventListener("input", mascaraData);
-    }
-
-}
-
-/* ==========================================================
-   MÁSCARAS
-========================================================== */
-
-function mascaraTelefone(e) {
-
-    let valor = e.target.value.replace(/\D/g, "");
-
-    valor = valor.substring(0, 11);
-
-    if (valor.length <= 10) {
-        valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
-        valor = valor.replace(/(\d{4})(\d)/, "$1-$2");
-    } else {
-        valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
-        valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
-    }
-
-    e.target.value = valor;
-}
-function mascaraCpf(e) {
-
-    let valor = e.target.value.replace(/\D/g, "");
-
-    valor = valor.substring(0, 11);
-
-    valor = valor.replace(/^(\d{3})(\d)/, "$1.$2");
-    valor = valor.replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
-    valor = valor.replace(/\.(\d{3})(\d{1,2})$/, ".$1-$2");
-
-    e.target.value = valor;
-
-}
-
-function mascaraData(e) {
-
-    let valor = e.target.value.replace(/\D/g, '');
-
-    valor = valor.substring(0, 8);
-
-    valor = valor.replace(/(\d{2})(\d)/, '$1/$2');
-
-    valor = valor.replace(/(\d{2})(\d)/, '$1/$2');
-
-    e.target.value = valor;
-
-}
-
-function mostrarSenha(idCampo, elemento){
-
-    const campo = document.getElementById(idCampo);
-    const icone = elemento.querySelector("i");
-
-    if(campo.type === "password"){
-        campo.type = "text";
-        icone.classList.remove("fa-eye");
-        icone.classList.add("fa-eye-slash");
-    }else{
-        campo.type = "password";
-        icone.classList.remove("fa-eye-slash");
-        icone.classList.add("fa-eye");
-    }
-
-}
-
-/* ==========================================================
-   ENVIO
-========================================================== */
-
-function enviarFormulario(event) {
-
-    event.preventDefault();
-
-    const usuario = {
-
-        nome: document.getElementById("inputNome").value.trim(),
-
-        email: document.getElementById("inputEmail").value.trim(),
-
-        telefone: document.getElementById("inputTelefone").value.trim(),
-
-        cpf: document.getElementById("inputCpf").value.trim(),
-
-        dataNascimento: document.getElementById("inputDataNascimento").value.trim(),
-
-        senha: document.getElementById("inputSenha").value,
-
-        confirmarSenha: document.getElementById("inputConfirmarSenha").value,
-
-        aceitouTermos: document.getElementById("checkTermos").checked
-
-    };
-
-    if (usuario.dataNascimento.length !== 10) {
-
-        alert("Informe uma data de nascimento válida.");
-
-        return;
-
-    }
-
-    console.clear();
-
-    console.log("Dados do usuário:");
-
-    console.table(usuario);
-
-}
-
-
-
-
-
-document.getElementById("btnCadastrar").addEventListener("click", () => {
-    
-
-    const nome = document.getElementById("inputNome").value.trim();
-
-    const cpf = document.getElementById("inputCpf").value.trim();
-
-    const telefone = document.getElementById("inputTelefone").value.trim();
-
-    const email = document.getElementById("inputEmail").value.trim();
-
-    const senha = document.getElementById("inputSenha").value;
-
-    const confirmarsenha = document.getElementById("inputConfirmarSenha").value;
-
-    const aceitouTermos = document.getElementById("checkTermos").checked;
-
-    const dataNascimento =
-        document.getElementById("inputDataNascimento").value;
-
-    const mensagem =
-        document.getElementById("mensagem");
-
-    if (
-        nome == "" ||
-        cpf == "" ||
-        telefone == "" ||
-        email == "" ||
-        senha == "" ||
-        confirmarsenha == "" ||
-        dataNascimento == ""
-    ) {
-
-        mensagem.style.color = "red";
-        mensagem.innerHTML = "Preencha todos os campos.";
-
-        return;
-
-    }
-
-    if (senha.length < 6 || senha.length > 15) {
-        mensagem.style.color = "red";
-        mensagem.innerHTML =
-            "A senha deve possuir entre 6 e 15 caracteres.";
-
-        return;
-
-    }
-
-    //verificar se a senha possui letras maiusculas
-    if (!/[A-Z]/.test(senha)) {
-        mensagem.style.color = "red";
-        mensagem.innerHTML =
-            "A senha deve possuir pelo menos 1 letra maiúscula.";
-
-        return;
-    }
-
-    if (!/[a-z]/.test(senha)) {
-        mensagem.style.color = "red";
-        mensagem.innerHTML =
-            "A senha deve possuir pelo menos 1 letra minúscula.";
-
-        return;
-    }
-
-    if (!/[0-9]/.test(senha)) {
-        mensagem.style.color = "red";
-        mensagem.innerHTML =
-            "A senha deve possuir pelo menos 1 número.";
-
-        return;
-    }
-
-    //Verificar se a senha possue nome do usuário
-    if (senha.toLowerCase().includes(nome.toLowerCase())) {
-        mensagem.style.color = "red";
-        mensagem.innerHTML =
-            "A senha não pode conter o nome do usuário.";
-        return;
-    }
-
-
-    if (senha !== confirmarsenha) {
-        mensagem.style.color = "red";
-        mensagem.innerHTML =
-            "As senhas não coincidem.";
-        return;
-    }
-
-    //verificar se o cliente tem mais de 18 anos
-    const idade = new Date().getFullYear() - new Date(dataNascimento).getFullYear();
-    if (idade < 18) {
-        mensagem.style.color = "red";
-        mensagem.innerHTML =
-            "O cliente deve ter mais de 18 anos.";
-        return;
-    }
-
-    if (!aceitouTermos) {
-        mensagem.style.color = "red";
-        mensagem.innerHTML = "Você deve aceitar os termos e condições.";
-        return;
-    }
-
-    if (!email.includes("@")){
-
-        mensagem.style.color = "red";
-        mensagem.innerHTML = "Digite um e-mail válido.";
-
-        return;
-
-    }
-
-    const partes = dataNascimento.split("/");
-
-const dataMysql = `${partes[2]}-${partes[1]}-${partes[0]}`;
-
-    // Objeto pronto para enviar ao Node.js
-
-    const cliente = {
-
-        nome: nome,
-
-        cpf: cpf.replace(/\D/g, ""),
-
-        telefone: telefone.replace(/\D/g, ""),
-
-        email: email,
-
-        senha: senha,
-
-        data_nascimento: dataNascimento,
-
-        Loja_idloja: 1
-
-    };
-
-    console.log(cliente);
-
-
-    fetch("http://localhost:3000/clientes", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify(cliente)
-
-    })
-        .then(res => res.json())
-
-        .then(resposta => {
-
-            if (resposta.sucesso) {
-
-                mensagem.style.color = "green";
-                mensagem.innerHTML = resposta.mensagem;
-
-                // Limpa os campos
-                document.getElementById("inputNome").value = "";
-                document.getElementById("inputCpf").value = "";
-                document.getElementById("inputTelefone").value = "";
-                document.getElementById("inputEmail").value = "";
-                document.getElementById("inputSenha").value = "";
-                document.getElementById("inputConfirmarSenha").value = "";
-                document.getElementById("inputDataNascimento").value = "";
-
-            } else {
-
-                mensagem.style.color = "red";
-                mensagem.innerHTML = resposta.mensagem;
-
-            }
-
-        })
-
-        .catch(() => {
-
-            mensagem.style.color = "red";
-            mensagem.innerHTML = "Erro ao conectar com o servidor.";
-
-        });
-
+    inputCpf.value = cpf;
 
 });
 
- /*function mostrarSenha(idCampo, elemento){
 
-    const campo = document.getElementById(idCampo);
-    const icone = elemento.querySelector("i");
+//=====================================================
+// MÁSCARA TELEFONE
+//=====================================================
 
-    if(campo.type === "password"){
+inputTelefone.addEventListener("input", () => {
+
+    let telefone =
+        inputTelefone.value.replace(/\D/g, "");
+
+    telefone =
+        telefone.substring(0, 11);
+
+
+    if (telefone.length > 10) {
+
+        telefone = telefone.replace(
+            /^(\d{2})(\d{5})(\d{4})$/,
+            "($1) $2-$3"
+        );
+
+    } else {
+
+        telefone = telefone.replace(
+            /^(\d{2})(\d{4})(\d{0,4})$/,
+            "($1) $2-$3"
+        );
+
+    }
+
+
+    inputTelefone.value = telefone;
+
+});
+
+
+//=====================================================
+// MÁSCARA DATA DE NASCIMENTO
+//=====================================================
+
+inputDataNascimento.addEventListener(
+    "input",
+    () => {
+
+        let data =
+            inputDataNascimento.value.replace(
+                /\D/g,
+                ""
+            );
+
+        data =
+            data.substring(0, 8);
+
+
+        if (data.length >= 5) {
+
+            data =
+                data.substring(0, 2) +
+                "/" +
+                data.substring(2, 4) +
+                "/" +
+                data.substring(4);
+
+        }
+
+        else if (data.length >= 3) {
+
+            data =
+                data.substring(0, 2) +
+                "/" +
+                data.substring(2);
+
+        }
+
+
+        inputDataNascimento.value =
+            data;
+
+    }
+);
+
+
+//=====================================================
+// VALIDAR EMAIL
+//=====================================================
+
+function validarEmail(email) {
+
+    const regex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    return regex.test(email);
+
+}
+
+
+//=====================================================
+// VALIDAR CPF
+//=====================================================
+
+function validarCpf(cpf) {
+
+    cpf =
+        cpf.replace(/\D/g, "");
+
+
+    if (cpf.length !== 11) {
+
+        return false;
+
+    }
+
+
+    if (/^(\d)\1{10}$/.test(cpf)) {
+
+        return false;
+
+    }
+
+
+    let soma = 0;
+
+    let resto;
+
+
+    for (let i = 1; i <= 9; i++) {
+
+        soma =
+            soma +
+            parseInt(cpf.substring(i - 1, i)) *
+            (11 - i);
+
+    }
+
+
+    resto =
+        (soma * 10) % 11;
+
+
+    if (resto === 10 || resto === 11) {
+
+        resto = 0;
+
+    }
+
+
+    if (
+        resto !==
+        parseInt(cpf.substring(9, 10))
+    ) {
+
+        return false;
+
+    }
+
+
+    soma = 0;
+
+
+    for (let i = 1; i <= 10; i++) {
+
+        soma =
+            soma +
+            parseInt(cpf.substring(i - 1, i)) *
+            (12 - i);
+
+    }
+
+
+    resto =
+        (soma * 10) % 11;
+
+
+    if (resto === 10 || resto === 11) {
+
+        resto = 0;
+
+    }
+
+
+    if (
+        resto !==
+        parseInt(cpf.substring(10, 11))
+    ) {
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+//=====================================================
+// CONVERTER DATA
+// DD/MM/AAAA -> AAAA-MM-DD
+//=====================================================
+
+function converterData(data) {
+
+    const partes =
+        data.split("/");
+
+
+    if (partes.length !== 3) {
+
+        return null;
+
+    }
+
+
+    const dia =
+        partes[0];
+
+    const mes =
+        partes[1];
+
+    const ano =
+        partes[2];
+
+
+    if (
+        dia.length !== 2 ||
+        mes.length !== 2 ||
+        ano.length !== 4
+    ) {
+
+        return null;
+
+    }
+
+
+    return `${ano}-${mes}-${dia}`;
+
+}
+
+
+//=====================================================
+// VALIDAR DATA
+//=====================================================
+
+function validarData(data) {
+
+    const partes =
+        data.split("/");
+
+
+    if (partes.length !== 3) {
+
+        return false;
+
+    }
+
+
+    const dia =
+        parseInt(partes[0]);
+
+    const mes =
+        parseInt(partes[1]);
+
+    const ano =
+        parseInt(partes[2]);
+
+
+    if (
+        dia < 1 ||
+        dia > 31
+    ) {
+
+        return false;
+
+    }
+
+
+    if (
+        mes < 1 ||
+        mes > 12
+    ) {
+
+        return false;
+
+    }
+
+
+    if (
+        ano < 1900 ||
+        ano > new Date().getFullYear()
+    ) {
+
+        return false;
+
+    }
+
+
+    const dataObjeto =
+        new Date(
+            ano,
+            mes - 1,
+            dia
+        );
+
+
+    return (
+        dataObjeto.getDate() === dia &&
+        dataObjeto.getMonth() === mes - 1 &&
+        dataObjeto.getFullYear() === ano
+    );
+
+}
+
+
+//=====================================================
+// MOSTRAR / ESCONDER SENHA
+//=====================================================
+
+function mostrarSenha(idCampo, botao) {
+
+    const campo =
+        document.getElementById(idCampo);
+
+    const icone =
+        botao.querySelector("i");
+
+
+    if (campo.type === "password") {
+
         campo.type = "text";
-        icone.classList.remove("fa-eye");
-        icone.classList.add("fa-eye-slash");
-    }else{
+
+        icone.classList.remove(
+            "fa-eye"
+        );
+
+        icone.classList.add(
+            "fa-eye-slash"
+        );
+
+    }
+
+    else {
+
         campo.type = "password";
-        icone.classList.remove("fa-eye-slash");
-        icone.classList.add("fa-eye");
+
+        icone.classList.remove(
+            "fa-eye-slash"
+        );
+
+        icone.classList.add(
+            "fa-eye"
+        );
+
     }
 
 }
-*/
 
+
+//=====================================================
+// MENSAGEM
+//=====================================================
+
+function mostrarMensagem(
+    texto,
+    cor
+) {
+
+    mensagem.style.color =
+        cor;
+
+    mensagem.innerHTML =
+        texto;
+
+}
+
+
+//=====================================================
+// CADASTRAR CLIENTE
+//=====================================================
+
+btnCadastrar.addEventListener(
+    "click",
+    async () => {
+
+        //=================================================
+        // PEGAR DADOS
+        //=================================================
+
+        const nome =
+            inputNome.value.trim();
+
+        const email =
+            inputEmail.value.trim();
+
+        const telefone =
+            inputTelefone.value.trim();
+
+        const cpf =
+            inputCpf.value.trim();
+
+        const dataNascimento =
+            inputDataNascimento.value.trim();
+
+        const senha =
+            inputSenha.value;
+
+        const confirmarSenha =
+            inputConfirmarSenha.value;
+
+
+        //=================================================
+        // VALIDAR CAMPOS VAZIOS
+        //=================================================
+
+        if (
+            nome === "" ||
+            email === "" ||
+            telefone === "" ||
+            cpf === "" ||
+            dataNascimento === "" ||
+            senha === "" ||
+            confirmarSenha === ""
+        ) {
+
+            mostrarMensagem(
+                "Preencha todos os campos.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR NOME
+        //=================================================
+
+        if (nome.length < 3) {
+
+            mostrarMensagem(
+                "Digite seu nome completo.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR EMAIL
+        //=================================================
+
+        if (!validarEmail(email)) {
+
+            mostrarMensagem(
+                "Digite um e-mail válido.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR TELEFONE
+        //=================================================
+
+        const telefoneNumeros =
+            telefone.replace(/\D/g, "");
+
+
+        if (
+            telefoneNumeros.length < 10 ||
+            telefoneNumeros.length > 11
+        ) {
+
+            mostrarMensagem(
+                "Digite um telefone válido.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR CPF
+        //=================================================
+
+        if (!validarCpf(cpf)) {
+
+            mostrarMensagem(
+                "Digite um CPF válido.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR DATA
+        //=================================================
+
+        if (!validarData(dataNascimento)) {
+
+            mostrarMensagem(
+                "Digite uma data de nascimento válida.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR TAMANHO DA SENHA
+        //=================================================
+
+        if (
+            senha.length < 8 ||
+            senha.length > 20
+        ) {
+
+            mostrarMensagem(
+                "A senha deve ter entre 8 e 20 caracteres.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR LETRA MAIÚSCULA
+        //=================================================
+
+        if (!/[A-Z]/.test(senha)) {
+
+            mostrarMensagem(
+                "A senha deve possuir pelo menos uma letra maiúscula.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR LETRA MINÚSCULA
+        //=================================================
+
+        if (!/[a-z]/.test(senha)) {
+
+            mostrarMensagem(
+                "A senha deve possuir pelo menos uma letra minúscula.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR NÚMERO
+        //=================================================
+
+        if (!/[0-9]/.test(senha)) {
+
+            mostrarMensagem(
+                "A senha deve possuir pelo menos um número.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // VALIDAR CARACTERE ESPECIAL
+        //=================================================
+
+        if (
+            !/[!@#$%^&*()_\-+=]/.test(senha)
+        ) {
+
+            mostrarMensagem(
+                "A senha deve possuir pelo menos um caractere especial.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // CONFIRMAR SENHA
+        //=================================================
+
+        if (
+            senha !==
+            confirmarSenha
+        ) {
+
+            mostrarMensagem(
+                "As senhas não coincidem.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // TERMOS
+        //=================================================
+
+        if (!checkTermos.checked) {
+
+            mostrarMensagem(
+                "Aceite os termos de uso para continuar.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // CONVERTER DATA
+        //=================================================
+
+        const dataConvertida =
+            converterData(
+                dataNascimento
+            );
+
+
+        if (!dataConvertida) {
+
+            mostrarMensagem(
+                "Data de nascimento inválida.",
+                "red"
+            );
+
+            return;
+
+        }
+
+
+        //=================================================
+        // OBJETO CLIENTE
+        //=================================================
+
+        const cliente = {
+
+            nome: nome,
+
+            cpf:
+                cpf.replace(/\D/g, ""),
+
+            telefone:
+                telefone.replace(/\D/g, ""),
+
+            email: email,
+
+            senha: senha,
+
+            data_nascimento:
+                dataConvertida,
+
+            Loja_id_loja: 1
+
+        };
+
+
+        console.log(
+            "Dados enviados:",
+            cliente
+        );
+
+
+        //=================================================
+        // DESABILITAR BOTÃO
+        //=================================================
+
+        btnCadastrar.disabled =
+            true;
+
+        btnCadastrar.innerHTML =
+            "Cadastrando...";
+
+
+        mostrarMensagem(
+            "Realizando cadastro...",
+            "#555"
+        );
+
+
+        //=================================================
+        // FETCH
+        //=================================================
+
+        try {
+
+            const resposta = await fetch(
+                "http://localhost:3000/clientes",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(cliente)
+                }
+            );
+
+
+            // Primeiro recebe como texto
+            const textoResposta =
+                await resposta.text();
+
+
+            console.log(
+                "STATUS:",
+                resposta.status
+            );
+
+            console.log(
+                "RESPOSTA BRUTA:",
+                textoResposta
+            );
+
+
+            let dados;
+
+
+            try {
+
+                dados =
+                    JSON.parse(textoResposta);
+
+            }
+
+            catch {
+
+                console.error(
+                    "Servidor não retornou JSON:"
+                );
+
+                console.error(
+                    textoResposta
+                );
+
+
+                mensagem.style.color =
+                    "red";
+
+                mensagem.innerHTML =
+                    "O servidor respondeu com erro. Veja o Console.";
+
+                return;
+
+            }
+
+
+            if (!resposta.ok) {
+
+                mensagem.style.color =
+                    "red";
+
+                mensagem.innerHTML =
+                    dados.mensagem ||
+                    "Erro ao cadastrar cliente.";
+
+                return;
+
+            }
+
+
+            mensagem.style.color =
+                "green";
+
+            mensagem.innerHTML =
+                "Cadastro realizado com sucesso!";
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "login.html";
+
+            }, 1500);
+
+        }
+
+        catch (erro) {
+
+            console.error(
+                "ERRO REAL DE CONEXÃO:",
+                erro
+            );
+
+
+            mensagem.style.color =
+                "red";
+
+            mensagem.innerHTML =
+                "Não foi possível acessar a API.";
+
+        }
+    }
+);
+
+
+//=====================================================
+// BOTÃO GOOGLE
+//=====================================================
+
+document
+    .getElementById("btnGoogle")
+    .addEventListener(
+        "click",
+        () => {
+
+            mostrarMensagem(
+                "Login com Google ainda não configurado.",
+                "#555"
+            );
+
+        }
+    );
+
+
+//=====================================================
+// BOTÃO APPLE
+//=====================================================
+
+document
+    .getElementById("btnApple")
+    .addEventListener(
+        "click",
+        () => {
+
+            mostrarMensagem(
+                "Login com Apple ainda não configurado.",
+                "#555"
+            );
+
+        }
+    );

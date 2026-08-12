@@ -1,8 +1,9 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Adicionar Produto ao Carrinho
-// =========================
+
+//==========================================
+// ADICIONAR PRODUTO AO CARRINHO
+//==========================================
 
 function cadastrar(produtoCarrinho, callback) {
 
@@ -10,25 +11,27 @@ function cadastrar(produtoCarrinho, callback) {
         INSERT INTO Produto_has_Carrinho
         (
             Produto_id_produto,
-            Carrinho_id_carrinho
+            Carrinho_id_carrinho,
+            quantidade
         )
-        VALUES (?, ?)
+        VALUES (?, ?, ?)
     `;
 
     conexao.query(
         sql,
         [
             produtoCarrinho.Produto_id_produto,
-            produtoCarrinho.Carrinho_id_carrinho
+            produtoCarrinho.Carrinho_id_carrinho,
+            produtoCarrinho.quantidade || 1
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Relações
-// =========================
+
+//==========================================
+// LISTAR RELACIONAMENTOS
+//==========================================
 
 function listar(callback) {
 
@@ -38,28 +41,37 @@ function listar(callback) {
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Listar Produtos do Carrinho
-// =========================
+
+//==========================================
+// LISTAR PRODUTOS DO CARRINHO
+//==========================================
 
 function listarPorCarrinho(idCarrinho, callback) {
 
     const sql = `
-        SELECT *
+        SELECT
+            Produto.*,
+            Produto_has_Carrinho.quantidade
         FROM Produto_has_Carrinho
-        WHERE Carrinho_id_carrinho = ?
+        INNER JOIN Produto
+            ON Produto.id_produto =
+               Produto_has_Carrinho.Produto_id_produto
+        WHERE Produto_has_Carrinho.Carrinho_id_carrinho = ?
     `;
 
-    conexao.query(sql, [idCarrinho], callback);
-
+    conexao.query(
+        sql,
+        [idCarrinho],
+        callback
+    );
 }
 
-// =========================
-// Listar Carrinhos do Produto
-// =========================
+
+//==========================================
+// LISTAR CARRINHOS DO PRODUTO
+//==========================================
 
 function listarPorProduto(idProduto, callback) {
 
@@ -69,13 +81,47 @@ function listarPorProduto(idProduto, callback) {
         WHERE Produto_id_produto = ?
     `;
 
-    conexao.query(sql, [idProduto], callback);
-
+    conexao.query(
+        sql,
+        [idProduto],
+        callback
+    );
 }
 
-// =========================
-// Remover Produto do Carrinho
-// =========================
+
+//==========================================
+// ATUALIZAR QUANTIDADE
+//==========================================
+
+function atualizarQuantidade(
+    idProduto,
+    idCarrinho,
+    quantidade,
+    callback
+) {
+
+    const sql = `
+        UPDATE Produto_has_Carrinho
+        SET quantidade = ?
+        WHERE Produto_id_produto = ?
+        AND Carrinho_id_carrinho = ?
+    `;
+
+    conexao.query(
+        sql,
+        [
+            quantidade,
+            idProduto,
+            idCarrinho
+        ],
+        callback
+    );
+}
+
+
+//==========================================
+// EXCLUIR PRODUTO DO CARRINHO
+//==========================================
 
 function excluir(idProduto, idCarrinho, callback) {
 
@@ -93,12 +139,12 @@ function excluir(idProduto, idCarrinho, callback) {
         ],
         callback
     );
-
 }
 
-// =========================
-// Remover Todos os Produtos do Carrinho
-// =========================
+
+//==========================================
+// LIMPAR CARRINHO
+//==========================================
 
 function excluirPorCarrinho(idCarrinho, callback) {
 
@@ -107,31 +153,24 @@ function excluirPorCarrinho(idCarrinho, callback) {
         WHERE Carrinho_id_carrinho = ?
     `;
 
-    conexao.query(sql, [idCarrinho], callback);
-
+    conexao.query(
+        sql,
+        [idCarrinho],
+        callback
+    );
 }
 
-// =========================
-// Remover Produto de Todos os Carrinhos
-// =========================
 
-function excluirPorProduto(idProduto, callback) {
-
-    const sql = `
-        DELETE FROM Produto_has_Carrinho
-        WHERE Produto_id_produto = ?
-    `;
-
-    conexao.query(sql, [idProduto], callback);
-
-}
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = {
     cadastrar,
     listar,
     listarPorCarrinho,
     listarPorProduto,
+    atualizarQuantidade,
     excluir,
-    excluirPorCarrinho,
-    excluirPorProduto
+    excluirPorCarrinho
 };

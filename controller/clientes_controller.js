@@ -12,12 +12,10 @@ function cadastrar(req, res) {
 
     const cliente = req.body;
 
-    // Caso não seja enviado o código da loja
-    if (!cliente.Loja_idloja) {
-        cliente.Loja_idloja = 1;
+    if (!cliente.Loja_id_loja) {
+        cliente.Loja_id_loja = 1;
     }
 
-    // Validação dos campos obrigatórios
     if (
         !cliente.nome ||
         !cliente.cpf ||
@@ -32,43 +30,114 @@ function cadastrar(req, res) {
         });
     }
 
-    // Verifica se já existe um cliente com o mesmo e-mail
-    clienteModel.buscarPorEmail(cliente.email, (erro, resultado) => {
+    clienteModel.buscarPorEmail(cliente.email, (erroEmail, resultadoEmail) => {
+
+        if (erroEmail) {
+            return res.status(500).json({
+                sucesso: false,
+                mensagem: "Erro ao consultar o e-mail.",
+                erro: erroEmail.message
+            });
+        }
+
+        if (resultadoEmail.length > 0) {
+            return res.status(409).json({
+                sucesso: false,
+                mensagem: "Este e-mail já está cadastrado."
+            });
+        }
+
+        clienteModel.buscarPorCpf(cliente.cpf, (erroCpf, resultadoCpf) => {
+
+            if (erroCpf) {
+                return res.status(500).json({
+                    sucesso: false,
+                    mensagem: "Erro ao consultar CPF.",
+                    erro: erroCpf.message
+                });
+            }
+
+            if (resultadoCpf.length > 0) {
+                return res.status(409).json({
+                    sucesso: false,
+                    mensagem: "Este CPF já está cadastrado."
+                });
+            }
+
+            clienteModel.cadastrar(cliente, (erroCadastro, resultadoCadastro) => {
+
+                if (erroCadastro) {
+                    return res.status(500).json({
+                        sucesso: false,
+                        mensagem: erroCadastro.sqlMessage || "Erro ao cadastrar cliente."
+                    });
+                }
+
+                return res.status(201).json({
+                    sucesso: true,
+                    mensagem: "Cliente cadastrado com sucesso!",
+                    id_cliente: resultadoCadastro.insertId
+                });
+            });
+        });
+    });
+}
+
+//==========================================
+// LOGIN
+//==========================================
+
+function login(req, res) {
+
+    const { email, senha } = req.body;
+
+    if (!email || !senha) {
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "Informe e-mail e senha."
+        });
+    }
+
+    clienteModel.buscarPorEmail(email, (erro, resultado) => {
 
         if (erro) {
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao consultar o banco de dados."
+                mensagem: "Erro ao consultar o banco.",
+                erro: erro.message
             });
         }
 
-        if (resultado.length > 0) {
-            return res.status(409).json({
+        if (resultado.length === 0) {
+            return res.status(401).json({
                 sucesso: false,
-                mensagem: "E-mail já cadastrado."
+                mensagem: "E-mail ou senha incorretos."
             });
         }
 
-        // Cadastra o cliente
-        clienteModel.cadastrar(cliente, (erro, resultado) => {
+        const cliente = resultado[0];
 
-            if (erro) {
-                return res.status(500).json({
-                    sucesso: false,
-                    mensagem: "Erro ao cadastrar cliente."
-                });
-            }
-
-            return res.status(201).json({
-                sucesso: true,
-                mensagem: "Cliente cadastrado com sucesso!",
-                id_cliente: resultado.insertId
+        if (cliente.senha !== senha) {
+            return res.status(401).json({
+                sucesso: false,
+                mensagem: "E-mail ou senha incorretos."
             });
+        }
 
+        return res.status(200).json({
+            sucesso: true,
+            mensagem: "Login realizado com sucesso!",
+            cliente: {
+                id_cliente: cliente.id_cliente,
+                nome: cliente.nome,
+                cpf: cliente.cpf,
+                telefone: cliente.telefone,
+                email: cliente.email,
+                data_nascimento: cliente.data_nascimento,
+                Loja_id_loja: cliente.Loja_id_loja
+            }
         });
-
     });
-
 }
 
 //==========================================
@@ -82,14 +151,13 @@ function listar(req, res) {
         if (erro) {
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao listar clientes."
+                mensagem: "Erro ao listar clientes.",
+                erro: erro.message
             });
         }
 
-        res.status(200).json(resultado);
-
+        return res.status(200).json(resultado);
     });
-
 }
 
 //==========================================
@@ -105,7 +173,8 @@ function buscarPorId(req, res) {
         if (erro) {
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao buscar cliente."
+                mensagem: "Erro ao buscar cliente.",
+                erro: erro.message
             });
         }
 
@@ -116,10 +185,8 @@ function buscarPorId(req, res) {
             });
         }
 
-        res.status(200).json(resultado[0]);
-
+        return res.status(200).json(resultado[0]);
     });
-
 }
 
 //==========================================
@@ -131,12 +198,27 @@ function atualizar(req, res) {
     const id = req.params.id;
     const cliente = req.body;
 
+    if (
+        !cliente.nome ||
+        !cliente.cpf ||
+        !cliente.telefone ||
+        !cliente.email ||
+        !cliente.senha ||
+        !cliente.data_nascimento ||
+        !cliente.Loja_id_loja
+    ) {
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "Preencha todos os campos."
+        });
+    }
+
     clienteModel.atualizar(id, cliente, (erro, resultado) => {
 
         if (erro) {
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao atualizar cliente."
+                mensagem: erro.sqlMessage || "Erro ao atualizar cliente."
             });
         }
 
@@ -147,13 +229,11 @@ function atualizar(req, res) {
             });
         }
 
-        res.status(200).json({
+        return res.status(200).json({
             sucesso: true,
             mensagem: "Cliente atualizado com sucesso."
         });
-
     });
-
 }
 
 //==========================================
@@ -169,7 +249,7 @@ function excluir(req, res) {
         if (erro) {
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao excluir cliente."
+                mensagem: erro.sqlMessage || "Erro ao excluir cliente."
             });
         }
 
@@ -180,68 +260,11 @@ function excluir(req, res) {
             });
         }
 
-        res.status(200).json({
+        return res.status(200).json({
             sucesso: true,
             mensagem: "Cliente excluído com sucesso."
         });
-
     });
-
-}
-
-function login(req, res) {
-
-    const { email, senha } = req.body;
-
-    clienteModel.buscarPorEmail(email, (erro, resultado) => {
-
-        if (erro) {
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro interno."
-            });
-
-        }
-
-        if (resultado.length === 0) {
-
-            return res.json({
-                sucesso: false,
-                mensagem: "E-mail ou senha inválidos."
-            });
-
-        }
-
-        const cliente = resultado[0];
-
-        if (cliente.senha !== senha) {
-
-            return res.json({
-                sucesso: false,
-                mensagem: "E-mail ou senha inválidos."
-            });
-
-        }
-
-        res.json({
-
-            sucesso: true,
-
-            cliente: {
-
-                id: cliente.idCliente,
-                nome: cliente.nome,
-                email: cliente.email,
-                telefone: cliente.telefone,
-                cpf: cliente.cpf
-
-            }
-
-        });
-
-    });
-
 }
 
 //==========================================
@@ -250,9 +273,9 @@ function login(req, res) {
 
 module.exports = {
     cadastrar,
+    login,
     listar,
     buscarPorId,
     atualizar,
-    excluir,
-    login
+    excluir
 };

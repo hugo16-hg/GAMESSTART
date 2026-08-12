@@ -1,31 +1,35 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Relacionamento
-// =========================
+
+//==========================================
+// CADASTRAR RELACIONAMENTO
+//==========================================
 
 function cadastrar(relacionamento, callback) {
 
     const sql = `
         INSERT INTO Cupom_has_Categorias
-        (Cupom_id_Cupom, Categorias_id_categorias)
+        (
+            Cupom_id_cupom,
+            Categorias_id_categorias
+        )
         VALUES (?, ?)
     `;
 
     conexao.query(
         sql,
         [
-            relacionamento.Cupom_id_Cupom,
+            relacionamento.Cupom_id_cupom,
             relacionamento.Categorias_id_categorias
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Relacionamentos
-// =========================
+
+//==========================================
+// LISTAR RELACIONAMENTOS
+//==========================================
 
 function listar(callback) {
 
@@ -35,76 +39,108 @@ function listar(callback) {
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Buscar Relacionamento
-// =========================
 
-function buscarPorId(cupom, categoria, callback) {
+//==========================================
+// BUSCAR RELACIONAMENTO
+//==========================================
+
+function buscarPorId(idCupom, idCategoria, callback) {
 
     const sql = `
         SELECT *
         FROM Cupom_has_Categorias
-        WHERE Cupom_id_Cupom = ?
-        AND Categorias_id_categorias = ?
-    `;
-
-    conexao.query(sql, [cupom, categoria], callback);
-
-}
-
-// =========================
-// Atualizar Relacionamento
-// =========================
-
-function atualizar(cupom, categoria, relacionamento, callback) {
-
-    const sql = `
-        UPDATE Cupom_has_Categorias
-        SET
-            Cupom_id_Cupom = ?,
-            Categorias_id_categorias = ?
-        WHERE Cupom_id_Cupom = ?
+        WHERE Cupom_id_cupom = ?
         AND Categorias_id_categorias = ?
     `;
 
     conexao.query(
         sql,
         [
-            relacionamento.Cupom_id_Cupom,
-            relacionamento.Categorias_id_categorias,
-            cupom,
-            categoria
+            idCupom,
+            idCategoria
         ],
         callback
     );
-
 }
 
-// =========================
-// Excluir Relacionamento
-// =========================
 
-function excluir(cupom, categoria, callback) {
+//==========================================
+// LISTAR CATEGORIAS DO CUPOM
+//==========================================
+
+function listarPorCupom(idCupom, callback) {
+
+    const sql = `
+        SELECT
+            Categorias.*
+        FROM Categorias
+        INNER JOIN Cupom_has_Categorias
+            ON Categorias.id_categorias =
+               Cupom_has_Categorias.Categorias_id_categorias
+        WHERE Cupom_has_Categorias.Cupom_id_cupom = ?
+    `;
+
+    conexao.query(
+        sql,
+        [idCupom],
+        callback
+    );
+}
+
+
+//==========================================
+// EXCLUIR RELACIONAMENTO
+//==========================================
+
+function excluir(idCupom, idCategoria, callback) {
 
     const sql = `
         DELETE FROM Cupom_has_Categorias
-        WHERE Cupom_id_Cupom = ?
+        WHERE Cupom_id_cupom = ?
         AND Categorias_id_categorias = ?
     `;
 
-    conexao.query(sql, [cupom, categoria], callback);
-
+    conexao.query(
+        sql,
+        [
+            idCupom,
+            idCategoria
+        ],
+        callback
+    );
 }
 
-module.exports = {
 
+//==========================================
+// EXCLUIR CATEGORIAS DO CUPOM
+//==========================================
+
+function excluirPorCupom(idCupom, callback) {
+
+    const sql = `
+        DELETE FROM Cupom_has_Categorias
+        WHERE Cupom_id_cupom = ?
+    `;
+
+    conexao.query(
+        sql,
+        [idCupom],
+        callback
+    );
+}
+
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
+
+module.exports = {
     cadastrar,
     listar,
     buscarPorId,
-    atualizar,
-    excluir
-
+    listarPorCupom,
+    excluir,
+    excluirPorCupom
 };

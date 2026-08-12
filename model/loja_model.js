@@ -1,8 +1,9 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Loja
-// =========================
+
+//==========================================
+// CADASTRAR LOJA
+//==========================================
 
 function cadastrar(loja, callback) {
 
@@ -13,7 +14,7 @@ function cadastrar(loja, callback) {
             whatsapp,
             instagram,
             facebook,
-            linkidin,
+            linkedin,
             telefone,
             email,
             Lojista_id_lojista,
@@ -29,7 +30,7 @@ function cadastrar(loja, callback) {
             loja.whatsapp,
             loja.instagram,
             loja.facebook,
-            loja.linkidin,
+            loja.linkedin,
             loja.telefone,
             loja.email,
             loja.Lojista_id_lojista,
@@ -37,12 +38,12 @@ function cadastrar(loja, callback) {
         ],
         callback
     );
-
 }
 
-// =========================
-// Listar Lojas
-// =========================
+
+//==========================================
+// LISTAR LOJAS
+//==========================================
 
 function listar(callback) {
 
@@ -52,12 +53,12 @@ function listar(callback) {
     `;
 
     conexao.query(sql, callback);
-
 }
 
-// =========================
-// Buscar Loja por ID
-// =========================
+
+//==========================================
+// BUSCAR LOJA POR ID
+//==========================================
 
 function buscarPorId(id, callback) {
 
@@ -68,12 +69,12 @@ function buscarPorId(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
 
-// =========================
-// Buscar Loja por Nome
-// =========================
+
+//==========================================
+// BUSCAR LOJA POR NOME
+//==========================================
 
 function buscarPorNome(nome, callback) {
 
@@ -84,12 +85,12 @@ function buscarPorNome(nome, callback) {
     `;
 
     conexao.query(sql, [nome], callback);
-
 }
 
-// =========================
-// Buscar Loja por Email
-// =========================
+
+//==========================================
+// BUSCAR LOJA POR EMAIL
+//==========================================
 
 function buscarPorEmail(email, callback) {
 
@@ -100,12 +101,12 @@ function buscarPorEmail(email, callback) {
     `;
 
     conexao.query(sql, [email], callback);
-
 }
 
-// =========================
-// Atualizar Loja
-// =========================
+
+//==========================================
+// ATUALIZAR LOJA
+//==========================================
 
 function atualizar(id, loja, callback) {
 
@@ -116,7 +117,7 @@ function atualizar(id, loja, callback) {
             whatsapp = ?,
             instagram = ?,
             facebook = ?,
-            linkidin = ?,
+            linkedin = ?,
             telefone = ?,
             email = ?,
             Lojista_id_lojista = ?,
@@ -131,7 +132,7 @@ function atualizar(id, loja, callback) {
             loja.whatsapp,
             loja.instagram,
             loja.facebook,
-            loja.linkidin,
+            loja.linkedin,
             loja.telefone,
             loja.email,
             loja.Lojista_id_lojista,
@@ -140,12 +141,12 @@ function atualizar(id, loja, callback) {
         ],
         callback
     );
-
 }
 
-// =========================
-// Excluir Loja
-// =========================
+
+//==========================================
+// EXCLUIR LOJA
+//==========================================
 
 function excluir(id, callback) {
 
@@ -155,8 +156,12 @@ function excluir(id, callback) {
     `;
 
     conexao.query(sql, [id], callback);
-
 }
+
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = {
     cadastrar,
