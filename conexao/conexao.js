@@ -1,9 +1,10 @@
 const mysql2 = require('mysql2');
 const conexao = mysql2.createConnection({
-    host: 'localhost',
+    host: 'sakura.proxy.rlwy.net',
     user: 'root',
-    password: "",
-    database: "GAME_START"
+    password: "ONLRohOwedhGsZoeTYhoNMMSlSgImXSW",
+    port: 30453,
+    database: "railway"
 });
 conexao.connect((erro) => {
 

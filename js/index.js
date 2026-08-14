@@ -1,652 +1,201 @@
-/* =========================================================
-   GAMESSTART - HOME
-========================================================= */
+const API_URL = "http://localhost:3000/api";
+let carrinhoCount = 0;
 
+document.addEventListener("DOMContentLoaded", () => {
+    carregarBannersDoBanco();
+    carregarCategorias();
+    carregarProdutosMaisVendidos();
+    carregarNovidades();
+    configurarBusca();
+    iniciarCronometroOferta();
+});
 
-/* =========================================================
-   PRODUTOS - MAIS VENDIDOS
-========================================================= */
+// 1. CARREGAR BANNERS DO BANCO
+async function carregarBannersDoBanco() {
+    const heroSection = document.getElementById("heroBanner");
+    const weekendOfferSection = document.getElementById("weekendOfferBanner");
 
-const bestProducts = [
+    try {
+        const response = await fetch(`${API_URL}/banners/visiveis`);
+        const banners = await response.json();
 
-    {
-        id: 1,
-
-        nome: "Controle Sem Fio DualSense PlayStation 5",
-
-        preco: "R$ 449,90",
-
-        imagem: "./img/produtos/dualsense.png",
-
-        tag: "",
-
-        // IMAGEM: adicionar posteriormente
-    },
-
-    {
-        id: 2,
-
-        nome: "Processador AMD Ryzen 7 7800X3D",
-
-        preco: "R$ 2.899,00",
-
-        imagem: "./img/produtos/ryzen7.png",
-
-        tag: "",
-
-        // IMAGEM: adicionar posteriormente
-    },
-
-    {
-        id: 3,
-
-        nome: "Headset HyperX Cloud III",
-
-        preco: "R$ 699,00",
-
-        imagem: "./img/produtos/headset.png",
-
-        tag: "",
-
-        // IMAGEM: adicionar posteriormente
-    },
-
-    {
-        id: 4,
-
-        nome: "Elden Ring Shadow of the Erdtree",
-
-        preco: "R$ 314,10",
-
-        imagem: "./img/produtos/eldenring.png",
-
-        tag: "PROMOÇÃO",
-
-        // IMAGEM: adicionar posteriormente
+        if (Array.isArray(banners) && banners.length > 0) {
+            if (banners[0] && banners[0].imagem) {
+                heroSection.style.backgroundImage = `url('${banners[0].imagem}')`;
+            }
+            if (banners[1] && banners[1].imagem) {
+                weekendOfferSection.style.backgroundImage = `url('${banners[1].imagem}')`;
+            }
+        }
+    } catch (error) {
+        console.warn("API de banners falhou. Mantendo gradientes CSS de segurança.", error);
     }
+}
 
-];
+// 2. CRONÔMETRO REGRESSIVO (Apenas Oferta de Fim de Semana)
+function iniciarCronometroOferta() {
+    let tempoRestante = 24 * 3600;
+    const offerTimerEl = document.getElementById("offerTimer");
 
+    setInterval(() => {
+        if (tempoRestante <= 0) return;
+        tempoRestante--;
 
-/* =========================================================
-   PRODUTOS - NOVIDADES
-========================================================= */
+        const horas = String(Math.floor(tempoRestante / 3600)).padStart(2, '0');
+        const minutos = String(Math.floor((tempoRestante % 3600) / 60)).padStart(2, '0');
+        const segundos = String(tempoRestante % 60).padStart(2, '0');
 
-const newProducts = [
+        if (offerTimerEl) {
+            offerTimerEl.innerText = `${horas}h | ${minutos}m | ${segundos}s`;
+        }
+    }, 1000);
+}
 
-    {
-        id: 5,
+// 3. CARREGAR CATEGORIAS
+async function carregarCategorias() {
+    const navList = document.getElementById("mainNavList");
+    const categoryGrid = document.getElementById("categoryGrid");
 
-        nome: "Monitor Gamer OLED 240Hz",
+    try {
+        const response = await fetch(`${API_URL}/categorias`);
+        const categorias = await response.json();
 
-        preco: "R$ 6.199,00",
+        if (Array.isArray(categorias) && categorias.length > 0) {
+            categorias.slice(0, 5).forEach(cat => {
+                const li = document.createElement("li");
+                li.innerHTML = `<a href="#" onclick="filtrarCategoria(${cat.id})">${cat.nome}</a>`;
+                navList.insertBefore(li, navList.querySelector('.promo-link').parentElement);
+            });
 
-        imagem: "./img/produtos/monitor.png",
-
-        tag: "NOVO",
-
-        // IMAGEM: adicionar posteriormente
-    },
-
-    {
-        id: 6,
-
-        nome: "Headset Astro A50",
-
-        preco: "R$ 1.999,00",
-
-        imagem: "./img/produtos/astro.png",
-
-        tag: "NOVO",
-
-        // IMAGEM: adicionar posteriormente
-    },
-
-    {
-        id: 7,
-
-        nome: "Final Fantasy VII Rebirth",
-
-        preco: "R$ 349,00",
-
-        imagem: "./img/produtos/finalfantasy.png",
-
-        tag: "NOVO",
-
-        // IMAGEM: adicionar posteriormente
-    },
-
-    {
-        id: 8,
-
-        nome: "Intel Core i9 14900K",
-
-        preco: "R$ 4.299,00",
-
-        imagem: "./img/produtos/i9.png",
-
-        tag: "NOVO",
-
-        // IMAGEM: adicionar posteriormente
+            categoryGrid.innerHTML = "";
+            categorias.forEach(cat => {
+                const card = document.createElement("div");
+                card.classList.add("category-card");
+                card.innerHTML = `
+                    <div>
+                        <h3>${cat.nome}</h3>
+                        <a href="#" onclick="filtrarCategoria(${cat.id})">Explorar &rarr;</a>
+                    </div>
+                    <img src="${cat.imagem || 'https://via.placeholder.com/100x80?text=' + cat.nome}" alt="${cat.nome}">
+                `;
+                categoryGrid.appendChild(card);
+            });
+        }
+    } catch (error) {
+        console.error("Erro ao buscar categorias:", error);
+        categoryGrid.innerHTML = "<p>Nenhuma categoria disponível no momento.</p>";
     }
+}
 
-];
+// 4. CARREGAR PRODUTOS MAIS VENDIDOS
+async function carregarProdutosMaisVendidos() {
+    const grid = document.getElementById("bestSellersGrid");
+    try {
+        const response = await fetch(`${API_URL}/produtos/ativos`);
+        const produtos = await response.json();
 
+        grid.innerHTML = "";
+        if (Array.isArray(produtos) && produtos.length > 0) {
+            produtos.slice(0, 4).forEach(prod => grid.appendChild(criarCardProduto(prod)));
+        } else {
+            grid.innerHTML = "<p>Nenhum produto cadastrado.</p>";
+        }
+    } catch (error) {
+        grid.innerHTML = "<p>Erro ao carregar produtos.</p>";
+    }
+}
 
-/* =========================================================
-   CARRINHO
-========================================================= */
+// 5. CARREGAR NOVIDADES
+async function carregarNovidades() {
+    const grid = document.getElementById("newArrivalsGrid");
+    try {
+        const response = await fetch(`${API_URL}/produtos`);
+        const produtos = await response.json();
 
-let cart = [];
+        grid.innerHTML = "";
+        if (Array.isArray(produtos) && produtos.length > 0) {
+            produtos.slice(0, 4).forEach(prod => grid.appendChild(criarCardProduto(prod, "Novo")));
+        } else {
+            grid.innerHTML = "<p>Nenhum produto cadastrado.</p>";
+        }
+    } catch (error) {
+        grid.innerHTML = "<p>Erro ao carregar novidades.</p>";
+    }
+}
 
-
-/* =========================================================
-   ELEMENTOS DO HTML
-========================================================= */
-
-const bestProductsContainer =
-    document.getElementById("bestProducts");
-
-const newProductsContainer =
-    document.getElementById("newProducts");
-
-const cartCount =
-    document.getElementById("cartCount");
-
-const cartButton =
-    document.getElementById("cartButton");
-
-
-/* =========================================================
-   CRIAR CARD DO PRODUTO
-========================================================= */
-
-function criarCard(produto) {
-
-    const card = document.createElement("article");
-
+// Função auxiliar para estruturar o visual dos cards de produto
+function criarCardProduto(produto, badgeText = null) {
+    const card = document.createElement("div");
     card.classList.add("product-card");
-
-
-    /* TAG */
-
-    let tagHTML = "";
-
-    if (produto.tag) {
-
-        tagHTML = `
-            <span class="product-tag">
-                ${produto.tag}
-            </span>
-        `;
-
-    }
-
-
-    /* CARD */
+    const precoFormatado = Number(produto.preco).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    const imgUrl = produto.imagem || "https://via.placeholder.com/200x150?text=Sem+Foto";
 
     card.innerHTML = `
-
-        <div class="product-image">
-
-            ${tagHTML}
-
-            <!-- IMAGEM: adicionar posteriormente -->
-
-            <img
-                src="${produto.imagem}"
-                alt="${produto.nome}"
-                loading="lazy"
-            >
-
-        </div>
-
-
-        <div class="product-info">
-
-            <h3 class="product-name">
-                ${produto.nome}
-            </h3>
-
-
-            <div class="product-price">
-
-                ${produto.preco}
-
-            </div>
-
-
-            <button
-                type="button"
-                class="product-btn"
-                data-product-id="${produto.id}"
-            >
-
-                <i class="fa-solid fa-cart-shopping"></i>
-
-                Adicionar
-
-            </button>
-
-        </div>
-
+        ${badgeText ? `<span class="product-badge">${badgeText}</span>` : ""}
+        <img src="${imgUrl}" alt="${produto.nome}">
+        <div class="product-title">${produto.nome}</div>
+        <div class="product-price">${precoFormatado}</div>
+        <button class="btn-add" onclick="adicionarAoCarrinho(${produto.id})">
+            <i class="fa-solid fa-cart-shopping"></i> Adicionar
+        </button>
     `;
-
-
-    /* BOTÃO ADICIONAR */
-
-    const button =
-        card.querySelector(".product-btn");
-
-
-    button.addEventListener("click", () => {
-
-        adicionarAoCarrinho(produto);
-
-    });
-
-
     return card;
-
 }
 
-
-/* =========================================================
-   RENDERIZAR PRODUTOS
-========================================================= */
-
-function renderizarProdutos(lista, container) {
-
-    if (!container) {
-        return;
-    }
-
-
-    container.innerHTML = "";
-
-
-    lista.forEach(produto => {
-
-        const card = criarCard(produto);
-
-        container.appendChild(card);
-
-    });
-
-}
-
-
-/* =========================================================
-   RENDERIZAR HOME
-========================================================= */
-
-function carregarProdutos() {
-
-    renderizarProdutos(
-        bestProducts,
-        bestProductsContainer
-    );
-
-
-    renderizarProdutos(
-        newProducts,
-        newProductsContainer
-    );
-
-}
-
-
-/* =========================================================
-   ADICIONAR AO CARRINHO
-========================================================= */
-
-function adicionarAoCarrinho(produto) {
-
-    cart.push(produto);
-
-    atualizarContadorCarrinho();
-
-    console.log(
-        "Produto adicionado:",
-        produto.nome
-    );
-
-}
-
-
-/* =========================================================
-   ATUALIZAR CONTADOR DO CARRINHO
-========================================================= */
-
-function atualizarContadorCarrinho() {
-
-    if (!cartCount) {
-        return;
-    }
-
-
-    cartCount.textContent = cart.length;
-
-}
-
-
-/* =========================================================
-   BOTÃO DO CARRINHO
-========================================================= */
-
-if (cartButton) {
-
-    cartButton.addEventListener("click", () => {
-
-        console.log("Carrinho:", cart);
-
-    });
-
-}
-
-
-/* =========================================================
-   PESQUISA
-========================================================= */
-
-const searchForm =
-    document.getElementById("searchForm");
-
-const searchInput =
-    document.getElementById("searchInput");
-
-
-if (searchForm) {
-
-    searchForm.addEventListener("submit", event => {
-
-        event.preventDefault();
-
-        pesquisarProdutos();
-
-    });
-
-}
-
-
-function pesquisarProdutos() {
-
-    if (!searchInput) {
-        return;
-    }
-
-
-    const termo =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-
-    if (termo === "") {
-
-        carregarProdutos();
-
-        return;
-
-    }
-
-
-    const todosProdutos = [
-
-        ...bestProducts,
-
-        ...newProducts
-
-    ];
-
-
-    const resultados =
-        todosProdutos.filter(produto =>
-
-            produto.nome
-                .toLowerCase()
-                .includes(termo)
-
-        );
-
-
-    renderizarProdutos(
-        resultados,
-        bestProductsContainer
-    );
-
-
-    if (newProductsContainer) {
-
-        newProductsContainer.innerHTML = "";
-
-    }
-
-}
-
-
-/* =========================================================
-   CONTADOR DA OFERTA
-========================================================= */
-
-let tempoRestante =
-    (24 * 60 * 60) +
-    (15 * 60) +
-    42;
-
-
-const countdown =
-    document.getElementById("countdown");
-
-
-function atualizarCountdown() {
-
-    if (!countdown) {
-        return;
-    }
-
-
-    if (tempoRestante <= 0) {
-
-        countdown.textContent =
-            "Oferta encerrada";
-
-        return;
-
-    }
-
-
-    const horas =
-        Math.floor(
-            tempoRestante / 3600
-        );
-
-
-    const minutos =
-        Math.floor(
-            (tempoRestante % 3600) / 60
-        );
-
-
-    const segundos =
-        tempoRestante % 60;
-
-
-    countdown.textContent =
-
-        `${String(horas).padStart(2, "0")}h : ` +
-        `${String(minutos).padStart(2, "0")}m : ` +
-        `${String(segundos).padStart(2, "0")}s`;
-
-
-    tempoRestante--;
-
-}
-
-
-atualizarCountdown();
-
-
-setInterval(
-    atualizarCountdown,
-    1000
-);
-
-
-/* =========================================================
-   BOTÕES DOS BANNERS
-========================================================= */
-
-const heroOfferButton =
-    document.getElementById("heroOfferButton");
-
-const heroInfoButton =
-    document.getElementById("heroInfoButton");
-
-const offerButton =
-    document.getElementById("offerButton");
-
-
-/* BOTÃO "CONFIRA" */
-
-if (heroOfferButton) {
-
-    heroOfferButton.addEventListener("click", () => {
-
-        const products =
-            document.getElementById("products");
-
-
-        if (products) {
-
-            products.scrollIntoView({
-                behavior: "smooth"
-            });
-
+// 6. FILTRO POR CATEGORIA (Quando clica em "Explorar")
+async function filtrarCategoria(idCategoria) {
+    const bestSellersGrid = document.getElementById("bestSellersGrid");
+    bestSellersGrid.innerHTML = "<p>Carregando produtos...</p>";
+
+    try {
+        const response = await fetch(`${API_URL}/produto-has-categorias/categoria/${idCategoria}/produtos`);
+        const produtos = await response.json();
+
+        bestSellersGrid.innerHTML = "";
+        if (Array.isArray(produtos) && produtos.length > 0) {
+            produtos.forEach(prod => bestSellersGrid.appendChild(criarCardProduto(prod)));
+        } else {
+            bestSellersGrid.innerHTML = "<p>Nenhum produto nesta categoria.</p>";
         }
-
-    });
-
+    } catch (error) {
+        console.error("Erro ao filtrar categoria:", error);
+    }
 }
 
+// 7. BUSCA NO HEADER
+function configurarBusca() {
+    const form = document.getElementById("searchForm");
+    const input = document.getElementById("searchInput");
 
-/* BOTÃO "SAIBA MAIS" */
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const termo = input.value.trim();
+        if (!termo) return;
 
-if (heroInfoButton) {
+        const grid = document.getElementById("bestSellersGrid");
+        grid.innerHTML = "<p>Buscando...</p>";
 
-    heroInfoButton.addEventListener("click", () => {
+        try {
+            const response = await fetch(`${API_URL}/produtos/nome/${encodeURIComponent(termo)}`);
+            const produtos = await response.json();
 
-        const categories =
-            document.getElementById("categories");
-
-
-        if (categories) {
-
-            categories.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-}
-
-
-/* BOTÃO DA OFERTA */
-
-if (offerButton) {
-
-    offerButton.addEventListener("click", () => {
-
-        const products =
-            document.getElementById("products");
-
-
-        if (products) {
-
-            products.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   NEWSLETTER
-========================================================= */
-
-const newsletterForm =
-    document.getElementById("newsletterForm");
-
-
-if (newsletterForm) {
-
-    newsletterForm.addEventListener(
-        "submit",
-        event => {
-
-            event.preventDefault();
-
-
-            const emailInput =
-                newsletterForm.querySelector(
-                    'input[type="email"]'
-                );
-
-
-            if (!emailInput) {
-                return;
+            grid.innerHTML = "";
+            if (Array.isArray(produtos) && produtos.length > 0) {
+                produtos.forEach(prod => grid.appendChild(criarCardProduto(prod)));
+            } else {
+                grid.innerHTML = "<p>Nenhum produto encontrado com este nome.</p>";
             }
-
-
-            const email =
-                emailInput.value.trim();
-
-
-            if (email === "") {
-                return;
-            }
-
-
-            console.log(
-                "E-mail cadastrado:",
-                email
-            );
-
-
-            emailInput.value = "";
-
-
-            alert(
-                "E-mail cadastrado com sucesso!"
-            );
-
+        } catch (error) {
+            grid.innerHTML = "<p>Falha na busca.</p>";
         }
-    );
-
+    });
 }
 
-
-/* =========================================================
-   INICIALIZAÇÃO
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        carregarProdutos();
-
-        atualizarContadorCarrinho();
-
-        console.log(
-            "GamesStart - Home carregada."
-        );
-
-    }
-);
+// 8. ADICIONAR ITEM AO CARRINHO (Com animação)
+function adicionarAoCarrinho(idProduto) {
+    carrinhoCount++;
+    const cartCountElement = document.getElementById("cartCount");
+    cartCountElement.innerText = carrinhoCount;
+    cartCountElement.style.transform = "scale(1.3)";
+    setTimeout(() => cartCountElement.style.transform = "scale(1)", 200);
+}

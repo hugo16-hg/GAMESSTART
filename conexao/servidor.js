@@ -1,27 +1,152 @@
-//=====================================================
-// IMPORTAÇÕES
-//=====================================================
-
-const express = require("express");
-const cors = require("cors");
 
 
-//=====================================================
-// CRIA O SERVIDOR
-//=====================================================
-
-const app = express();
+document.getElementById("btnImagem")
+.addEventListener("click", function () {
 
 
-//=====================================================
-// MIDDLEWARES
-//=====================================================
 
-// Permite requisições do front-end
-app.use(cors());
+    // capturar dados
 
-// Permite receber dados JSON
-app.use(express.json());
+    const produto =
+        document.getElementById("imagemProduto").value;
+
+
+
+    const arquivo =
+        document.getElementById("imagemArquivo").files[0];
+
+
+
+
+    // validar
+
+    if (produto === "") {
+
+
+        alert("Selecione o produto.");
+
+        return;
+
+    }
+
+
+
+    if (!arquivo) {
+
+
+        alert("Selecione uma imagem.");
+
+        return;
+
+    }
+
+
+
+
+    // criar FormData
+
+    const imagem = new FormData();
+
+
+
+    imagem.append(
+        "Produto_idProduto",
+        produto
+    );
+
+
+
+    imagem.append(
+        "imagem",
+        arquivo
+    );
+
+
+
+
+
+    // enviar para servidor
+
+    fetch(`${API}/imagens`, {
+
+
+        method: "POST",
+
+
+        body: imagem
+
+
+    })
+
+
+    .then(response => response.json())
+
+
+    .then(data => {
+
+
+        console.log(
+            "Imagem cadastrada:",
+            data
+        );
+
+
+
+        alert(
+            "Imagem cadastrada com sucesso!"
+        );
+
+
+
+        document.getElementById(
+            "imagemArquivo"
+        ).value = "";
+
+
+
+    })
+
+
+    .catch(error => {
+
+
+        console.error(
+            "Erro ao cadastrar imagem:",
+            error
+        );
+
+
+        alert(
+            "Erro ao cadastrar imagem."
+        );
+
+
+    });
+
+
+
+});
+
+
+
+
+
+//======================================================
+// CARREGAR PRODUTOS AO ABRIR A PÁGINA
+//======================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        listarProdutosImagem();
+
+
+    }
+);
+
+
 
 // Permite receber dados de formulários
 app.use(express.urlencoded({ extended: true }));
